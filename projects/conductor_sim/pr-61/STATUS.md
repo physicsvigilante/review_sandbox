@@ -1,3 +1,18 @@
+# conductor_sim PR #61 — passing independent targeted review, awaiting owner merge approval
+
+**READY FOR OWNER'S SEPARATE MERGE DECISION.** The original independent Chat B review-01 remains **changes-requested on the older head**. New separate-context Chat C [review-02](reviews/review-02-chat-c.md) independently reports **PASS for F-01 and F-02**, with **no remaining blockers** at exact corrected source head `1683e7a20b059096e3bca98abe7f55a6e982696a` (tree `b6d0e919e6f927099277303489923b241ca124e4`). Source [PR #61](https://github.com/physicsvigilante/conductor_sim/pull/61) is **still DRAFT, OPEN, and UNMERGED**. This status does not authorize a merge.
+
+- **Original review:** [review-01-chat-b.md](reviews/review-01-chat-b.md), provenance F-01 major and identity-namespace F-02 minor, corrections requested on old source head `e0ea76e8`.
+- **Final targeted review:** [review-02-chat-c.md](reviews/review-02-chat-c.md), separately authored by a *fresh* ChatGPT conversation. F-01 PASS for complete detached multi-generation provenance; F-02 PASS for typed record-vs-physical-component namespaces. New execution used the corrected actual driven-reassembly module with test doubles, not fresh full native physics reintegration; reviewer independently checked CI. The old review and first failures remain unchanged.
+- **Developer dispositions:** [initial correction](responses/response-01-chat-a.md) · [final passing disposition](responses/response-02-chat-a.md).
+- **Source/CI pins:** exact head `1683e7a20b059096e3bca98abe7f55a6e982696a`; original merge base/main `c5cc9bf818f1c8d83901bcadef745cc29f6d1675`. **16/16 workflows passing:** [full Python](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739456939) 1,744 passes per Python 3.10/3.12 interpreter; [real FEMM](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739456949) 97 passes; [visualization/real Chromium](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739457096) PASS. Existing FEMM is nonregression, not M26a physics reference.
+- **Remaining limitations:** built-in nonresponding prescribed sources, qualified plane/axis, scheduled uniform E, optional gravity and stationary linear drag; no responding conductor, free 3D motion, trusted foreign JSON import, exact physical contact or blind JEE-coverage claim. Bounded recursive JSON duplication is a noted nonblocking tradeoff under current 16-step cap.
+- **Next:** owner explicitly decides whether to merge. Only after approval may Chat A merge the **exact verified reviewed commit**, verify post-merge main CI and publish an append-only merge report. No third broad review or additional source code change is indicated.
+
+---
+
+## Historical pre-acceptance status, preserved for traceability
+
 # conductor_sim PR #61 — current status after F-01/F-02 corrections
 
 **New-head CI GREEN, awaiting targeted Chat B re-review 02.** Review-01 remains **CHANGES-REQUESTED** on the previous head; no independent verdict has yet been written on corrected head `1683e7a20b059096e3bca98abe7f55a6e982696a` (tree `b6d0e919e6f927099277303489923b241ca124e4`). Source [PR #61](https://github.com/physicsvigilante/conductor_sim/pull/61) is **DRAFT, OPEN, UNMERGED**.
