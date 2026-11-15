@@ -56,4 +56,4 @@ The read-only audit did not run another native integration or add an independent
 
 This does **not** establish cryptographic authentication of model/run evidence (inventories are unkeyed hashes), independent human numerical certification, source-interpretation fidelity on unseen textbooks, or classroom learning effectiveness. The user's local Conda installation, preserved teaching source documents, and original recorded runs were not modified by the GitHub merge.
 
-Future capability changes require their own source branch, risk classification, CI, review scope and separate owner merge approval under [PROTOCOL.md](../../PROTOCOL.md) and [REVIEW-RISK-POLICY.md](../../REVIEW-RISK-POLICY.md).
+Future capability changes require their own source branch, risk classification, CI, review scope and separate owner merge approval under [PROTOCOL.md](../../../PROTOCOL.md) and [REVIEW-RISK-POLICY.md](../../../REVIEW-RISK-POLICY.md).
