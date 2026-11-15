@@ -1,0 +1,48 @@
+# Opticsim PR #83 — independent R2 implementation/code and native evidence review
+
+**Review requested: R2 physical/evidence-critical implementation, not another design review.** Chat B authors its own append-only review. This packet is authored by Chat A; it is not an independent verdict. Source production is NOT approved for merge.
+
+## Exact reviewed candidate
+
+- Source repository: https://github.com/physicsvigilante/opticsim
+- [Draft source PR #83](https://github.com/physicsvigilante/opticsim/pull/83)
+- **Proposed implementation head:** `366037a3ed68c2110434e2132899cd0a2cbc610a` (reverify PR head at review time; STOP and mark stale if moved).
+- **Production base:** `00e6211d6d40c0db8c62910f9e57b910b6aeb6f5`.
+- [Exact base-to-implementation diff](https://github.com/physicsvigilante/opticsim/compare/00e6211d6d40c0db8c62910f9e57b910b6aeb6f5...366037a3ed68c2110434e2132899cd0a2cbc610a).
+- Upstream pinned PhyDemo: `811f508d2b070898c241a568b0c167dcb8645251`, supported Node `24.19.0`.
+- Previously approved **design only**: [PR #81](https://github.com/physicsvigilante/opticsim/pull/81) head `d814455cf823907551cbc7914d1f8b3b508efcab`, [Chat B design review-02 PASS](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-81/reviews/review-02-chat-b.md). A design pass does **not** approve this implementation.
+- Related test-only [PR #79](https://github.com/physicsvigilante/opticsim/pull/79) / [PR #80](https://github.com/physicsvigilante/opticsim/pull/80) remain draft and unmerged, not new source dependencies.
+
+## Existing implementation evidence (authored/run by Chat A, not independently executed by reviewer)
+
+- **Exact current unified CI:** [GitHub Actions run 43741968199](https://github.com/physicsvigilante/opticsim/actions/runs/43741968199). Read its final status/live workflow checks rather than relying on a stale textual PASS; **this packet was prepared while the final run was finishing**.
+- Earlier complete successful build [CI 43741234566](https://github.com/physicsvigilante/opticsim/actions/runs/43741234566) at head `b7680bf1a308453590dcba333f4a0d78bc6da56f`: 11/11 workflows, **742/742 Node tests**, public native workflow **five cases passed**, actual Chrome **nine checks** and two screenshots passed. It predates the later additional tests/documentation and is **NOT** a substitute for verifying the exact current head.
+- Prior artifact IDs for that earlier CI: `native-ray-parentage-v1-evidence` **14172760572** (GitHub ZIP SHA256 `4ff5d2b7ea13c6d389069551b02151072d7e7690f71081f8621dcba6d3e9719d`); `native-ray-parentage-v1-browser` **14171624606** (ZIP SHA256 `d2e75b106033d7438c15155e8810756dae066396f86fc8296cc0d55efb00201f`). Read NEW artifact IDs at current head.
+- Draft implementation [`docs/NATIVE-RAY-PROVENANCE.md`](https://github.com/physicsvigilante/opticsim/blob/366037a3ed68c2110434e2132899cd0a2cbc610a/docs/NATIVE-RAY-PROVENANCE.md) describes the actual scope, accepted result and withholding policy. Native code is pinned at the same SHA in `src/native-ray-parentage.js`, `src/adapter.js`, `src/planar-media.js`, `src/observables.js`; execute path `skills/sim-ro-image-to-scene/scripts/check-scene.mjs`, `scripts/author-scene.mjs`, `src/app.js`, `src/native-observations.js`; browser projection `src/result-preview.js`.
+- [New focused native tests](https://github.com/physicsvigilante/opticsim/blob/366037a3ed68c2110434e2132899cd0a2cbc610a/test/native-ray-parentage.test.mjs); [public workflow](https://github.com/physicsvigilante/opticsim/blob/366037a3ed68c2110434e2132899cd0a2cbc610a/scripts/native-ray-parentage-acceptance.mjs); [actual Chrome](https://github.com/physicsvigilante/opticsim/blob/366037a3ed68c2110434e2132899cd0a2cbc610a/scripts/native-ray-parentage-browser.mjs). Read test code before trusting green CI.
+
+## Exact physical and evidence scope
+
+The implementation adds **only the opt-in request kind** `detector-ray-provenance` for a validated v5 planar scene with exactly one interface, 1–2 explicit `SingleRay` sources, 1–2 passive detectors and zero other components. Output `nodes` are observed direct native object roots/children, with `crossings` for selected detectors only. Native object identity uses per-run `WeakMap`; NEVER use native `rayIndex` as source ID. It is not a physical path, image detector, continuous flux, shadow, source-text certifier, or general ray-history engine. No PhyDemo pin/code, numerical policies, scene schemas or light propagation were changed.
+
+Fail closed on incomplete, stopped, truncated, undefined or stale execution; warn/unknown root/unknown interface or detector observer/mismatched readings; duplicated/parent-equal native child; 64-object or per-selected-detector 32-hit overflow. Genuine complete zero-hit scene is available empty only with positive root and handler coverage. Qualified source/bundle exported scene may preserve request but must NOT export accepted native tokens. Existing default no-opt-in outputs and previous qualified evidence need to remain intact.
+
+## Independent adversarial review priorities
+
+1. **F-01/root false-zero:** Verify the actual installed identity ledger proves EACH SingleRay instance's invocation once with one native returned ray, even when **zero downstream incident/detector callbacks** happen. Distinguish a genuine zero-hit from silently unrecorded source root; verify source-count correlations are not merely circular from one observer.
+2. **F-02 atomic observers:** Track actual callback delegation count, original `this`, arguments, return and `newRays` references. Challenge duplicate, parent-equal, lost, orphan and truncated weak branches; test whether reading a detector AFTER native mutation loses identity or changes detector signed power. Compare instrumented and baseline native totals and first-event evidence for both selected/nonselected detectors.
+3. **Chat B A-01 detector/interface coverage:** A missing/nonrecording **selected OR nonselected** detector wrapper with a **real native crossing** must withhold selected parentage. Source, interface and each detector require exact native ID-to-handler installation coverage; two counts read from the same owner are not independently corroborated. Evaluate whether the current coverage check is sufficient.
+4. **F-03 publication/invalidation:** Inspect *entire* native raw checker diagnostics, public CLI `native-evidence.json`, UI, exports and debug/snapshot JSON on incomplete/stop/unknown/warned/overflow/stale, not just `results[0].value`. Challenge **A→B→A** same SHA with late first-A callback and Session/QualifiedUI guards. Run a genuinely delayed Chrome case if possible. No old graph should become current.
+5. **Scope and physical correctness:** Try one/two sources, one interface, one/two detectors in both component orders, actual Snell/TIR branches, 30°/50° high→low media, precisely near/exact critical, transmitted-only model versus native warnings. Parentage is identity only, **not certification of critical-angle direction or destination**. Reject multi-interface, mirrors, sampled fans, coincident geometry, or missing material inputs rather than silently dropping components.
+6. **Caps and ambiguous cases:** 64/65 identities and 32/33 selected detector hits are *injected observer guard tests*, not physically reachable normal single-ray-domain scenes; check global/per-detector cap separation and complete ancestor closure with no clipped accepted result or memory blow-up.
+7. **Evidence/history integrity:** `test/detector-hit-transfer.test.mjs` was updated to acknowledge the later explicit production modifications to SHA-frozen historical source paths. Original preexecution JSON and first-run input digests remain unchanged. Determine whether this preserves the distinction between historical first-attempt evidence and current regressions **without weakening any required new production fingerprint safeguard**. Flag if separate new current-source manifest is needed.
+8. **UI/browser:** Inspect actual Chrome screenshots/DOM/report (if available) for truthful **direct object parentage** claims, no path/image inference, revision edits, raw import clearing, qualified export/reopen parity. No teacher/students participated, so educational effectiveness is unknown.
+
+## Review evidence requirements
+
+- Inspect `AGENTS.md` at exact source head, central `PROTOCOL.md`, `REVIEW-RISK-POLICY.md`, the pinned PR #81 design and both prior design Chat B reviews. Review source independently; do not assume Chat A's findings are correct.
+- **Independently author novel tests** (or inspect public detailed code and propose tests if execution unavailable). If a new test needs GitHub CI, use a separate **test-only review branch** based on the frozen PR #83 SHA; do not edit the PR head, numerical thresholds, native engine or production source. Record actual test SHA, CI and negative cases.
+- Distinguish first-pass failures, changed tests and changed source commits. No unrun test is a pass. Separate interpretation fidelity, numerical/physical correctness, native coverage, provenance integrity, educational usefulness, and optional textbook-answer completeness.
+- Submit **a new independent Chat B report** at `projects/opticsim/pr-83/reviews/review-01-chat-b.md` on `physicsvigilante/review_sandbox` main (or new review PR). Use `REVIEW-TEMPLATE.md`; state `pass`, `changes-requested`, or `insufficient-evidence` at **EXACT source head** and cite all evidence.
+
+**Do not merge PR #83 or any other PR.** Owner merge approval is a separate step. Source still awaits R2 implementation review even if GitHub CI is fully green.
