@@ -8,7 +8,7 @@
 - Production base: `00e6211d6d40c0db8c62910f9e57b910b6aeb6f5`.
 - **Original reviewed v1 head:** `df783a3c2f5e51ad5edbacd35f6d82f1a02cfea7` — 11/11 existing GitHub workflows passed, [unified 43730335002](https://github.com/physicsvigilante/opticsim/actions/runs/43730335002); docs only.
 - **Revised v2 head:** `d814455cf823907551cbc7914d1f8b3b508efcab` — [v1→v2 exact diff](https://github.com/physicsvigilante/opticsim/compare/df783a3c2f5e51ad5edbacd35f6d82f1a02cfea7...d814455cf823907551cbc7914d1f8b3b508efcab), +46/−18 lines in the **same single proposal document**, no executable production changes.
-- **Revised-head CI:** [unified workflow run 43733303726](https://github.com/physicsvigilante/opticsim/actions/runs/43733303726) completed successfully. The full eleven-workflow suite must be verified separately; initial check saw **9/11 successes and two running (planar refraction, optical composition)**. This design-only CI cannot test nonexistent functionality.
+- **Revised-head CI:** [unified workflow run 43733303726](https://github.com/physicsvigilante/opticsim/actions/runs/43733303726) completed successfully. **All 11/11 GitHub Actions workflows passed** on exact revised design head `d814455cf823907551cbc7914d1f8b3b508efcab`, including planar refraction and optical composition. This documentation-only CI confirms existing checks, **not** nonexistent provenance functionality.
 
 ## Independent review history
 
