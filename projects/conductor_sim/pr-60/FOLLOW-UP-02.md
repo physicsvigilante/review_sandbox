@@ -26,7 +26,7 @@ GitHub final-head PR workflow runs: **16/16 completed SUCCESS**. Exact source he
 
 | Gate | Exact run / result |
 |---|---|
-| Full Python 3.10 and 3.12 | [43727877880](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877880): **1,719 passed, 97 real-FEMM skipped, 7 existing warnings** on each |
+| Full Python 3.10 and 3.12 | [43727877880](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877880): **1,719 passed, 97 real-FEMM skipped, 7 warnings (six pre-existing plus a new test-import PytestCollectionWarning)** on each |
 | Dedicated real FEMM 5 nonregression | [43727877795](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877795): **97/97 passed**, unchanged conductor physics only |
 | Focused, source and real Chromium | [43727877885](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877885): **470/470 JUnit passed**, **8/8 M25a geometry browser** including both new tilted cases + **1/1 reserved retained transfer** |
 | Existing visualization/source CI | [43727877916](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877916): success |
