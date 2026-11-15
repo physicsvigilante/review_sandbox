@@ -1,3 +1,23 @@
+# conductor_sim PR #60 — final current status
+
+## Current status — M25a merged and main CI verified
+
+**MERGED, after explicit owner approval. All 16/16 source-matched `main` post-merge push workflows PASS. M25a is complete; no further review or merge action is pending for this unchanged implementation.**
+
+- [Merged source PR #60](https://github.com/physicsvigilante/conductor_sim/pull/60), GitHub merge SHA **`c5cc9bf818f1c8d83901bcadef745cc29f6d1675`**.
+- Exact reviewed production head **`caf496f54c3825adcab5615d214c8e11d4d24e5d`**, source tree **`357d0cdcff95a1b23e70278b3dabdc09426eea2a`**, byte-identical to merged GitHub `main`.
+- [Original independent Chat B R2 review-01](reviews/review-01-chat-b.md): historical **changes-requested** on earlier head, preserved.
+- [Targeted independent Chat B review-02](reviews/review-02-chat-b.md): **PASS** for original F-01/F-02/F-03 on exact merged source tree, no blockers.
+- [Developer responses](responses/response-01-chat-a.md) and [final disposition](responses/response-02-chat-a.md) are separate from Chat B reports.
+- **[Complete, append-only merge and post-merge verification report](MERGE-REPORT.md)** documents owner authorization, exact Git merge identity, all 16 passing `main` workflow IDs, ordinary Python **1,719 passed per 3.10/3.12 interpreter**, focused **470 passed**, actual FEMM **97 passed**, new Chromium geometry checks, GitHub artifact digests and limitations.
+- [Final `main` Python CI](https://github.com/physicsvigilante/conductor_sim/actions/runs/43731504286) · [real FEMM](https://github.com/physicsvigilante/conductor_sim/actions/runs/43731504201) · [focused geometry/browser](https://github.com/physicsvigilante/conductor_sim/actions/runs/43731504072) · [visualization](https://github.com/physicsvigilante/conductor_sim/actions/runs/43731504006), all successful.
+- All original failed first attempts, original reviewer findings, exact source SHAs, historical reserved first run and tested inputs remain preserved; no later event was retroactively relabelled as first execution. No deployment or human/teacher effectiveness certification is claimed.
+- Future features require a **new** source draft PR and risk-scoped central packet; R0/R1 routine changes do not automatically need separate Chat B review.
+
+---
+
+## Historical status before owner approval and source merge (preserved verbatim)
+
 # conductor_sim PR #60 — CURRENT independent review and merge gate
 
 ## Current status — independent Chat B review PASS; awaiting separate owner merge approval
