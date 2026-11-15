@@ -1,3 +1,18 @@
+# conductor_sim PR #61 — merged and main CI verified
+
+**COMPLETE: M26a merged into `main` after explicit owner approval; 15/15 post-merge `main` push workflows PASS.** No remaining M26a review blocker or required merge action for the exact merged source.
+
+- [Merged source PR #61](https://github.com/physicsvigilante/conductor_sim/pull/61), merge SHA **`923ac2c49b23439cc9c76604bfd2a945e984d221`**; GitHub verified `closed` / `merged=true` on 2026-11-15 18:12:42 UTC. Exact reviewed source SHA **`1683e7a20b059096e3bca98abe7f55a6e982696a`**; reviewed/merged source tree **`b6d0e919e6f927099277303489923b241ca124e4`**, identical on `main`. Merge parents are base `c5cc9bf8...` and reviewed head `1683e7a2...`.
+- **[Complete append-only M26a merge and post-merge verification report](MERGE-REPORT.md)** records the explicit owner authorization, exact SHA/tree and parents, original review/corrections, all workflow IDs and results, artifact metadata and limitations.
+- **15/15 post-merge workflows succeeded on the exact merge commit**: [Python 3.10/3.12](https://github.com/physicsvigilante/conductor_sim/actions/runs/43745448059) **1,744 passed per interpreter** (97 FEMM skips), [real FEMM](https://github.com/physicsvigilante/conductor_sim/actions/runs/43745448181) **97 passed**, [visualization and real M26a Chromium](https://github.com/physicsvigilante/conductor_sim/actions/runs/43745448192) **PASS**. The other twelve push workflows also passed, detailed in the merge report. Prior **16/16** refers to PR-head validation (with a second Python trigger); distinguish these separate denominators.
+- **Review history preserved:** original [Chat B review-01](reviews/review-01-chat-b.md) requested changes on **older head**; fresh [Chat C targeted review-02](reviews/review-02-chat-c.md) reported **PASS** on exact final reviewed head, resolving F-01 detached driven provenance and F-02 typed identity semantics. [Initial](responses/response-01-chat-a.md) and [final](responses/response-02-chat-a.md) attributed developer responses remain independent from both reviewer reports.
+- **Scope remains qualified:** built-in nonresponding prescribed electrostatic sources, optional uniform gravity, stationary-medium drag and scheduled uniform E; no induction, free 3D motion, source response, trusted foreign JSON import, physical collisions or general JEE-problem coverage. Actual FEMM runs are conductor nonregression rather than an M26a prescribed-motion reference. Browser replays display saved states rather than solving in JavaScript.
+- Original failed CI attempts, the frozen M26a charter and prior reviewer findings are not overwritten or retrospectively upgraded. Future changes require a fresh milestone/PR and appropriate new source-specific evidence.
+
+---
+
+## Historical pre-merge status (preserved as originally recorded)
+
 # conductor_sim PR #61 — passing independent targeted review, awaiting owner merge approval
 
 **READY FOR OWNER'S SEPARATE MERGE DECISION.** The original independent Chat B review-01 remains **changes-requested on the older head**. New separate-context Chat C [review-02](reviews/review-02-chat-c.md) independently reports **PASS for F-01 and F-02**, with **no remaining blockers** at exact corrected source head `1683e7a20b059096e3bca98abe7f55a6e982696a` (tree `b6d0e919e6f927099277303489923b241ca124e4`). Source [PR #61](https://github.com/physicsvigilante/conductor_sim/pull/61) is **still DRAFT, OPEN, and UNMERGED**. This status does not authorize a merge.
