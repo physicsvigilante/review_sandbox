@@ -1,6 +1,22 @@
-# conductor_sim PR #60 — CURRENT independent review status
+# conductor_sim PR #60 — CURRENT independent review and merge gate
 
-## Current status — second review pending
+## Current status — independent Chat B review PASS; awaiting separate owner merge approval
+
+**REVIEW COMPLETE: scoped R2 PASS for original F-01/F-02/F-03, with no outstanding blocker. SOURCE PR IS DRAFT/UNMERGED; OWNER MERGE APPROVAL NOT YET GIVEN.**
+
+- [Draft source PR #60](https://github.com/physicsvigilante/conductor_sim/pull/60), **exact head** `caf496f54c3825adcab5615d214c8e11d4d24e5d`, **source tree** `357d0cdcff95a1b23e70278b3dabdc09426eea2a`, original base `d27c504f0a2bb336784a4ce9116f84c992b915db`.
+- **[Original Chat B review-01](reviews/review-01-chat-b.md): `changes-requested`** at old head `31ee492bd6070e8b74bf233c44a86de6301af827`. Its original independently reported issues and failed attempts remain unchanged.
+- **[Second Chat B review-02](reviews/review-02-chat-b.md): `pass` for the three exact corrections** at the new head. Independent fresh SVD stress check and two saved-HTML Chromium replays support F-01, typed cases and implementation check support F-02, and bounded immutable trusted-scenario binding supports F-03. This is independent-context ChatGPT review, not a human independent examiner or a fresh native integration performed by Chat B.
+- **[Developer response and disposition](responses/response-02-chat-a.md)** identifies the reviewed evidence and optional nonblocking tests. This is not a new independent verdict.
+- **Source CI already green:** [Python 43727877880](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877880) **1,719 passed on each 3.10/3.12**, real FEMM [43727877795](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877795) **97 passed**, [focused+browser 43727877885](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877885) **470 passed, eight new M25a browser cases**, and [visualization 43727877916](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877916) green. **16/16 applicable current-head workflows successful.**
+- Artifact ZIP SHA-256 `350c8b90be04e5841ea2a8944dd5fc617bf79a433a6df3c1103be52bab632639`, original reviewed tree matched. Existing original numerical records preserved byte-for-byte.
+- Optional nonblocking hygiene deferred to avoid invalidating approved exact SHA: imported test-class warning, and extra tangent-glyph standalone Chrome case.
+- **No third independent review warranted for unchanged code.** Wait for owner to say **“approved” / explicitly approve merge PR #60**. Then verify the PR source SHA, merge exact reviewed source, verify post-merge source tree and post-merge CI, and publish an append-only central merge record.
+- No source merge, deployment, or production code change has been performed solely because the owner said “Review complete.”
+
+---
+
+## Historical status — targeted Chat B re-review was pending (preserved for traceability)
 
 **CHANGES-REQUESTED by independent Chat B on original head; developer corrections made and re-tested; TARGETED CHAT B RE-REVIEW AWAITED. SOURCE PR DRAFT AND UNMERGED.**
 
