@@ -1,0 +1,12 @@
+# conductor_sim PR #61 — M26a central status
+
+**AWAITING SEPARATE-CHAT INDEPENDENT R2 REVIEW.** The source PR is **draft, unmerged**. Chat A has published only the implementation and the review packet, **not** an independent Chat B verdict and not a merge authorization.
+
+- [Source PR #61](https://github.com/physicsvigilante/conductor_sim/pull/61), exact head `e0ea76e80aca4b05cea7f16a12549c13670108d2`, tree `98b5b18fe3dedb6e0d3fb744c3732e812bb188fc`, main base `c5cc9bf818f1c8d83901bcadef745cc29f6d1675`.
+- **16/16 exact-head workflows successful.** [Python 3.10/3.12 43733873897](https://github.com/physicsvigilante/conductor_sim/actions/runs/43733873897): 1,742 passed each, 97 real-FEMM skips and 8 warnings each. [Actual FEMM 43733873703](https://github.com/physicsvigilante/conductor_sim/actions/runs/43733873703): 97 passed. [Visualization/real M26a browser 43733873904](https://github.com/physicsvigilante/conductor_sim/actions/runs/43733873904): all steps passed.
+- [Browser/source artifact 14169552582](https://github.com/physicsvigilante/conductor_sim/actions/runs/43733873904/artifacts/14169552582), GitHub-reported digest `sha256:a8796276d7fb2564d5a8f434868712c46f448ae2311f841db3397be886510599` (not independently recalculated by Chat A). Archive retention advertised until 2026-11-29.
+- Original failing developer-test runs remain preserved. [M26a source charter](https://github.com/physicsvigilante/conductor_sim/blob/e0ea76e80aca4b05cea7f16a12549c13670108d2/docs/m26a_charter.md) was committed at `d1d6a254` before production changes.
+- [Review request](REQUEST.md) · [paste-ready reviewer prompt](REVIEWER-PROMPT-01.md) · [source diff](https://github.com/physicsvigilante/conductor_sim/pull/61/files).
+- **Next:** owner opens Chat B and gives it [the reviewer prompt](REVIEWER-PROMPT-01.md). Only Chat B writes new `reviews/review-01-chat-b.md`. After review, owner says **"Review complete"** to Chat A, which fetches and triages report. No source merge without separate owner approval, resolved blockers and exact-head CI.
+
+**No independent reviewer report has yet been received.** If source head changes, this pinned request is stale for new code; preserve the old record and issue a follow-up.
