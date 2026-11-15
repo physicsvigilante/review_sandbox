@@ -1,11 +1,12 @@
 # Opticsim PR #86 — permanent retention of independently authored R2 reviewer regressions
 
-**Status: TEST-ONLY PR OPEN, 11/11 WORKFLOWS PASSED; SEPARATE OWNER MERGE APPROVAL PENDING.** No new production physics, scene schema, native core, numerical policy, or UI feature was implemented.
+**Status: OWNER-APPROVED TEST-ONLY PR #86 MERGED; ALL 11/11 POST-MERGE WORKFLOWS PASSED.** No new production physics, scene schema, native core, numerical policy, or UI feature was implemented. See the [canonical release report](MERGE-REPORT.md) for every workflow run ID, artifact digest, exact source tree identity and history.
 
 ## Exact provenance
 
-- New [Opticsim draft PR #86](https://github.com/physicsvigilante/opticsim/pull/86) contains **only** `test/reviewer-pr83-chat-b-adversarial.test.mjs`, added as 179 lines without editing.
-- **Current production main/base:** `39cdfda9b8e0244e6877bfb3656bc66da557df02`, the successfully released and [11/11 post-merge verified PR #83](../pr-83/MERGE-REPORT.md).
+- [Opticsim PR #86](https://github.com/physicsvigilante/opticsim/pull/86), now **merged**, contains **only** `test/reviewer-pr83-chat-b-adversarial.test.mjs`, added as 179 lines without editing.
+- **Original PR #86 production base:** `39cdfda9b8e0244e6877bfb3656bc66da557df02`, the previously released and [11/11 post-merge verified PR #83](../pr-83/MERGE-REPORT.md).
+- **New main commit after owner-approved PR #86 merge:** `fa158fc78da7a35b6a02eaed58c0cdbd4b699220`, same Git tree `3a1a18c91d010f26b827544cbb337530fcfcc7d2` as approved PR #86 head.
 - **Exact PR #86 head:** `86a8e32d1121fa80f6761a68ec7e1881c3a2a7d0`, one commit above main. [Single-file diff](https://github.com/physicsvigilante/opticsim/compare/39cdfda9b8e0244e6877bfb3656bc66da557df02...86a8e32d1121fa80f6761a68ec7e1881c3a2a7d0).
 - **Original corrected Chat B reviewer test commit:** `647260ec6225bc208e744362e908803fd8cec603` from review-only [draft PR #85](https://github.com/physicsvigilante/opticsim/pull/85), descended from reviewed PR #83 head `366037a3ed68c2110434e2132899cd0a2cbc610a`.
 - **Original and copied test file Git blob SHA are identical:** `28bc2c96a7bcbf53322e52b31d46d887cb36deff`. Verified by fetching both files; all **8,905 UTF-8 characters** and trailing newline match; five `node:test` tests. No normalization or changes to the reviewer's text.
@@ -31,6 +32,6 @@ These tests preserve exact narrow v5 source-object semantics. Passing them is no
 
 ## Release gate
 
-**PR #86 remains draft/unmerged pending separate explicit owner approval**. If approved, merge this exact single-file test PR only and verify all **11** post-merge workflows on the resulting main commit. Review-only PRs #84/#85 must **not** be merged as-is; they are stacked historical review artifacts. No new R2 code review is needed solely for the byte-identical already independently authored test file, but any production behavior change or test rewrite would need fresh scope-specific verification.
+**The owner separately approved and merged PR #86 only.** The exact reviewed one-file copy passed all 11 push-event workflows after merge, including **750/750 Node tests, 5/5 public native cases, and 9/9 real Chrome checks**. Review-only PRs #84/#85 remain unmerged historical review artifacts. No new R2 code review was required for the byte-identical unchanged test file; future production/evidence changes require their own appropriate verification. [Full merge report](MERGE-REPORT.md).
 
 No deployment or unrelated repository operation is authorized by this status record.
