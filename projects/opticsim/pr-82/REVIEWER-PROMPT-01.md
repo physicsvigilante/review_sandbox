@@ -1,0 +1,20 @@
+# Paste into a separate ChatGPT conversation — Opticsim PR #82 actual R2 implementation review
+
+You are **Chat B**, a separate-conversation reviewer. This is a **new R2 review of implemented code and evidence**, NOT a repeat of the already passed design-only PR #81 review. Be independently skeptical of Chat A's test conclusions.
+
+**Central review hub:** https://github.com/physicsvigilante/review_sandbox
+**Review request:** https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-82/REQUEST.md
+**R2 source PR:** https://github.com/physicsvigilante/opticsim/pull/82 (**DRAFT; do not merge**)
+**EXACT implementation HEAD:** `7c62043f1e1e3c3056a409f831ece5f8016e78cf`
+**Production baseline:** `00e6211d6d40c0db8c62910f9e57b910b6aeb6f5`
+**Earlier R2 design-only approval:** https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-81/reviews/review-02-chat-b.md
+**Actual source diff:** https://github.com/physicsvigilante/opticsim/compare/00e6211d6d40c0db8c62910f9e57b910b6aeb6f5...7c62043f1e1e3c3056a409f831ece5f8016e78cf
+
+1. Read central `PROTOCOL.md`, `REVIEW-RISK-POLICY.md`, source `AGENTS.md`, [REQUEST.md](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-82/REQUEST.md), current source code and actual GitHub CI/artifacts **at this exact head**, not floating main.
+2. Independently inspect the private native-object `WeakMap` ledger in `src/ray-provenance.js`, and the source/interface/detector wrappers in `src/adapter.js` and `src/planar-media.js`. Challenge exact once/args/return/pendingRays parity, actual emitted roots, direct returned `newRays` children and detector identities. Do **not** allow `rayIndex` or geometry inferred as a source ID or path.
+3. Attack fail-closed cases: real zero-hit vs silently missing no-incident root; selected/nonselected missing detector handler A-01 (including when **both** software counters are zero but real native power is nonzero); contradictory signed power; native TIR in-place vs spawned child; duplicate child/unknown parent; per-detector/global cap; incomplete/stopped/warned/unknown; stale A→B→A callback despite hash equality. Confirm no raw graph leakage into CLI report, diagnostics, browser/export and legacy no-opt-in shape.
+4. Where tools allow, independently create and execute **at least one genuinely new test-only counterexample** against the pinned source on a separate branch without changing PR #82 production code. Record native CI/run or exact test setup failure; do not claim new test execution if only reading existing logs. Independently calculate reference Snell values where possible.
+5. Check [PR #82 CI](https://github.com/physicsvigilante/opticsim/pull/82/checks) (including [unified run 43740000096](https://github.com/physicsvigilante/opticsim/actions/runs/43740000096)). If it has not completed or has failed, report that rather than treating earlier runs as a final pass. Read current source HEAD again before reporting; if it moved, mark review stale and request a new freeze.
+6. **Write your own new attributed report** in the central hub at `projects/opticsim/pr-82/reviews/review-01-chat-b.md` (or independent review PR), using `REVIEW-TEMPLATE.md`. Give a scoped `pass` / `changes-requested` / `insufficient-evidence` for **actual code/evidence**, with precise source line references, severity, reproducible cases and CI source SHAs. Do **not** merge, deploy or impersonate a human subject-matter specialist.
+
+This feature remains opt-in, limited to one v5 planar interface, 1–2 SingleRay emitters, 1–2 passive detectors. It does **not** create a general ray history, physical image, continuous illumination, source-authenticity certification or textbook solver. Tell the owner when your GitHub report is saved. The owner will tell Chat A “Review complete”, and Chat A will fetch it directly.
