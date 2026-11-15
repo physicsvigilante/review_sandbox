@@ -1,6 +1,8 @@
 # Opticsim PR #75 — centralized review status
 
-**Reviewer outcome: scoped PASS after two separate-chat review passes. Implementation is still DRAFT and UNMERGED; no owner merge authorization or deployment is implied.**
+**Review: scoped PASS after two separate-chat passes. RELEASE: PR #75 and test-only PR #78 MERGED after delegated owner approval, with all 11 final post-merge workflows PASS. No deployment.**
+
+See the immutable [merge and verification report](MERGE-REPORT.md) for exact merge commits, CI run IDs and independently checked artifact digests.
 
 ## Source identity and CI
 
@@ -10,7 +12,7 @@
 - Source base: `c0d4e3048b9e0935cfd567e5f3c81aab23ddd823`
 - Reviewed production tree: `d8d70b08bddd3c07aa1f50247341423f124818b0`
 - Full original CI: [unified](https://github.com/physicsvigilante/opticsim/actions/runs/43700823059), [refraction](https://github.com/physicsvigilante/opticsim/actions/runs/43700823106): 726/726 Node tests, 11 workflows green, 8 new real-Chrome detector checks and prior browser regressions passed for source PR #75.
-- Independently authored extra tests: [draft PR #78](https://github.com/physicsvigilante/opticsim/pull/78) at `7ccca3d255ac19e180eaa371851fdcbec2a2866f`, directly descended from exact source head; **only one 129-line test file** added; no production source edits. [New unified CI](https://github.com/physicsvigilante/opticsim/actions/runs/43717283882): **729/729** Node tests with 3 new reviewer-authored cases; all 11 workflows passed.
+- Independently authored extra tests: [merged PR #78](https://github.com/physicsvigilante/opticsim/pull/78) at `7ccca3d255ac19e180eaa371851fdcbec2a2866f`, directly descended from exact source head; **only one 129-line test file** added; no production source edits. [New unified CI](https://github.com/physicsvigilante/opticsim/actions/runs/43717283882): **729/729** Node tests with 3 new reviewer-authored cases; all 11 workflows passed.
 
 ## Historical assessment, preserved without retroactive edits
 
@@ -28,7 +30,7 @@ Chat B found no demonstrated code defect within tested new native controls: endp
 - **H-03:** trusted in-process native evidence is a known, nonblocking trust boundary; hashes are integrity checks, not execution authentication.
 - **U-04/O-05:** optional event-list UX and capture granularity, deferred.
 - **Source changes:** none in PR #75 during the two reviews; any future source-head change requires new CI and review of changed semantics.
-- **Permanent tests:** PR #78 remains a separate test-only draft. The owner may choose to include these adversarial regression tests in the permanent source suite before/after a separately approved implementation merge, with new source-matched verification if needed.
-- **Release/merge gate:** The owner must separately authorize PR #75's merge, and a post-merge CI/identity check remains necessary. This central review record cannot automatically merge any code.
+- **Permanent tests:** PR #78 was merged after PR #75 with exactly one added 129-line test file, zero production changes; all three novel adversarial tests now run in the standard suite.
+- **Release/merge gate:** The owner delegated the completion decision; PR #75 merged at `f473ba0901cd3ad4a6edb0c848eda2eb8c421526` (11 post-merge workflows PASS), PR #78 merged at final `00e6211d6d40c0db8c62910f9e57b910b6aeb6f5` (11 post-merge workflows PASS, Node 729/729, browser checks passed). The review hub did not automatically merge code; the developer performed the authorized GitHub actions.
 
-**No new independent review prompt is currently necessary for this unchanged source.** For the next feature or new source SHA, Chat A will create a new risk-scoped request and give the owner a ready-to-paste Chat B prompt in this central hub.
+**No additional independent reviewer prompt is necessary for this unchanged, merged implementation.** For the next feature or new source SHA, Chat A will create a new risk-scoped request and give the owner a ready-to-paste Chat B prompt in this central hub.

@@ -13,7 +13,7 @@ This is the **central GitHub handoff repository** for independent-in-context Cha
 
 ## Projects
 
-- [Opticsim — PR #75](projects/opticsim/pr-75/STATUS.md): migrated first separate-chat assessment and second scoped-pass review (original reports preserved); implementation still unmerged.
+- [Opticsim — PR #75](projects/opticsim/pr-75/STATUS.md): migrated first separate-chat assessment and second scoped-pass review (original reports preserved); implementation and reviewer-authored adversarial tests now merged; all 11 final post-merge CI workflows passed.
 
 Structure: `projects/<project-slug>/pr-<PR-number>/`. Every packet identifies **source repository, base SHA, reviewed head SHA, project PR, evidence links and reviewer-report paths**. Do not use floating default-branch code as the reviewed source.
 
