@@ -1,36 +1,34 @@
-# Opticsim PR #83 — independent R2 implementation review status
+# Opticsim PR #83 — final R2 release status
 
-**State: INDEPENDENT CHAT B R2 CODE/EVIDENCE REVIEW PASS — OWNER MERGE APPROVAL STILL REQUIRED.** This is an exact-head, narrowly scoped review of actual native detector ray object parentage. It is **not** blanket physics certification, a source-image interpretation study or authorization to merge.
+**RELEASE: MERGED INTO MAIN AND ALL 11/11 POST-MERGE GITHUB ACTIONS WORKFLOWS PASSED.** No deployment. The exact reviewed implementation was merged following separate owner authorization.
 
-## Pinned release candidate
+**Canonical [merge and verification record](MERGE-REPORT.md)** includes exact parent and tree SHAs, all eleven push workflow IDs, retained native/Chrome artifact digests, independent reviewer evidence, negative test history and remaining limitations.
 
-- [Source draft PR #83](https://github.com/physicsvigilante/opticsim/pull/83), open, **draft/unmerged**.
-- **Exactly reviewed and current implementation head:** `366037a3ed68c2110434e2132899cd0a2cbc610a`.
-- **Production base/main unchanged:** `00e6211d6d40c0db8c62910f9e57b910b6aeb6f5`.
-- [Exact base→implementation diff](https://github.com/physicsvigilante/opticsim/compare/00e6211d6d40c0db8c62910f9e57b910b6aeb6f5...366037a3ed68c2110434e2132899cd0a2cbc610a): sixteen files containing the bounded production capability, tests, documentation and workflow; no native PhyDemo upgrade or scene schema version change.
-- Pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`; Node `24.19.0`.
+## Exact source and independent review
 
-## Review lineage and actual evidence
+- [PR #83](https://github.com/physicsvigilante/opticsim/pull/83): **merged**.
+- Original main base: `00e6211d6d40c0db8c62910f9e57b910b6aeb6f5`.
+- **Exact independently reviewed production head**: `366037a3ed68c2110434e2132899cd0a2cbc610a`.
+- **Merge commit, current main at verification**: `39cdfda9b8e0244e6877bfb3656bc66da557df02`, Git tree `4283059c8d264207583e30358ac0841ab04db3b5` — **same tree as reviewed head**.
+- No pinned PhyDemo change (remains `811f508d2b070898c241a568b0c167dcb8645251`), new physics law, native numerical budget change or saved-scene version migration.
+- [Design-only R2 Chat B review pass for PR #81](../pr-81/reviews/review-02-chat-b.md) preceded implementation. [Independent implementation R2 Chat B review-01](reviews/review-01-chat-b.md) **PASS** at exact PR #83 head, no demonstrated production blocker.
+- Chat B's five new adversarial tests were independently authored on test-only corrected [PR #85](https://github.com/physicsvigilante/opticsim/pull/85), one added 179-line test file, no production source edits; reviewer CI **750/750 Node tests, 11/11 workflows passed**. Original failed test-only run in review [PR #84](https://github.com/physicsvigilante/opticsim/pull/84) remains preserved. [Developer disposition](responses/response-01-chat-a.md) acknowledged results before owner approval.
 
-1. [PR #81 Chat B design review-02](../pr-81/reviews/review-02-chat-b.md) was **PASS (design only)**. Separate approval preceded development; it does not serve as implementation verification.
-2. [Chat A implementation evidence](https://github.com/physicsvigilante/opticsim/actions/runs/43741968199) on exact source head: **11/11 workflows success, 745/745 Node tests**, five public native parentage acceptance cases and nine real Chrome checks, including two screenshots. GitHub original [native ZIP artifact 14173090571](https://github.com/physicsvigilante/opticsim/actions/runs/43741968199/artifacts/14173090571), SHA-256 `d723f7bc0359801bb480062a648ff10b08ea399a7758696f99fec9493931bd10`; [Chrome ZIP artifact 14172562025](https://github.com/physicsvigilante/opticsim/actions/runs/43741968199/artifacts/14172562025), SHA-256 `0adebf2965d19563e807b9595cb27816ba09a1194ded9cd4e1a3c5078d1a33e3`.
-3. [Independent Chat B implementation review-01](reviews/review-01-chat-b.md): **PASS at exact implementation SHA**, no demonstrated production blocker. Chat B inspected all sixteen changed files, pinned native code, original public/native/Chrome evidence, independently downloaded and **rehashed both original artifact ZIPs**, checked graph completeness/refusal and scalar Snell/Fresnel references, and wrote five novel native adversarial regressions.
-4. Review-only [draft PR #85](https://github.com/physicsvigilante/opticsim/pull/85) corrected test head `647260ec6225bc208e744362e908803fd8cec603`: [compare against implementation](https://github.com/physicsvigilante/opticsim/compare/366037a3ed68c2110434e2132899cd0a2cbc610a...647260ec6225bc208e744362e908803fd8cec603) confirms **only one new file** `test/reviewer-pr83-chat-b-adversarial.test.mjs` (179 lines), **zero production source changes**. [Corrected unified CI 43744624173](https://github.com/physicsvigilante/opticsim/actions/runs/43744624173) and all 10 other associated workflows successful; **750/750 Node tests, zero failures**, public native acceptance 5/5 and actual Chrome 9/9. Chat B-authored native tests cover component order, high→low Snell and in-place TIR, selected/nonselected 33-hit overflow, an actual bypassed nonselected-detector observer with native power still changing, and warning suppression.
-5. **Preserved initial negative:** Review-only draft [PR #84](https://github.com/physicsvigilante/opticsim/pull/84), original reviewer test commit `276f6c9eb3602887133c952549de27ca7ab51304`, [first CI 43744286362](https://github.com/physicsvigilante/opticsim/actions/runs/43744286362) **FAILED** on an overly short reviewer-authored TIR test detector. The corrected test-only commit widened that detector from 500 to 1000; the corrected suite passed. Do not relabel the failed first attempt green or attribute its test-fixture error to production optics. Both review PRs remain **draft/unmerged**.
-6. Chat B review notes GitHub PR CI used synthetic merge checkouts (`fa7d955ce8233739231ee3dbc5885ede251e5a7f` for source #83 and `2175d1a...` for reviewer #85), distinct from nominal source commit SHAs. Production main was unchanged; the test-only branch is directly descended from the pinned implementation head.
+## Verified release CI
 
-## Exact scope and remaining limitations
+- **All eleven GitHub push-event workflows for the exact merge commit completed successfully**. [Unified run **43746305858**](https://github.com/physicsvigilante/opticsim/actions/runs/43746305858): **745/745 Node tests** (0 failures), **5/5 public native parentage acceptance outcomes**, **9/9 actual Chrome checks** and two screenshots.
+- [New post-merge native artifact 14174586268](https://github.com/physicsvigilante/opticsim/actions/runs/43746305858/artifacts/14174586268): GitHub ZIP SHA-256 `0d65c5c264c2cc4f0c9b4f4c1491a0004356fdda1a489a9e8e75dc86ec31bdc2`.
+- [New post-merge browser artifact 14174318027](https://github.com/physicsvigilante/opticsim/actions/runs/43746305858/artifacts/14174318027): GitHub ZIP SHA-256 `c29be26934b94dcd08b876f954e1302503a66b27add9547b99c85d46e7038939`.
+- Post-merge ZIP hashes are **GitHub artifact metadata**, not independently recomputed by Chat A. Earlier pre-merge artifacts were downloaded and rehashed by Chat B during the code review.
 
-`detector-ray-provenance` is explicitly selected and admitted only for schema v5 `planar-media-tracing` with **exactly one interface**, **1–2 actual SingleRay sources**, **1–2 passive detectors**, and **no other optical components**. Its nodes are run-local, actual native emitted-object and direct-spawn parentage at sampled native detector crossings, not complete physical ray history or source text truth. No `rayIndex` source inference, continuous irradiance, detected image, original exam answer, or textbook-specific tracing solver is provided. Incomplete/truncated/stopped/stale/invalid observation is suppressed or unavailable; old native detector counts remain unchanged by default.
+## Capability and limitations
 
-**Nonblocking follow-ups** (if broader claims are desired): independently stress genuinely delayed first-A Chrome callbacks after A→B→A; near/exact-critical numerical reliability; teacher/student comprehension. The current browser A/B/A exercise is a fresh-import sequence, not an independently executed delayed callback race; Session test covers controlled late notifications. The older historical frozen detector-hit transfer test retains original first-run source/input hashes as history while later code revisions are explicitly classified as exposed regression, not blind validation.
+The released explicit `detector-ray-provenance` observation reports **actual run-local emitted ray objects and direct native parent–child objects at sampled detector callbacks**, only for existing v5 one-interface, 1–2 SingleRay, 1–2 passive-detector scenes (zero other optical components). It does not reconstruct complete ray histories, detect images, measure absolute irradiance, prove source text interpretation or solve original textbook problems. Incomplete, unknown and stale observations must be withheld. Remaining numerical near/exact critical, intentionally delayed Chrome race and classroom-use gaps are documented and **nonblocking only for this precise narrow release**.
 
-## Developer disposition, review artifact handling and release gate
+## Pending separate decisions
 
-- [Chat A review disposition](responses/response-01-chat-a.md) acknowledges the pass without modifying the production source.
-- Preserve [review request](REQUEST.md), [original Chat B prompt](REVIEWER-PROMPT-01.md) and [review-01](reviews/review-01-chat-b.md) as exact-head history. **No further same-head broad R2 review is required** unless an actual unverified blocker arises.
-- **No merges yet.** Owner must separately authorize any merge. If approved, merge **PR #83 only** after rechecking its exact head and CI, then run post-merge verification. **Do not merge reviewer PR #84/#85 as-is**: their branches contain the whole implementation stacked atop old main; they are review-only artifacts. If retaining five independently authored tests in permanent CI is desired, extract that one test file onto a fresh post-merge branch and seek a **separate explicit** merge approval.
-- Any change to the production PR #83 head after this review requires new CI and targeted re-review of changed semantics; a significant change requires renewed R2 review.
-- No deployment or public GitHub Pages publishing is authorized by this review.
+- Do not merge [review-only PR #84](https://github.com/physicsvigilante/opticsim/pull/84) or [#85](https://github.com/physicsvigilante/opticsim/pull/85) as-is; they stack on old source and were not part of owner's merge approval.
+- If permanent independent regression tests are desired, copy **only** the reviewer-authored test file into a new branch from the merged main, verify CI, and obtain separate merge approval.
+- Research-only #79/#80 and docs-only #81 also were **not merged** as part of PR #83; no public deployment or AI provider integration was authorized.
 
-**No production source modifications or merge actions occurred when recording this status.**
+**The requested PR #83 merge and post-merge verification are complete.**
