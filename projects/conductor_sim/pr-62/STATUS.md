@@ -1,3 +1,18 @@
+# conductor_sim PR #62 — independent R2 PASS, awaiting owner merge approval
+
+**INDEPENDENT R2 REVIEW PASSED (scoped); SOURCE PR STILL DRAFT AND UNMERGED.** Chat B [review-01](reviews/review-01-chat-b.md) examined exact head `666e6815390830cb6b70b474648b5b5ec765e380` (tree `72a6dc67383b270b11e639ad81c1e52b693b0565`) and reported **PASS with no blockers**. Two **minor, deferred** UI findings remain documented; neither is represented as corrected.
+
+- [Source PR #62](https://github.com/physicsvigilante/conductor_sim/pull/62), open/draft/unmerged, based on `923ac2c49b23439cc9c76604bfd2a945e984d221`. Head and tree rechecked unchanged after review; GitHub reports mergeable.
+- **[Independent Chat B review-01](reviews/review-01-chat-b.md)**: fresh independent Coulomb-line quadrature, 150-digit elliptic references, gradients/rotations/near-wire cases; found no demonstrated production physics, source admission or static-map blocker. The reviewer transcribed the physics equations and inspected source/CI rather than executing the production checkout locally.
+- **[Chat A disposition](responses/response-01-chat-a.md)**: F-01 minor inaccurate `Potential range` label for a symmetric colour scale; F-02 minor signed out-of-plane E and signed ring Q/radius not prominent in the visible HTML. Both explicitly deferred to a small later viewer milestone, not hidden or claimed fixed. F-03 original scanned page / artifact ZIP / PNG not newly inspected by reviewer, an evidence boundary not a defect.
+- **18/18 exact-head PR workflows successful**: [full Python 3.10/3.12](https://github.com/physicsvigilante/conductor_sim/actions/runs/43749664846) **1,788 passed per version**, [real FEMM 5](https://github.com/physicsvigilante/conductor_sim/actions/runs/43749664972) **97 passed** (conductor nonregression only), [focused source/reserved](https://github.com/physicsvigilante/conductor_sim/actions/runs/43749664865) **141 passed**, [actual static Chromium](https://github.com/physicsvigilante/conductor_sim/actions/runs/43749664767) **PASS**.
+- Original first reserved PASS and first failed 390px layout attempt remain preserved; M27a is static E/V only. The old axial source remains axis-only; the new `UniformRingField` is refused in motion until M27b.
+- **NEXT: separate explicit owner merge decision.** No new code or additional R2 review is recommended for the unchanged passing source. Only upon owner authorization may Chat A merge the exact reviewed commit, check its tree on `main`, verify post-merge CI and publish a merge record.
+
+---
+
+## Historical pre-review status (preserved)
+
 # conductor_sim PR #62 — M27a R2 review status
 
 **AWAITING INDEPENDENT REVIEW.** Source [draft PR #62](https://github.com/physicsvigilante/conductor_sim/pull/62) is **OPEN and UNMERGED**. Chat A (implementer) has not authored an independent reviewer verdict or received owner merge approval.
