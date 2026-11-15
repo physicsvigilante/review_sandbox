@@ -15,6 +15,8 @@ Source repository: https://github.com/physicsvigilante/opticsim
 
 - [PR #83 — native detector-ray provenance, **MERGED, 11/11 post-merge CI PASS**](pr-83/STATUS.md): owner-approved merge `39cdfda9b8e0244e6877bfb3656bc66da557df02` has the **same Git tree** as independently reviewed source head `366037a3ed68c2110434e2132899cd0a2cbc610a`. [Chat B R2 implementation report](pr-83/reviews/review-01-chat-b.md) passed; five reviewer-authored test-only controls in unmerged PR #85 had **750/750 Node tests, 11/11 workflows**. The merged main's **745/745 Node, 5 native cases and 9 Chrome checks** passed. [Release verification record](pr-83/MERGE-REPORT.md). Reviewer-only PRs remain unmerged; no deployment.
 
+- [PR #86 — permanently retain Chat B's five native ray-parentage regression tests, **11/11 CI passed, merge approval pending**](pr-86/STATUS.md): new one-file test-only PR rooted at merged PR #83 `main`. The 179-line file is byte-identical to corrected reviewer PR #85; **750/750 Node tests, five public native cases and nine Chrome checks** passed. Historical review-only PRs #84/#85 remain unmerged.
+
 Historical coordination: Opticsim [closed, unmerged PR #76](https://github.com/physicsvigilante/opticsim/pull/76) retains the original draft collaboration protocol and frozen review packet. Original [review-only PR #77](https://github.com/physicsvigilante/opticsim/pull/77) was also closed unmerged after verbatim preservation of both Chat B reports. The central hub is now the intended home for NEW review packets and reports; original source PRs and evidence are not rewritten.
 
 All source-engine, physical/teaching and merge rules still come from Opticsim's `AGENTS.md`, its pinned PhyDemo and its own CI.
