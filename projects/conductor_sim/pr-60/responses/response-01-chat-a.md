@@ -37,7 +37,7 @@ Both production viewers now call the helper with the already validated immutable
 
 | Gate | Actual new-head result |
 |---|---|
-| [Full Python matrix](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877880) | **1,719 passed, 97 real FEMM skipped, 7 warnings** on **each** Python 3.10 and 3.12 |
+| [Full Python matrix](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877880) | **1,719 passed, 97 real FEMM skipped, 7 warnings (six pre-existing plus one new benign pytest collection warning from an imported test class)** on **each** Python 3.10 and 3.12 |
 | [Real FEMM 5 conductor nonregressions](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877795) | **97 passed, zero skipped**, conductor nonregression only, not geometry reference |
 | [Focused physics and real Chromium](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877885) | **470 passed** focused JUnit, **8/8 new M25a browser scenes plus 1/1 retained reserved** passed |
 | [Visualization/source checks](https://github.com/physicsvigilante/conductor_sim/actions/runs/43727877916) | Success |
