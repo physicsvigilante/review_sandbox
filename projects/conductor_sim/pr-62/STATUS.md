@@ -1,3 +1,18 @@
+# conductor_sim PR #62 — M27a merged and main CI fully verified
+
+**COMPLETE: M27a merged after explicit owner approval; 17/17 post-merge `main` workflows passed.** PR #62 is closed/merged. Reviewed source tree remains byte-identical on `main`; no further M27a review or release step is pending.
+
+- [Merged source PR #62](https://github.com/physicsvigilante/conductor_sim/pull/62), merge SHA `4a967f469df999bc4a97c434dfdd6b69f49893ba`; exact reviewed source head `666e6815390830cb6b70b474648b5b5ec765e380`; identical Git tree `72a6dc67383b270b11e639ad81c1e52b693b0565`. Merge parents are original base `923ac2c49b...` and reviewed head `666e681539...`.
+- **[Complete append-only merge report](MERGE-REPORT.md)** documents owner approval, immutable source/tree pins, full 17/17 post-merge workflow IDs/count, historical first failures, Chat B independent PASS and interpretation/evidence scope.
+- [Post-merge Python 3.10/3.12](https://github.com/physicsvigilante/conductor_sim/actions/runs/43753557419): **1,788 passed, 97 FEMM-dependent skipped** each. [Real FEMM 5](https://github.com/physicsvigilante/conductor_sim/actions/runs/43753557741): **97 passed**. [Full visualization and real M27a Chromium](https://github.com/physicsvigilante/conductor_sim/actions/runs/43753557413): success. **17/17 exact merge-commit push workflows** completed successfully, distinct from **18/18 pre-merge PR-head workflows**.
+- [Original independent Chat B R2 review](reviews/review-01-chat-b.md) was **PASS** for the exact reviewed physics/source head, with F-01/F-02 both minor deferred teacher-facing UI improvements. [Developer disposition](responses/response-01-chat-a.md) retains those findings without claiming correction.
+- The preimplementation frozen charter, original failed 390px-browser check, original reserved first pass and original scanned-source interpretation limits remain unchanged. No historical evidence was upgraded or altered.
+- Work on **M27b planar ring motion** is a separate owner-approved new task and remains under draft PR #63, not part of M27a.
+
+---
+
+## Historical pre-merge status, preserved for traceability
+
 # conductor_sim PR #62 — independent R2 PASS, awaiting owner merge approval
 
 **INDEPENDENT R2 REVIEW PASSED (scoped); SOURCE PR STILL DRAFT AND UNMERGED.** Chat B [review-01](reviews/review-01-chat-b.md) examined exact head `666e6815390830cb6b70b474648b5b5ec765e380` (tree `72a6dc67383b270b11e639ad81c1e52b693b0565`) and reported **PASS with no blockers**. Two **minor, deferred** UI findings remain documented; neither is represented as corrected.
