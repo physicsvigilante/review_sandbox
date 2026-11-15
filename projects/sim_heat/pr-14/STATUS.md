@@ -1,33 +1,43 @@
 # SIM_HEAT H2-02 PR #14 — central R2 review status
 
-**Status: `awaiting-r2-review`**. Chat A's generic thermal-network viewer candidate is implemented and has passing exact-head CI. **No independently authored Chat B report has been received**, and no merge is approved.
+**Status: `awaiting-targeted-re-review`.** Chat B's separately authored [Review 01](reviews/review-01-chat-b.md) identified **four confirmed viewer evidence-presentation problems** and concluded `changes-requested` on the original source. Chat A has submitted a new correction commit with passing final-head CI and records its disposition in [response-01](responses/response-01-chat-a.md). **Chat B Review 02 is not yet authored. No source merge is approved.**
 
-| Field | Exact value |
+| Field | Exact value / status |
 | --- | --- |
 | Project | `sim_heat` |
-| Source repo / PR | https://github.com/physicsvigilante/sim_heat/pull/14 — **draft, unmerged** |
-| Base SHA | `a33a0d79da405ff4c7191b9bfb94e096b10e2a9f` |
-| Pinned source HEAD SHA | `281c5a45b536b698ea2b6896710e3cc49e20698b` |
-| Source tree SHA | `5ed4a1c0ac34a5fe5f463aafb1433abfa557c999` |
-| Review class | **R2**, generic native-evidence/topology display contract |
-| Source CI | https://github.com/physicsvigilante/sim_heat/actions/runs/43745347155 — **SUCCESS**, attempt 1, exact HEAD |
-| Artifact | https://github.com/physicsvigilante/sim_heat/actions/runs/43745347155/artifacts/14173792995 |
-| ZIP SHA-256 / size | `d0283eea89e5e4b4a413c767ac2560768f695876b83f4cd0216049523a0c62e8`, 1,706,015 bytes |
-| Offline tests | **151 H1**, **4 analytical**, **4 adapter**, **7 Node viewer**, all pass |
-| Browser | Author CI **real desktop/mobile Chromium PASS**, D1/D2/bridge switches, keyboard/reversal, stale-hash refusal, screenshots |
-| Preserved failed browser attempts | https://github.com/physicsvigilante/sim_heat/actions/runs/43744485774 and https://github.com/physicsvigilante/sim_heat/actions/runs/43745168791 |
-| New native/OpenModelica launches | **0**, original native runs from historical D1/D2 and bridge only |
-| Reviewer report destination | `projects/sim_heat/pr-14/reviews/review-01-chat-b.md`; **not yet authored** |
-| Owner merge approval | **Not granted** |
-| Merge/post-merge CI | **Not performed** |
+| Source PR | https://github.com/physicsvigilante/sim_heat/pull/14 — **draft, unmerged** |
+| Unchanged base SHA | `a33a0d79da405ff4c7191b9bfb94e096b10e2a9f` |
+| Original reviewed HEAD | `281c5a45b536b698ea2b6896710e3cc49e20698b`, source tree `5ed4a1c0ac34a5fe5f463aafb1433abfa557c999` |
+| **Current corrected HEAD** | **`72991baed9eeb59ae523a90533a174bdb8dd6454`** |
+| Current source tree | `a8d6dcf7f2f3b2d83f496ce27aab15f0e4bb4e8c` |
+| Review class | **R2**, generic native-evidence/topology display semantics; **targeted correction re-review** pending |
+| Final correction CI | https://github.com/physicsvigilante/sim_heat/actions/runs/43750366629 — **SUCCESS** at exact new HEAD, attempt 1 |
+| Final artifact | https://github.com/physicsvigilante/sim_heat/actions/runs/43750366629/artifacts/14175642800 |
+| ZIP SHA-256 / size | `33f4efd9034db15d0d4ee9394479f72d9150479072db887f1ef6949df04ee5e2`, 1,983,792 bytes |
+| Tests | 151 H1 + 4 analytical + 4 adapter + **9 viewer Node tests**, all passed |
+| Browser | Real desktop/mobile Chromium PASS, including cleared refusal view and case-switch/delayed-WebCrypto CSV import isolation |
+| Native launches | **0 new**; original D1/D2/bridge native artifacts unchanged |
+| Review 01 | `changes-requested`, [review-01-chat-b.md](reviews/review-01-chat-b.md), Git blob `f57f443b66b7dd6605294312dca53aa1307f4038`, authored at `019c978571d3775a5438869d9c5b00f7faae2116` |
+| Review 02 | **Awaiting Chat B** at `reviews/review-02-chat-b.md`; Chat A must not write a verdict |
+| Merge authorization | **Not granted** |
+| Post-merge CI | **Not applicable; PR unmerged** |
 
-## Evidence and handoff
+## Exact evidence chronology — do not relabel historical attempts
 
-- [REQUEST.md](REQUEST.md) — exact physics, topology, native archive hashes, final CI, negative questions, reviewer scope and limitations.
-- [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md) — ready-to-paste second ChatGPT conversation prompt.
-- [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md) — required independent-in-context reviewer format.
-- Original evidence artifacts and failure attempts remain in SIM_HEAT GitHub Actions; source and native files remain in their original repository, not duplicated into this central review hub.
+- **Original source pre-review PASS:** [43745347155](https://github.com/physicsvigilante/sim_heat/actions/runs/43745347155), H1/adapter/7 viewer and Chromium green on the first candidate. This is *not* evidence the independently discovered four defects were absent.
+- **Review 01 findings:** F-01 stale J/W/K/model/provenance after case refusal (blocker); F-02 pending D1 import can overwrite D2 (blocker); F-03 schema accepts reversed rod and swapped physical-owner channels (major); F-04 touching zero falsely implies flow reversal (minor). The reviewer independently reproduced them on the pinned source; the three shipped native bundles and physical data were found accurate.
+- **First correction commit `6484dcd67e40f9c419865c185a14efa909c4dc05`:** [CI 43749919396](https://github.com/physicsvigilante/sim_heat/actions/runs/43749919396) **FAIL**, the new held-digest Chromium smoke timed out; H1/adapter/9 viewer Node tests passed.
+- **Diagnostic intermediate commit `8cd14021f85fc28da836e7af611b4c9c29535110`:** [CI 43750210292](https://github.com/physicsvigilante/sim_heat/actions/runs/43750210292) **FAIL** in the same browser test; the diagnostic confirmed WebCrypto interception but a non-Boolean wait expression prematurely evaluated the release callback. The failed attempt is retained.
+- **Final correction commit `72991baed9eeb59ae523a90533a174bdb8dd6454`:** [CI 43750366629](https://github.com/physicsvigilante/sim_heat/actions/runs/43750366629) **PASS** all 151+4+4+9 tests and real browser scenarios. Its [artifact](https://github.com/physicsvigilante/sim_heat/actions/runs/43750366629/artifacts/14175642800) was downloaded by Chat A; original ZIP SHA-256, CRC and recorded HEAD match. Screenshots `refusal.png` and `import-race.png` were inspected.
+- The browser async test uses a **temporary synthetic CSV**, repinned to a test-only catalog and bundle to exercise authentic WebCrypto and numeric parser behavior. It is **not a new or authenticated original D1 native file**. Native source artifacts/accepted three demo bundles were not revised.
 
-**Next:** Chat B reads the exact source/CI and publishes a **new** report at the reserved unique path, not in Chat A's words. The owner can then simply say **“Review complete”** in Chat A, which fetches the report directly from this repository, reproduces and fixes confirmed defects with regressions, and requests targeted re-review only when needed. The full R2 review does not itself approve a source merge. The owner must approve merging PR #14 separately, after which Chat A must verify post-merge CI and append a central merge report.
+## Handoff and decisions
 
-All H2-02 native observations remain `diagnostic_only`, `nativeQualified=false`. The real teacher/exploratory usefulness, full H1 qualification, separate-author C1, independently certified reference bounds, new physical regimes and classroom impact are still unproven.
+- [REQUEST.md](REQUEST.md), [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md), [Review 01](reviews/review-01-chat-b.md) — historical initial request and finding; do not rewrite.
+- [responses/response-01-chat-a.md](responses/response-01-chat-a.md) — confirmed finding dispositions, corrected-source/CI identities and evidence limitations.
+- [FOLLOW-UP-02.md](FOLLOW-UP-02.md) and [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md) — **targeted re-review** instructions for the new exact HEAD; reviewer report destination reserved as `reviews/review-02-chat-b.md`.
+- [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md) — report format and scope judgments.
+
+**Next:** Owner pastes the short Chat B prompt in a separate conversation. Chat B independently checks the pinned corrected source and submits a **new immutable** Review 02 directly to this central GitHub directory. When the owner says **“Review complete”**, Chat A fetches that report, resolves any new blockers with regressions, and requests only necessary further targeted review. **A separate explicit owner merge approval remains mandatory**, even on scoped PASS.
+
+The correction does not grant H1 full native qualification, independently certified R3/reference error bounds, held-out C1 authorship transfer or classroom effectiveness. All saved outputs stay `diagnostic_only`, `nativeQualified=false`.
