@@ -6,7 +6,7 @@
 - Freeze: base `00e6211d6d40c0db8c62910f9e57b910b6aeb6f5`, proposed documentation head `df783a3c2f5e51ad5edbacd35f6d82f1a02cfea7`.
 - Exactly one added proposal file (137 lines), no executable changes. Actual optics code and test suite remain those of the production base.
 - Research inputs PR #79 and PR #80 remain **draft and unmerged**. PR #80 CI had 11/11 workflows passed at Node 24.19.0; four of twelve native scenarios properly withheld and one invalid geometry preflight rejected.
-- Proposed design candidate CI: [GitHub unified workflow 43730335002](https://github.com/physicsvigilante/opticsim/actions/runs/43730335002), check live status; this is software regression verification **only**.
+- **Verified proposal-head CI:** **11/11 GitHub Actions workflows passed** on exact docs-only head `df783a3c2f5e51ad5edbacd35f6d82f1a02cfea7`; [unified workflow 43730335002](https://github.com/physicsvigilante/opticsim/actions/runs/43730335002) completed successfully. This confirms existing software checks after the documentation change, **not** new ray-provenance behavior (which has not been implemented).
 - Review request: [REQUEST.md](REQUEST.md).
 - Owner handoff prompt: [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md).
 - Review file to be **authored by independent-context Chat B**, not prewritten: `reviews/review-01-chat-b.md`.
