@@ -25,4 +25,4 @@ Write **your own** new append-only report to:
 
 `projects/opticsim/pr-81/reviews/review-02-chat-b.md`
 
-Use the central [REVIEW-TEMPLATE.md](../../REVIEW-TEMPLATE.md) and preserve original first report. Verdict must be explicitly **design-only**: `pass`, `changes-requested`, or `insufficient-evidence`. If the exact head moved, mark it stale. Do not merge or commit to source PR. A design `pass` is *not* implementation sign-off or owner authorization.
+Use the central [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md) and preserve original first report. Verdict must be explicitly **design-only**: `pass`, `changes-requested`, or `insufficient-evidence`. If the exact head moved, mark it stale. Do not merge or commit to source PR. A design `pass` is *not* implementation sign-off or owner authorization.
