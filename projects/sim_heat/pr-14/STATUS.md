@@ -1,6 +1,6 @@
 # SIM_HEAT H2-02 PR #14 — central R2 review status
 
-**Status: `merged` — owner-approved 2026-11-16 IST.** Chat B's independent [Review 02](reviews/review-02-chat-b.md) passed the targeted R2 correction review for F-01–F-04 at the exact corrected source SHA. Chat B's original [Review 01](reviews/review-01-chat-b.md) and earlier failed CI attempts remain unchanged. Owner explicitly approved merging; GitHub successfully merged source PR #14 as `c977773578b04a571dfefebe615350b9ed1dcf3e` (2026-11-15 19:36:19 UTC). **Post-merge CI has not been observed; no new native qualification is claimed.**
+**Status: `merged` — owner-approved 2026-11-16 IST.** Chat B's independent [Review 02](reviews/review-02-chat-b.md) passed the targeted R2 correction review for F-01–F-04 at the exact corrected source SHA. Chat B's original [Review 01](reviews/review-01-chat-b.md) and earlier failed CI attempts remain unchanged. Owner explicitly approved merging; GitHub successfully merged source PR #14 as `c977773578b04a571dfefebe615350b9ed1dcf3e` (2026-11-15 19:36:19 UTC). **Post-merge CI has been verified: all three `main` push workflows passed at exact merge SHA `c977773578b04a571dfefebe615350b9ed1dcf3e`. No new native qualification is claimed.**
 
 | Field | Exact value / status |
 | --- | --- |
@@ -21,7 +21,7 @@
 | Review 02 | **Scoped PASS**, [review-02-chat-b.md](reviews/review-02-chat-b.md), authored by Chat B at reviewed SHA |
 | Merge authorization | **Granted by owner 2026-11-16 IST** |
 | Merge commit | [`c977773578b04a571dfefebe615350b9ed1dcf3e`](https://github.com/physicsvigilante/sim_heat/commit/c977773578b04a571dfefebe615350b9ed1dcf3e); GitHub `merged=true`, `closed` |
-| Post-merge CI | **Not yet verified**; pre-merge exact-head CI was successful |
+| Post-merge CI | **PASS — 3/3 `main` workflows completed successfully at exact merge SHA**: [H1 offline 43753363500](https://github.com/physicsvigilante/sim_heat/actions/runs/43753363500); [H2 viewer 43753363533](https://github.com/physicsvigilante/sim_heat/actions/runs/43753363533); [H2 generic viewer 43753363528](https://github.com/physicsvigilante/sim_heat/actions/runs/43753363528) |
 
 ## Exact evidence chronology — do not relabel historical attempts
 
@@ -39,6 +39,6 @@
 - [FOLLOW-UP-02.md](FOLLOW-UP-02.md) and [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md) — **targeted re-review** instructions for the new exact HEAD; reviewer report destination reserved as `reviews/review-02-chat-b.md`.
 - [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md) — report format and scope judgments.
 
-**Completed:** Chat B independently submitted Review 02 (scoped PASS), owner explicitly approved, and Chat A merged the identical reviewed head as a merge commit. No additional broad R2 review is required for this unchanged source. Follow-up is to verify any post-merge `main` checks when available; do not represent unobserved CI as successful.
+**Completed:** Chat B independently submitted Review 02 (scoped PASS), owner explicitly approved, and Chat A merged the identical reviewed head as a merge commit. No additional broad R2 review is required for this unchanged source. Post-merge verification complete: `main` is identical to merge commit `c977773578b04a571dfefebe615350b9ed1dcf3e` (zero ahead/behind), all three push workflows returned `completed` + `success` at that SHA, and GitHub records PR #14 as merged. This does not add a native scientific qualification claim.
 
 The correction does not grant H1 full native qualification, independently certified R3/reference error bounds, held-out C1 authorship transfer or classroom effectiveness. All saved outputs stay `diagnostic_only`, `nativeQualified=false`.
