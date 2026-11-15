@@ -1,3 +1,17 @@
+# conductor_sim PR #61 — current status after F-01/F-02 corrections
+
+**New-head CI GREEN, awaiting targeted Chat B re-review 02.** Review-01 remains **CHANGES-REQUESTED** on the previous head; no independent verdict has yet been written on corrected head `1683e7a20b059096e3bca98abe7f55a6e982696a` (tree `b6d0e919e6f927099277303489923b241ca124e4`). Source [PR #61](https://github.com/physicsvigilante/conductor_sim/pull/61) is **DRAFT, OPEN, UNMERGED**.
+
+- **[Follow-up-02 targeted request](FOLLOW-UP-02.md)** · **[Paste-ready Chat B prompt-02](REVIEWER-PROMPT-02.md)**. Chat B must create an attributable **NEW** `reviews/review-02-chat-b.md` and leave review-01 unchanged.
+- [Chat A correction/disposition](responses/response-01-chat-a.md) addresses F-01 with a recursively embedded, detached driven-history record and F-02 with explicit typed record/physical-component namespaces. Exactly three source files changed: the new M26a production bridge, its tests, and its docs. Frozen charter and physics/ODE/viewers unchanged.
+- **16/16 exact corrected-head workflows successful**: [Python 3.10/3.12](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739456939) **1,744 passed, 97 real-FEMM skips per interpreter**, [real FEMM](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739456949) **97 passed**, and [visualization with real M26a Chromium](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739457096) **PASS**. Historical first failures and original review remain preserved.
+- [New exact-head visualization artifact 14171309142](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739457096/artifacts/14171309142), GitHub-reported SHA-256 `c8a30b66486a69f13eeb62da615dc16d956528c9116aba3eda75d321327ea6a7` (not independently downloaded/rehashed by Chat A).
+- **Next:** owner sends [prompt-02](REVIEWER-PROMPT-02.md) to the same independent Chat B thread. Chat B writes the new source-pinned report. Owner then tells Chat A **"Review complete"**; only then can the corrected findings be evaluated for acceptance. A **separate explicit owner approval** is still required for source merge.
+
+---
+
+## Historical status — corrections published but exact-new-head CI pending (preserved)
+
 # conductor_sim PR #61 — current independent review status
 
 **CHANGES REQUESTED by Chat B on original head `e0ea76e8`.** Chat A has made a narrowly scoped correction on NEW head `1683e7a20b059096e3bca98abe7f55a6e982696a`, source tree `b6d0e919e6f927099277303489923b241ca124e4`. **New-head CI and targeted reviewer follow-up are pending.** PR is still draft and unmerged.
