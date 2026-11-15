@@ -31,6 +31,14 @@ The file `reviews/review-01-chat-b.md` here is an **exact-byte copy of that orig
 
 Source PR #75 exact head: `f4fddec213e04d733920399dc0eeea0b29a60dac` (tree `d8d70b08bddd3c07aa1f50247341423f124818b0`, base `c0d4e3048b9e0935cfd567e5f3c81aab23ddd823`).
 
-Recorded GitHub Actions: [unified 43700823059](https://github.com/physicsvigilante/opticsim/actions/runs/43700823059), [refraction 43700823106](https://github.com/physicsvigilante/opticsim/actions/runs/43700823106). Original Chat B review gives artifact IDs and independently verified SHA-256 digests. Migration adds **no new native/Chrome execution**, and no claim of a second-review verdict.
+Recorded GitHub Actions: [unified 43700823059](https://github.com/physicsvigilante/opticsim/actions/runs/43700823059), [refraction 43700823106](https://github.com/physicsvigilante/opticsim/actions/runs/43700823106). Original Chat B review gives artifact IDs and independently verified SHA-256 digests. Initial migration added **no new native/Chrome execution**; the independently authored second-pass review described below was published on PR #77 during that migration and is preserved separately. Central imports do not perform new tests.
 
 Source documentation PR #76, independent review PR #77 and implementation PR #75 were all draft/unmerged when the central migration began; check live GitHub metadata before taking any merge action.
+
+## Subsequent Chat B follow-up discovered during migration
+
+A new second report was committed to the original review PR #77 during the initial central-repo setup. Its report source is commit `15799f20346c377f5519a8cfdc8f1cf57b390538`, `collaboration/review-results/pr-75/review-chat-b-02.md`, Git blob **`08942038407a156921a393488b6391f280f0bf98`**. Central `reviews/review-02-chat-b.md` is its **exact-byte imported copy**; the original was written by Chat B, but its import was done by Chat A.
+
+New test-only draft [Opticsim PR #78](https://github.com/physicsvigilante/opticsim/pull/78), commit `7ccca3d255ac19e180eaa371851fdcbec2a2866f`, is an **immediate child of frozen source PR #75 head** and adds exactly one 129-line file `test/pr75-chat-b-02-adversarial.test.mjs`. There are no changes to product code, original fixtures, PhyDemo pin or original CI workflow. Independently confirmed all 11 [associated CI runs](https://github.com/physicsvigilante/opticsim/actions/runs/43717283882) successful; the unified raw job log records 729 Node tests / 729 pass and three new Chat B test groups. New checks exercised endpoint/reverse orientation, per-detector overflow isolation, and stale-evidence/callback guards. These are reviewer-authored headless native tests and controlled asynchronous callbacks; they are not independently driven new Chrome scenarios or human classroom evidence.
+
+**Review sequence:** review-01 `insufficient-evidence` → review-02 `pass` **within the bounded targeted source/evidence scope**. Neither review authorizes a source merge. PR #75 remained at `f4fddec213e04d733920399dc0eeea0b29a60dac` during both. Preserve both original reports and their different conclusions.

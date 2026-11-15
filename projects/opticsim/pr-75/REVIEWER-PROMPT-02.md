@@ -1,3 +1,5 @@
+> **Archived prompt.** The second Chat B review has already been completed and published in [review-02-chat-b.md](reviews/review-02-chat-b.md). Do not start another identical review; issue a new prompt only when a new review cycle is necessary.
+
 # Paste into the second ChatGPT conversation — Opticsim PR #75 targeted review
 
 You are Chat B, the separately situated reviewer. Do **not** repeat your original broad review. The original verdict was **insufficient-evidence**, not a demonstrated production physics bug.

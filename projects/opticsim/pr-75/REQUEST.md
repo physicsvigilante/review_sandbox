@@ -1,3 +1,5 @@
+> **Historical review request — fulfilled by [second Chat B report](reviews/review-02-chat-b.md).** Preserve this request and its original evaluation requirements; do not repeat this exact review without a new source change.
+
 # PR #75 — targeted follow-up request (cross-repository handoff)
 
 **Read** [STATUS.md](STATUS.md), [hub protocol](../../../PROTOCOL.md), [risk policy](../../../REVIEW-RISK-POLICY.md) and [first Chat B report](reviews/review-01-chat-b.md).

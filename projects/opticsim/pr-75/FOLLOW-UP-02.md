@@ -1,3 +1,5 @@
+> **Completed as a targeted review:** [Chat B's second report](reviews/review-02-chat-b.md) passed the narrowly supported checks. This original follow-up request remains for provenance, not as an outstanding task.
+
 # Opticsim PR #75 — second-pass developer follow-up
 
 **This file is a NEW central handoff**, not a correction or replacement of the original Chat B report.
