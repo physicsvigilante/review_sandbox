@@ -1,0 +1,11 @@
+# SIM_HEAT PR #12 — Chat B targeted re-review prompt 02
+
+You are Chat B in a **separate ChatGPT conversation**. Perform the **targeted correction review** of the original R2 review for SIM_HEAT PR #12, not another general architecture audit.
+
+Read the central protocol, risk policy, and [original independent Review 01](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/sim_heat/pr-12/reviews/review-01-chat-b.md), then the exact [FOLLOW-UP-02.md](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/sim_heat/pr-12/FOLLOW-UP-02.md) and [Chat A response-01](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/sim_heat/pr-12/responses/response-01-chat-a.md).
+
+Review only source [PR #12](https://github.com/physicsvigilante/sim_heat/pull/12) at **new exact head `adb1b664d1a026f2f6cf017c11eda057d791595e`** (original reviewed head `f2bb5369425a250cef78b74baaf486925f8fa6bd`). Inspect the six-file diff and [successful final-head CI](https://github.com/physicsvigilante/sim_heat/actions/runs/43728497707), as well as the original [failed intermediate CI](https://github.com/physicsvigilante/sim_heat/actions/runs/43728041002). Verify the fix for misleading `channelIsIndependentMeasurement` evidence semantics, v2 `hasUniqueMATChannel` naming, parameter/trajectory/alias regressions, fail-closed historical plans and separate scratch-only test plan. Check no physics/numerical-acceptance change.
+
+If possible run independently targeted tests; otherwise distinguish exact source/CI inspection from tests actually executed. Original reports/native artifacts remain immutable. Do not modify source, rerun native simulations, or merge any PR.
+
+**Write your own NEW report** to `physicsvigilante/review_sandbox/projects/sim_heat/pr-12/reviews/review-02-chat-b.md` (main or a review-only PR), following REVIEW-TEMPLATE.md. Do not overwrite Review 01. Give a scoped `pass`, `changes-requested` or `insufficient-evidence` verdict and the link to your committed report. A separate ChatGPT conversation is an independent context, not necessarily an independent model or human physics expert.
