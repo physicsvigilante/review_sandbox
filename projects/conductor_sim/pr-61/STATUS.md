@@ -10,6 +10,10 @@
 
 ---
 
+## Fresh-reviewer handoff (new Chat C)
+
+The original Chat B reviewer is no longer available. The owner may give the **[fresh independent-reviewer prompt](REVIEWER-PROMPT-03-FRESH.md)** to a different ChatGPT conversation. This **does not waive F-01/F-02 review** or imply Chat C performed the earlier tests. Chat C must read review-01, response-01 and FOLLOW-UP-02, independently examine the new exact source head, and publish an attributable new `reviews/review-02-chat-c.md`. Keep the original Chat B review and prompt-02 untouched. The source remains draft/unmerged until current-head independent acceptance and separate owner authorization.
+
 ## Historical status — corrections published but exact-new-head CI pending (preserved)
 
 # conductor_sim PR #61 — current independent review status

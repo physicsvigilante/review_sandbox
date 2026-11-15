@@ -1,0 +1,22 @@
+# Fresh independent reviewer — M26a PR #61 targeted review
+
+You are **Chat C, a NEW independent reviewer**. You did NOT author the earlier review and must not claim that you did. The original reviewer is unavailable. Your job is to assess the latest corrections independently using the original reviewer’s written findings and the exact pinned source. A different chat provides independent context, not necessarily independent model weights or human expertise.
+
+**Review source:** [conductor_sim PR #61](https://github.com/physicsvigilante/conductor_sim/pull/61) at **exact SHA `1683e7a20b059096e3bca98abe7f55a6e982696a`**, tree **`b6d0e919e6f927099277303489923b241ca124e4`**. First verify these still match the live PR head; if they do not, stop and report that the instructions are stale.
+
+**Required context (read in this order):**
+1. [Original independent Chat B review-01](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/conductor_sim/pr-61/reviews/review-01-chat-b.md) — CHANGES-REQUESTED on older source head `e0ea76e80aca4b05cea7f16a12549c13670108d2`.
+2. [Implementer’s disposition and corrections](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/conductor_sim/pr-61/responses/response-01-chat-a.md) — treat its claims as hypotheses to verify.
+3. [Detailed targeted follow-up](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/conductor_sim/pr-61/FOLLOW-UP-02.md), [review protocol](https://github.com/physicsvigilante/review_sandbox/blob/main/PROTOCOL.md), [risk policy](https://github.com/physicsvigilante/review_sandbox/blob/main/REVIEW-RISK-POLICY.md), and [report template](https://github.com/physicsvigilante/review_sandbox/blob/main/REVIEW-TEMPLATE.md).
+4. [Exact old-to-new source diff](https://github.com/physicsvigilante/conductor_sim/compare/e0ea76e80aca4b05cea7f16a12549c13670108d2...1683e7a20b059096e3bca98abe7f55a6e982696a) — only `src/conductor_sim/driven_reassembly.py`, `tests/test_m26a_driven_reassembly.py`, and `docs/m26a.md` were changed.
+
+**Review only the original two findings, with independent judgment:**
+
+- **F-01 (major):** Verify that exporting the **last** `DrivenReassembly.as_dict()` in a fresh two-/three-generation chain now provides self-contained audit ancestry: original root driven-model ID/provenance, actual parent/child records, component changes, M22a base ancestry and linked SHA-256 digests. Independently recompute hashes, test a different novel edit sequence from the new regression, check detachment/nonmutation, and challenge completeness, bounding and excessive duplication. An in-memory parent chain alone is not adequate.
+- **F-02 (minor):** Decide whether the stated distinction between model/scenario **record identifiers** and physical-component **source identifiers** is consistent and safe. Probe same-text IDs across typed namespaces, and verify collisions between actual physical sources, scheduled-field IDs, drag IDs and reserved roles still refuse. Identify concrete residual ambiguity if any.
+
+**Evidence already reported for corrected head (do not label as your own execution):** [full Python CI](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739456939) passed 1,744 tests on Python 3.10 and 3.12, 97 FEMM-dependent skips each; [real FEMM validation](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739456949) passed 97 nonregression checks; [visualization/Chromium](https://github.com/physicsvigilante/conductor_sim/actions/runs/43739457096) passed, and all 16 applicable workflows passed. Previous review-01's independent physics and browser probes apply to **older** SHA and need not be repeated unless the correction creates a new material reason. The correction does not touch solvers or viewers.
+
+**Your output:** Publish a **NEW, separately authored, append-only** report to `physicsvigilante/review_sandbox/projects/conductor_sim/pr-61/reviews/review-02-chat-c.md` (or a review-only PR), following the template. Explicitly identify yourself as **Chat C, fresh reviewer**, not the author of review-01. Keep review-01 and all previous files unchanged. Give each finding a PASS / CHANGES-REQUESTED / INSUFFICIENT-EVIDENCE judgment, exact source SHA/tree, your own executed tests and any unverified claims. If repository writing is unavailable, report that limitation rather than pretending to have published. **Do not edit or merge source PR #61.**
+
+Return the report URL and concise verdict to the owner. Source merging requires the owner’s separate explicit approval.
