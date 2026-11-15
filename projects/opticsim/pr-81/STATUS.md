@@ -1,6 +1,9 @@
 # Opticsim PR #81 — independent R2 **design** review status
 
-**State: TARGETED DESIGN REVIEW PASSED; IMPLEMENTATION NOT YET AUTHORIZED OR TESTED.** This is the completion of the bounded **pre-implementation** design-review cycle, not a code/physics certification or a release approval.
+**Historical design-only result: TARGETED R2 DESIGN REVIEW PASSED.** A separately authorized, implemented, independently R2-reviewed feature was subsequently [merged in PR #83](../pr-83/MERGE-REPORT.md), with 11/11 post-merge workflows passing. This PR #81 remains a deliberately unmerged documentation-only design artifact. The design pass alone was never a code or release approval.
+
+
+> **Historical scope note:** Below, references to a future implementation or release gate describe the state **as of the original design review**, before PR #83's later implementation/merge. The present production release is documented [here](../pr-83/MERGE-REPORT.md).
 
 ## Source freeze and CI
 
