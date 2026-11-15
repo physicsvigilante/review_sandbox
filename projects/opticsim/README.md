@@ -13,6 +13,8 @@ Source repository: https://github.com/physicsvigilante/opticsim
 
 - [PR #82 — bounded native detector parentage, **R2 implementation code/evidence review pending**](pr-82/STATUS.md): separate draft implementation, with pinned-native/failure-injection/public/Chrome acceptance, [review packet](pr-82/REQUEST.md) and [Chat B prompt](pr-82/REVIEWER-PROMPT-01.md). This is a new code-review gate, not a repeat of PR #81's design-only pass. No merge authorization.
 
+- [PR #83 — native detector-ray provenance implementation, **R2 code review pending**](pr-83/STATUS.md): new opt-in bounded native-object root/direct-child attribution for one-interface v5 SingleRay scenes, with missing-root and detector observer failure suppression. At exact head `366037a3ed68c2110434e2132899cd0a2cbc610a`, **11/11 workflows passed**, **745 Node tests**, **5 public native acceptance** cases and **9 actual Chrome checks**. [Independent implementation review request](pr-83/REQUEST.md) and [ready-to-paste Chat B prompt](pr-83/REVIEWER-PROMPT-01.md). Draft/unmerged; no independent implementation review verdict or owner merge approval yet.
+
 Historical coordination: Opticsim [closed, unmerged PR #76](https://github.com/physicsvigilante/opticsim/pull/76) retains the original draft collaboration protocol and frozen review packet. Original [review-only PR #77](https://github.com/physicsvigilante/opticsim/pull/77) was also closed unmerged after verbatim preservation of both Chat B reports. The central hub is now the intended home for NEW review packets and reports; original source PRs and evidence are not rewritten.
 
 All source-engine, physical/teaching and merge rules still come from Opticsim's `AGENTS.md`, its pinned PhyDemo and its own CI.
