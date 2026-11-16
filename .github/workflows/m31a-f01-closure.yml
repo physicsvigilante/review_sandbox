@@ -1,0 +1,53 @@
+name: "M31a F-01 targeted native result-integrity correction"
+on:
+  push:
+    branches:
+      - m31a-f01-closure-evidence
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-f01-negative-regressions:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out review_evidence branch
+        uses: actions/checkout@v4
+        with:
+          path: review_evidence
+      - name: Check out EXACT corrected source PR 71 commit
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: c190e0929e727d35db2337efc366cf9676fc36f3
+          path: reviewed_source
+          persist-credentials: false
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned source and test dependencies
+        run: python -m pip install -e "./reviewed_source[test]"
+      - name: Pin exact source SHA and source Git tree
+        run: |
+          mkdir -p review_evidence/m31a-f01-output
+          git -C reviewed_source rev-parse HEAD > review_evidence/m31a-f01-output/source-commit.txt
+          git -C reviewed_source rev-parse HEAD^{tree} > review_evidence/m31a-f01-output/source-tree.txt
+          test "$(cat review_evidence/m31a-f01-output/source-commit.txt)" = "c190e0929e727d35db2337efc366cf9676fc36f3"
+          test "$(cat review_evidence/m31a-f01-output/source-tree.txt)" = "df48e1eb10536285818abfafd3f0628436247882"
+      - name: Run F-01 forged trajectory, unknown termination and comparison tests
+        shell: bash
+        run: |
+          set -o pipefail
+          cd reviewed_source
+          python -m pytest tests/test_m31a_coupled_physical_family.py -q --junitxml=../review_evidence/m31a-f01-output/targeted-python.xml 2>&1 | tee ../review_evidence/m31a-f01-output/test-output.txt
+      - name: Archive exact source lineage and targeted result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m31a-f01-closure-native-negative-regressions
+          path: review_evidence/m31a-f01-output
+          retention-days: 30
+          if-no-files-found: warn
