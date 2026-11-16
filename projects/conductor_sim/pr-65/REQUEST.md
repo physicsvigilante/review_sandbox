@@ -1,5 +1,8 @@
 # conductor_sim PR #65 — M28a independent R2 trajectory-sweep review request
 
+**TEMPORARILY STALE — DO NOT ISSUE OR COMPLETE REVIEW YET.** Following self-audit, source PR #65 advanced to head `1b0ca1687f6ac7ce63afc59e286336d3210b0b36` to ensure distinct parallel physical planes cannot be collapsed in a single 2D viewer. This packet's older pinned `730c239b…` candidate remains historical evidence. Exact-new-head CI and updated source-pinned packet are in progress; prior PASS claims apply only to the previous head.
+
+
 **Status: AWAITING A SEPARATE CHAT B REVIEW. Source PR #65 is DRAFT and UNMERGED.** This request is authored by Chat A and is not a reviewer verdict. Owner approved beginning M28, **not** merging this source PR.
 
 | Pin | Exact value |
