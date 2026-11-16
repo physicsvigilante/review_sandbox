@@ -1,3 +1,9 @@
+## Separate N-01 reproduction (NOT a physics fix)
+
+[Draft Opticsim PR #94](https://github.com/physicsvigilante/opticsim/pull/94) at initial research head `25c080994c81eadc80a8830e67433d39aaca8b63` adds only two original-JSON cross-language replay scripts, method README and disposable Actions workflow on a **separate branch from production main**. Original reviewed PR #93 commit and ZIP remain unchanged. The JS Number vs historical Python-vs-JSON 12/18 signed-zero assertion follows Chat B's independent nonblocking N-01. **At creation, CI results had not yet appeared: PR #94 results pending, not a validated replay.** It runs no fresh native simulation, changes no physics or Stage-2 policy and MUST REMAIN DRAFT AND UNMERGED.
+
+---
+
 ## Independent Chat B R2 disposition — 2026-11-16 (verified)
 
 **PASS FOR BOUNDED NUMERICAL RESEARCH EVIDENCE ONLY**, at unchanged exact PR #93 head `1346c4132382823dc81977e0b5964590f408bbd2`. [Independent reviewer report](reviews/review-01-chat-b.md). Review separately rehashed both original ZIP archives and member digests, replayed 87/87 native callback reported-point numeric equalities in JavaScript (Node 22.16.0), independently recomputed 83/83 comparable exact binary64 dyadic t/u values using an integer lattice, confirmed 15 exact represented nonforward hits (6 t=0; 9 t<0), all native rounded-point gates, 16 unique hit signatures and 53 completed / 7 genuinely failed runs. No new native runs or full-call-stack causality proof.
