@@ -1,6 +1,6 @@
 # conductor_sim PR #71 — M31a independent R2 physical composability review request
 
-**IMPLEMENTATION CANDIDATE: exact-source Python and FEMM gates green, novel physical transfer green. Full historical visualization workflow must be verified SUCCESS before independent review begins. This is a developer-authored packet, NOT an independent review or merge approval. Source PR remains DRAFT and UNMERGED.**
+**READY FOR SEPARATE-CONTEXT INDEPENDENT R2 REVIEW. All 16/16 exact-head source CI workflows SUCCESS, novel real-physics transfer CI SUCCESS. This is a developer-authored packet, NOT a reviewer PASS or release authorization. Source PR remains DRAFT and UNMERGED.**
 
 | Pinned review item | Exact value |
 | --- | --- |
@@ -33,7 +33,7 @@ New src/conductor_sim/coupled_physical_family.py:
 **Exact HEAD Python checks passed**:
 - [Python 3.10 and 3.12 workflow #43920210856](https://github.com/physicsvigilante/conductor_sim/actions/runs/43920210856): **1,886 passed per interpreter, 97 real FEMM-only skipped, 16 warnings**, including all **10** new M31a tests.
 - [Actual real FEMM5 #43920210710](https://github.com/physicsvigilante/conductor_sim/actions/runs/43920210710): **97 passed**, historical conductor nonregression, NOT an independent M31a physics reference.
-- [Full historical actual Chromium/visualization workflow #43920210929](https://github.com/physicsvigilante/conductor_sim/actions/runs/43920210929): **VERIFY LIVE FINAL RESULT BEFORE REVIEW**. No new M31a browser UI exists; actual historical browser regressions remain mandatory. If successful, download its visualization evidence artifact and distinguish synthetic PR merge commit.txt from actual reviewed source HEAD.
+- [Full historical actual Chromium/visualization workflow #43920210929](https://github.com/physicsvigilante/conductor_sim/actions/runs/43920210929): **SUCCESS** with historical browser/authorability gates; no new M31a HTML renderer exists. [Historical visualization artifact #14253092476](https://github.com/physicsvigilante/conductor_sim/actions/runs/43920210929/artifacts/14253092476), GitHub-**reported** ZIP SHA256 **63300d2c64945872fda47f0bdeae639ab1242cefa8bc6e0caa16ef27b83bb2eb**, NOT independently downloaded/rehashed by implementer. Synthetic GitHub PR merge commit.txt may differ from exact source HEAD; verify actual Git tree separately.
 
 **Separate unfamiliar native coupled-source physical transfer**:
 - [Developer-authored exact-source harness](https://github.com/physicsvigilante/review_sandbox/blob/4dbf30e06e0b6b898b19c47b61e63ea089ce25c5/projects/conductor_sim/pr-71/transfer/run_transfer.py) and [workflow](https://github.com/physicsvigilante/review_sandbox/blob/4dbf30e06e0b6b898b19c47b61e63ea089ce25c5/.github/workflows/m31a-transfer.yml), [successful source-pinned GitHub Actions #43920562002](https://github.com/physicsvigilante/review_sandbox/actions/runs/43920562002). Native script rechecked exact e8970e... SOURCE HEAD and actual 15e658... source Git TREE before running.
