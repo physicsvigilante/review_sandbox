@@ -35,3 +35,23 @@
 No claim of distributed crash-safe ACID, cryptographic authentication against a malicious author of all unkeyed hashes, manual Windows desktop operation, classroom usefulness, broad electrodynamics or conductor response. Native V3 construction acceptance is not numerical completion; genuine missing observations remain unavailable and partial. Independent separate-chat review is not an independent human certification.
 
 **Final integration disposition:** source **merged**, independent R2 blocker **cleared within narrow review scope**, exact-head **pre-merge CI green**, **post-merge verification outstanding**. No user's local Conda environment, sealed saved study, original reviewer reports or physics laws were changed as part of this merge record.
+
+
+## Follow-up 01 — independently checked merge-tree equivalence and main-file identity (2026-11-16 Asia/Kolkata)
+
+This follow-up is appended to the original merge report; it does **not** convert unknown post-merge job outcomes into a pass.
+
+- GitHub compare `7bbdea64a81c2e3bea2b24c59a2d5866afdda707...bf6a18399c604136dd363ad94d40557dbe2c2543` reports **ahead_by=1, behind_by=0, files=[]**. There are **zero file changes** between the independently reviewed head and the actual merge commit, providing direct GitHub-supported evidence that the committed source trees are equivalent.
+- Cross-ref fetches of six paths returned the **same exact Git blob SHA** at (a) reviewed head, (b) merge commit, and (c) GitHub's current default `main`. No changed source/test/CI bits were detected in these files:
+  - `src/emfeeld/scenario_ensembles.py`: `10f688c1386c3c8cba279f082e505e711bafab27`
+  - `tests/test_scenario_ensembles.py`: `5c9be0d2e1abd152b463cd75548cd78a98b9b372`
+  - `tools/qualify_scenario_ensembles.py`: `d57f3ca1106e11f3ce4ca0e9a7f21d457a5594c7`
+  - `verification/check_scenario_ensemble_runs.py`: `582114ae565744350697357e192037bd8995601e`
+  - `.github/workflows/release-candidate.yml`: `4d7315f94fa65dfdb96f4e007ba095e09c476c1e`
+  - `.github/workflows/viewer-qualification.yml`: `8c96776fd64ddc9da2e18099a4b8c678d3d91a72`
+- The exact merged `.github/workflows/release-candidate.yml` declares a `push` event on `main` with `src/**` and `tests/**` path filters, which this merge modifies. The exact `.github/workflows/viewer-qualification.yml` also declares a `push` event on `main` for these paths. Thus their trigger conditions are satisfied by the merged source change. This verifies **configuration**, not the GitHub scheduler's actual run/conclusion.
+- `.github/workflows/source-snapshot.yml` declares `pull_request` and `workflow_dispatch` but not `push`; a fresh main-push source-snapshot artifact is **not automatically expected**.
+- The available connected GitHub `fetch_commit_workflow_runs` action explicitly filters returned runs to **pull-request-triggered** workflows. It returned no results on the new merge SHA, and `get_commit_combined_status` returned `statuses=[]`. Neither response covers GitHub Actions main-push check runs; neither is proof of absent or passing CI. Direct public web lookups for the new repository's Actions page were unavailable through this runtime. Therefore **both new push workflow conclusions and both original post-merge archive audits remain unverified.**
+- The source-equivalence finding strengthens the relationship between pre-merge review/CI and merged code but **does not satisfy** the explicit fresh `main` Linux/Windows/PyVista release gate or authorize reporting the post-merge artifacts as audited.
+
+**Current post-merge disposition is unchanged: source integration complete; fresh main CI and archived evidence gate OPEN.**
