@@ -1,5 +1,17 @@
 # conductor_sim PR #63 — M27b independent R2 review status
 
+**INDEPENDENT R2 PASS — NO BLOCKERS. AWAITING SEPARATE EXPLICIT OWNER MERGE APPROVAL.** Review: [Chat B review-01](reviews/review-01-chat-b.md), completed 2026-11-16.
+
+- Reviewed **exact PR head** `08ad6ea0a30d440f70f83f89e865a87fe9a0f96f`, tree `2affa61b9efd44f5949f5c6e8136f8ad179e893b`; PR remained open, draft and unmerged on review retrieval.
+- Reviewer authored an unfamiliar two-nonparallel-ring 3D Coulomb/DOP853 cross-check, rotation/translation tests, negative physical admissions and a wire-guard termination case. Maximum novel endpoint component differences: 2.13132e-11 m position; 2.82859e-10 m/s velocity. Ring source charge and teacher-authored mass/launch were audited against the workbook.
+- **Minor nonblocking F-01:** `tools/check_m27b_browser.py` calls the source-given probe charge hypothetical only in the generated browser CI summary. The simulation uses the correct charge; defer wording-only correction to a **separate post-merge follow-up** so the exact independently reviewed source head and passing CI are not disturbed.
+- The reviewer independently rehashed focused and visualization CI artifact ZIPs. The commit's PR-run endpoint surfaced 17 successful runs; the implementer packet reports 18/18 applicable checks. Do not claim independent enumeration of that 18th workflow.
+- **NEXT:** obtain owner's **new explicit approval to merge PR #63**. Only then mark ready and merge; verify merged `main` and post-merge checks. No source change or merge authorized by the reviewer.
+
+---
+
+## Archived pre-review handoff status
+
 **AWAITING SEPARATE CHATGPT R2 REVIEW.** Source [draft PR #63](https://github.com/physicsvigilante/conductor_sim/pull/63) is **open, draft and UNMERGED**. Owner approved beginning M27b, NOT merging it.
 
 - **Pinned final candidate:** source head `08ad6ea0a30d440f70f83f89e865a87fe9a0f96f`, Git tree `2affa61b9efd44f5949f5c6e8136f8ad179e893b`, original base/main `4a967f469df999bc4a97c434dfdd6b69f49893ba` (verified M27a merge).
