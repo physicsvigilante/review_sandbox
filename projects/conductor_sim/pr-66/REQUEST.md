@@ -1,5 +1,7 @@
 # conductor_sim PR #66 — Independent R2 review request for M28b typed event sweeps
 
+**REVIEW CYCLE 2 NOTICE — original request below is archived and PINNED TO THE OLD, REVIEWED HEAD.** The exact `414e69bd…` source received independent [CHANGES-REQUESTED review-01](reviews/review-01-chat-b.md). The corrected current head is **`b23ebade71e8a2b276fc20fbd86bf656140f2fe2`**, tree **`19a5b2acffa105ffa62a81dadd13477cb8853675`**, with **16/16 fresh green CI**. Use [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md), [Chat A response](responses/response-01-chat-a.md) and [current status](STATUS.md) for targeted re-review. No corrected-head independent PASS has yet been received; source PR #66 remains draft/unmerged. All old pins and CI below remain historical, not present release approval.
+
 **Status: AWAITING SEPARATE CHAT B REVIEW.** [Source PR #66](https://github.com/physicsvigilante/conductor_sim/pull/66) remains **DRAFT and UNMERGED**. This review request is authored by Chat A (implementer), not an independent reviewer. The owner issued standing authorization to continue routine implementation/validated merges without repeated approvals, but asked to **interrupt for independent reviews**; no independent M28b verdict exists yet.
 
 | Pin | Exact value |
