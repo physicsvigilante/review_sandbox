@@ -1,3 +1,20 @@
+# conductor_sim PR #66 — M28b merged release record
+
+**M28b MERGED into `main` following independent R2 PASS and exact-head CI gates.** [PR #66](https://github.com/physicsvigilante/conductor_sim/pull/66) closed/merged after GitHub exact-source SHA precondition, under the owner's standing authorization for reviewed routine merges.
+
+- **Exact final reviewed head:** `cd2dff57606bd4726448abc03d8d6ee70f9958d0`, source Git tree `41969aa84c1416d1fdeb7a3b5b826df65e2ff203`; parent/main `abb085d41399b0a17429aa207614aad357ccd77c`.
+- **GitHub merge commit:** [`61f059f742b449ea53fdc131970f00f0b3be91fc`](https://github.com/physicsvigilante/conductor_sim/commit/61f059f742b449ea53fdc131970f00f0b3be91fc). Immediate comparison returned `main` **identical** to this commit, ahead/behind=0.
+- **Premerge exact-head CI:** **16/16 SUCCESS** — Python 3.10 and 3.12 **1,840 passed** per interpreter, 97 real FEMM-only skips/11 warnings; real FEMM 5 **97 passed**; real Chromium six M28b reports, including full 16-question/48-root lane/stop geometry acceptance.
+- **Independent review sequence preserved:** [review-01 CHANGES-REQUESTED](reviews/review-01-chat-b.md) for original head `414e69bd…`; [review-02 CHANGES-REQUESTED](reviews/review-02-chat-b.md) for subsequent `b23ebade…` (F01–F04 PASS, F05 introduced); [review-03 PASS](reviews/review-03-chat-b.md) for final exact source. The third reviewer independently checked **201 native located root records across 15 scenarios**, original full artifact SHA256, Git tree equality, actual 1360/390px Chromium screenshots and F-05 lane/bounds. The source physics/ODE/M24a locator stayed unchanged across F-05 fix.
+- **Postmerge CI:** All 15 push workflows started; initial snapshot **12 successful, 3 running, no failures**. This is an **open verification item** until the final exact merge SHA status is checked. Never infer 15/15 before a fresh query.
+- **Release scope:** bounded typed event questions across independently reassembled M28a parameter variants, honest root uniqueness/comparison brackets, native guard/terminal censoring, source-agnostic offline event-time chart. Not an actual source-apparatus drawing or contact/conductor-response model. Original workbook source facts separate from teacher mass/launch/detector, and original axially guided Q41 remains out of scope.
+- **Follow-up:** Continue work on M29a **structural arrangement comparisons** as an independent new charter/branch. No post-release source changes should be committed to this reviewed M28b merge.
+
+**Production merge COMPLETE. Full postmerge CI must be confirmed separately.**
+
+---
+
+## Archived premerge M28b R2 evidence
 # conductor_sim PR #66 — M28b R2 F-05 review gate
 
 **CURRENT HEAD FULL CI GREEN; AWAITING INDEPENDENT TARGETED REVIEW #03. PR #66 DRAFT, UNMERGED.** Independent [review-01](reviews/review-01-chat-b.md) reported F-01/F-02 blockers; independent [review-02](reviews/review-02-chat-b.md) explicitly passed F-01–F-04 but reported new F-05 **CHANGES-REQUESTED**. Preserve both old verdicts for their own source commits. No independently authored PASS yet applies to the F-05 correction.
