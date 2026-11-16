@@ -1,6 +1,6 @@
 # SIM_HEAT H1-C1-F0 PR #28 — independent pre-native R2 status
 
-**Status: `awaiting-independent-R2-pre-native-review`.** The original separate-author task/model/study/notes have been captured in their first versions, the untouched original F0 CLI admitted the first study, a separate evaluator-assisted modal reference and original native plan were validated **offline only**, and exact-head CI is green. **No Chat B review, native build/launch, production merge, accepted C1 transfer, scientific qualification or classroom outcome is claimed.**
+**Status: `CHANGES-REQUESTED-R2-pre-native-review`** — [independent Chat B report](reviews/review-01-chat-b.md) found F-01 major static reference accuracy deficiency (80× vs required 100×), F-02 native single-run prerequisites; [Chat A disposition](responses/response-01-chat-a.md) reproduces the issue and keeps native HOLD. ** The original separate-author task/model/study/notes have been captured in their first versions, the untouched original F0 CLI admitted the first study, a separate evaluator-assisted modal reference and original native plan were validated **offline only**, and exact-head CI is green. **Chat B R2 review is complete but NOT passed; no native build/launch, production merge, accepted C1 transfer, scientific qualification or classroom outcome is claimed.**
 
 | Field | Exact identity / observed result |
 | --- | --- |
@@ -34,8 +34,8 @@
 | Final exact-head CI | [43895266125](https://github.com/physicsvigilante/sim_heat/actions/runs/43895266125) — **SUCCESS** on `baabeb3ed176f4d9fa83d6be09a58b4f21fa8319`; F0 149/149, 14 frozen pins, original first/modal admission, prepared/checking ref, dry-run plan, no OMC |
 | Final CI evidence | Artifact [14238243398](https://github.com/physicsvigilante/sim_heat/actions/runs/43895266125/artifacts/14238243398), 1,181,341 bytes, original full ZIP SHA-256 `754e35a1143c2d0f08b38f826a2104a58e1c345a7ac1491b18dad7cb03354107`; downloaded, ZIP CRC pass, 14 members |
 | Exact source diff | **8 files added**, no original H1 physical/runner/checker/numerical source modified |
-| Chat B review verdict | **Awaiting new independent report** `reviews/review-01-chat-b.md`; no Chat A-authored verdict |
-| PR merge/native approval | **None**, PR is draft/unmerged, no production main changes, no C1 native run |
+| Chat B review verdict | **CHANGES REQUESTED** — [independent report](reviews/review-01-chat-b.md) finds F-01 80×/100× strict failure and F-02 launch gates. [Chat A response](responses/response-01-chat-a.md) records HOLD and focused draft PR #30 negative regression |
+| PR merge/native approval | **None; HOLD**. PR #28 remains draft/unmerged. [Draft PR #30](https://github.com/physicsvigilante/sim_heat/pull/30) is offline numerical **negative evidence**, not a policy waiver or native approval |
 | Post-native validation | Not applicable; no C1 native results exist |
 
 ## Important distinctions
@@ -46,10 +46,9 @@
 4. Reference equality from two numerical methods under **one evaluator** is useful diagnostic checking, **not external physics certification**. A reference bundle is not a native result. No OpenModelica execution or real classroom behavior has been demonstrated.
 5. Proposed native attempt is unexecuted; future one-shot use requires exact host/source/plan verification and separately assessed independent R2 evidence, without silently recasting any failure as a success.
 
-## Required independent review handoff
+## Reviewed disposition and next gate
 
-- [REQUEST.md](REQUEST.md) — exact author/source/CI/numerical-plan evidence and adversarial R2 questions.
-- [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md) — short copy-ready Chat B prompt.
-- [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md), [PROTOCOL.md](../../../PROTOCOL.md), [REVIEW-RISK-POLICY.md](../../../REVIEW-RISK-POLICY.md) — shared rules.
+The [independent Chat B report](reviews/review-01-chat-b.md) is **CHANGES REQUESTED**, not pending. [Chat A response](responses/response-01-chat-a.md) accepts its F-01–F-04 diagnoses and preserves originals. F-01's reference static `hotLead.G` is 80× under an existing 100× rule: **strict FAIL**. Focused draft [PR #30](https://github.com/physicsvigilante/sim_heat/pull/30) and [central request](../pr-30/REQUEST.md) add a fail-closed exact-rational regression with current-head offline [CI #43911465414](https://github.com/physicsvigilante/sim_heat/actions/runs/43911465414) SUCCESS, no original source modification and zero OMC. The original archived bundle and locally re-prepared bundle have distinct seals and may never be silently conflated.
 
-**Next:** Owner sends prompt to separate Chat B conversation. Reviewer examines exactly `baabeb3ed176f4d9fa83d6be09a58b4f21fa8319`, performs independent interpretation/reference analysis and checks original F0 frozen source and unexecuted one-case plan, then writes a **new** `reviews/review-01-chat-b.md` here. Owner may say **“review done”**; Chat A fetches report, fixes confirmed blockers with new source HEAD/CI and targeted re-review. **No source merge or native run before a defensible independent pre-native clearance.**
+**Next:** Chat B focused review of PR #30's accurate **negative** audit evidence, followed by separately justified 100× conforming reference/host one-shot control milestones if approved. PR #28's original R2 verdict remains CHANGES REQUESTED; no merge and **no native execution**.
+
