@@ -1,6 +1,6 @@
 # SIM_HEAT H2-03S PR #16 — central R2 review status
 
-**Status: `awaiting-targeted-re-review`.** Chat B's independently authored [Review 01](reviews/review-01-chat-b.md) found **F-01 major** (contradictory repinned checking receipts), **F-02 minor** (raw missing-member exception) and **F-03 question** (external GitHub identity trust), and concluded **`changes-requested`** at the original source SHA. Chat A has completed the focused corrections, new source commit and passing exact-new-head CI; see [response-01](responses/response-01-chat-a.md). **Chat B Review 02 has not been authored. PR #16 remains draft/unmerged and no owner merge approval is granted.**
+**Status: `independent-r2-pass-awaiting-owner-merge-approval`.** Chat B's original [Review 01](reviews/review-01-chat-b.md) found F-01 major, F-02 minor and F-03 trust-boundary question at original source SHA; it remains immutable with `changes-requested`. Chat A corrected the three-file scope, obtained passing exact-new-head CI and documented its [response](responses/response-01-chat-a.md). Chat B independently authored [Review 02](reviews/review-02-chat-b.md), Git blob `ed33aeec36c8e1b1f627f59c3a69e7637bce899d`, **scoped R2 `pass`** on the unchanged corrected SHA `099bd4330a56e129f35493b42231830209a9e964`. **PR #16 remains draft, open and unmerged; separate owner merge approval has NOT been granted.**
 
 | Field | Exact value / current status |
 | --- | --- |
@@ -25,8 +25,8 @@
 | Derived steady case JSON | `viewer/network/data/S1.json`, SHA-256 `eacab37b499a47c094cbd642acfee269a1bea7c82d16b15b9217a8c13ef1e4e7` from exact-byte offline original-archive replay |
 | New native builds from viewer CI | **0** — saved S1 native work is on separate experiment workflow |
 | Reviewer Review 01 | [reviews/review-01-chat-b.md](reviews/review-01-chat-b.md) — **`changes-requested`** at first source HEAD; remains unchanged |
-| **Targeted Review 02** | **Awaiting Chat B** at `reviews/review-02-chat-b.md` — Chat A must not write a verdict |
-| Owner merge approval | **Not granted**; previous approval covered implementation, not merge |
+| **Targeted Review 02** | **SCOPED `pass`** — [reviews/review-02-chat-b.md](reviews/review-02-chat-b.md) independently authored at exact corrected source HEAD; Git blob `ed33aeec36c8e1b1f627f59c3a69e7637bce899d` |
+| Owner merge approval | **Not granted; awaiting explicit owner decision despite independent R2 PASS** |
 | Post-merge CI | Not applicable; source PR is draft/unmerged |
 
 ## Source and previous evidence preservation
@@ -37,14 +37,16 @@
 - Original reviewed candidate [43826695620](https://github.com/physicsvigilante/sim_heat/actions/runs/43826695620) passed its source-specific suite, but independent Review 01 demonstrated an archive-admission defect at that SHA.
 - First correction CI [43833850755](https://github.com/physicsvigilante/sim_heat/actions/runs/43833850755) **FAILED** at old adapter tests after mandatory external run/commit parameters were added, before tests were updated. This is preserved as failed. Final correction [43834101967](https://github.com/physicsvigilante/sim_heat/actions/runs/43834101967) **PASS** 151+4+11+14 and real Chromium on the corrected head. Original native S1 and all three transient case bundle bytes remain unchanged.
 - Original PR #14's Review 01 findings and Review 02 scoped PASS remain their own immutable historical files. PR #16 is a **new** R2 evidence contract, not a replay of PR #14's verdict.
+- **Independent PR #16 Review 02 completed:** Chat B independently downloaded three SHA-pinned ZIPs, replayed the original genuine S1 archive and H1 receipt, and performed **38 adversarial repinned-ZIP probes**: 36 correctly typed refusals and two intentional admissions showing documented external trust/non-attempt-directory scope limits. F-01 and F-02 resolved; F-03 is a mandatory externally checked run/commit assertion rather than an adapter-side GitHub attestation. Reviewer concluded **scoped R2 PASS, no additional code change required**. A future nonblocking documentation refinement may explicitly say the complete member manifest covers the **native attempt subtree**, not unrelated outer CI-evidence files.
 
-## Handoff and remaining gates
+## Final review disposition and remaining gates
 
-- [REQUEST.md](REQUEST.md), [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md), [Review 01](reviews/review-01-chat-b.md) — original immutable R2 request/source and finding.
-- [responses/response-01-chat-a.md](responses/response-01-chat-a.md) — attributable author dispositions and corrected-source verification. **Not** an independently authored verdict.
-- [FOLLOW-UP-02.md](FOLLOW-UP-02.md) and [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md) — **targeted second review**, pinned corrected source HEAD and actual GitHub Actions evidence.
-- [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md), central [PROTOCOL.md](../../../PROTOCOL.md), [REVIEW-RISK-POLICY.md](../../../REVIEW-RISK-POLICY.md).
+- [Original REQUEST.md](REQUEST.md), [Review 01](reviews/review-01-chat-b.md): historical first exact-head request and **changes-requested** findings, unchanged.
+- [Chat A response](responses/response-01-chat-a.md) and [FOLLOW-UP-02.md](FOLLOW-UP-02.md): corrected three-file scope, exact SHA/CI and independent follow-up instructions.
+- [Review 02 — scoped R2 PASS](reviews/review-02-chat-b.md): independently tested original S1 native archive, complete H1 checker/receipt/seal reproduction, 36/36 malformed-archive refusals, two documented trust/scope-limit admissions, original source preservation. Exact approved-for-review source head remains `099bd4330a56e129f35493b42231830209a9e964`.
+- [Successful correction CI 43834101967](https://github.com/physicsvigilante/sim_heat/actions/runs/43834101967), **151 H1 + 4 analytical + 11 Python adapter + 14 Node**, real Chromium desktop/mobile. **No additional whole-project R2 review is required for this unchanged source**.
+- [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md) and [PROTOCOL.md](../../../PROTOCOL.md): owner-approved merge is a **separate** gate.
 
-**Next:** Owner pastes the short Chat B targeted prompt in the separate reviewing conversation. Chat B independently probes the full ZIP receipt/manifest validation, typed missing-member refusals and externally supplied run/commit provenance boundary, and writes a **new immutable Review 02** directly into the central `reviews/` folder. When owner says **“Review complete”**, Chat A retrieves the attributed report directly from GitHub. Further code changes require a new head SHA, full source CI and only affected-path re-review unless evidence/physics semantics expand. A scoped PASS is not authorization to merge.
+**Next:** Ask the owner for explicit permission to merge **SIM_HEAT PR #16**. If approved, verify that GitHub PR head still equals the reviewed `099bd4330a56e129f35493b42231830209a9e964`, that required CI is successful and no new changes invalidate the review. Mark the draft PR ready if necessary, merge with expected head SHA, verify merge/main identity and post-merge CI, then update this central record. **Do not merge without explicit approval.** The nonblocking documentation specificity around the attempt-subtree manifest does not warrant code modification at this reviewed SHA.
 
-Release limits remain explicit: original source native results are diagnostics, not independent sensor measurements or formal H1 qualification; no R3 certified reference error, C1 unfamiliar-author transfer, symbolic/inverse solver or teacher classroom trial. All viewer readings retain `diagnostic_only`, `nativeQualified=false`, and **PR #16 is still draft and unmerged**.
+Release limits remain explicit: outputs are historical `diagnostic_only`, `nativeQualified=false`, not externally measured sensor data, R3-certified reference error, full H1 native qualification, C1 held-out model transfer or teacher classroom validation. The adapter matches caller-supplied independently verified GitHub run/commit pins; it **does not** authenticate arbitrary self-pinned archives by itself.
