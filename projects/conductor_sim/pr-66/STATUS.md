@@ -1,3 +1,18 @@
+# conductor_sim PR #66 — M28b F-05 source correction
+
+**INDEPENDENT R2 #02: CHANGES-REQUESTED due to NEW F-05; prior F-01–F-04 all independently PASSED.** [Review-02-chat-b](reviews/review-02-chat-b.md) is pinned to former exact head `b23ebade71e8a2b276fc20fbd86bf656140f2fe2`, Git tree `19a5b2acffa105ffa62a81dadd13477cb8853675`. Preserve this verdict; old 16/16 CI does not qualify the newer change. PR #66 remains **DRAFT/UNMERGED**.
+
+- **Current F-05 source correction:** `cd2dff57606bd4726448abc03d8d6ee70f9958d0`, tree `41969aa84c1416d1fdeb7a3b5b826df65e2ff203`, base/main `abb085d41399b0a17429aa207614aad357ccd77c`. PR source physics unchanged.
+- **Reviewer's demonstrated defect:** M24a legitimately retains 16 near-coincident terminal observations for each of three independently solved models (48 native roots). Previous alternative marker y-spacing escaped its own physical scenario lane, and even SVG bounds. Source native numerical roots/table were correct; the UI misattributed them.
+- **Local response:** `event_sweep_viewer.py` now packs candidate glyphs in 4 bounded rows **to the left of the true stop boundary** within its own scenario; original candidate ID, time, numerical bracket, residual, signed direction and stop time remain in table/tooltip/native JSON. Packing offsets are explicitly decorative and are **not events after the physical stop**. Explicit runtime SVG/lane bounds are checked. No E/V, source guard, ODE or M24a event locator changes.
+- **New precise regression:** `dense-terminal` case defines all 16 distinct close terminal questions for the original uniform-mass model. Native test parses all 48 SVG glyph geometries and verifies event ID, correct associated lane, chart bounds, original stop x and no invented bracket/pair. Real Chromium wide and 390px checks run the same genuine physics and geometry checks, record screenshots and check all 48 table records.
+- [Original independent R2 #01](reviews/review-01-chat-b.md) CHANGES-REQUESTED for original head; [independent R2 #02](reviews/review-02-chat-b.md) CHANGES-REQUESTED on former corrected head due solely to F-05; [Chat A response #02](responses/response-02-chat-a.md) documents the newly authored fix.
+- **Next:** finish GitHub CI on **current** `cd2dff57…` head; then pin a fresh **targeted independent Chat B R2 #03 prompt** for F-05 only, obtaining a separately authored result `reviews/review-03-chat-b.md`. The owner's standing routine merge authorization applies **only after** independently accepted and fully green source. No current-head reviewer PASS or source merge is claimed.
+
+---
+
+## Superseded prior corrected-head status and archival evidence
+
 # conductor_sim PR #66 — M28b independent R2 review status
 
 **CORRECTED HEAD FULL CI GREEN; AWAITING TARGETED INDEPENDENT CHAT B RE-REVIEW. PR #66 DRAFT AND UNMERGED.** The original [review-01](reviews/review-01-chat-b.md) verdict **CHANGES-REQUESTED** remains historically valid for head `414e69bd960bc71f3df65c7346e81bf58c1540b8`. No independent verdict has yet been received on the corrected source. The owner authorized routine validated merges **after independent PASS**, not a review waiver.
