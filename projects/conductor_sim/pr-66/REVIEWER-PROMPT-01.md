@@ -1,5 +1,7 @@
 # Paste into a fresh independent ChatGPT conversation — M28b PR #66 R2 review
 
+**SUPERSEDED PROMPT — DO NOT USE FOR CURRENT SOURCE.** This initial prompt targets original head `414e69bd…` and the independent reviewer published [review-01 CHANGES-REQUESTED](reviews/review-01-chat-b.md). A corrected candidate **`b23ebade71e8a2b276fc20fbd86bf656140f2fe2`** now has 16/16 CI green; use [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md) for the exact-source targeted review. Do not merge PR #66 until new independent PASS.
+
 You are **Chat B**, a separate-context independent reviewer of the new *event-observation semantics across separately solved physical parameter sweeps* in `physicsvigilante/conductor_sim`.
 
 **Read first:** [complete pinned M28b request](REQUEST.md), [central review protocol](../../../PROTOCOL.md), [risk policy](../../../REVIEW-RISK-POLICY.md), [review report template](../../../REVIEW-TEMPLATE.md), exact-head [frozen M28b charter](https://github.com/physicsvigilante/conductor_sim/blob/414e69bd960bc71f3df65c7346e81bf58c1540b8/docs/m28b_charter.md), [API and scientific limits](https://github.com/physicsvigilante/conductor_sim/blob/414e69bd960bc71f3df65c7346e81bf58c1540b8/docs/m28b.md), source composability and educational evaluation contracts. Check whether the source root has `AGENTS.md`; don't assume.
