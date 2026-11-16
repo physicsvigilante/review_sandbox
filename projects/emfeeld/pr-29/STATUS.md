@@ -1,3 +1,19 @@
+# CURRENT PR #29 — WINDOWS ENCODING DEFECT REPRODUCED AND CORRECTED; FRESH EXACT-HEAD CI PENDING (2026-11-17 Asia/Kolkata)
+
+**[Source PR #29](https://github.com/physicsvigilante/emfeeld/pull/29) remains OPEN/DRAFT/UNMERGED.** Exact new corrected head `1ae4e327caf2c600466185b17c68521f5217bd0c`; canonical Git tree `3d9fa4c8b594e46837e6825590e4e5d72db9a030`; qualified base/main `fbdf66e56b3a89a5cf1bea6c0b403c9fc8d9ebcd`. Original head `9e0a00e7f6e2825de485afe9109246c4532fcab9` / tree `bdd467266cac3dff151d8b31914d7e30225328dd` remains historical.
+
+**Original CI FAILURE preserved:** [Linux/Windows workflow #43937937426](https://github.com/physicsvigilante/emfeeld/actions/runs/43937937426): Ubuntu **SUCCESS**, Windows **FAILURE** after numerical and PyVista tests passed. New Markdown table step failed with `'charmap' codec can't encode character '\\u2212'` while redirecting Unicode table stdout under legacy Windows locale. Original failure log and artifact `14261599563` (SHA256 `b7d5f95942f64f1e16e739493c3e018dcb6a07bb96ca22f975b3ce601bad4b67`) remain unchanged and are **not** qualified releases. Original source snapshot/PyVista succeeded on the former head; they are not new-source qualification.
+
+**Reproduction and minimal fix:** first two reviewer-derived author-owned CP1252 stdout/real-subprocess regression cases **FAILED on old source**, faithfully reproducing original Windows failure; original red log SHA256 `960f156a47e72ec2c63628fb46dbd03efce69110ac86eed516b47379e817c976`. Narrow new source changes **`src/emfeeld/scenario_ensembles.py` +8/-1** and **`tests/test_scenario_ensembles.py` +47/-0**, no other path. New Markdown `table` CLI writes exact **UTF-8 bytes** via stdout.buffer when available, with a text-only capture fallback; original signed numbers, Unicode Markdown, units, original SHA receipts and read-only inspection behavior unchanged. Corrected local original tests **96 focused PASS**, **18 historical behavioral PASS** with `-W error` (one obsolete whole-file freeze test deselected). Full local headless attempt timed out ~24% with no final result, **not claimed a pass/failure**. Full reproducible detail and preserved logs in [source response-01](responses/response-01-chat-a.md).
+
+**New exact-head GitHub CI:** [Linux/Windows clean-install #43941771034](https://github.com/physicsvigilante/emfeeld/actions/runs/43941771034), [separate PyVista #43941771047](https://github.com/physicsvigilante/emfeeld/actions/runs/43941771047), [source snapshot #43941771200](https://github.com/physicsvigilante/emfeeld/actions/runs/43941771200) began QUEUED at correction publication. They require independent original job and archive audit before author qualification. No Chat B independent review report or verdict exists for PR #29; keep source **DRAFT/UNMERGED** until corrected-head full Linux/Windows/PyVista qualification, original ZIP/sealed scientific evidence audit and a focused R1 reviewer-owned PASS. Escalate if numerical/evidence meaning changes; do not self-author review results.
+
+**Limitations:** UTF-8 table output correctness does not certify teacher usefulness, manual Windows pointer interaction, hostile multi-writer filesystem ACID, full malicious SHA resealing defense, independent human physics validation or physical time evolution between separate source hypotheses. Original user Conda/saved studies untouched.
+
+---
+
+## Historical initial PR #29 status (preserved)
+
 # EM Fields PR #29 — Verified Ensemble Evidence Table V1, R1 author qualification
 
 **STATUS (2026-11-17 Asia/Kolkata): SOURCE DRAFT/UNMERGED; EXACT SOURCE SNAPSHOT PASSED; LINUX/WINDOWS AND REAL-PYVISTA CI RUNNING; INDEPENDENT R1 REVIEW NOT YET REQUESTED.**
