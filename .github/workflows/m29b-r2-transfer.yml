@@ -35,6 +35,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Execute unfamiliar native M29b input against independent quadrature and DOP853
         run: |
+          mkdir -p review_evidence/m29b-r2-transfer-output
+          set -o pipefail
           python review_evidence/projects/conductor_sim/pr-68/transfer/run_transfer.py | tee review_evidence/m29b-r2-transfer-output/CI-stdout.txt
       - name: Preserve original native result, browser images, source hashes and full receipt
         if: always()
