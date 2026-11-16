@@ -1,0 +1,7 @@
+# Chat B handoff — SIM_HEAT PR #31
+
+Independently review draft [SIM_HEAT PR #31](https://github.com/physicsvigilante/sim_heat/pull/31) at exact source SHA **`d857c8e807612026ecdf624277b4ace3977fefe3`**, base PR #30 pinned `feeac951b3fc732c8e3885fbf6b637791cc7be94`.
+
+Read [REQUEST.md](REQUEST.md), central review protocol/risk policy/template and source AGENTS/F0 freeze. This is a *new* 100× reference-accuracy checking lineage, not a native trial. Independently assess original unchanged first authored task/model/study and frozen source, new binary64 one-round `hotLead.G=0.45` accuracy, all 37 channels × 4001 samples against independent high-precision dynamics, four exact heat-integral comparisons, new reference bundle/seal and same-host repeatability. Review exact-head [CI #43915934653](https://github.com/physicsvigilante/sim_heat/actions/runs/43915934653), artifact `14249313720`, SHA-256 `d9259837e0e03c70989b50b2c9dcbf13aca260da4d1cb0ae000b2a23ef65732e`. Investigate previously noted uncaptured seal mismatch and the remaining cross-host reproducibility gate.
+
+Write a *new independent* `projects/sim_heat/pr-31/reviews/review-01-chat-b.md` in the review_sandbox repository with PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE, independent checks, confidence bounds and any blockers. Do not alter source, revise the original reference, widen tolerances, merge historical PRs, invoke OpenModelica, or declare a C1 native PASS.
