@@ -1,3 +1,17 @@
+# CURRENT PR #25 DISPOSITION — AUTHOR-QUALIFIED, INDEPENDENT R1 REVIEW PENDING (2026-11-16 Asia/Kolkata)
+
+**Source [PR #25](https://github.com/physicsvigilante/emfeeld/pull/25) remains OPEN / DRAFT / UNMERGED.** Its source head is exactly `4fe896ff6bb98d21a090bc16a84fe26145f9f5e7`, Git tree `4df3703346ec7cba1ab74fcd6daa40796a535bf3`, qualified base `bf6a18399c604136dd363ad94d40557dbe2c2543`, preview `75f818bdb199ad97ae036bd1dea380f03d7e71f6` with identical tree. **Do not merge until focused Chat B review.**
+
+**All exact-head author CI has now passed**: [Linux/Windows clean install #43886746384](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746384) SUCCESS on both Ubuntu 24.04 and Windows 2022 (each **1,456 headless +18 current historical +33 real-PyVista; 54 repeated focused ensemble tests already counted inside headless**); [separate real-PyVista #43886746161](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746161) SUCCESS; [source snapshot #43886746421](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746421) SUCCESS and its original 346-file Git tree reconstructed.
+
+The two **original post-CI release ZIPs** have been independently downloaded and verified by Chat A (not Chat B): Linux SHA256 `573b23020f3b2d5471152242352a017b18e05761cb6afdbb7ad7fea714ca44ec`, Windows SHA256 `6182044d7b103ba4e8e0f46e1c9501228977d760259508cd08f295bfc7417ad8`. Both: **2,157 unique CRC-clean files**, 21 sealed inventories, 12 nested native seals, 60 run input-hash bindings, six sealed comparisons, 32 successful and two legitimately unavailable G1 measurements, plus E1/G1 native baseline/member view screenshots hash-bound to complete recorded runs. Separate viewer ZIP passes its 17 screenshot hashes. [Detailed original artifact and first-attempt audit](AUTHOR-ARCHIVE-AUDIT-01.md).
+
+**CURRENT targeted independent handoff:** [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md). Earlier [REQUEST.md](REQUEST.md) and [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md) were recorded while Windows was still running and their pending-CI statements are **historical**, superseded by the verified outcomes above. **No Chat B report is recorded yet; do not self-label author qualification as independent R1 pass.** Manual Windows mouse/desktop use, real teacher acceptance, malicious hash-sealer threat resistance and distributed ACID are not qualified.
+
+---
+
+## Earlier provisional statuses (preserved unchanged)
+
 # EM Fields PR #25 — initial R1 review status (2026-11-16 Asia/Kolkata)
 
 **DRAFT / UNMERGED. INDEPENDENT REVIEW PENDING.** Exact source head `4fe896ff6bb98d21a090bc16a84fe26145f9f5e7`, qualified base `bf6a18399c604136dd363ad94d40557dbe2c2543`. [PR #25](https://github.com/physicsvigilante/emfeeld/pull/25) adds read-only verified native ensemble view selection; changes four files, no solver/field-law changes. Initial [REQUEST](REQUEST.md) and [Chat B reviewer prompt](REVIEWER-PROMPT-01.md) record explicit adversarial scope and physical/evidence limitations.
