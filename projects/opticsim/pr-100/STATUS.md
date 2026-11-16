@@ -30,3 +30,7 @@
 ## Next checkpoint
 
 The exact head has now passed all 11 workflows. Preserve original source-specific evidence and do not rewrite historical failures. Preserve original source-specific reports and screenshot evidence; do not overstate 0 teacher/student effectiveness. Request focused separate review only if contracts/evidence presentation is later modified; the current PR implements no production code. **Keep PR #100 draft and unmerged until source-head CI complete and separate owner merge authorization.** The prior PR #92–#99 numerical research is independently reviewed but remains draft/unmerged; no solver, default RNG or mandatory Stage-2 change.
+
+## Review handoff
+
+[Focused independent Chat B teaching software review prompt](REVIEWER-PROMPT-01.md) prepared at the exact source SHA; review report not yet authored. This is a test/docs-only milestone, not a production physics or learning-effectiveness approval. Do not merge without separate owner permission.
