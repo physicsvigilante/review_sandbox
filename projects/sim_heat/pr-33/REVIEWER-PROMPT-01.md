@@ -1,0 +1,11 @@
+# Chat B prompt — SIM_HEAT PR #33 immutable PR31 reference (storage candidate only)
+
+Independently review historical [SIM_HEAT draft PR #33](https://github.com/physicsvigilante/sim_heat/pull/33) at exact source HEAD **`b8c5152aac86fc1be32f7b98e032f108d8345c66`**, against PR #32 head `502a6e8c392d8b8cfb8a4361cddcae4fafff6f01`.
+
+Read [REQUEST.md](REQUEST.md), central protocol/risk policy/template and original F0 source contracts. This PR **preserves the exact independently reviewed PR #31 V2 reference bytes** (raw SHA `0db511dd8dba023d16518667de256029cf3e073463ea21e2478aeac8afd1f368`, canonical seal `d2b8e2ca8e1f929cac7b028dcc3f7d0b453921d193f877eb091e23ac70aa4ce9`) as a **new Git-stored 503,552-byte XZ archive**, SHA-256 `fc5a7df5928c3fb8aef2ba4af516dfbd32b42c0450ebef1051ad4fd7efebd17f`. It is **not** a new numerical reference or certification. The old F0 80× error and PR #32 bitwise regeneration failure remain unchanged.
+
+Please independently retrieve and compare the **original PR #31 Actions artifact #14249313720** to the committed compressed bundle and manifest; verify exact byte roundtrip, both hashes, canonical seal, physical spec/analysis lineage, fail-closed default reader and adversarial mutations, write-scoped single-use archival workflow and original failed CI. Check exact-head successful [CI #43930084218](https://github.com/physicsvigilante/sim_heat/actions/runs/43930084218), [artifact #14258126574](https://github.com/physicsvigilante/sim_heat/actions/runs/43930084218/artifacts/14258126574) (ZIP SHA `701044a6148d252afad731d3183ae5d53146d6f3eebf211bb99d3a0174ec664f`), 6 new archive tests, 149 frozen tests and strict no-native execution.
+
+Adversarially assess the **limits**: source Git branch may be deleted, `--inspect-only` exposes data for audit but is **not owner approval**, and no native plan/consumer is implemented. Give scoped PASS, CHANGES REQUESTED or INSUFFICIENT EVIDENCE for **candidate immutable archival integrity only**, with blockers for any future owner-approved Option A/reference consumption.
+
+Commit your own new report to `projects/sim_heat/pr-33/reviews/review-01-chat-b.md` in review_sandbox. Do not edit original files, regenerate/replace the old or V2 reference, widen tolerances, merge historical PRs, launch OpenModelica or declare a qualified C1 native result.
