@@ -1,3 +1,14 @@
+## Latest reviewed status — corrected PR #33
+
+**Status: `R2-SCOPED-PASS-STORAGE-INTEGRITY; OWNER-OPTION-A-NOT-YET-AUTHORIZED; NATIVE-HOLD`.**
+[Independent Chat B review-02](reviews/review-02-chat-b.md) verified the corrected exact source **`bf51e7721bca73720aa9b5f5f2de90defee821ec`**, tree `a4c1e1cdd247cb07990db672ad4c092e93933d83`, and independently reran **34/34** adversarial checks. F-01 whole-manifest provenance, F-02 exact pinned compressed bytes, and F-03 XZ memory-bound hardening each **PASS** at this source. [Chat A response-02](responses/response-02-chat-a.md) accepts the scoped finding and explicitly preserves prior [review-01 CHANGES REQUESTED](reviews/review-01-chat-b.md) at original SHA `b8c5152aac86fc1be32f7b98e032f108d8345c66`.
+
+**Evidence:** [CI #43934967279](https://github.com/physicsvigilante/sim_heat/actions/runs/43934967279) **completed/SUCCESS** at reviewed SHA, [artifact #14259763856](https://github.com/physicsvigilante/sim_heat/actions/runs/43934967279/artifacts/14259763856), ZIP SHA-256 `5cc97cd2944d68d55f895fda9ee8668be74967e30f7211fe6906aea5c83aec94`, 11/11 CRC valid. Existing historical frozen H1 **149/149**, new candidate archive tests **9/9**, 14 original F0 SHA pin checks PASS. **No OpenModelica run** or native qualification. Source PR #33 stays **draft/unmerged**.
+
+**Still pending explicit owner governance:** Option A immutable PR31 checking-reference adoption, trusted/preserved exact reviewed code+manifest+compressed/raw IDs, controlled ref/retention/backup, approval-aware sanctioned consumer, then **separately reviewed/authorized** F-02 exact native plan with durable across-run one-shot gate and post-native review. The original F0 80×/100× failed reference and PR #32 bitwise cross-host regeneration FAIL both remain failures. No reviewed source or CI result authorizes reference consumption/native launch.
+
+---
+
 ## Review-01 disposition and review-02 targeted correction (latest)
 
 **Latest status: `F01-F03-corrected; awaiting-independent-targeted-R2-review-02`.** The original [Chat B report](reviews/review-01-chat-b.md) returned **CHANGES REQUESTED** at historical reviewed source `b8c5152aac86fc1be32f7b98e032f108d8345c66` for acceptance of forged provenance fields and alternate compressed bytes; the original raw reference archival and default native-use refusal independently passed. [Chat A response](responses/response-01-chat-a.md) reproduces and corrects F-01–F-03; **review-01 remains valid for its old source SHA**.
