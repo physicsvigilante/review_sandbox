@@ -1,6 +1,20 @@
+## Independent Chat B R2 verdict — 2026-11-16
+
+**PASS — BOUNDED NUMERICAL RESEARCH/EVIDENCE ONLY**, at exact unchanged draft PR #98 source commit `477db82058dde2aba4627a51c8d991e24dce6015`. [Independent Chat B review](reviews/review-01-chat-b.md). Reviewer independently downloaded and rehashed the original PR96 source and original PR98 ZIP artifacts, checked all six PR98 ZIP member digests and the 24-slot schedule, original source scene hash, compiled-native and seeded-native config hashes, pinned PhyDemo `Scene.loadJSON` native randomSeed initialization, original Glass `scene.rng()` use, and all **24/24 genuine FAILED native process records**, including their identical native fingerprints and G1 invalid native encounter errors. None was accepted as a completed optical simulation.
+
+Chat B independently rederived exact represented-binary64 geometry for all **24 original archive TAP callbacks** with a separate integer-lattice implementation (4 unique recorded hit signatures; 6 exact represented-line nonforward, 12 point-agreement UNKNOWN, 6 near-vertex UNKNOWN) and reconstructed pinned native JS intersection/rounded-point predicates. **All 24 hits are from FAILED native traces** with their optical readings suppressed; none certifies physical critical-angle truth, an error tolerance or full native causation. The independent review did **not** run fresh native or Chrome trials.
+
+**Original source-head CI remains 11/12, not full-green.** The research workflow passes. An unchanged curved-mirror browser check failed **twice** at runtime due to `No Chrome/Chromium available`; this is an unresolved CI environment/browser-evidence gate (native/unit portions passed). No browser verification, production merge or release approval has been earned.
+
+**Recommended narrow independent follow-up:** preregister a **second different fixed native RNG seed** on the exact same authored critical-shift-neg source case using the same bounded test-only observer configurations and fresh processes. Compare the original first-seed archive with new evidence to test for a seed-dependent native status/fingerprint; no causal observer inference or ideal physical branch from a single seed comparison. Separately resolve/requalify Chrome availability as an **infrastructure** issue, without altering optical physics or marking historical failures green.
+
+**Hold PR #98 DRAFT and UNMERGED**, including its disposable workflow. No PhyDemo patch, numerical cutoff, source scene, measurements, mandatory Stage-2 withholding or production merge authorized. Developer disposition: [responses/response-01-chat-a.md](responses/response-01-chat-a.md).
+
+---
+
 # Opticsim PR #98 — one original critical Glass case with fixed PhyDemo native RNG
 
-**CURRENT: TEST-ONLY RESEARCH COMPLETED AND SOURCE EVIDENCE PRESERVED; INDEPENDENT CHAT B R2 NUMERICAL RESEARCH REVIEW PENDING. PRODUCTION AND NATIVE PHYSICS UNCHANGED. PR #98 DRAFT AND UNMERGED.**
+**CURRENT: TEST-ONLY RESEARCH COMPLETED AND SOURCE EVIDENCE PRESERVED; INDEPENDENT CHAT B R2 NUMERICAL RESEARCH REVIEW PASSED FOR BOUNDED EVIDENCE ONLY. PRODUCTION AND NATIVE PHYSICS UNCHANGED. PR #98 DRAFT AND UNMERGED.**
 
 - [Draft Opticsim PR #98](https://github.com/physicsvigilante/opticsim/pull/98), exact original tested head **`477db82058dde2aba4627a51c8d991e24dce6015`**, base/main `50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518`, pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`. Case, native seed and schedule [preregistered before execution at commit `6e6d3a7ed66b04473b0c1e0fceac557a99468168`](https://github.com/physicsvigilante/opticsim/blob/6e6d3a7ed66b04473b0c1e0fceac557a99468168/evaluation/fixed-native-rng-v1/PROTOCOL.md). Five **added research-only files**, 631 source additions, zero changes to production `src/`, PhyDemo source, physical schema, measurement, UI or Stage-2.
 - Responds to **R-01** independently identified in [PR #97 Chat B PASS](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-97/reviews/review-01-chat-b.md): previous deterministic seeds randomized experiment order, **not PhyDemo RNG**, whose default native `randomSeed:null` uses current time and whose Glass inside/outside auxiliary ray consumes `scene.rng()`. This experiment isolates that confound for **one single fixed native seed**, not a universal numerical correctness or causal proof.
@@ -20,7 +34,7 @@
 
 A fixed native RNG provides a more controlled within-case replay, but this run only demonstrates stable **failed** native executions for one seed under a shared test-only loading path. Neither global native numerical root cause, the probability of failures, physical correctness, observer neutrality, a mathematically exact critical-angle branch, safe reported-point error envelope nor a mandatory Stage-2 withholding rule is established. Original production and all original PR #92–#97 research, failed histories, ZIP bytes and reviews remain intact.
 
-**Independent Chat B R2 research/evidence review pending.** Review should independently verify pinned Scene.js randomSeed activation, untouched source inputs/compiled hashes, 24 original failed native runs, four distinct event signatures and the 11/12 CI environment failure. No production release or physics decision permitted. **KEEP PR98 DRAFT AND UNMERGED (including the disposable workflow)**. A later native numerical or Stage-2 policy modification requires a separate owner-approved design, independent physical/model tests, code/browser R2 verification and explicit merge/release authority.
+**Independent Chat B R2 research/evidence review PASSED for numerical evidence only.** Review should independently verify pinned Scene.js randomSeed activation, untouched source inputs/compiled hashes, 24 original failed native runs, four distinct event signatures and the 11/12 CI environment failure. No production release or physics decision permitted. **KEEP PR98 DRAFT AND UNMERGED (including the disposable workflow)**. A later native numerical or Stage-2 policy modification requires a separate owner-approved design, independent physical/model tests, code/browser R2 verification and explicit merge/release authority.
 
 ## Independent R2 research review packet — prepared, not yet reviewed
 
@@ -28,4 +42,4 @@ A fixed native RNG provides a more controlled within-case replay, but this run o
 - [Paste-ready separate Chat B review prompt](REVIEWER-PROMPT-01.md)
 - [Chat A developer research report (NOT independent)](DEVELOPER-REPORT-01-CHAT-A.md)
 
-The `reviews/review-01-chat-b.md` path is reserved for actual separate Chat B authorship. Do not create a purported reviewer verdict or merge this research-only/temporary workflow without independent findings and a separate production release decision.
+A genuine separate Chat B review is now published at [reviews/review-01-chat-b.md](reviews/review-01-chat-b.md). Do not create a purported reviewer verdict or merge this research-only/temporary workflow without independent findings and a separate production release decision.
