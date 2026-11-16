@@ -1,3 +1,15 @@
+## Review-01 disposition and review-02 targeted correction (latest)
+
+**Latest status: `F01-F03-corrected; awaiting-independent-targeted-R2-review-02`.** The original [Chat B report](reviews/review-01-chat-b.md) returned **CHANGES REQUESTED** at historical reviewed source `b8c5152aac86fc1be32f7b98e032f108d8345c66` for acceptance of forged provenance fields and alternate compressed bytes; the original raw reference archival and default native-use refusal independently passed. [Chat A response](responses/response-01-chat-a.md) reproduces and corrects F-01–F-03; **review-01 remains valid for its old source SHA**.
+
+**Current exact PR #33 source HEAD:** `bf51e7721bca73720aa9b5f5f2de90defee821ec`. Exactly four candidate-only paths modified relative to review-01 head; original reference JSON, stored XZ archive, whole original manifest, frozen F0 files, old CI and original 80×/cross-host failures unchanged. Corrected verifier pins **entire manifest raw SHA `50467b138ed64cdb908f2c763bc777e6babf0bb04a0711568acc559112e66f84`**, **archived compressed SHA `fc5a7df5928c3fb8aef2ba4af516dfbd32b42c0450ebef1051ad4fd7efebd17f`** and 503,552-byte size independently of editable manifest data; uses `lzma.LZMADecompressor(..., memlimit=64MiB)`. Tests cover all reviewer-forged fields, alternate valid XZ compression with rehashed manifest and malformed-header refusal before decoding.
+
+**Exact-head CI [#43934967279](https://github.com/physicsvigilante/sim_heat/actions/runs/43934967279): completed SUCCESS.** [Artifact #14259763856](https://github.com/physicsvigilante/sim_heat/actions/runs/43934967279/artifacts/14259763856), whole ZIP SHA-256 `5cc97cd2944d68d55f895fda9ee8668be74967e30f7211fe6906aea5c83aec94`, independently downloaded/11 member CRC valid; 9/9 integrity/refusal tests, 149/149 frozen H1 regressions, 14/14 frozen file SHA checks. Default inspect remains **REFUSED** for consumption; explicit audit-only inspection PASS is not owner/reference certification.
+
+**Next:** Independent Chat B [targeted REQUEST-02](REQUEST-02.md) and [REVIEWER-PROMPT-02](REVIEWER-PROMPT-02.md); write **new** `reviews/review-02-chat-b.md`. Native OpenModelica/one-shot F-02 remains **HOLD**; no approved permanent trust root/tag/owner canonical fixture consumption. Original historical PRs must not be merged into production.
+
+---
+
 # SIM_HEAT PR #33 — proposed immutable PR31 checking reference storage
 
 **Status: `awaiting-independent-R2-archival-review`.** [Source draft PR #33](https://github.com/physicsvigilante/sim_heat/pull/33) remains historical frozen F0-only, open/draft and unmerged. **Exact head:** `b8c5152aac86fc1be32f7b98e032f108d8345c66`; base reviewed PR #32 `502a6e8c392d8b8cfb8a4361cddcae4fafff6f01`; frozen original F0 source `dd8c9432abe97563414bb3ed809e61e673473812`. Exactly **8 added** archive/data/scope/test/CI paths and zero existing edits. No native OMC version/build/launch or production integration.
