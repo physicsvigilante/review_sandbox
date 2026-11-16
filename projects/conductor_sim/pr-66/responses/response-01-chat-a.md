@@ -37,3 +37,14 @@
 New corrective head reuses the entire original source model/ODE/event law unchanged, with only M28b pairing conditions, renderer semantics, new explicit example and focused native/browser tests. The new `docs/m28b.md` describes conservative duration-complete, direction-matched unique pairing, overlapping terminal-boundary alternatives, and root-localization limitations.
 
 **Full exact-new-head CI required** before repinning a fresh Chat B prompt. The previously reported **16/16 green** workflows apply only to the older reviewed source; the corrected current head's tests are running and must be checked. Preserve original syntax/browser failed runs and independently authored first review. Then request a **targeted independently authored `reviews/review-02-chat-b.md`** on the new source head/tree. Under the owner's standing authorization, only a **PASS** and green exact-head release gates permit routine merging; no new per-merge approval question is needed.
+
+
+## Final corrected-head CI acceptance addendum
+
+**Corrected source head `b23ebade71e8a2b276fc20fbd86bf656140f2fe2` and Git tree `19a5b2acffa105ffa62a81dadd13477cb8853675` remained unchanged. All 16/16 GitHub runs observed for the corrected head finished SUCCESS.** This is developer-controlled CI, not an independent R2 sign-off.
+
+- [Python run 43855150059](https://github.com/physicsvigilante/conductor_sim/actions/runs/43855150059): **1,839 passed + 97 real FEMM-only skipped + 11 warnings**, independently on Python 3.10 and Python 3.12.
+- [Real FEMM5 run 43855149882](https://github.com/physicsvigilante/conductor_sim/actions/runs/43855149882): **97 passed** retained conductor nonregressions.
+- [Real Chromium/retained visualization run 43855149862](https://github.com/physicsvigilante/conductor_sim/actions/runs/43855149862): **PASS** five M28b HTML reports. The new **coincident-terminal** case retains six native event candidates over three runs, including legal terminal alternatives. All five had 390px page/document widths, 348px timeline, no console/page/network errors, and all prior visualizations ran successfully.
+- [Artifact 14220977049](https://github.com/physicsvigilante/conductor_sim/actions/runs/43855149862/artifacts/14220977049), **GitHub-reported** digest `sha256:14436fdd484d6132e56d4242e209589f5b0a5528ca1e842d3e144d15e6bb7bf1`. Chat A did not independently download/recompute the ZIP digest. Reviewers should verify archive source-tree identity separately from GitHub's synthetic merge-checkout SHA.
+- [Targeted Chat B re-review prompt #02](../REVIEWER-PROMPT-02.md), pinned to the corrected exact head/tree, is ready. No new independently authored verdict is yet available and PR #66 remains DRAFT/UNMERGED.
