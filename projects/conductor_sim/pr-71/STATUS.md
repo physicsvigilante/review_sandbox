@@ -10,3 +10,17 @@
 - [Full R2 REQUEST](REQUEST.md) · [fresh reviewer prompt](REVIEWER-PROMPT-01.md). The required independently authored report is **reviews/review-01-chat-b.md**.
 
 **Release gate:** only independent source/tree-pinned R2 PASS with no blockers and unchanged full exact-head CI qualifies for expected-head routine merge under standing owner approval. Otherwise preserve draft and seek targeted correction/re-review. After merge verify main and postmerge full CI. No independent PASS yet.
+
+
+## F-01 follow-up after independent review-01 — 2026-11-16
+
+The independently authored [review-01-chat-b.md](reviews/review-01-chat-b.md) issued **CHANGES-REQUESTED** against OLD source e8970e26b91f6f8dfe3bd8bffcaf8f181449870b, identifying one result-evidence authentication blocker: non-native trajectory impostor, unknown termination, invented comparison times. No physical solver-law defect was demonstrated.
+
+Production PR #71 has since advanced to **NEW source HEAD c190e0929e727d35db2337efc366cf9676fc36f3**, actual Git tree **df48e1eb10536285818abfafd3f0628436247882**. A single correction commit changed only coupled_physical_family.py, five new F-01 regression tests and m31a.md. It enforces native TestChargeMotionResult types, valid duration/source-guard statuses, immediate-parent exact-time comparison evidence, and revalidation before detached JSON export; no field/force/RK or source-assembly law changed.
+
+GitHub now reports **16/16 exact NEW-head CI workflows SUCCESS**:
+- [Python 3.10 and 3.12 #43927024438](https://github.com/physicsvigilante/conductor_sim/actions/runs/43927024438): **1,891 passed, 97 FEMM-only skipped, 16 warnings per interpreter**.
+- [Real FEMM5 #43927024562](https://github.com/physicsvigilante/conductor_sim/actions/runs/43927024562): **97 passed**.
+- [Historical real Chromium #43927024565](https://github.com/physicsvigilante/conductor_sim/actions/runs/43927024565): **PASS**.
+
+**Review gate remains CLOSED** until a fresh independently authored targeted review #02 PASS on the new source HEAD. [Reviewer prompt #02](REVIEWER-PROMPT-02.md) focuses on original F-01 and authentic guard/joint-translation regressions. Required reviewer output is `reviews/review-02-chat-b.md`; the original review-01 stays immutable. PR #71 remains draft/unmerged; no merge on developer CI alone.
