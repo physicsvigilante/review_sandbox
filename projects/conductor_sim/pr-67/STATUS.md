@@ -1,3 +1,18 @@
+# conductor_sim PR #67 — M29a independent R2 corrections
+
+**INDEPENDENT REVIEW-01 CHANGES-REQUESTED — TWO VIEWER ISSUES, PHYSICAL/NUMERICAL CORE PASSED.** [Source PR #67](https://github.com/physicsvigilante/conductor_sim/pull/67) remains DRAFT/UNMERGED. [Chat B's exact-head review-01](reviews/review-01-chat-b.md) was authored independently for prior head `32f11b931548dcc5c5f6fd836da8239a265de187`, tree `28fd4cbca302593c1d0bdd37d26476b546e274c1`; preserve its verdict.
+
+**New developer correction:** source HEAD `0243d90215f212a1e6d69d1014c090495f570250`, Git tree `f21771df5cdbb1e6932c321f51fd7a7e23c84bab`. New exact-head CI has started but was not accepted at time of this entry; earlier green 16/16 CI belongs only to reviewed old head. No independent review PASS exists on corrective head.
+
+- **F-01 MAJOR source label omission:** `src/conductor_sim/structural_family_viewer.py` now renders physical source `id`, author-supplied `label` and built-in `kind` together in the *visible* inventory cell using existing DOM `textContent`, not `innerHTML` or a hidden JSON-only assertion. Real browser tests check *all* visible model inventories and a separately reassembled qualified case with original `<img onerror>` and new `<svg onload>` hostile labels, escaped author provenance and no created/injected DOM/network.
+- **F-02 MINOR 390px usability:** the existing `.scroll` element is now a keyboard-focusable, labeled horizontal scroll region; on narrow screens the comparison table has **1060px minimum width**, five usable fixed columns and a sticky scenario ID column while the *document* remains width ≤390px. Visible scroll guidance is displayed. Real Chromium measures actual individual column widths, scroll region/client width, scroll position after interaction, sticky computed style, no document overflow and 390px SVG size.
+- **Scope:** only viewer and browser/native tests were changed; original M22a structural identity/whole-model qualification and particle force/RK/source-guard physics remain untouched. Source/teacher provenance and literal saved-time/censoring semantics are unchanged.
+- **Novel independent review physics evidence:** on old source, Chat B tested a genuinely new tilted finite rod + signed points + gravity family against separately implemented Coulomb 200-node Gauss–Legendre quadrature and SciPy DOP853; agreement better than 1.75e−14 m and 3.62e−13 m/s. Independently downloaded/rehashed source archive and reconstructed the pinned Git tree. No new physical algorithm defect reported.
+- **Next gate:** await 16/16 current-head workflows, then freeze exact head/tree and issue a source-pinned targeted Chat B review #02 of F-01 and F-02. Standing owner authorization permits merge only after independent PASS and no blockers. Corrected developer CI alone is not release authorization.
+
+---
+
+## Archived original pre-review status
 # conductor_sim PR #67 — M29a independent R2 review status
 
 **FULL EXACT-HEAD CI GREEN. AWAITING SEPARATE CHAT B R2 REVIEW. Source PR #67 remains DRAFT/UNMERGED.** The owner authorized ongoing milestone work and merges **after independent review**, not bypassing the reviewer. This is a developer release-status record, NOT an independently authored verdict.
