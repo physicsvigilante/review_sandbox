@@ -1,3 +1,5 @@
+> **Historical review-01 request (source `b8c5152aac86fc1be32f7b98e032f108d8345c66`).** Chat B returned **CHANGES REQUESTED** for F-01/F-02 at that pinned head. This document is retained as the original request. The **current corrected source `bf51e7721bca73720aa9b5f5f2de90defee821ec`** has green exact-head CI and needs **[targeted review REQUEST-02.md](REQUEST-02.md)** / [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md), with a new `reviews/review-02-chat-b.md`. No native approval or historical merge follows from either request.
+
 # SIM_HEAT PR #33 — R2 independent review: immutable archived PR31 checking fixture (candidate only)
 
 **Source project:** `physicsvigilante/sim_heat`. **Draft source PR:** [#33](https://github.com/physicsvigilante/sim_heat/pull/33), historical frozen-F0 branch, **never merge this or earlier historical experiment PRs into production main**.
