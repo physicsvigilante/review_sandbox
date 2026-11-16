@@ -1,6 +1,6 @@
 # Opticsim PR #97 — preregistered repeat critical native profile controls
 
-**CURRENT: RESEARCH EXECUTED, test-only exact-reference replay PASSED at exact draft HEAD `760473cafceb70c055bb7c13b138a16c5e4d7620`. Separate independent Chat B R2 numerical RESEARCH review PENDING. PR97 DRAFT/UNMERGED. No production physics or policy change.**
+**CURRENT: RESEARCH EXECUTED, ALL 12/12 SOURCE-HEAD WORKFLOWS PASSED, test-only exact-reference replay PASSED at exact draft HEAD `760473cafceb70c055bb7c13b138a16c5e4d7620`. Separate independent Chat B R2 numerical RESEARCH review PENDING. PR97 DRAFT/UNMERGED. No production physics or policy change.**
 
 - Original production `main` `50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518`, pinned native PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`. New test-only source [draft PR #97](https://github.com/physicsvigilante/opticsim/pull/97). Protocol finalized at **`c32c2e1ffbe849a54416df2ce25775cc746ea39d` before any new native execution**, defining exactly 2 reused PR96 nominal-critical cases, 6 balanced randomized blocks each, seed `0x9700A55`, four disjoint profiles and **48 fresh-Node-process native trials**. Only 5 newly added research files (preregistration, JS runner, Python exact-reference, README, disposable workflow). **Zero production `src/`, PhyDemo, schema, native cutoff, measurement, Stage-2 or UI changes.**
 - Original PR96 archival [source ZIP artifact 14229080814](https://github.com/physicsvigilante/opticsim/actions/runs/43872962563/artifacts/14229080814), original `inputs.json` **19,205 bytes / SHA-256 `caa07af040d0a71b50ea6b69470aa55a545b04d52195994913123a902b434df3`**. The PR97 workflow downloads original artifact using `actions:read` and source runner verifies those exact input bytes, freezes all 6 original source cases and chooses only `critical-shift-neg` and `critical-tilt-p14-shift` with saved document hashes matching. Original full inputs copied **byte-identically** into new output, not regenerated; no old research artifact or run rewritten.
@@ -32,7 +32,7 @@ The corrected run's **12 TAP-archive native processes captured 44 actual native 
  
 **Successful corrected research artifact** [14230677949](https://github.com/physicsvigilante/opticsim/actions/runs/43878097648/artifacts/14230677949), GitHub-reported ZIP SHA256 `a6bae60306f4a0730f4cae021b86a46b534d65736de2cb381f24c507d3eaa22e` (23,246 bytes), contains an exact original PR96 source inputs copy, `report.json`, `exact-reference.json`, and separate fetched original PR96 JSON members. The derived archive's GitHub Action-reported SHA is NOT yet independently rehashed by Chat B. Original output per-member digests and individual failed ordinals must be independently recomputed in review, not invented in this status.
 
-**12 total CI workflows expected on this source head** (11 existing + 1 research); the research workflow succeeded, but **full current source-head check completion must be verified** before claiming all green.
+**ALL 12/12 source-head GitHub Actions workflows now VERIFIED SUCCESS**, including 11 unchanged existing project checks and the one disposable research workflow. This only validates source-specific tests and research integrity, not native physical truth or observer neutrality.
 
 ## Scientific boundaries and release hold
 
