@@ -1,3 +1,13 @@
+# CURRENT HANDOFF UPDATE — EXACT-HEAD R1 CANDIDATE FULLY AUTHOR-QUALIFIED
+
+**As of 2026-11-16 Asia/Kolkata:** The Windows clean-install job formerly pending in the initial request below has **completed SUCCESS** alongside Linux on exact PR source head **`4fe896ff6bb98d21a090bc16a84fe26145f9f5e7`**, canonical tree **`4df3703346ec7cba1ab74fcd6daa40796a535bf3`**. [Linux/Windows workflow #43886746384](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746384): each **1,456 headless**, **18 historical** (one obsolete whole-file guard deselected), **33 real-PyVista**, **54 focused rerun already part of headless**. [Real-PyVista #43886746161](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746161) and [exact source snapshot #43886746421](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746421) also passed. Both **original** Linux and Windows release ZIPs have now been downloaded and audited by the implementer: **2,157 unique CRC-clean entries per OS, 21 sealed inventories, 12 native seals, 60 input-hash bindings, six comparisons, 32 fulfilled/two legitimately unavailable, and source-bound native presentation screenshots**. Original ZIP SHA256 Linux `573b23020f3b2d5471152242352a017b18e05761cb6afdbb7ad7fea714ca44ec`, Windows `6182044d7b103ba4e8e0f46e1c9501228977d760259508cd08f295bfc7417ad8`. All audited work remains author-side, not reviewer-owned.
+
+**Current reviewer instructions:** [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md). [Full original ZIP and first-attempt audit](AUTHOR-ARCHIVE-AUDIT-01.md). The original initial request below, including “Windows still running” and “archives not audited,” remains preserved as an **historical snapshot only**. **PR #25 is OPEN/DRAFT/UNMERGED; no Chat B review report exists.** Independently execute the focused adversarial review before source merge.
+
+---
+
+## Original initial request (historical, unchanged below)
+
 # EM Fields PR #25 — R1 focused independent review request (initial handoff)
 
 **Status:** DRAFT/UNMERGED; independent R1 reviewer report PENDING. Exact-head Linux qualification PASS, separate real-PyVista PASS; Windows clean-install running as of this authored packet. Do **not** merge on the basis of this request.
