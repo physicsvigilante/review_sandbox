@@ -1,5 +1,24 @@
 # conductor_sim PR #66 — M28b independent R2 review status
 
+**CHAT B REVIEW #01: CHANGES-REQUESTED, TWO DEMONSTRATED BLOCKERS. SOURCE PR #66 DRAFT/UNMERGED.** Independent [review-01-chat-b.md](reviews/review-01-chat-b.md) is pinned to original head `414e69bd960bc71f3df65c7346e81bf58c1540b8`, tree `ac06b4990b8002394fa7965fa2391eda8ca9f16e`. Preserve that result; passing CI did not cover these adversarial cases.
+
+**Developer corrective candidate:** head `b23ebade71e8a2b276fc20fbd86bf656140f2fe2`, tree `19a5b2acffa105ffa62a81dadd13477cb8853675`. New exact-head CI was triggered and has not yet been accepted. The changes are not an independent reviewer PASS.
+
+| Finding | Independent verdict | Current developer correction (requires CI and targeted re-review) |
+| --- | --- | --- |
+| F-01 | MAJOR/BLOCKER: one preguard observed root incorrectly called unique | Only pair same-ID, one resolved, same **signed direction** roots when **both complete entire requested duration**. Censored source guard/terminal/unresolved observations are explicitly unpaired; original native roots/brackets remain. Added exactly reviewer-described early detector before gravity guard. |
+| F-02 | MAJOR/BLOCKER: native overlapping terminal candidates cannot render | Trust M24a-valid native event alternative and show its marker **at terminal boundary**, with explicit candidate label and original real numeric bracket in table, never poststop trajectory line. Added two close terminal-plane regression plus actual Chromium checks. |
+| F-03 | SCIENTIFIC/QUESTION: opposite signed bidirectional crossings | Policy: **unpaired**, since opposite physical crossing direction is not the same oriented event. Table/JSON show signed directions; mirrored charged-points test. |
+| F-04 | MINOR: generic renderer says ring charge | Replaced ring-specific generic text with model-parameter language; regression. |
+
+[Original independent review](reviews/review-01-chat-b.md) · [first pre-review request](REQUEST.md). **Next:** verify exact corrective head (Python 3.10/3.12, full browser and 97 real FEMM nonregression), then publish a new exact-source review prompt requesting targeted Chat B re-review. Standing owner authorization permits routine merge only after **independent PASS**, not after merely green developer CI. No code in original physical field/RK/event locator was altered in this correction.
+
+---
+
+## Original pre-review status (archived; applies only to original head)
+
+# conductor_sim PR #66 — M28b independent R2 review status
+
 **AWAITING SEPARATE CHAT B R2 REVIEW.** Source [DRAFT PR #66](https://github.com/physicsvigilante/conductor_sim/pull/66) is OPEN, DRAFT and UNMERGED. Owner has standing authorization for further routine building/CI-reviewed merges, but specifically requested independent review interruptions. This implementer-authored status is **NOT** a reviewer verdict.
 
 - **Exact source review HEAD:** `414e69bd960bc71f3df65c7346e81bf58c1540b8`; Git tree `ac06b4990b8002394fa7965fa2391eda8ca9f16e`; base/main `abb085d41399b0a17429aa207614aad357ccd77c` (M28a merged and 16/16 postmerge CI green).
