@@ -21,3 +21,15 @@ Chat B's exact supported counterexample declares **16 distinct, signed terminal 
 Rerun exact-new-head Python 3.10/3.12, real FEMM 5 and full real-browser CI, retain original first failure evidence, and inspect actual generated mobile screenshots. **Do not treat the previous 16/16 successful runs on `b23ebade…` as acceptance of this new corrective head.** Once green, freeze new head/tree and issue a **focused independent Chat B re-review of F-05**, not an unnecessary repeat of corrected F-01–F-04. If the reviewer finds a new actual blocker, correct and re-review. The owner's standing authorization permits merging only after these gates PASS.
 
 **No source merge or independent F-05 PASS is claimed here.**
+
+
+## Acceptance addendum — exact F-05 corrected source is CI-green
+
+The source remains **`cd2dff57606bd4726448abc03d8d6ee70f9958d0`**, tree **`41969aa84c1416d1fdeb7a3b5b826df65e2ff203`**. All **16 of 16** GitHub workflows returned for this source are fully **SUCCESS**, with no failures or pending runs; this is *developer CI*, not an independent Chat B verdict.
+
+- [Python 3.10/3.12 43861117530](https://github.com/physicsvigilante/conductor_sim/actions/runs/43861117530): **1,840 passed, 97 real FEMM-only skipped, 11 warnings per interpreter**.
+- [Real FEMM5 43861117809](https://github.com/physicsvigilante/conductor_sim/actions/runs/43861117809): **97 passed** retained conductor nonregressions.
+- [Full real Chromium and historic visualizations 43861117543](https://github.com/physicsvigilante/conductor_sim/actions/runs/43861117543): **PASS** six M28b reports: ring detector, uniform mass, multi-crossing, gravity guard, coincident terminal and new dense terminal. The original reviewer's upper-bound 16-question case has **48 actual source/native root circles, 48 rows, correct lane/bounds/stop geometry**, zero JS/page/network errors and 390px page/document width with 348px timeline.
+- [Visualization artifact #14224795012](https://github.com/physicsvigilante/conductor_sim/actions/runs/43861117543/artifacts/14224795012), provider **reported** SHA256 `08b65897fbcda4adc1c9489d695a3ee838bbed09bc6c93495ca7345809cf65eb`. Chat A did not independently rehash it.
+- The exact one-commit correction changed **five files only** (viewer, example, tests, real-browser gate, docs). SHA of `src/conductor_sim/event_sweep.py` and M24a `motion_events.py` was independently checked unchanged before and after. No native event semantics were adjusted.
+- [Final source-pinned F-05 reviewer prompt #03](../REVIEWER-PROMPT-03.md) is ready. A fresh independently authored `reviews/review-03-chat-b.md` on this exact source is **still required**. PR #66 is draft/unmerged and no review PASS has been claimed.
