@@ -1,3 +1,13 @@
+# CURRENT RELEASE DISPOSITION — POST-MERGE QUALIFIED (2026-11-16, Asia/Kolkata)
+
+The **fresh main-push Linux/Windows CI and separate real-PyVista qualification have PASSED at the actual merge SHA** `bf6a18399c604136dd363ad94d40557dbe2c2543`. Both **original post-merge release ZIPs were downloaded and independently SHA256/CRC/native-evidence audited**: all 2,151 entries per OS were unique and CRC clean; each verified 21 sealed top-level inventories, 12 nested native inventories, 60 saved native-run input SHA256 bindings, six sealed comparisons and 32 fulfilled/two legitimately unavailable G1 measurements. The same-author 20 static/12 trajectory reference check passed per OS. Separate main PyVista workflow passed and its 17 screenshot byte hashes were verified. See **Follow-up 02** below for precise artifact IDs, SHA256, test counts and limitations. Earlier “post-merge open” sections remain unchanged as historical snapshots; their incomplete disposition is superseded here.
+
+**Result: qualified within the explicitly automated, archive-integrity and scoped R2-review boundaries; manual Windows mouse interaction, classroom outcomes and adversarial cryptographic authenticity are not claimed.**
+
+---
+
+## Historical integration record and subsequent append-only updates
+
 # EM Fields PR #23 — integration and post-merge qualification record
 
 **Status as of 2026-11-16 (Asia/Kolkata): MERGED; POST-MERGE MAIN CI / RELEASE ARCHIVE REAUDIT NOT YET VERIFIED.** This record makes no assertion of post-merge qualification success until original run/artifact evidence has been observed. It must be updated append-only with new factual observations, preserving this initial record.
@@ -55,3 +65,44 @@ This follow-up is appended to the original merge report; it does **not** convert
 - The source-equivalence finding strengthens the relationship between pre-merge review/CI and merged code but **does not satisfy** the explicit fresh `main` Linux/Windows/PyVista release gate or authorize reporting the post-merge artifacts as audited.
 
 **Current post-merge disposition is unchanged: source integration complete; fresh main CI and archived evidence gate OPEN.**
+
+
+## Follow-up 02 — FINAL post-merge release qualification and original evidence ZIP audit (2026-11-16 Asia/Kolkata)
+
+**FINAL DISPOSITION: RELEASE QUALIFIED within declared scope.** This replaces, but does not erase, the earlier "CI unavailable/unverified" factual snapshot. The source code was not modified for this qualification. The exact Git merge source/tree equivalence remains proven in Follow-up 01.
+
+### Exact merged-main Actions runs and original logs
+
+- **Merged SHA:** `bf6a18399c604136dd363ad94d40557dbe2c2543`. Queried original GitHub API workflow-run collection with explicit `head_sha` because the narrower connected action initially surfaced only PR-triggered runs. It returned the actual **event=push, head_sha=merge SHA, status=completed, conclusion=success** for both workflows.
+- [Main release candidate clean-install #43879485356](https://github.com/physicsvigilante/emfeeld/actions/runs/43879485356), run attempt 1, completed SUCCESS: Ubuntu 24.04 job **133341223835** and Windows 2022 job **133341223401**, both Python 3.13.5. Original logs and subsequently original archived test logs report per OS **1,435 headless passed**, **18 historical behavioral passed** (plus one frozen whole-file test deliberately deselected), **33 real-PyVista tests passed**, and a separate focused **33-pass ensemble test rerun already counted inside the headless 1,435**. No multiplication of duplicate test memberships across runs.
+- [Main real-PyVista #43879485317](https://github.com/physicsvigilante/emfeeld/actions/runs/43879485317), attempt 1, completed SUCCESS, Linux job **133341222495**; original log gives **1,435 passed** plus nine qualifying offscreen scene render cases and successful programmatic slider-event checks. No manual Windows pointer operation is inferred.
+- The original release workflow logs include a same-author independent-expression E1/G1/T1 reference result with **20 static +12 trajectory comparisons and two expected unavailable**, not reclassified as a new independent reviewer numerical derivation.
+
+### Original post-merge uploaded artifacts, independently downloaded and read byte-for-byte
+
+| Artifact | GitHub ID | Original ZIP SHA256 from uploaded bytes | ZIP entries | Integrity |
+|---|---:|---|---:|---|
+| [Linux release ZIP](https://github.com/physicsvigilante/emfeeld/actions/runs/43879485356/artifacts/14231912437) | `14231912437` | `da900d739a0f6a44955a76d2bfffe0fa2a81fcd7f481e5dc3977a47600eabf3e` | 2,151 | all unique, CRC clean |
+| [Windows release ZIP](https://github.com/physicsvigilante/emfeeld/actions/runs/43879485356/artifacts/14232926188) | `14232926188` | `2f5a4c398fa0d98ef7dfb5d0bf1cff417adc7bdadb11edbbfec6a49bbae07b57` | 2,151 | all unique, CRC clean |
+| [Linux viewer ZIP](https://github.com/physicsvigilante/emfeeld/actions/runs/43879485317/artifacts/14231463772) | `14231463772` | `40f5f15dfd5fbc6573bd3a6e3041ada4a35771703869a87667a6382dd216e630` | 22 | all unique, CRC clean |
+
+**Archive-bound evidence checks performed separately on both original OS ZIPs:**
+
+1. Compared complete downloaded ZIP SHA256 to the original GitHub job upload-log digest and verified **all** 2,151 entries are unique with clean CRC and no path traversal. Exact archived `head-sha.txt` equals the merged SHA, not a former PR commit.
+2. In each E1, G1 and T1 case, verified `ensemble/summary.json` is sealed, baseline complete and both declared sibling revision decisions **accepted**, both native runs complete. Outcome E1 **complete**, G1 **partial**, T1 **complete**. G1 partial is due solely to two unavailable requested cross-comparisons for bodies absent from baseline; not a numerical pass invented for missing data.
+3. Verified **21 complete top-level SHA256 evidence inventories** and **12 nested native integrity inventories** *per operating system*, by independently hashing every referenced original archived file. Checked exactly **12 complete native runs** per OS (three original templates, three fresh baseline runs, six actual sibling runs), with their **60 raw input SHA256 bindings** to complete investigation/analysis/presentation/reference/revision bytes.
+4. Cross-checked all **six sealed comparison request/result pairs** to the exact baseline and sibling `run.json` raw SHA256 and verified request/result hashes, declared pair identity and ordered saved outcomes. The exact comparison entries total **32 `ok` and two `unavailable`** per OS, both with native `unknown_operand` codes for *different* absent G1 body IDs (`body-3-absent` and `body-4-absent`).
+5. Verified raw original `store/proposals/<sha256(proposal_id)>/proposal.json` bytes against the six stored `decision.proposal_sha256` values and matched archived store decision records to the sealed member decisions; request proposals match the archived store bytes semantically. No accepted child ID was silently retargeted.
+6. Verified embedded test logs and same-author reference summary in each archive: headless 1,435, behavioral 18, viewer 33, focused 33 (duplicate of headless membership); source/RK4 reference 20 static, 12 trajectory, two expected unavailable. This verifies recorded results and sealed archived provenance; it is not a new independent solver run.
+7. For the separate PyVista artifact, verified `report.json` binds the **same merge SHA**, reports PASS for nine source/render cases, and all **17 original 1200×850 screenshot PNG SHA256s** equal their saved `png_sha256` fields. Each image decoded and had nonblank visual content. A visual contact-sheet was reviewed in this chat; the manual desktop/Windows interaction limitation remains unchanged.
+
+**Audit harness note:** The first read-only local audit assertion was mistakenly too specific about which G1 body was absent (`body-4` only); an initial test-log parsing pattern also omitted the legitimate `1 deselected` marker. Inspection of raw archives revealed that one G1 branch requires `body-3`, the other `body-4`. Only the *separate audit script* was corrected; original downloaded ZIPs, job logs, source commits and archived evidence were never changed. Rerunning the corrected audit passed on all three original artifacts. This is an audit-harness correction, not a source defect.
+
+**Machine-readable independent archive audit summary:** local JSON `emfeeld-pr23-postmerge-audit.json`, SHA256 `c95f38fd98825c41ccedba0eb3e8fe4a4c3fb82efef9f99586132453fa1138bd` (available in this chat's generated files; not a GitHub required status check). ZIP digest attestations are unkeyed, not authenticity against an attacker who can replace and reseal every file.
+
+### Final limitations and gate disposition
+
+- **Passed:** exact merged code identity; independent Chat B R2 correction-scope pass; fresh actual `main` Linux/Windows and separate PyVista workflow conclusions; archived numerical scenario evidence status, saved hash/inventory integrity, separate current-commit native E1/G1/T1 same-author source-reference check and complete two-OS release archive read-only re-audit.
+- **Still not claimed:** independent human physicist certification, separate full numerical solver verification by a new evaluator, manual Windows desktop/mouse behavior, actual classroom usefulness, conductor response, full electromagnetic dynamics, malicious-author tamper resistance, or distributed ACID guarantee. Partial G1 is the **intended honest unavailable result**.
+
+**All requested PR #23 release gates are closed within their stated test/evidence scope.** The original central review-01 and review-02 findings and responses remain historically unchanged. Future new features must begin from the actually merged and now qualified `main` SHA, on their own branch with their own appropriate risk review.
