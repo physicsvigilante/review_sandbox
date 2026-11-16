@@ -1,6 +1,6 @@
 # Independent Chat B R2 review — M29b PR #68 structural event family
 
-**CI GATE NOT YET COMPLETE AT DRAFT PUBLICATION — DO NOT BEGIN INDEPENDENT REVIEW UNTIL STATUS.md CONFIRMS 16/16 EXACT-HEAD GREEN.** This is a source-pinned *provisional* prompt, not reviewer approval.
+**READY FOR INDEPENDENT R2 REVIEW — 16/16 EXACT CURRENT-HEAD CI SUCCESS.** This is a source-pinned reviewer prompt, not a developer or reviewer verdict.
 
 You are **Chat B**, a separate-context independent reviewer of the new **typed numerical event observations across physically distinct fixed-source inventories**. Read the [full exact-source M29b request](REQUEST.md), [review protocol](../../../PROTOCOL.md), [R2 risk policy](../../../REVIEW-RISK-POLICY.md), [review template](../../../REVIEW-TEMPLATE.md), source [frozen preimplementation charter](https://github.com/physicsvigilante/conductor_sim/blob/fe63cab1994b702e7e55348a122ee76f9f5e10ed/docs/m29b_charter.md), [M29b numerical/visual scientific contract](https://github.com/physicsvigilante/conductor_sim/blob/fe63cab1994b702e7e55348a122ee76f9f5e10ed/docs/m29b.md), and accepted M22a/M24a/M28b/M29a contracts. Check whether root `AGENTS.md` exists; don't assume. Reinspect current [PR #68](https://github.com/physicsvigilante/conductor_sim/pull/68) head/draft/merge status before reviewing.
 
@@ -33,7 +33,18 @@ Challenge all major rules:
 
 The first attempted head `edce30e0...` failed Python HTML import with a string-concatenation syntax error, fixed in `05b926ce...`. That next head failed the new browser test because it tried `.inner_text()` on **two genuine crossing rows** of one locator (Playwright strict mode), fixed to check every row. Head `33028d87...` passed all seven M29b browser cases but had **one incorrect new test setup** calling missing `StructuralFamilyPlan.as_dict()` instead of giving an actual untrusted dictionary (1 failed/1,856 passed). Head `f3d82ba...` corrected the test and completed **16/16 green CI**, **1,857 tests passing per Python 3.10 and 3.12 interpreter**, 97 actual FEMM5 conductor regressions, and full real Chromium. These failures are preserved, not mislabeled first-run passes.
 
-**Latest current head `fe63cab...` is a one-commit UI boundary refinement on top of `f3d82ba...`.** It changed only four files: viewer, native grouped-badge check, actual Chromium grouped-badge stop check, docs. No physical solver law. The latest head's **16/16 exact-head CI must be completed and verified before starting this review**, and this draft prompt will be updated with the final actual workflow links, test counts and artifact SHA256. Previous head green CI is not current-head acceptance. The owner has authorized routine merges after independent R2 PASS and CI, so a new manual merge approval question should not interrupt progress.
+**Final exact source head `fe63cab…` is a one-commit UI boundary refinement on top of `f3d82ba…`.** It changed only four files: viewer, native grouped-badge check, actual Chromium stop-bound check, docs. No physical solver law, M24a event locator or RK changed. **ALL 16/16 workflow runs now PASS on this current source HEAD**, independently of earlier heads. Previous-head successes and failures remain preserved historical evidence. The owner has authorized routine merges after independent R2 PASS and CI, so a new manual merge approval question should not interrupt progress.
+
+## Final-current-head GitHub CI — developer evidence (not independent review)
+
+**Exact-reviewed-source CI 16/16 SUCCESS on `fe63cab1994b702e7e55348a122ee76f9f5e10ed`, tree `3ff8bcc507dfa625d0d9f22908d85b837a1ed782`:**
+- [Python 3.10 and 3.12 run 43885817631](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817631): **1,857 passed, 97 FEMM-only skipped, 13 warnings per interpreter**.
+- [Real FEMM5 run 43885817758](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817758): **97 passed**, conductor nonregression, NOT an independent M29b event-root reference.
+- [Full real Chromium plus historical visualizations run 43885817321](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817321): **PASS all seven new M29b cases** (six native physics lessons plus hostile-labels) with 390px viewport=document widths, actual event outcomes and bracket rows, mobile table 1080px internally scrollable, visible source identities, zero page/console/network errors. **coincident-terminal** preserves 48 original roots and 48 numeric table rows; chart groups into 3 badges wholly before real stops; **guard-detector** retains an early real root while child source-guard censors later observation.
+- [Additional push Python run 43885595479](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885595479): success.
+- [Exact-source visualization artifact #14234184228](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817321/artifacts/14234184228): **GitHub-reported** SHA-256 `6ddd0ceb6417bd5fee7e440c0a5cb78a5df927e957962062cd514f80f3f0710f`; Chat A has **not independently downloaded/rehashed** this ZIP. Check actual source tree and bytes, not just PR CI synthetic merge `commit.txt`.
+
+The independently authored reviewer must still execute/inspect actual novel source/event/visual evidence rather than merely repeat this CI list. Source PR #68 remains DRAFT/UNMERGED. Under the standing owner authorization, merging is permitted only AFTER a separate independent review PASS with no blocker and a final exact-head check, without asking for redundant routine approval.
 
 ## Required output
 
