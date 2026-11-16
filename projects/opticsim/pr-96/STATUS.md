@@ -1,6 +1,18 @@
+## Independent Chat B R2 verdict — 2026-11-16
+
+**PASS FOR BOUNDED NUMERICAL RESEARCH/EVIDENCE ONLY**, reviewed exact unchanged draft head `2f705f5167666b2fc2c7cd4de9572e8baded119f`. [Separate Chat B full report](reviews/review-01-chat-b.md). Reviewer independently rehashed [original 12,217-byte ZIP artifact 14229080814](https://github.com/physicsvigilante/opticsim/actions/runs/43872962563/artifacts/14229080814) at **SHA256 `467b548edbcdfc8cf4aecdab416d134d3ac703572a4e0330a4379fcb28df9929`**, plus original JSON inputs (`caa07af040d0a71b50ea6b69470aa55a545b04d52195994913123a902b434df3`), report (`9324aabab62a2ab0e3636c30dec2154e590daf7c90304e8aeafa564e41250698`) and exact reference (`497d2e568ca851dd98941be38ccd54b7473953b56405b653771f784633808f12`). Independently reconstructed all 6 scene hashes, **36/36** balanced trial positions and native fingerprints; no fresh native simulation was performed by Chat B.
+
+Verified actual native statuses: **ordinary OFF 8 completed/4 failed, ordinary ON 11/1, additional synchronous TAP ON 10/2**, combined **29/7**. Seven actual failed source ordinals **14, 16, 17, 18, 31, 33, 35** remain genuinely failed, not accepted measurements; failed ON/TAP diagnostics suppressed. The 12 separate TAP trials captured **32 actual finite-Glass callbacks**: independently calculated exact dyadic classifications matched all **32/32** original JS and developer Python results. Only **17 unique complete serialized binary64 hit signatures**: **4 exact represented nonforward callbacks representing 2 unique signatures**, **26 point-agreement UNKNOWN (13 signatures)**, **2 near-vertex UNKNOWN (2 signatures)**. Failed TAP trials 18/33 contribute 8 real callback samples, including 2 nonforward; they are still failed native runs. Numeric pinned-source determinant replay equals 32/32 archived reported points and its rounded-point native gates pass 32/32. None establishes real-world exact-critical branch or a validated point-error envelope.
+
+**Historical execution comparison:** original separate CI 43872775256, whose Python reference failed to launch, nevertheless executed the same frozen 36-slot schedule and had **eight changed outcome positions** versus corrected final CI, while keeping identical authored input bytes. This is repeatability/sensitivity evidence, **not** a causal observer-neutrality verdict. Far ±7° first-event controls were completed and matched their coarse expected branch for 12/12 trials. Reviewer did not run new PhyDemo or Chrome.
+
+**NONPRODUCTION HOLD:** Research pass does not approve native physics, a numerical tolerance, any mandatory Stage-2 withholding, or merging research PR #96 / disposable workflow. The [Chat A response](responses/response-01-chat-a.md) preserves review distinctions. Smallest optional new research: separately preregister a bounded OFF/ON/TAP repeated study restricted to **critical-shift-neg** and **critical-tilt-p14-shift**, with an explicit overhead-matched *diagnostic* control; keep comparisons descriptive and release decisions separate.
+
+---
+
 # Opticsim PR #96 — held-out ordinary OFF/ON/TAP numerical research
 
-**RESEARCH EXECUTED and all 12/12 source-head CI workflows PASSED at exact draft SHA `2f705f5167666b2fc2c7cd4de9572e8baded119f`; separate Chat B R2 research/evidence review PENDING. NO PRODUCTION CHANGE, NO MERGE AUTHORIZED.**
+**RESEARCH EXECUTED and all 12/12 source-head CI workflows PASSED at exact draft SHA `2f705f5167666b2fc2c7cd4de9572e8baded119f`; independent Chat B R2 research/evidence review PASSED for research-only evidence. NO PRODUCTION CHANGE, NO MERGE AUTHORIZED.**
 
 - [Draft source PR #96](https://github.com/physicsvigilante/opticsim/pull/96), production main `50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518`, pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`. Six-case geometries, input normalization, seed, expected schedule and evidence rules were [precommitted separately](https://github.com/physicsvigilante/opticsim/blob/3bd989e17ed47932f218a4b339158d59647c9fb2/evaluation/heldout-native-profiles-v1/PROTOCOL.md) at commit `3bd989e17ed47932f218a4b339158d59647c9fb2` before experimental execution. No original PRs #92–#94 source/data rewritten.
 - First CI at initial head `89bd636b0e828e49d447e56f23d5314415202509`, [run 43872666690](https://github.com/physicsvigilante/opticsim/actions/runs/43872666690) **FAILED BEFORE native trials**, because the disposable workflow built browser rather than headless `dist/test-core.cjs`. Next CI at `340310c87e7331a748e546a549a354fe5698d347`, [run 43872775256](https://github.com/physicsvigilante/opticsim/actions/runs/43872775256) executed native trials and retained [two-file research artifact 14228657123](https://github.com/physicsvigilante/opticsim/actions/runs/43872775256/artifacts/14228657123), but **FAILED Python audit launch** due to leftover historical default input path. Actual run's 36 native trials had 29 completed/7 failed but are **not** a completed independent-language audit. Both failures remain retained.
@@ -15,12 +27,12 @@
 
 ## Interpretive hold
 
-This study provides genuine but bounded new held-out native execution and represented-binary64 geometric consistency evidence. It does **not** prove the physical ideal critical branch, causal observer perturbation, all native root causes, a validated point-error envelope, broad optical system robustness, detector/image/Watts semantics or authority to change production numerical algorithms or Stage-2 measurement withholding. The original previous PRs and 7 native failures remain evidence, not repaired outcomes. Await a separate Chat B R2 research review at exact source SHA.
+This study provides genuine but bounded new held-out native execution and represented-binary64 geometric consistency evidence. It does **not** prove the physical ideal critical branch, causal observer perturbation, all native root causes, a validated point-error envelope, broad optical system robustness, detector/image/Watts semantics or authority to change production numerical algorithms or Stage-2 measurement withholding. The original previous PRs and 7 native failures remain evidence, not repaired outcomes. The separate Chat B R2 review PASSED bounded research only at the exact source SHA; no production modification is authorized.
 
 ## Independent review package
 
 - [Full independent R2 research/evidence review request](REQUEST.md)
 - [Ready-to-paste separate Chat B review prompt](REVIEWER-PROMPT-01.md)
-- A Chat A developer summary is NOT independent; separate reviewer report at `reviews/review-01-chat-b.md` is pending actual authorship.
+- A Chat A developer summary is NOT independent; separate reviewer report at `reviews/review-01-chat-b.md` has been published by separate Chat B as the linked report.
 
 Do not merge the research branch or disposable workflow on this basis.
