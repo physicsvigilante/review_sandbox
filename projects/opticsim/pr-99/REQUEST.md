@@ -1,6 +1,6 @@
 # Opticsim PR #99 — independent R2 NUMERICAL RESEARCH/EVIDENCE review
 
-**Review numerical research only, NOT production physics, native engine, source/measurement semantics, Stage-2 qualification, user-facing optics, or authorization to merge a disposable research workflow. DO NOT MERGE PR99.** Follow [central protocol](../../PROTOCOL.md) and [risk policy](../../REVIEW-RISK-POLICY.md) plus the previous [independent PR98 research review](../pr-98/reviews/review-01-chat-b.md). Independent Chat B must author its own report, not adopt Chat A’s first-party exact reference as an external oracle.
+**Review numerical research only, NOT production physics, native engine, source/measurement semantics, Stage-2 qualification, user-facing optics, or authorization to merge a disposable research workflow. DO NOT MERGE PR99.** Follow [central protocol](../../../PROTOCOL.md) and [risk policy](../../../REVIEW-RISK-POLICY.md) plus the previous [independent PR98 research review](../pr-98/reviews/review-01-chat-b.md). Independent Chat B must author its own report, not adopt Chat A’s first-party exact reference as an external oracle.
 
 ## Exact source and preregistration
 
