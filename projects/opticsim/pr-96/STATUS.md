@@ -1,6 +1,6 @@
 # Opticsim PR #96 — held-out ordinary OFF/ON/TAP numerical research
 
-**RESEARCH EXECUTED at exact tested draft SHA `2f705f5167666b2fc2c7cd4de9572e8baded119f`; separate Chat B R2 research/evidence review PENDING. NO PRODUCTION CHANGE, NO MERGE AUTHORIZED.**
+**RESEARCH EXECUTED and all 12/12 source-head CI workflows PASSED at exact draft SHA `2f705f5167666b2fc2c7cd4de9572e8baded119f`; separate Chat B R2 research/evidence review PENDING. NO PRODUCTION CHANGE, NO MERGE AUTHORIZED.**
 
 - [Draft source PR #96](https://github.com/physicsvigilante/opticsim/pull/96), production main `50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518`, pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`. Six-case geometries, input normalization, seed, expected schedule and evidence rules were [precommitted separately](https://github.com/physicsvigilante/opticsim/blob/3bd989e17ed47932f218a4b339158d59647c9fb2/evaluation/heldout-native-profiles-v1/PROTOCOL.md) at commit `3bd989e17ed47932f218a4b339158d59647c9fb2` before experimental execution. No original PRs #92–#94 source/data rewritten.
 - First CI at initial head `89bd636b0e828e49d447e56f23d5314415202509`, [run 43872666690](https://github.com/physicsvigilante/opticsim/actions/runs/43872666690) **FAILED BEFORE native trials**, because the disposable workflow built browser rather than headless `dist/test-core.cjs`. Next CI at `340310c87e7331a748e546a549a354fe5698d347`, [run 43872775256](https://github.com/physicsvigilante/opticsim/actions/runs/43872775256) executed native trials and retained [two-file research artifact 14228657123](https://github.com/physicsvigilante/opticsim/actions/runs/43872775256/artifacts/14228657123), but **FAILED Python audit launch** due to leftover historical default input path. Actual run's 36 native trials had 29 completed/7 failed but are **not** a completed independent-language audit. Both failures remain retained.
@@ -10,9 +10,17 @@
 - **Far ±7° scalar controls:** native runs in subcritical and supercritical cases completed for all profiles, and the runner found zero first-event mismatches where a first event existed. Exact-critical branch was deliberately **not prescribed**.
 - Per-case native fingerprints and statuses are in original retained `report.json`. For fixed `critical-shift-neg` ordinary OFF both trials failed, ON one completed/one failed, TAP one completed/one failed. At `critical-tilt-p14-shift` OFF both failed, ON both completed, TAP one completed/one failed. Such small frequency differences are **descriptive only**, not observer causality; native behavior is sensitive near critical across separate fresh processes.
 - Original research output ZIP [artifact **14229080814**](https://github.com/physicsvigilante/opticsim/actions/runs/43872962563/artifacts/14229080814) reports **12,217 B**, GitHub Actions archive SHA-256 **`467b548edbcdfc8cf4aecdab416d134d3ac703572a4e0330a4379fcb28df9929`**. It contains original `inputs.json`, `report.json` and independent-language `exact-reference.json` (must independently rehash individually in Chat B). These are retained for 14 days and must be separately archived for long-term reproducibility before expiration.
-- The 11 other existing GitHub workflows on this exact head were **still completing when this status was recorded**. Do not claim 12/12 until individually verified.
+- **Verified exact-head 12/12 GitHub Actions workflows SUCCESS:** 11 existing production project workflows plus 1 disposable held-out research workflow, at SHA `2f705f5167666b2fc2c7cd4de9572e8baded119f`. This certifies test execution/integrity checks only—not physical correctness or observer neutrality.
 - Only **five research files** are changed: a precommitted protocol, new runner, Python reference, README and disposable workflow. Zero production `src/`, vendor, physics, physical schema, native numerical cutoff, Stage-1 canonical measurement, qualification or mandatory Stage-2 withholding change. **DO NOT MERGE PR #96 OR ITS DISPOSABLE WORKFLOW.**
 
 ## Interpretive hold
 
 This study provides genuine but bounded new held-out native execution and represented-binary64 geometric consistency evidence. It does **not** prove the physical ideal critical branch, causal observer perturbation, all native root causes, a validated point-error envelope, broad optical system robustness, detector/image/Watts semantics or authority to change production numerical algorithms or Stage-2 measurement withholding. The original previous PRs and 7 native failures remain evidence, not repaired outcomes. Await a separate Chat B R2 research review at exact source SHA.
+
+## Independent review package
+
+- [Full independent R2 research/evidence review request](REQUEST.md)
+- [Ready-to-paste separate Chat B review prompt](REVIEWER-PROMPT-01.md)
+- A Chat A developer summary is NOT independent; separate reviewer report at `reviews/review-01-chat-b.md` is pending actual authorship.
+
+Do not merge the research branch or disposable workflow on this basis.
