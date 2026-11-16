@@ -1,0 +1,9 @@
+# EM Fields PR #25 — initial R1 review status (2026-11-16 Asia/Kolkata)
+
+**DRAFT / UNMERGED. INDEPENDENT REVIEW PENDING.** Exact source head `4fe896ff6bb98d21a090bc16a84fe26145f9f5e7`, qualified base `bf6a18399c604136dd363ad94d40557dbe2c2543`. [PR #25](https://github.com/physicsvigilante/emfeeld/pull/25) adds read-only verified native ensemble view selection; changes four files, no solver/field-law changes. Initial [REQUEST](REQUEST.md) and [Chat B reviewer prompt](REVIEWER-PROMPT-01.md) record explicit adversarial scope and physical/evidence limitations.
+
+**Original exact-head PR CI observed:** [Linux/Windows release #43886746384](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746384): Linux SUCCESS (1,456 headless, 18 historical, 33 real-PyVista, 54 repeat focused included in headless); Windows **IN PROGRESS** at creation of this status. [Separate real PyVista #43886746161](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746161) SUCCESS; [source snapshot #43886746421](https://github.com/physicsvigilante/emfeeld/actions/runs/43886746421) SUCCESS. Original workflow logs were inspected, but new release ZIP contents have not been audited here.
+
+**No independent review report is yet published.** No R1 PASS may be inferred from author tests, green CI or these handoff files. Require exact-head completed Windows qualification and a scoped independently executed review before any non-draft or merge transition; post-merge main-push CI and artifact re-audit would then remain separate.
+
+Historical prior milestone PR #23 **is merged and fully post-merge qualified** within its declared automated and archive evidence scope; [final release record](../pr-23/MERGE-REPORT.md). No manual Windows pointer, human independent physics certification or classroom outcome was established.
