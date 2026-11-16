@@ -1,3 +1,18 @@
+# conductor_sim PR #68 — M29b event family final candidate in validation
+
+**CURRENT SOURCE HEAD `fe63cab1994b702e7e55348a122ee76f9f5e10ed`, tree `3ff8bcc507dfa625d0d9f22908d85b837a1ed782`; GitHub CI is still RUNNING for this head.** [PR #68](https://github.com/physicsvigilante/conductor_sim/pull/68) remains DRAFT and UNMERGED. Independent R2 review is not yet requested or completed. Owner's standing approval applies only after exact-head green CI plus an independently authored PASS.
+
+- Base/main `62ed54af8c32acb5f61acfe3d82744310401208f`, completed M29a release with 16/16 green postmerge CI.
+- Frozen M29b charter committed `17ecf371de4616045294c8800f0d1e3ca5aba3fd` BEFORE production code. No old field law, source membership reassembly, root refiner or RK changed in this milestone.
+- Initial attempted source `edce30e0…` failed import from renderer triple-string Python continuation; first correction `05b926ce…` passed imports but failed a **new browser checker strict locator** that attempted to read one text from two legitimate detector crossing rows; second correction `33028d87…` made the root checker inspect every actual root row. That head passed all M29b browser cases but had **1 invalid native test** `StructuralFamilyPlan.as_dict()` — a non-existent method call in test setup, not a failing numerical result. Third correction `f3d82ba…` changed it to a real untrusted dictionary and **16/16 exact-head workflows succeeded**, including **1,857 Python tests per interpreter, 97 real FEMM tests, and all M29b native browser/root cases**. These CI results are valid for `f3d…`, not automatically for current `fe63…`.
+- A final SCIENTIFIC UI refinement `fe63cab…` ensures the **entire decorative grouped event-count badge** lies to the **LEFT of** the observed numerical event/true stopping boundary, not appearing to indicate poststop motion; native SVG and actual Chromium now assert badge right edge ≤ observed stop x. Only four files changed for this refinement (viewer, native test, real-browser check and explanatory docs). True M24a event times, original root brackets, source inventories, 3D differences and all original fields remain unchanged. Full exact-current-head CI has just started.
+- Once current `fe63…` head is fully CI green, publish source/tree-pinned R2 Chat B reviewer prompt. Review should independently reassemble a novel held charge/rod+gravity source family, locate event root against independent analytic or DOP853/root reference, verify early preguard roots unpaired, physically valid but event-study-refused child, source ID/label/type and browser group geometry/mobile 390px, and ensure all preserved native roots/brackets are exact.
+- **Do not merge** or claim an independent verdict based on the previous source's 16 green workflows. The release gate is still open.
+
+---
+
+## Historical draft implementation status
+
 # conductor_sim PR #68 — M29b structural source event observations, draft pre-review
 
 **DRAFT / UNMERGED; CURRENT HEAD CI IN PROGRESS; INDEPENDENT R2 REVIEW NOT YET REQUESTED.** This is Chat A's implementation status, NOT a reviewer PASS or release approval. Owner's standing permission allows routine work and merging only **after** independent review PASS and complete exact-head CI; independent review is the planned interruption.
