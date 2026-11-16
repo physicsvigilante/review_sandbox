@@ -52,3 +52,45 @@
 - **Still OPEN:** final exact merge SHA **Windows** original clean-install job SUCCESS, download/recompute hash/CRC of **new original Windows main release ZIP**, verify equivalent complete saved native evidence and original readout statuses, and append exact jobs/artifact digests here. Do not treat original PR-head Windows archive as a new main artifact. Manual Windows desktop pointer use and human/teaching certification remain out of scope.
 
 **Status:** Reviewed production merge verified, main real-PyVista PASS, main Linux PASS with full original ZIP audit, **main Windows and final release archive audit pending**. Source remains unchanged.
+
+
+## Follow-up 02 — FINAL merged-main Linux/Windows and PyVista release qualification (2026-11-17 Asia/Kolkata)
+
+**FINAL RELEASE DISPOSITION: QUALIFIED within the declared automated/native-evidence/offscreen-viewer scope.** This appended verification supersedes, without deleting, the earlier accurate Windows-pending and release-unverified snapshots. The source commit, old independent reviews, model store, and original artifacts were not modified by this audit.
+
+### Exact actual main-push CI
+
+- Actual merge commit: **`fbdf66e56b3a89a5cf1bea6c0b403c9fc8d9ebcd`**, with **zero file differences** from independently reviewed corrected source `e4437e288e057d8551862980f1351044c621838b`. Original GitHub Actions workflow-run API explicitly returned **event=push**, **head_sha exactly merge SHA**, completed SUCCESS for **two** actual main workflows.
+- [Release candidate clean-install #43931562215](https://github.com/physicsvigilante/emfeeld/actions/runs/43931562215) **COMPLETED SUCCESS**. Original Ubuntu 24.04 job **133525034871** and Windows 2022 job **133525034385** each completed SUCCESS with **1,484 headless passed**, **18 historical behavioral passed / one unchanged obsolete whole-file freeze guard deselected**, **33 real-PyVista tests passed**. Separate **82 focused ensemble tests passed**, **included in** the 1,484 headless test definitions. Both real E1 baseline/G1 member native screenshots and sealed measurement readout transfer steps succeeded.
+- [Separate main real-PyVista #43931562213](https://github.com/physicsvigilante/emfeeld/actions/runs/43931562213) **COMPLETED SUCCESS**, original job **133525033795**, nine qualifying offscreen viewer scenes and native programmatic slider-event checks. This does **not** establish manual Windows desktop pointer or classroom results.
+
+### Original main-push ZIP archives — downloaded and SHA/CRC checked
+
+| Original artifact | GitHub ID and run link | Independently recomputed original ZIP SHA256 | Entries/CRC |
+|---|---|---|---|
+| Ubuntu release | [14258747565](https://github.com/physicsvigilante/emfeeld/actions/runs/43931562215/artifacts/14258747565) | `329ba66a04d3ed5902a3e44c4d4e3f333357eb6e184e83271c91905e220f9832` | 2,159 unique, all CRC clean |
+| Windows release | [14259942609](https://github.com/physicsvigilante/emfeeld/actions/runs/43931562215/artifacts/14259942609) | `8b286fa6a5d1e54a27d5c6e97bf9975f9fa441fa8d39379e09133e8ce7b03a9e` | 2,159 unique, all CRC clean |
+| Real-PyVista viewer | [14260060328](https://github.com/physicsvigilante/emfeeld/actions/runs/43931562213/artifacts/14260060328) | `37e433b90039f885af3655da156dd18460424868edddc09cf946405e11f110f9` | 22 unique, all CRC clean |
+
+Each original ZIP was independently fetched from GitHub; the downloaded **whole-ZIP** SHA256 matched GitHub artifact metadata and original upload-log SHA256. No duplicate entries, path traversal, CRC errors or mismatched archived commit binding. **Both release ZIPs contain `head-sha.txt` equal to the actual main merge SHA**, not an earlier PR preview.
+
+### Original signed-source, native and view evidence — separately audited on both OSs
+
+For **each** original OS release ZIP, the *same read-only auditor* independently verified:
+
+1. **33 sealed SHA256 evidence inventories**, including 21 top-level native/ensemble/comparison and 12 nested native inventories, with **450 original file/hash bindings**, each rehashed against its original archived bytes.
+2. **12 complete recorded native runs** (three original parent templates, three fresh common baselines and six independently accepted sibling runs), **60 exact raw native run-input hash bindings** across their five original inputs each, six original accepted proposal.json raw-byte hashes, and correct saved physical revision references.
+3. **Six sealed comparisons** with original request/result/integrity files and exact baseline/member run.json source SHA pins. Exactly **32 signed `ok` measurements and two genuine `unavailable/unknown_operand/null` G1 baseline-missing observations**, preserved without invented zeros or positional retargeting. No V3 acceptance or partial comparison was misrepresented as a numerical pass.
+4. **New readout receipts:** E1 all-member output remains globally **complete**, with both original native members and exact original signed numbers/units/context/IDs; G1 member-B filtered output remains globally **partial**, though its selected native member is complete, preserving the original `unknown_operand` and `null`. Each original readout field and saved request/result/integrity/left-right source hashes matched the original sealed comparison records for the corresponding archive.
+5. Source-bound E1 baseline and G1 hypothesis-B original real 1200×850 screenshots match their PNG SHA256, exact selected native `integrity.json`, run ID, revision reference and saved time 0 s. The four OS-specific screenshot hashes are independently checked from each archive, not replaced by generic stock images.
+6. Original archived test logs match the actual jobs' 1,484 headless, 18 historical + one deselected, 33 real-PyVista, 82 focused subset, and same-author separate E1/G1/T1 source/RK4 reference checks (20 static, 12 trajectory, two expected unavailable). These are archived/CI checks and **not** new independent full-physics derivations.
+
+The separate viewer original report pins the exact merged SHA and reports **nine PASS cases**; all **17 original filenames and PNG SHA256 receipts** were individually checked, 1200×850, decodable and nonblank. There are 16 unique hashes because the flat/nested composition images are intentionally byte-identical; this is **17 per-file valid receipts**, not a missing frame.
+
+**Read-only audit reproducibility:** The Windows original ZIP was audited with the same frozen script previously used on Linux, `pr27_b1_readonly_zip_audit.py`, no source/archive/auditor correction. Its JSON SHA256 is `b12d71964d2ab0eca70b10daf986c06b414172e40b739e5211b0be1605cbc913`; the previously recorded Linux audit JSON SHA256 is `aa371ddea7ca90ea1796bf744838e194bd4126a534523ac3319e11226a9d9bbd`. These are local read-only audit outputs, **not** GitHub required status checks or adversarial authenticity seals.
+
+### Final release gate and limitations
+
+**All declared PR #27 automated post-merge and original-archive qualification gates now PASS and are closed within scope.** Original [review-01](reviews/review-01-chat-b.md) remains historically CHANGES REQUESTED for old source; [review-02](reviews/review-02-chat-b.md) remains the scoped independent-context PASS for the exact merged corrected source. No new review required for this unchanged release source.
+
+Not claimed: independently certified human physics correctness, classroom/teacher acceptance, manual Windows mouse/slider operation, distributed crash-safe ACID/hostile concurrent writer protection, malicious author replacing and re-sealing all unkeyed hashes, arbitrary material conductors, full Maxwell electrodynamics, or temporal physical transitions between independent hypothetical scenarios. No user's local Conda installation or original sealed studies were modified.
