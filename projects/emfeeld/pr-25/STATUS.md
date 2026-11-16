@@ -1,3 +1,19 @@
+# CURRENT PR #25 STATUS — R1 REVIEW 01 CHANGES REQUESTED; CORRECTIONS UNDER QUALIFICATION
+
+**2026-11-16 (Asia/Kolkata): [independent Chat B review-01](reviews/review-01-chat-b.md) = CHANGES REQUESTED** on original head `4fe896ff6bb98d21a090bc16a84fe26145f9f5e7` / tree `4df3703346ec7cba1ab74fcd6daa40796a535bf3`. Two independently demonstrated findings: **F1** screenshot inside a foreign sealed saved run corrupts its inventory; **F2** fresh baseline and legal member literally called `baseline` share ambiguous selector display/run_id. Prior R1 reviewer evidence and negative attempts remain unchanged.
+
+**Implementer correction:** [response-01](responses/response-01-chat-a.md), current source PR #25 **OPEN / DRAFT / UNMERGED** at head **`a56b4680a90647ad4af03a52a0b9053807d10a7b`**, corrected Git tree **`ce20aa49d978c94150edbbf017d8fae1e2f6f896`**, unchanged qualified base **`bf6a18399c604136dd363ad94d40557dbe2c2543`**, current CI merge-preview **`7b04fc27b6a4e0efaf74045734389af416ec9223`** with same tree. Correction rejects screenshots under any recognizable sealed evidence ancestor, distinguishes baseline/member IDs and returns exact run path/reference/hash, and adds reviewer-derived regressions. Earlier native records are never edited or renamed.
+
+**Independently verified corrected source snapshot:** [GitHub workflow #43896101372](https://github.com/physicsvigilante/emfeeld/actions/runs/43896101372) SUCCESS, original snapshot ZIP artifact **14238767336**, ZIP SHA256 **`adb773b583db0f94d61c75c230cb98574378e6ca53d444650ef86e6a5a0e8c4a`** matches direct original upload log and downloaded bytes, CRC clean. Original tested-source.tar SHA256 **`d92de608f8aa2e9e66a99fe9164f2dc3fda6e516396635095c52a6be02503725`**; isolated 346-file Git reconstruction yields exact corrected tree. From the extracted **unchanged** source, **62 focused tests passed `-W error`**, first local focused log SHA256 **`afcf59fa9ebb338ef7c616ee23697602e34ff85f43633573e1753413c682d328`**. The new full headless/historical local regression is in progress at this status revision.
+
+**Fresh exact-head source CI:** [Linux/Windows clean-install #43896101641](https://github.com/physicsvigilante/emfeeld/actions/runs/43896101641) and [separate real-PyVista #43896101195](https://github.com/physicsvigilante/emfeeld/actions/runs/43896101195) were **IN PROGRESS** at this status revision. No final green CI or new release ZIP/visual audit may be inferred yet. The original earlier-head 1,456/18/33 and screenshots are historical and not substitute for new-source qualification.
+
+**Next required gate:** after current-head full CI and original release archive audit, publish an exact-head focused follow-up for Chat B to independently retest the two corrections and representative read-only viewer regressions. **Do not merge while reviewer finding remains changes-requested.** Manual Windows pointer, classroom usefulness, cryptographic adversarial sealing and distributed ACID remain outside scope.
+
+---
+
+## Historical preceding statuses (preserved)
+
 # CURRENT PR #25 DISPOSITION — AUTHOR-QUALIFIED, INDEPENDENT R1 REVIEW PENDING (2026-11-16 Asia/Kolkata)
 
 **Source [PR #25](https://github.com/physicsvigilante/emfeeld/pull/25) remains OPEN / DRAFT / UNMERGED.** Its source head is exactly `4fe896ff6bb98d21a090bc16a84fe26145f9f5e7`, Git tree `4df3703346ec7cba1ab74fcd6daa40796a535bf3`, qualified base `bf6a18399c604136dd363ad94d40557dbe2c2543`, preview `75f818bdb199ad97ae036bd1dea380f03d7e71f6` with identical tree. **Do not merge until focused Chat B review.**
