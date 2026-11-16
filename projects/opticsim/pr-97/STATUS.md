@@ -34,6 +34,30 @@ The corrected run's **12 TAP-archive native processes captured 44 actual native 
 
 **ALL 12/12 source-head GitHub Actions workflows now VERIFIED SUCCESS**, including 11 unchanged existing project checks and the one disposable research workflow. This only validates source-specific tests and research integrity, not native physical truth or observer neutrality.
 
+## Original-byte preservation and cross-run verification — Chat A, 2026-11-16
+
+**NOT an independent Chat B verdict.** I downloaded the original three GitHub Actions ZIPs through the connected GitHub account, independently checked ZIP/member SHA256s in a separate local container, then uploaded their **byte-identical ZIPs** to owner-accessible persistent ChatGPT Pages. These private archives are accessible to this owner but not necessarily to external reviewers:
+
+- [Original PR #96 native ZIP — private Page](https://chatgpt.com/space/page_7e4356b6dea48191a5e1d40804ceb9ad): original artifact **14229080814**, 12,217 B, SHA256 `467b548edbcdfc8cf4aecdab416d134d3ac703572a4e0330a4379fcb28df9929`.
+- [First PR #97 failed-audit ZIP — private Page](https://chatgpt.com/space/page_cd73b2d1f7188191b835f9585f9832a3): original artifact **14229538642**, 21,080 B, SHA256 `d4929a2d837a6f2d42df17be150145e37bfe312297eea41f36713de7022071c3`.
+- [Corrected PR #97 completed-audit ZIP — private Page](https://chatgpt.com/space/page_520115fa6b048191ac4e17f165961cef): original artifact **14230677949**, 23,246 B, SHA256 `a6bae60306f4a0730f4cae021b86a46b534d65736de2cb381f24c507d3eaa22e`.
+
+Independent local per-member SHA256s:
+| Original member | SHA256 |
+| --- | --- |
+| PR96 source `inputs.json` (also byte-identical in both PR97 original and copied inputs) | `caa07af040d0a71b50ea6b69470aa55a545b04d52195994913123a902b434df3` |
+| PR96 source `report.json` | `9324aabab62a2ab0e3636c30dec2154e590daf7c90304e8aeafa564e41250698` |
+| PR96 source `exact-reference.json` | `497d2e568ca851dd98941be38ccd54b7473953b56405b653771f784633808f12` |
+| First PR97 original `report.json` (48 trials; Python audit subsequently failed) | `9fd6e67bc28a6c3a463ee0eb75f2c68e12bc923a54d3c05c350504c19b4a93af` |
+| Corrected PR97 original `report.json` (48 new trials) | `7826d3983853e769cf42375fdb58f3623f93265c51ab71be89985651e27253a3` |
+| Corrected PR97 new `exact-reference.json` | `4bfcd144c10baa2c6d1bbfeabea372a15869b3bfef79713fdb76295882bc3142` |
+
+The two PR97 reports independently compared on original `ordinal`, `caseId`, `mode`, `sceneSha256` show **the same 48/48 scheduled positions** and identical source case hashes and schedule, but **21/48 individual native status transitions** between `completed` and `failed`. The switched source ordinals are **1, 3, 5, 8, 9, 10, 11, 12, 16, 21, 26, 30, 31, 35, 36, 38, 40, 41, 45, 46, 48**. Aggregate first-run **26/22** versus corrected second-run **25/23** obscures this much larger per-slot difference; report both rather than interpreting nearly unchanged totals as stability. These are distinct process executions, so a repeated slot is not a shared native event or a causal observer counterfactual. All first-run failures and original ZIP bytes remain untouched.
+
+**Research/production HOLD:** independent R2 Chat B review of PR97 original evidence is still pending; no physics, geometry thresholds, measurement or Stage-2 change follows from this evidence.
+
+---
+
 ## Scientific boundaries and release hold
 
 At nominal critical incidence on synthetic Glass, actual native results change with repeated same-scene fresh process trials. Two profiles with identical extra scalar-copy/array-push hot paths still differ across executions. That is *repeatability/conditioning sensitivity*, not a controlled causal quantification of observer effects. The original six-case PR96 study had 17 distinct binary64 TAP hit signatures and two distinct represented nonforward signatures; this newly restricted two-case sample has 8 distinct signatures and more repeats. Neither provides a safe native-reported-point error envelope, a real-world exact-critical ray branch or proof of physical optical correctness across broad systems.
