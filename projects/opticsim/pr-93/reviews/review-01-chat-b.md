@@ -1,0 +1,74 @@
+# Chat B independent R2 NUMERICAL RESEARCH/EVIDENCE review — Opticsim PR #93
+
+**VERDICT: PASS — NUMERICAL RESEARCH ONLY, with nonblocking N-01 signed-zero reporting correction.** No production/source/native-optics approval, native root-cause certification, physical critical-angle certification, validated incident-point tolerance, Stage-2 withholding, or authorization to merge.
+
+**Review date:** 2026-11-16. **Exact source draft PR:** [opticsim #93](https://github.com/physicsvigilante/opticsim/pull/93), head **1346c4132382823dc81977e0b5964590f408bbd2**, base/main **50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518**, pinned PhyDemo **811f508d2b070898c241a568b0c167dcb8645251**. At review PR #93 was **open, draft, unmerged**. [Central request](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-93/REQUEST.md); [developer report, not independent](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-93/DEVELOPER-REPORT-01-CHAT-A.md); [previous independent PR #92 review](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-92/reviews/review-01-chat-b.md).
+
+## 1. Independent inspection and execution
+
+I read the review hub protocol/risk policy, PR #93 request and developer notes, PR #92 independent review, exact-head source AGENTS.md, all three new PR #93 files, PR metadata/diff, original PR #92 research runner and existing native-calling Glass observer, and the exact pinned upstream geometry and Glass source. No source repository changes were made. [Base-to-head comparison](https://github.com/physicsvigilante/opticsim/compare/50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518...1346c4132382823dc81977e0b5964590f408bbd2) is **three added research-only files**, 346 additions, zero deletions: analysis Python, README, disposable Actions workflow. There are **no src/, vendor, scene/schema, physics, optics thresholds, measurement, UI or Stage-2 changes**.
+
+I independently downloaded **both GitHub Actions original ZIPs** (PR #92 native capture and PR #93 derived replay) via the connected GitHub account, rehashed their ZIP bytes and five replay member bytes, and checked that the three PR #92 member byte arrays are **identical** in the new archive. My numerical probes were independently authored in a disposable local working directory; they did **not** import, call, or modify PR #93 analyze.py or consume its generated analysis.json as inputs:
+
+- **JavaScript Number / IEEE-754 binary64 probe (Node v22.16.0):** transcribed each exact arithmetic statement in pinned geometry.linesIntersection, including un-reassociated global-coordinate A/B determinants and separate x/y divisions. Used pinned geometry.js intersectionIsOnRay, intersectionIsOnSegment, distanceSquared expression order; independently selected a unique finite authored face after converting only face y-up to native y-down, and compared numeric values and 64-bit patterns to archived points.
+- **Separate exact integer-lattice probe (Python 3.13.5):** decoded sign/exponent/mantissa from every original binary64 scalar, placed all inputs and the reported incident point on a common power-of-two integer lattice, computed ray/edge cross-product determinants using only integer arithmetic, reduced rational t and u with integer gcd, and compared P* to reported point without approximate-coordinate equality. This is **not** the developer's Fraction.from_float implementation. Decimal arithmetic was used only to present displacement magnitudes.
+- Independently replayed all **60 randomized schedule positions** from seed 0x9200a55; they match every original scheduled row, mode, block, slot and ordinal. Inspected real failed native statuses, callback/capture counters, all five synthetic cases, original native callback ownership path and exact-head CI job/log data.
+
+No newly controlled native PhyDemo process, real browser test, scene-to-textbook interpretation check, or independently captured full call stack was executed by this review. Prior native data and original CI runs were **inspected**, not re-executed.
+
+## 2. Immutable input and CI identity
+
+| Archive/member | Independently measured SHA-256 |
+| --- | --- |
+| Original PR #92 native ZIP (13,067 bytes; [artifact 14220951106](https://github.com/physicsvigilante/opticsim/actions/runs/43854663361/artifacts/14220951106)) | b6acf9c4c519d7f3826fcd501c622636ee67a937cdf41d6c0df5ded33e6db43b |
+| New PR #93 replay ZIP (20,209 bytes; [artifact 14223083047](https://github.com/physicsvigilante/opticsim/actions/runs/43861696175/artifacts/14223083047)) | f2d018df8cf7c5c277340e80212b7c32ebb917812d057f80798983abd5d415fd |
+| Unchanged original inputs.json | 79be6692d8e107ed5fa2198abbcfe56a0fb97633aac55db573eec021ea37fc45 |
+| Unchanged original report.json | bc0fee95fe8e0d61176aed8adf96081324cfa0ea1846caf1997e9fbc51570960 |
+| Unchanged original exact-reference.json | 9e3d386abceaa907063f0c01b3b40fc399e8a6e764da231a1959e6d24c1145ee |
+| New analysis.json | f5d0f429b605f235c916c018a5c51e33ece385f404c0257524f8eeba74c35560 |
+| New summary.json | 5993df22b5f12c21205c5d7d87792e3876959ac85f26467cccb0e640c96fedb2 |
+
+All hashes match the request. Original three files are **byte-identical** across the source and derived ZIPs: no recreated/mutated native coordinates or overwritten failed trial record. Upstream [geometry.js lines 99–106](https://github.com/ricktu288/ray-optics/blob/811f508d2b070898c241a568b0c167dcb8645251/src/core/geometry.js) was read at exact commit, matching Git blob **d5c3c5b5a4ae97a24bcfe330fb7d752a780cc893**. I also checked [Glass.js lines 442–457](https://github.com/ricktu288/ray-optics/blob/811f508d2b070898c241a568b0c167dcb8645251/src/core/sceneObjs/glass/Glass.js), geometry.js lines 157–169 and 260–264.
+
+[PR #93 exact-head research run 43861696175](https://github.com/physicsvigilante/opticsim/actions/runs/43861696175) and its job steps/logs have **success** conclusions. The checkout was GitHub's usual test merge **00aee69c7dc704ba35cd08481ee8e42e338236be**, explicitly combining the stated base and head; not a new production commit. Logs verify pinned PhyDemo setup, source arithmetic anchors, **actions:read/contents:read**, download of original run **43854663361**, artifact ID **14220951106** and its original ZIP SHA-256, completed replay, and upload of artifact **14223083047**. All **12/12** commit-associated workflows completed successfully (11 unchanged existing workflows plus the new research-only workflow). The research workflow contains **no new native simulation** and is explicitly disposable. The GitHub artifacts are retention-limited; the reported private persistent Page copy was **not** relied upon or tested for external accessibility.
+
+## 3. Native capture provenance, failures, and independence
+
+The original [PR #92 run.mjs](https://github.com/physicsvigilante/opticsim/blob/d8367c2d1bd23f3ee7c574feb45e7cc7e7793ee2/evaluation/native-single-owner-hit-capture-v1/run.mjs) only wraps the diagnostic ledger's **beforeIncident** method and calls its original **once**. Production [src/planar-media.js at the exact base](https://github.com/physicsvigilante/opticsim/blob/50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518/src/planar-media.js) retains the **single native-calling** Glass.onRayIncident observer, delegating via original.apply exactly once. The separate synchronous test-only method tap still **may perturb critical behavior**; it is not a proven neutral, uninstrumented observer. All **30 TAP rows** have consistent capture counters, 0 capture faults, no added native-calling wrapper, and together exactly **87 actual saved callback points**. There are 30 ordinary ON runs with no per-hit TAP data.
+
+Independent schedule/status count: ordinary **27 completed / 3 failed**, TAP **26 completed / 4 failed**; **53 completed / 7 failed** combined. The seven actual native failures occur at ordinals **25, 26, 28, 30, 33, 35, 36**, all translated-critical, and retain native-incomplete/suppressed diagnostics. The four failed TAP runs contribute observed original hits; the invalid ungrounded callback in those runs was not invented as a qualified new hit. No original failure is relabelled completed.
+
+Only **16 unique full binary64 ray/incident/selected-face signatures** occur among the 87 callback events (**71 repeats**). Only **three distinct full signatures** account for the 15 nonforward occurrences. These are 5 controlled synthetic cases with repeated observations, **not 87 independent physical systems**.
+
+## 4. Independently reproduced numerical findings
+
+For every archived hit, all four authored faces were converted from archived **y-up** to native **y-down** and the native ray p1/p2 and incident were left untouched. Each incident grounds to **exactly one finite face** within 1e−5 mm; largest measured nearest-face residual in my separate JavaScript probe was **4.55e−13 mm**. Face IDs match all 87 archived references. Face inference is from incident proximity; it is **not** a directly recorded internal Glass loop index.
+
+| Independent observation | Result |
+| --- | ---: |
+| Original TAP samples with a unique finite face | **87/87** |
+| Exact pinned JS binary64 formula numerically equals archived incident x/y | **87/87** |
+| Formula-computed rounded point passes pinned native forward-ray dot, finite-segment dot tests and strict squared cutoff | **87/87** |
+| Exact integer-lattice represented t/u compared with archived reduced rational reference (not provided for four vertex-guarded hits) | **83/83** |
+| Exact represented ray t less than or equal to zero | **15**: six t = 0, nine t < 0 |
+| Exact classifications matching original archived reasons | **87/87** |
+| Other classifications | **12 exact represented point matches; 56 forward but unmatched points (UNKNOWN); four near-vertex UNKNOWN** |
+
+All 87 have nonzero exact line determinant. The native rounded-point squared cutoff archived for each is **1e−12 mm²**, corresponding to **1e−6 mm** minimum reported step. For **all 15** exact nonforward cases, those rounded-point tests nevertheless pass; apparent rounded forward step is **0.00016893196038836322–0.0010549586506896115 mm**. Exact represented P* versus recorded incident displacement in those 15 is **0.00016893196038836322–0.001055248157390664 mm**. **11** of the 15 were observed in eventually completed native runs, **four** in genuinely failed native runs whose public readings remain suppressed. Examples: translated-critical row 26 hit 2 has exact t = 0; rotated-critical row 39 hit 3 has exact **t = −635731093954651 / 1482881382794735452609**. The four vertex-guarded samples remain **UNKNOWN** (reported vertex clearance ~8.74328e−5 mm, below the 0.01-mm guard) despite being algebraically computable.
+
+The 56 other forward-but-point-different cases have observed P* discrepancy approximately **1.14e−14–1.62e−10 mm**. This is not an established error envelope, nor proof of a physically incorrect trace. The source's **global A/B determinant arithmetic** and rounded-point selection are a **reproducible numerical mechanism consistent with** the 15 recorded represented-line nonforward contradictions; they are not a proof of a unique root cause across full ray histories.
+
+### Finding N-01 — nonblocking signed-zero precision correction
+
+The PR #93 Python replay reports **18 signed-zero-only bit differences** against archived JSON coordinates. My **direct JavaScript Number replay of the exact pinned expression order** finds **12** differences (**75 bit-identical reconstructed pairs**), while maintaining all **87/87 numeric equalities**. The extra six Python-only differences are the normal-detector-control first hits at source ordinals **2, 3, 6, 8, 9, 11**, where the Python replay produces x = negative zero but the direct JS replay produces x = positive zero. This arises because original JSON integer zero values participate as Python ints in sign-of-zero-sensitive multiplication/division; native JavaScript uses Number for all numeric inputs. Converting the Python operands to binary64 floats before every expression avoids this artificial distinction.
+
+More importantly, JSON serialization does not reliably preserve the original native **negative-zero sign bit**, so **neither 12 nor 18 proves bit-level identity with the original in-memory native incident values**. Both are comparisons against serialized JSON. **Required interpretive precision for reuse:** label 18 as the present *Python-replay-vs-serialized-record* count, not a language-independent original-native bit count; a future test-only update should normalize float operands and independently compare against native JS. This is **not a blocker for the research-only numeric-equality and t/u conclusions**, since signed zeros compare numerically equal and exact integer geometry is unchanged.
+
+## 5. Evidential limitations and smallest next test
+
+- Pinned upstream source **permits a numerical consistency attribution** for this captured represented-line mismatch; the replay did **not** witness every intermediate native arithmetic instruction, face-selection competition, previous ray state, or an uninstrumented counterfactual. Other prior-state/rounding contributors remain possible.
+- The fixed five-case evidence includes repeated patterns and near-critical test-only TAP instrumentation. It is **not** independent proof of ideal real-number Snell/TIR routing, correct Fresnel relative power or Watts, detector image/focus, classroom usefulness, an optical inverse answer, or a universal failure/validated tolerance.
+- The already-recorded **failed** original native runs remain failures, and previous PR #90/#91/#92 research traces are unmodified. No change to source/native cutoff or mandatory Stage-2 withholding is justified.
+- **Smallest next test:** in a separate disposable research probe, execute pinned geometry.linesIntersection in real JavaScript on the **unchanged original JSON** with explicit signed-zero bit assertions and compare to a Python replay with **all operands pre-coerced to float64**. Record the **12 JS-vs-serialized signed-zero** subset and amend only the associated research-report language; preserve the original ZIP and keep 87 numeric, 15 represented nonforward, 53/7 native-run states. Any stronger **causal/production** claim would additionally require a separately authorized held-out native instrumentation/observer-neutrality experiment and independent R2 review, not a threshold inferred from these 87 captures.
+
+**Final gate:** **PASS FOR BOUNDED R2 NUMERICAL RESEARCH EVIDENCE ONLY.** **Do not merge draft PR #93** (especially its disposable workflow); do not modify production optics, native PhyDemo, default measurement, schema, Stage-1 interpretation, or Stage-2 policy based on this research review. A later implementation or merge requires a separate owner decision and fresh appropriately scoped R2 validation.
