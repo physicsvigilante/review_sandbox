@@ -1,0 +1,48 @@
+name: "M30b exact-source structural/property/event native transfer"
+on:
+  push:
+    branches:
+      - m30b-nested-event-transfer
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-nested-physics-event:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Check out review transfer scripts
+        uses: actions/checkout@v4
+        with:
+          path: review_evidence
+      - name: Check out exact current pinned source PR #70
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: e40fc0452f71e3522ffc90115a740e052cd93209
+          path: review_evidence/native_source
+          persist-credentials: false
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned native source and independent numerical reference tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ./review_evidence/native_source numpy scipy
+      - name: Solve genuinely new nested typed events and independently compare DOP853
+        shell: bash
+        run: |
+          mkdir -p review_evidence/m30b-transfer-output
+          set -o pipefail
+          python review_evidence/projects/conductor_sim/pr-70/transfer/run_transfer.py | tee review_evidence/m30b-transfer-output/CI-stdout.txt
+      - name: Preserve original native event JSON, numerical receipt and source revision identity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m30b-novel-nested-physical-events
+          path: review_evidence/m30b-transfer-output/
+          if-no-files-found: warn
+          retention-days: 30
