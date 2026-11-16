@@ -1,3 +1,21 @@
+# conductor_sim PR #67 — M29a independently reviewed and merged
+
+**M29a RELEASE: INDEPENDENT R2 PASS + EXACT-HEAD MERGE TO MAIN.** [PR #67](https://github.com/physicsvigilante/conductor_sim/pull/67) closed/merged, under the owner's standing authorization to continue reviewed routine development.
+
+- **Final independently reviewed source head:** `0243d90215f212a1e6d69d1014c090495f570250`; source Git tree `f21771df5cdbb1e6932c321f51fd7a7e23c84bab`, base/main prior M28b merge `61f059f742b449ea53fdc131970f00f0b3be91fc`.
+- **Independent review sequence:** [review-01-chat-b.md](reviews/review-01-chat-b.md) — CHANGES-REQUESTED for older source, physical/numerical M29a core PASS but F-01 missing visible names and F-02 mobile usability; [Chat A finding response](responses/response-01-chat-a.md); [review-02-chat-b.md](reviews/review-02-chat-b.md) — **PASS, both F-01 and F-02 RESOLVED** on exact final source. Chat B independently rehashed final CI artifact, reconstructed the source Git tree, replayed hostile-name and 390px horizontal-scroll browser tests, and independently compared a novel rod+signed-points+gravity physical arrangement to direct Gauss–Legendre Coulomb and DOP853. Both reviewer reports retained, no source edited by Chat B.
+- **Premerge exact-head CI:** 16/16 GitHub workflow runs SUCCESS. Python 3.10/3.12 each 1,848 passed + 97 real-FEMM-only skipped + 12 warnings, real FEMM 97 passed, real Chromium/source viewer all five examples PASS at 390px with zero page/console/network errors.
+- **Actual GitHub merge commit:** [`62ed54af8c32acb5f61acfe3d82744310401208f`](https://github.com/physicsvigilante/conductor_sim/commit/62ed54af8c32acb5f61acfe3d82744310401208f) via merge_method=merge with **exact expected reviewed head SHA**; PR marked ready immediately before merge. Immediately compared `main` to merge SHA: **identical, 0 ahead/0 behind**.
+- **Postmerge CI:** the initial exact-merge-SHA snapshot returned 15 triggered workflows, 1 success and 14 ongoing, **no failed runs**. This is **not** a claim that all postmerge checks are complete; recheck on this SHA and update the record.
+- **Scope:** qualified immutable M22a source-add/remove/replace/gravity inventories solved separately with unchanged physical fields and vector RK; real source-ID/name/type provenance, fixed source membership during each run, actual source-guard/refusal and literal saved-time 3D Δr/Δv comparisons. HTML shows only trajectory space, not full source apparatus or conductor response; no new physical charge transfer/contact or unrestricted 3D.
+- **Next independently scoped milestone:** M29b typed event observations across different source *memberships*, composing the completed M29a structural family and M24a root/event detection without any new physical law. A separate prospective charter/review is required; M29a source/review evidence is final.
+
+**M29a merge succeeded. Postmerge full validation remains open for later confirmation.**
+
+---
+
+## Archived M29a premerge independent review gate
+
 # conductor_sim PR #67 — M29a corrected-head independent R2 review gate
 
 **CORRECTED SOURCE EXACT-HEAD CI 16/16 GREEN — AWAITING TARGETED CHAT B REVIEW #02.** The original [independent review-01](reviews/review-01-chat-b.md) was **CHANGES-REQUESTED** on old head `32f11b931548dcc5c5f6fd836da8239a265de187`; physical/numerical/structural source lineage tests PASSED in independent unfamiliar tilted-rod+charges+gravity reference. F-01 was missing visible teacher source names; F-02 was a hard-to-read 390px table. That historical verdict remains unmodified. Source [PR #67](https://github.com/physicsvigilante/conductor_sim/pull/67) is **DRAFT/UNMERGED**; there is not yet a Chat B PASS for the new head.
