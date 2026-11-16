@@ -1,5 +1,8 @@
 # conductor_sim PR #65 — M28a independent R2 review status
 
+**TEMPORARILY STALE — DO NOT ISSUE OR COMPLETE REVIEW YET.** Following self-audit, source PR #65 advanced to head `1b0ca1687f6ac7ce63afc59e286336d3210b0b36` to ensure distinct parallel physical planes cannot be collapsed in a single 2D viewer. This packet's older pinned `730c239b…` candidate remains historical evidence. Exact-new-head CI and updated source-pinned packet are in progress; prior PASS claims apply only to the previous head.
+
+
 **AWAITING SEPARATE CHAT B REVIEW.** Source [DRAFT PR #65](https://github.com/physicsvigilante/conductor_sim/pull/65) is **OPEN, DRAFT AND UNMERGED**. Owner approved beginning M28, NOT merging it.
 
 - **Exact source review HEAD:** `730c239bc174092058a66fcf373da14f54aad663`; Git tree `24a3c1111210f4f10719cf872d38d27bcc8d4371`; base/main `c0102111bd9c13ef8b02a13ba6431cefada69e70` (M27b F-01 fully merged and 7/7 postmerge checks green).
