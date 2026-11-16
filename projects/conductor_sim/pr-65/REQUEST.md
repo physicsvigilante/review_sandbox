@@ -1,5 +1,7 @@
 # conductor_sim PR #65 — M28a independent R2 trajectory-sweep review request
 
+**REVIEW CYCLE 2 NOTICE — original first-cycle request below is historical.** Chat B's independent [review-01](reviews/review-01-chat-b.md) found F-01/F-02/F-03 major issues. The **corrected current head is `defe698b4ab7958ab9a3a8c7e7a6bc4057ecb83f`, tree `9d23f659331e03337c33fbc65ad7c0fbcf44ad66`, with fresh 16/16 CI green. For the new targeted review use [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md), [response-01](responses/response-01-chat-a.md) and [current STATUS](STATUS.md). The old exact pins and 16-green CI below are retained as history and **not current release evidence**. The source PR remains DRAFT and UNMERGED; no corrected-head independent PASS has been received.
+
 **Status: AWAITING A SEPARATE CHAT B REVIEW. Source PR #65 is DRAFT and UNMERGED.** This request is authored by Chat A and is not a reviewer verdict. Owner approved beginning M28, **not** merging this source PR.
 
 | Pin | Exact value |
