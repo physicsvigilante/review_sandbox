@@ -1,0 +1,48 @@
+name: "M31a exact-source atomic coupled physical transfer"
+on:
+  push:
+    branches:
+      - m31a-coupled-transfer-evidence
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-source-coupled-physics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Check out review_evidence source
+        uses: actions/checkout@v4
+        with:
+          path: review_evidence
+      - name: Check out exact reviewed source PR 71 head
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: e8970e26b91f6f8dfe3bd8bffcaf8f181449870b
+          path: review_evidence/native_source
+          persist-credentials: false
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install exact native source and separate numerical reference libraries
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ./review_evidence/native_source numpy scipy
+      - name: Run genuinely unfamiliar atomic coupled source and mass physical solutions
+        shell: bash
+        run: |
+          mkdir -p review_evidence/m31a-transfer-output
+          set -o pipefail
+          python review_evidence/projects/conductor_sim/pr-71/transfer/run_transfer.py | tee review_evidence/m31a-transfer-output/CI-stdout.txt
+      - name: Archive actual native trajectories and independent comparison receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m31a-novel-atomic-coupled-physical-transfer
+          path: review_evidence/m31a-transfer-output/
+          retention-days: 30
+          if-no-files-found: warn
