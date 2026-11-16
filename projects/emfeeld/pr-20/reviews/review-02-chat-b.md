@@ -1,0 +1,101 @@
+# Chat B — targeted independent R2 re-review 02, EM Fields PR #20
+
+**Outcome: changes-requested (scoped to corrected F-01–F-03 and a newly demonstrated check-receipt consistency failure).** F-01 and F-02 no longer reproduce, and the five original F-03 nonboolean/false flags are now hard-refused. However, the corrected preflight accepts a *re-sealed, internally contradictory authored numerical check* with a literal boolean true, returns **complete**, and its deterministic inspector also returns **complete**. This is new, executable evidence, not a reclassification of review 01 or a claim that the archived releases are corrupt. **Do not merge PR #20 on this review.**
+
+## Identity, scope and independence
+
+- **Source:** [physicsvigilante/emfeeld draft PR #20](https://github.com/physicsvigilante/emfeeld/pull/20). Read-only source review; no source commit, branch, PR state or source model/run was changed. PR remained draft/unmerged at publication preflight.
+- **Base:** 1b7d5c652bb635723746b3c6ce77baee536b997e.
+- **Exactly reviewed corrected source head:** **145b68fcab75201a6a31876e91c075c3f00b0fc8**.
+- **Canonical Git tree:** **6f224d516f25eb7b4f8516cdcd33a596453ee0b4**. Verified against the GitHub Git commit object and all **341** source-archive Git blob identities, zero mismatches. CI preview commit f34acd2db9cfa76883ccd3803fed438b816d87f0 has the same tree.
+- **Correction-only diff:** [4b51a833...145b68fc](https://github.com/physicsvigilante/emfeeld/compare/4b51a833c0ed5ef189becf5881064d1b516df21b...145b68fcab75201a6a31876e91c075c3f00b0fc8), only **src/emfeeld/scenario_comparisons.py** (+121/-5) and **tests/test_scenario_comparisons.py** (+118). No changed integrator, field law, tolerance, model engine or viewer.
+- **Original report is immutable:** [review-01-chat-b.md](review-01-chat-b.md), exact original blob **3ecb837b03bd6c1644f289a50fa5b33794212fb5**, still bound to failed head 4b51a833c0ed5ef189becf5881064d1b516df21b / tree 8e8999b40949d1128050cf66c0440fb07bb08670. Nothing in this re-review erases its first failed attempts.
+- **Reviewer:** Chat B, separate-context ChatGPT GPT-6. Not independent human examination or proven different model weights. **Date:** 2026-11-16 (Asia/Kolkata). **Risk:** R2, targeted evidence-semantics re-review.
+- **Basis:** [FOLLOW-UP-02](../FOLLOW-UP-02.md), [reviewer prompt 02](../REVIEWER-PROMPT-02.md), original report, attributed Chat A response, central protocol/risk/template; pinned AGENTS.md, frozen cross-scenario design, actual corrected implementation, native selector and receipt code, author regressions, both OS archives and GitHub CI metadata. All adversarial tampering was performed on disposable reviewer-local run copies, not on source PR #20, released artifacts or the user's machine.
+
+## Findings and dispositions
+
+### F-01 — original BLOCKER: selector → exact saved NPZ row — **RESOLVED for tested paths**
+
+**Source:** [scenario_comparisons.py lines 80–172](https://github.com/physicsvigilante/emfeeld/blob/145b68fcab75201a6a31876e91c075c3f00b0fc8/src/emfeeld/scenario_comparisons.py#L80-L172) and [trajectory_samples.py native selector](https://github.com/physicsvigilante/emfeeld/blob/145b68fcab75201a6a31876e91c075c3f00b0fc8/src/emfeeld/trajectory_samples.py#L68-L93).
+
+**Independently executed, not merely replayed author tests:** copied actual accepted Linux E1 archived runs; right/native/packet.json selected row 25 at 2.0 s, left selected row 50 at 2.0 s. The copied result rows were rewritten to valid row 0/time 0/value from their own NPZs, retaining each immutable native selector, and both native/outer unkeyed inventories were recalculated. In **A1 right-only**, **A2 coordinated both-sides**, and a separate **Windows E1 right-only** repetition, **compare raised RevisionError(code=invalid_native_run)** and created **no output directory**. Unlike the original failed head, neither different_saved_time nor complete-at-0s was accepted.
+
+Additional reviewer-authored native fixtures tested: valid direct index (10/20 at 0.5 s), exact saved-time selector at 0.5 s, nearest selector 0.49 s with tolerance 0.012 s selecting 0.5 s and offset +0.01 s, and midpoint tie 0.375 s on the 5-point grid [0, 0.25, 0.5, 0.75, 1] selecting **earlier index 1**, matching a different 9-point grid's index 2 at actual time 0.25 s. All four legitimate comparisons and inspections completed. Forged valid-but-wrong NPZ rows, changed time offsets and wrong tie selection hard-refused **invalid_native_run** before output. An NPZ time grid changed together with reported times but inconsistent with the captured native scene was likewise rejected. These tests monkeypatched the integration entry points to raise during comparison/inspection; no comparison invoked them. Native execution was used **only to construct some legitimate selector fixtures**.
+
+**Disposition:** original F-01 blocker closed for the attacked index/exact/nearest/offset/tie/grid cases. Not a claim of signed/hostile-writer authenticity.
+
+### F-02 — original MAJOR: complete-run consistency of unselected observations — **RESOLVED for tested paths**
+
+**Source:** [scenario_comparisons.py lines 192–305](https://github.com/physicsvigilante/emfeeld/blob/145b68fcab75201a6a31876e91c075c3f00b0fc8/src/emfeeld/scenario_comparisons.py#L192-L305).
+
+Independently re-sealed RIGHT E1 run copies while requesting only the unrelated first **field_vector** pair. Modifications included unselected position Y component, unselected velocity Z component, velocity unit, selected field-0's magnitude, entirely unselected field-2 magnitude, and unselected field unit. Each case hard-raised **invalid_native_run**, with **no comparison output**, rather than treating inconsistent source evidence as unavailable or complete. Separately, a re-sealed NPZ plus forged report pointing at the wrong original sample index failed. The six original sealed source runs and their bytes were unchanged. Positive **unknown_operand** for an actually absent requested observation remained correctly **partial**; honest E1 remained **complete**. Resealing a partial comparison to assert complete led to **comparison_integrity**, and inspection of a previously complete output after source corruption led to **invalid_native_run**.
+
+**Disposition:** original F-02 major closed for the attacked complete-source trajectory and field receipts. This is native result/NPZ consistency, not physical-field re-evaluation.
+
+### F-03 — original MINOR: malformed check.passed type — **RESOLVED for listed flags, but further check semantics are defective**
+
+**Source:** [scenario_comparisons.py lines 260–271](https://github.com/physicsvigilante/emfeeld/blob/145b68fcab75201a6a31876e91c075c3f00b0fc8/src/emfeeld/scenario_comparisons.py#L260-L271).
+
+Injected re-sealed check receipts with passed equal to **integer 0**, **integer 1**, **null**, **string "true"**, **boolean false**, empty list, empty object and a present-null check. All were hard-refused **invalid_native_run** before output. A literal boolean true passed; an existing authored expectation with its check missing was rejected. Thus the exact false-looking Python truth/identity weakness in the first report is fixed.
+
+But checking only **check.passed is True** is insufficient for semantic consistency of a *present* check: neither its actual receipt fields nor its agreement with the immutable authored expectation and observed value are verified. This is separately demonstrated below.
+
+### R2-NEW-01 — **MAJOR — internally false authored numerical check can be accepted as complete**
+
+**Category:** saved expectation/check evidence coherence, within the F-03 correction surface. **Source:** [scenario_comparisons.py lines 263–271](https://github.com/physicsvigilante/emfeeld/blob/145b68fcab75201a6a31876e91c075c3f00b0fc8/src/emfeeld/scenario_comparisons.py#L263-L271), [field consistency lines 175–188](https://github.com/physicsvigilante/emfeeld/blob/145b68fcab75201a6a31876e91c075c3f00b0fc8/src/emfeeld/scenario_comparisons.py#L175-L188), [compare/inspect lines 484–531](https://github.com/physicsvigilante/emfeeld/blob/145b68fcab75201a6a31876e91c075c3f00b0fc8/src/emfeeld/scenario_comparisons.py#L484-L531); compare native check generation in [observations.py lines 141–154](https://github.com/physicsvigilante/emfeeld/blob/145b68fcab75201a6a31876e91c075c3f00b0fc8/src/emfeeld/observations.py#L141-L154).
+
+**New executed positive and negative controls:** using the pinned public native model/run interface, authored *two genuinely complete static runs of distinct revisions of one root*, each with a **field** observation at [.3, .2, .1] and an immutable expectation of vector **[0, 0, 0]**, absolute tolerance **100**, relative tolerance **0**. Both unmodified native records correctly contained their **genuine** check with expected_value [0,0,0], atol 100, rtol 0, passed **true**; a signed field-vector comparison and inspector both returned **complete**.
+
+Then the reviewer copied only the RIGHT run and, in its native/result.json, replaced the field vector with **[200, 200, 200]** and replaced its magnitude with **hypot(200,200,200)**; all original authored request/expectation bytes, run.json pin, source revision, actual native status, and the **original check.passed=true receipt** were left unchanged. Resealed the outer inventory (the legitimate static model-with-particles run has **no nested trajectory inventory**, by frozen design). The native result is internally consistent as a field vector and magnitude, but each vector component now exceeds the exact authored reference/tolerance: **|200 - 0| > 100 + 0*|0|**. The saved check's claimed *passed=true* is therefore semantically false.
+
+**Expected:** hard **invalid_native_run** during global complete-run preflight, before output; the immutable authored expectation cannot be overridden by a self-contradictory saved pass receipt.
+
+**Observed:** **compare returned complete and created an output; inspect independently rederived and returned complete**, even for the impossible authored check. Both source-run integrity and request pins were otherwise honored. Neither comparison nor inspection invoked a native solver; this is not a solver accuracy claim.
+
+Two further copies made only the check receipt false-looking while preserving the original actual field vector: (i) replace the full check with **{"passed": true}**, deleting expected_value/atol/rtol/criterion/meaning; (ii) retain true but substitute **expected_value [9999,9999,9999], atol 0, rtol 0**. Both produced **complete / inspected complete** despite contradicting the genuine saved authored expectation. A forged check present without *any* authored expectation also remained acceptable if passed was literal true. In contrast, explicit boolean false, integer one and missing check when expectation exists were correctly refused.
+
+**Why this is major:** The frozen design requires complete native sources with coherent numerical-check/completion meaning, not merely a truthy declaration of success. A re-sealed source can now carry an impossible *self-described* check and still obtain two layers of "complete" endorsement. This is narrower than authentication of externally modified data; the defect is the absence of a deterministic internal consistency rule despite the immutable authored expectation being available. No claim is made that original Linux/Windows E1/G1/T1 releases contain this tampering.
+
+**Smallest correction:** for **every** native result with an authored expectation, require a correctly structured check, verify its expected value and tolerances against the captured native request, and recompute the documented componentwise tolerance predicate from the **saved result value** using appropriate overflow-safe decimal arithmetic (the existing native calculation already defines the criterion). Require the receipt to report the same literal boolean outcome and refuse a false complete check; reject unexpected/unattributed check receipts unless a documented native schema permits them. Check all rows, not merely selected pairs. This is post-run evidence validation; do **not** recompute source fields, rerun the integrator, alter existing physical laws or relax tolerance. Add C02/C03/C04/C08-style regressions, rerun original F-01/F-02/boolean controls, and requalify a new exact source head.
+
+## Executed evidence and first attempts
+
+**Reviewer-authored experiments**, against extracted exact source, separate from same-author regressions:
+
+- **28 Linux/Windows archived E1 disposable-copy probes:** original A1/A2, Windows one-sided, forged selector/index/time/offset, modified NPZ time grid and coordinated report/NPZ, unselected trajectory value/unit, field magnitude/unit, malformed check flags, positive complete/partial, posthoc inspection. The preflight/refusal cases behaved as stated; a permissive boolean-true bogus-check case exposed the receipt weakness rather than counting as a security pass. Original released run bytes were verified unchanged after these operations.
+- **9 newly constructed selector controls:** 4 legitimate exact/index/nearest/tie comparisons accepted with correct indices and times; 5 deliberately inconsistent sample indices/offsets rejected before output. No comparison integration was allowed.
+- **8 newly constructed expectation controls:** genuine unmodified check accepted; missing check, passed integer 1 and passed false refused; **four negative controls unexpectedly returned complete** (truncated true-only receipt, impossible expected metadata, inconsistent expected metadata/tolerances, and an actual field value violating the authored tolerance while preserving passed=true). These four constitute reproduced adverse evidence, not passing regressions.
+- Local corrected-source **author-authored** regression replay: **45 passed** with warnings as errors, command **PYTHONPATH=src python -m pytest -q -W error tests/test_scenario_comparisons.py** (9.51 s). This replay is distinct from the reviewer cases above.
+- Reviewer environment: Linux container, **Python 3.13.5, NumPy 2.3.5, SciPy 1.17.0, pytest 9.0.2**. PyVista not installed locally. No local Windows execution or browser/human evaluation. Source simulator is only used when authoring new test fixtures, not in compare/inspect.
+
+**First attempts retained:** the first reviewer-authored expectation fixture ran its genuine-control comparison, then encountered **FileNotFoundError on native/integrity.json** because a static run of a model with particles legitimately does not write that nested archive; this was a reviewer harness assumption, **not a source defect**. The harness was corrected to conditionally reseal an existing nested inventory and rerun the identical checks; the four adverse check outcomes remained reproducible. An attempted local full headless suite reached approximately **25%** before the **200 s** execution limit terminated it; **no local full-suite pass is claimed**. The exact-head hosted full runs below were checked independently instead. Original review-01 failed tests and Chat A's reported pre-fix 11 failed/one passed remain separately attributed and unchanged.
+
+**Artifact and CI verification personally performed:**
+
+| Artifact / job | Verified fact |
+| --- | --- |
+| [Exact source snapshot #43837372230](https://github.com/physicsvigilante/emfeeld/actions/runs/43837372230), ZIP ID **14210464378** | Download ZIP SHA256 **6bfdaf9396e7af69c68491ce8207ab29f03b5a8c27ea13242efac896d52620ab**; inner tar SHA256 **7566331fd305aedfc449fe04a4a8758571a935c088c943daa88bb637eb8b711a**; **341/341 Git blob hashes agree** with archived tree listing. |
+| [Linux/Windows clean install #43837372118](https://github.com/physicsvigilante/emfeeld/actions/runs/43837372118) | GitHub jobs **ubuntu-24.04 / Python 3.13.5** and **windows-2022 / Python 3.13.5** both completed **success** at source head 145b68fc. Extracted original ZIP test logs on **each** OS: **1,387 headless passed**, **18 historical behavioral passed / 1 obsolete assertion deselected**, **33 real-PyVista passed**, and **45 focused passed** (included within 1,387). These are hosted author CI results, not Chat B-authored Windows tests. |
+| Linux release ZIP ID **14210979876** | Download SHA256 **e97ab64829313508eb3b7b86bedfaf22a87c8a855cf0699b0acab6b6ef7661bf**; **1,803 entries**, no duplicate filenames or ZIP CRC failure. |
+| Windows release ZIP ID **14212013323** | Download SHA256 **eefb8c2144d8fd2af4aaf1cd49ee9b959205ee93b36555173a0c02337656eae4**; **1,803 entries**, no duplicate filenames or ZIP CRC failure. |
+| [Separate real-PyVista #43837372318](https://github.com/physicsvigilante/emfeeld/actions/runs/43837372318) | GitHub workflow/job completed **success** at corrected head; actual local PyVista rendering was **not** performed by this reviewer. |
+
+The two release ZIPs each contain **head-sha.txt = f34acd2db9cfa76883ccd3803fed438b816d87f0**, whose Git tree matches corrected head. Executed corrected **model_runs.inspect_run** on all **six** archived source runs per OS and corrected **scenario_comparisons.inspect** on all **three** comparisons per OS; run input SHA bindings total **30** per OS. Per OS E1 = **5 ok, complete**, G1 = **7 ok + 1 honest unknown_operand, partial**, T1 = **4 ok, complete**; thus **16 fulfilled and 1 genuinely unavailable per OS**. This is a fresh independent inspector replay of the retained outputs, not a fresh native integration or a new independent physical reference. Prior review-01's independently calculated field/integration references remain historical evidence tied to their first reviewed source/archives; no new arbitrary-physics accuracy claim is made here.
+
+## Separate scope judgments
+
+| Dimension | Judgment | Basis |
+| --- | --- | --- |
+| Source interpretation fidelity | **Qualified / unchanged** | Same-root and named explicit pairs remain; no changed interpretation engine or new teacher-grounded case. |
+| Physical/numerical correctness | **Qualified pass on retained E1/G1/T1 values, not general certification** | Physical laws/integrator unchanged, hosted numerical regressions passed, saved native and comparison inspector replay passed. **New check-evidence contradiction is not a claimed physics-solver failure.** |
+| Native simulation and observable coverage | **Qualified pass within prior E1/G1/T1 scope** | Six sealed complete source runs per OS and expected 16+1 result classification; no new physical capability or manual native simulation of E1/G1/T1 by reviewer. |
+| Evidence integrity and provenance | **Fail — R2-NEW-01 major** | Literal passed=true receipt can be internally false relative to the immutable authored expectation while compare and inspect both claim complete. Selector and unselected-value contradictions tested here are correctly rejected. |
+| Teacher-facing usefulness | **Unknown** | No new lesson/classroom observation, independent manual visualization or Windows mouse evaluation. |
+| Textbook-answer completeness | **Not applicable** | Read-only cross-scenario measurement feature; not a textbook-answer solving milestone. |
+
+## Verdict and smallest next gate
+
+**CHANGES REQUESTED — scoped R2.** The corrective F-01/F-02 code and the explicitly requested F-03 boolean-flag guard pass the targeted attacks, but do not treat the whole evidence-critical R2 correction as accepted while the newly demonstrated **authored-check arithmetic/receipt incoherence** survives. Fix **R2-NEW-01**, add independent expectation-aware regressions covering a genuine passing authored check, missing and truncated receipts, forged reference/tolerance receipt, and a saved value outside the authored tolerance with a re-sealed passed=true check. Run the F-01/F-02/F-03 attack suite again, and obtain fresh Linux/Windows and real-PyVista CI at the **new** exact SHA/tree; ask Chat B to re-review **only the new check consistency path**. Preserve this report, all historical evidence and both previous heads without rewriting them.
+
+This review neither edits nor merges source PR #20, cannot attest externally keyed authenticity of unkeyed SHA inventories, and does not grant owner merge approval. **A separate explicit owner approval is mandatory even after a future scoped pass.**
