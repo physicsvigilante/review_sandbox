@@ -1,3 +1,19 @@
+# conductor_sim PR #65 — M28a final merged release
+
+**M28a MERGED and POST-MERGE VERIFIED on `main`.** [PR #65](https://github.com/physicsvigilante/conductor_sim/pull/65) was merged by GitHub with exact reviewed-source SHA precondition following independent R2 PASS and the owner's standing authorization to continue routine validated development.
+
+- Exact reviewed source head `defe698b4ab7958ab9a3a8c7e7a6bc4057ecb83f`, tree `9d23f659331e03337c33fbc65ad7c0fbcf44ad66`.
+- GitHub merge commit [`abb085d41399b0a17429aa207614aad357ccd77c`](https://github.com/physicsvigilante/conductor_sim/commit/abb085d41399b0a17429aa207614aad357ccd77c), verified comparison against `main` **identical**, ahead=behind=0 immediately after merge.
+- **16/16 exact-merge postmerge push workflows SUCCESS**, including full Python 3.10/3.12, FEMM, and Chromium visualization. Source exact-head premerge PR CI was also **16/16 green**.
+- [Chat B review-02 PASS](reviews/review-02-chat-b.md): F-01–F-04 resolved on exact source head; [review-01 CHANGES-REQUESTED](reviews/review-01-chat-b.md) preserved for its older source; no unreviewed production field/ODE change.
+- One minor nonblocking CI-artifact metadata improvement remains: archive both actual PR head and synthetic test-merge checkout SHAs in future work. Preserve original artifact and failures.
+- Next separate scope M28b: typed event questions across genuine parametric trajectories; implementation starts in its own branch with charter and release gates. No hidden postguard event, new force law, ODE or model source response.
+
+**M28a release gate COMPLETE.** No further owner approval required for this finished merge.
+
+---
+
+## Historical R2 release packet
 # conductor_sim PR #65 — M28a release review status
 
 **INDEPENDENT TARGETED R2 PASS — NO BLOCKERS. AWAITING NEW EXPLICIT OWNER MERGE APPROVAL.** [Draft PR #65](https://github.com/physicsvigilante/conductor_sim/pull/65) is open, draft, mergeable and UNMERGED. This review PASS authorizes neither a merge nor a source change.
