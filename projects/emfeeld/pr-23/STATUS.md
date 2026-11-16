@@ -1,3 +1,11 @@
+# CURRENT DISPOSITION — PR #23 MERGED, POST-MERGE QUALIFICATION OPEN (2026-11-16 Asia/Kolkata)
+
+The former review-03-pending and draft/unmerged statements below are **historical snapshots**, not the current disposition. GitHub confirms [PR #23](https://github.com/physicsvigilante/emfeeld/pull/23) **MERGED**, exact merge commit **`bf6a18399c604136dd363ad94d40557dbe2c2543`**, from independently reviewed head **`7bbdea64a81c2e3bea2b24c59a2d5866afdda707`**, canonical Git tree **`e7ddc4c6c44106bf3113f7c1e176b21490a7cf5c`**. [Independent review-03](reviews/review-03-chat-b.md) gave a **scoped PASS** on the exact head (29 new tests passed). Former reviews 01/02 remain unchanged historical **CHANGES REQUESTED** bound to their old source commits. Existing exact-head Linux/Windows, real-PyVista and source snapshot workflows passed **before merge**, not on merged main. New post-merge main-push CI and release artifact re-audit **have not been independently verified here**. [MERGE-REPORT.md](MERGE-REPORT.md) tracks exact immutable merge and outstanding release gates. No post-merge CI success is claimed.
+
+---
+
+## Historical pre-merge status (preserved, superseded by current disposition above)
+
 # EM Fields PR #23 — targeted R2 review 03 and pre-merge status
 
 **REVIEW-02 CHANGES REQUESTED; SECOND CORRECTION AUTHOR-QUALIFIED ON LINUX/WINDOWS; INDEPENDENT REVIEW-03 PENDING — DO NOT MERGE.** (2026-11-16 Asia/Kolkata). Standing owner autonomy permits routine fixes and qualified integration after independent review, **not bypassing a reproduced R2 blocker**.
