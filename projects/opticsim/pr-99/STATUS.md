@@ -46,3 +46,10 @@ The original authored schema-v9 physical case **`critical-shift-neg`** is byte-i
 **Scientific interpretation:** first seed gives 24 FAILED native processes, second seed first execution gives 24 COMPLETED native processes with identical authored physical scene/schedule and separate *test-only* native RNG seed. This is strong bounded evidence **consistent with seed-sensitive native behavior** for one synthetic nominal critical Glass case. It is **NOT** an independently demonstrated universal RNG root cause, causal observer effect, ideal physically correct exact-critical branch, validated optical measurement, point error envelope or solver fix. Completion is native terminal status; actual Stage-1 diagnostic can still caution `inconsistent` even when native status is completed.
 
 **Original PR #98 full CI** had existing unrelated missing Chrome/Chromium on curved-mirror browser and only 11/12 workflows passed. For PR99 source head, verify actual 12 workflow conclusions; do not assume green or silently modify browser evidence. Original PR98 research and PR99 draft research **MUST remain unmerged**, including disposable workflows. No production PhyDemo source, numerical cutoff, scene/schema, default native seed, canonical Stage-1 readout or mandatory Stage-2 withholding change. Any stronger claim needs new independent Chat B R2 numerical research review of PR99 exact evidence; production physics requires separate design/release approval.
+
+## Independent Chat B R2 research/evidence review prepared — verdict pending
+
+- [Full exact-source PR99 independent research review REQUEST](REQUEST.md)
+- [Ready-to-paste Chat B independent review prompt](REVIEWER-PROMPT-01.md)
+- [Chat A developer findings, NOT independent](DEVELOPER-REPORT-01-CHAT-A.md)
+- Original reviewer output path `reviews/review-01-chat-b.md` is reserved for genuine separate Chat B authorship. No source PR #99 merge or default native physics/measurement change follows from the pending numerical evidence review.
