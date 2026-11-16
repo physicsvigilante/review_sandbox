@@ -1,5 +1,7 @@
 # conductor_sim PR #67 — M29a independent R2 structural-family review request
 
+**REVIEW CYCLE #02 NOTICE — initial detailed request below is historical and bound to OLD reviewed head.** Chat B independently authored [review-01 CHANGES-REQUESTED](reviews/review-01-chat-b.md) on head `32f11b931548dcc5c5f6fd836da8239a265de187`. The corrected source HEAD `0243d90215f212a1e6d69d1014c090495f570250`, tree `f21771df5cdbb1e6932c321f51fd7a7e23c84bab`, has **16/16 fresh full CI success** for source-name visibility and mobile table-scrolling corrections. Use [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md), [developer F01/F02 response](responses/response-01-chat-a.md), and [current STATUS](STATUS.md) for targeted review; original exact pins and 16-green evidence below must not be treated as current release approval. PR remains draft/unmerged pending separate Chat B PASS.
+
 **Status: AWAITING SEPARATE CHAT B R2 REVIEW. Source [PR #67](https://github.com/physicsvigilante/conductor_sim/pull/67) is DRAFT and UNMERGED.** This is an implementer-authored request and does not claim independent verification. The owner has standing authorization for routine build and merge **after independent PASS**, and requested interruption for actual independent reviews, not every merge.
 
 | Pin | Exact value |
