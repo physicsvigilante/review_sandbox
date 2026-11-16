@@ -75,7 +75,7 @@ def make_native_plan():
             gravity=UniformGravity((0., -0.1, 0.)),
         ),
         (
-            ("rod:tilted", "Teacher titled rod <img src=x onerror=window.pwned=true>"),
+            ("rod:tilted", "Rod <img src=x onerror=window.pwned=true>"),
             ("point:positive", "Held original positive point"),
             ("point:negative", "Held original negative point"),
         ),
@@ -87,7 +87,7 @@ def make_native_plan():
         add_sources=(
             NamedSource(
                 "point:added",
-                "<svg onload=window.pwned=true> Added +1.7 nC point",
+                "<svg onload=window.pwned=true> Added point",
                 FixedPointField(ADDED[0], ADDED[1]),
             ),
         ),
