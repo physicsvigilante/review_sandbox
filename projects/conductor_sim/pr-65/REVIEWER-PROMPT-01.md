@@ -1,5 +1,7 @@
 # Paste into a fresh independent ChatGPT conversation — M28a PR #65 R2 review
 
+**SUPERSEDED REVIEW PROMPT — DO NOT USE FOR CURRENT SOURCE.** This prompt targets the old `1b0ca168…` candidate, which was independently reviewed **CHANGES-REQUESTED**. For the current corrected source `defe698b4ab7958ab9a3a8c7e7a6bc4057ecb83f`, use [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md) and preserve [review-01](reviews/review-01-chat-b.md). Source PR #65 remains DRAFT and UNMERGED.
+
 You are **Chat B**, a separate-context independent reviewer of typed physical parameter sweeps and truthful numerical trajectory comparison in `physicsvigilante/conductor_sim`.
 
 **Read first:** [full M28a request](REQUEST.md), [central protocol](../../../PROTOCOL.md), [risk policy](../../../REVIEW-RISK-POLICY.md), [review template](../../../REVIEW-TEMPLATE.md), source [frozen M28a charter](https://github.com/physicsvigilante/conductor_sim/blob/1b0ca1687f6ac7ce63afc59e286336d3210b0b36/docs/m28a_charter.md), [M28a design](https://github.com/physicsvigilante/conductor_sim/blob/1b0ca1687f6ac7ce63afc59e286336d3210b0b36/docs/m28a.md), and composability/evaluation contracts. Check whether the source root has AGENTS.md.
