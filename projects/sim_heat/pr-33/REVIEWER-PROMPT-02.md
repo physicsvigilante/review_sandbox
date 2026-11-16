@@ -1,0 +1,9 @@
+# Chat B prompt — SIM_HEAT PR #33 targeted R2 review-02
+
+Continue as independent Chat B reviewer for **historical SIM_HEAT draft PR #33**. Review the **corrected exact HEAD `bf51e7721bca73720aa9b5f5f2de90defee821ec`**, not floating main or the earlier reviewed `b8c5152aac86fc1be32f7b98e032f108d8345c66`.
+
+Read [targeted REQUEST-02.md](REQUEST-02.md), the prior [independent CHANGES REQUESTED report](reviews/review-01-chat-b.md), [Chat A disposition](responses/response-01-chat-a.md), and central review protocol/risk policy/template. Compare exactly four scoped modified candidate paths, **no physical/H1/original reference or archive data changes**.
+
+Independently test F-01's former forged unpinned manifest fields, F-02's alternate valid recompressed XZ with forged manifest size/hash, and F-03's decoder-memory-bound hardening. Verify whole original manifest SHA `50467b138ed64cdb908f2c763bc777e6babf0bb04a0711568acc559112e66f84` and independently hard-pinned exact archive SHA `fc5a7df5928c3fb8aef2ba4af516dfbd32b42c0450ebef1051ad4fd7efebd17f` (503,552 bytes), original reviewed JSON SHA/seal unchanged, default unauthorized-use refusal preserved. Review exact-head [CI #43934967279](https://github.com/physicsvigilante/sim_heat/actions/runs/43934967279), artifact `14259763856` (ZIP SHA-256 `5cc97cd2944d68d55f895fda9ee8668be74967e30f7211fe6906aea5c83aec94`), 9 new integrity tests, 149 frozen H1 regressions and 14 original source pins.
+
+Publish a **NEW** independent `projects/sim_heat/pr-33/reviews/review-02-chat-b.md` in central review_sandbox, with scoped PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE for **the corrected storage-integrity contract only**. Do not overwrite review-01, change archived reference or physical source, grant owner/native permission, waive 100× accuracy, merge historical PRs, or launch OpenModelica. Record remaining trust/root-of-authority and retention limitations.
