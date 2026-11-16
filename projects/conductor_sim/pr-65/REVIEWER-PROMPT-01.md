@@ -1,5 +1,8 @@
 # Paste into a fresh independent ChatGPT conversation — M28a PR #65 R2 review
 
+**TEMPORARILY STALE — DO NOT ISSUE OR COMPLETE REVIEW YET.** Following self-audit, source PR #65 advanced to head `1b0ca1687f6ac7ce63afc59e286336d3210b0b36` to ensure distinct parallel physical planes cannot be collapsed in a single 2D viewer. This packet's older pinned `730c239b…` candidate remains historical evidence. Exact-new-head CI and updated source-pinned packet are in progress; prior PASS claims apply only to the previous head.
+
+
 You are **Chat B**, a separate-context independent reviewer of typed physical parameter sweeps and truthful numerical trajectory comparison in `physicsvigilante/conductor_sim`.
 
 **Read first:** [full M28a request](REQUEST.md), [central protocol](../../../PROTOCOL.md), [risk policy](../../../REVIEW-RISK-POLICY.md), [review template](../../../REVIEW-TEMPLATE.md), source [frozen M28a charter](https://github.com/physicsvigilante/conductor_sim/blob/730c239bc174092058a66fcf373da14f54aad663/docs/m28a_charter.md), [M28a design](https://github.com/physicsvigilante/conductor_sim/blob/730c239bc174092058a66fcf373da14f54aad663/docs/m28a.md), and composability/evaluation contracts. Check whether the source root has AGENTS.md.
