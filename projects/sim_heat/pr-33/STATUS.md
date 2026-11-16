@@ -1,3 +1,9 @@
+## Follow-on draft: separate Option A owner decision/binding preflight (not authorized)
+
+[Draft SIM_HEAT PR #34](https://github.com/physicsvigilante/sim_heat/pull/34), exact source `2f7fc7c0a43a786625abe2648eea0116ef3fd5f7`, adds **four read-only/offline-only proposal/test/CI paths** on top of reviewed PR #33 `bf51e7721bca73720aa9b5f5f2de90defee821ec`; original archived bytes and reference identities remain unchanged. It demonstrates that the actual independently reviewed saved V2 bundle binds to the frozen H1 study/checker (23 source pins, 37 exports, 4,001 samples, four integrals, nine public requests), **without** using the frozen native runner's regeneration path. [Exact-head CI #43940482524](https://github.com/physicsvigilante/sim_heat/actions/runs/43940482524) PASS only for checking/refusal and original 149 F0 tests. [Independent PR #34 request](../pr-34/REQUEST.md) is pending. The **owner has NOT approved Option A**, no durable/protected trust root or native reference consumer exists and no OMC run is authorized.
+
+---
+
 ## Latest reviewed status — corrected PR #33
 
 **Status: `R2-SCOPED-PASS-STORAGE-INTEGRITY; OWNER-OPTION-A-NOT-YET-AUTHORIZED; NATIVE-HOLD`.**
