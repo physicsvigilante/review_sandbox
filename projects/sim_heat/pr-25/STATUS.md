@@ -1,10 +1,10 @@
 # SIM_HEAT H3-07 PR #25 — independent R2 status
 
-**Status: `awaiting-independent-review`.** The targeted source correction, exact-head CI and reviewer handoff are complete. **No Chat B independent result or merge is claimed.** Standing owner authorization applies only after R2 PASS.
+**Status: `merged` — independent scoped R2 PASS and post-merge verification complete.** [Chat B Review 01](reviews/review-01-chat-b.md) is independently authored (Git blob `94e41c785c4e63a4c46d4cecb0ee33c7f90c5d9d`), **scoped PASS**, exact reviewed head `d5be85cb4c0b3bc079a12bb5ccea0a7c143ebf9c`. GitHub merged the unchanged reviewed source as `3287fafc8f1f3cb84b84a4db1c28f032f460e6ca` under standing owner authorization. **Post-merge CI 3/3 successful on this exact main SHA.**
 
 | Field | Pinned result |
 | --- | --- |
-| Source PR | [SIM_HEAT draft PR #25](https://github.com/physicsvigilante/sim_heat/pull/25) — **open/unmerged** |
+| Source PR | [SIM_HEAT PR #25](https://github.com/physicsvigilante/sim_heat/pull/25) — **closed/merged** |
 | Base SHA | `8aa18488f949c6d1b506d80e44afc2a25e71b2c7` |
 | **Exact reviewed source HEAD** | **`d5be85cb4c0b3bc079a12bb5ccea0a7c143ebf9c`** |
 | Source tree | `05fa0292e0ad049dd7c3bcee242087ea71459425` |
@@ -21,8 +21,11 @@
 | Author artifact audit | Original ZIP separately downloaded, full SHA-256 and CRC verified (33 members), head marker equals exact source; real refusal/recovery screenshots inspected |
 | New OpenModelica execution | **None** — no new builds/launches/version queries |
 | Native output trust | Existing historical `diagnostic_only` / `nativeQualified=false`; internal self-pinned source metadata is not external GitHub attestation |
-| Independent reviewer verdict | **Not yet submitted** — Chat B alone writes `reviews/review-01-chat-b.md` |
-| Merge | **Not authorized until independent scoped R2 PASS and CI at unchanged reviewed head** |
+| Independent reviewer verdict | **SCOPED R2 PASS** — [Chat B Review 01](reviews/review-01-chat-b.md), exact original report Git blob `94e41c785c4e63a4c46d4cecb0ee33c7f90c5d9d` |
+| Owner authorization | Standing authorization to merge a genuinely R2-passed exact-head candidate after CI; no separate routine approval required |
+| Actual merge | [`3287fafc8f1f3cb84b84a4db1c28f032f460e6ca`](https://github.com/physicsvigilante/sim_heat/commit/3287fafc8f1f3cb84b84a4db1c28f032f460e6ca), GitHub merged=true, PR closed, 2026-11-16 14:08:08 UTC |
+| Main identity | Verified identical to merge SHA; compare 0 ahead / 0 behind |
+| Postmerge CI | **3/3 completed/success at exact merge SHA:** [H1 offline 43882591811](https://github.com/physicsvigilante/sim_heat/actions/runs/43882591811), [thermal viewer 43882591680](https://github.com/physicsvigilante/sim_heat/actions/runs/43882591680), [generic viewer 43882591877](https://github.com/physicsvigilante/sim_heat/actions/runs/43882591877) |
 
 ## Trust and historical boundaries
 
@@ -30,8 +33,13 @@ The current public original D2 → D2-K2 physical pair still uses externally ide
 
 A newly self-repinned fake source manifest and matching case data can still pass internal metadata consistency by design; **external independent GitHub run/commit/artifact/full-original-ZIP checks** are mandatory for any new adopted native source. The new F-01 check prevents one internally inconsistent same-run SHA assertion; F-02 removes stale hidden DOM observations and preserves same-page recovery. Neither is a new native scientific qualification or classroom efficacy claim.
 
-## Handoff
+## Independent review, owner authorization and completed merge
 
-Read [REQUEST.md](REQUEST.md), [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md), the central [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md), [PROTOCOL.md](../../../PROTOCOL.md), and [REVIEW-RISK-POLICY.md](../../../REVIEW-RISK-POLICY.md).
+- [Original independent review request](REQUEST.md) and [ready-to-paste prompt](REVIEWER-PROMPT-01.md) remain source-pinned historical documents.
+- [Chat B Review 01](reviews/review-01-chat-b.md) independently returned **scoped R2 PASS** at exactly `d5be85cb4c0b3bc079a12bb5ccea0a7c143ebf9c`, tree `05fa0292e0ad049dd7c3bcee242087ea71459425`. The reviewer independently SHA/CRC-checked original D2, D2-K2 and exact-head CI artifacts; performed 11/11 targeted production JS admissions/refusals, checked historical raw sample/power/energy preservation, and ran a reviewer-owned isolated same-page DOM test. Original Chromium was **author-CI only**, not independently run by Chat B, because its review environment blocked browser navigation. The distinction remains explicit.
+- Prior PR #23 nonblocking **F-01 and F-02 are resolved** in this scoped correction: same-run cross-artifact execution SHA consistency and real same-page refusal/recovery with hidden numeric/source-label DOM removal. No other blocker/major/minor production defect demonstrated; F-03 is an intentional ongoing **external GitHub native provenance boundary**, not a bypass or a qualification upgrade.
+- Owner's standing authorization covers merges **after** required scoped R2 PASS. Verified exact PR reviewed-head and source [CI 43876894794](https://github.com/physicsvigilante/sim_heat/actions/runs/43876894794) `completed/success`, matching main base, then marked the draft PR ready and requested an expected-head guarded GitHub merge. GitHub confirmed **merged=true**, PR closed, merge SHA `3287fafc8f1f3cb84b84a4db1c28f032f460e6ca` at 2026-11-16 14:08:08 UTC. The `main` branch and this merge SHA are identical (0 ahead/behind).
+- **Post-merge verification complete: 3/3 `main` workflows SUCCESS** at exactly `3287fafc8f1f3cb84b84a4db1c28f032f460e6ca`: [H1 offline 43882591811](https://github.com/physicsvigilante/sim_heat/actions/runs/43882591811), [thermal explorer 43882591680](https://github.com/physicsvigilante/sim_heat/actions/runs/43882591680), [generic thermal network viewer 43882591877](https://github.com/physicsvigilante/sim_heat/actions/runs/43882591877). No new OpenModelica build/launch is claimed.
+- Original H1 law, numerical policy, historical failure/qualification evidence, six native case JSON bundles, H1-C1 frozen assets and the original v2 source-pair manifest/index remain unchanged. All source-linked numeric observations remain historical `diagnostic_only` and `nativeQualified=false`; internally self-consistent case metadata **does not attest** a new native GitHub run, scientific accuracy, physical measurement or classroom outcomes.
 
-**Next:** Chat B reviews exact HEAD `d5be85cb4c0b3bc079a12bb5ccea0a7c143ebf9c` and writes a **new independent** report at `reviews/review-01-chat-b.md` directly to this central repository. The owner may return and say **“review done”**. Chat A will fetch that exact independent report, fix any demonstrated defects and ask for targeted re-review only if needed; standing owner authorization permits merging only a scoped review-passed unchanged HEAD, followed by main/postmerge CI verification. **PR #25 remains draft and unmerged.**
+**PR #25 merged, independently reviewed and post-merge verified.** Next work, if undertaken, must preserve this history, derive any new native evidence from a separately checked original GitHub source/run/archive, and obtain new R2 review whenever source admission/evidence semantics materially change. No further review round for this exact source correction is required.
