@@ -13,3 +13,16 @@
 - No user local Conda, saved study, old evidence or core physics law was changed. Same-author reference formulas/CI, offscreen PyVista and digest receipts are not independent human physics certification, manual Windows pointer evaluation or distributed crash-safe ACID. A scenario ensemble remains alternatives, not a physical time transition.
 
 **Next actions:** complete fresh exact-head Linux/Windows/PyVista CI, audit original new release ZIPs and saved E1/G1/T1 source/evidence status, then publish `REQUEST.md` and `REVIEWER-PROMPT-01.md` for focused independent R1 review. Keep PR #27 DRAFT and UNMERGED throughout.
+
+
+## Independent CI follow-up — exact PR #27 source, Linux and PyVista confirmed (2026-11-16 Asia/Kolkata)
+
+This follow-up records newly observed original GitHub job outcomes and preserves the earlier in-progress status as historical. Current source pinned: `2dc5e1d90a1cec2809d536f725474eac0ae4dd2d`, merge-preview `d230d97d9d3b300688ed0796f01f686b57d53cc0`, qualified base `9e5924efa60dea56606e0b8eef591f94711b666d`.
+
+- [Exact-head clean-install workflow #43913225233](https://github.com/physicsvigilante/emfeeld/actions/runs/43913225233): **Ubuntu job 133460397109 COMPLETED SUCCESS**; original job log recorded **1,481 headless passed**, **18 historical behavioral passed** (one unchanged obsolete freeze guard deselected), **33 real-PyVista passed**, and a separately repeated **79 focused ensemble tests passed**, already included among headless memberships. Original CI also executed and verified an E1 complete and G1 honest partial sealed measurement readout.
+- Original Ubuntu artifact **14247794085**, GitHub upload-log ZIP SHA256 `a8ec0e8697e43e5ef23892d3e3dc0fe7de3e830bb97d7db175e4393e74cdb014`. This is a digest reported by original job upload logging, **not** a claim of independently downloaded/CRC-audited ZIP bytes in this follow-up.
+- [Separate real-PyVista workflow #43913225195](https://github.com/physicsvigilante/emfeeld/actions/runs/43913225195): render job **133460400998 COMPLETED SUCCESS**, original log recorded **1,481 headless passed** and offscreen viewer exercise. Viewer artifact **14247663796**, upload-log ZIP SHA256 `a7660e661947a7eeaa8a285e7975df48f071e6640b386d988fdb1ff74f386bf0` (not separately rehashed here).
+- Exact source snapshot workflow **#43913225024 COMPLETED SUCCESS**, as already recorded above.
+- **Windows clean-install job 133460397794 remains IN PROGRESS** at this follow-up; do not mark the workflow, full release, new archives or R1 independent review complete until its final conclusion and the original current-head evidence archive audit are verified.
+
+**Gate unchanged: PR #27 stays DRAFT/UNMERGED, independent focused R1 review not yet requested or passed.** No source changes or user-local software installation in this verification follow-up.
