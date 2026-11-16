@@ -1,6 +1,6 @@
 # conductor_sim PR #68 — M29b independent R2 review request for structural-source event observations
 
-**STATUS AT REQUEST CREATION: SOURCE CI PENDING. DO NOT BEGIN REVIEW UNTIL THE CURRENT HEAD HAS 16/16 GREEN AND THE PROMPT IS MARKED READY.** Source [PR #68](https://github.com/physicsvigilante/conductor_sim/pull/68) remains **DRAFT and UNMERGED**. This request is authored by Chat A (developer); it is not an independently written verdict.
+**READY FOR INDEPENDENT R2 REVIEW: current exact source HEAD passed 16/16 workflows.** Source [PR #68](https://github.com/physicsvigilante/conductor_sim/pull/68) remains **DRAFT and UNMERGED**. This request is authored by Chat A (developer); it is not an independently written verdict.
 
 | Pin | Exact value |
 | --- | --- |
@@ -8,8 +8,8 @@
 | Source repo | [physicsvigilante/conductor_sim](https://github.com/physicsvigilante/conductor_sim) |
 | Source PR | [draft #68](https://github.com/physicsvigilante/conductor_sim/pull/68) |
 | Base/main | `62ed54af8c32acb5f61acfe3d82744310401208f` (M29a reviewed merge with 16/16 postmerge CI success) |
-| **Candidate source HEAD** | **`fe63cab1994b702e7e55348a122ee76f9f5e10ed`** |
-| **Candidate source Git tree** | **`3ff8bcc507dfa625d0d9f22908d85b837a1ed782`** |
+| **EXACT REVIEW source HEAD** | **`fe63cab1994b702e7e55348a122ee76f9f5e10ed`** |
+| **EXACT REVIEW source Git tree** | **`3ff8bcc507dfa625d0d9f22908d85b837a1ed782`** |
 | Frozen preimplementation charter | `17ecf371de4616045294c8800f0d1e3ca5aba3fd` (BEFORE production) |
 | Independent review risk | R2 — physical event observations and time brackets joined with actual source membership lineage |
 | Report destination | `projects/conductor_sim/pr-68/reviews/review-01-chat-b.md` (Chat B authors, not developer) |
@@ -52,8 +52,17 @@ All new examples are explicit **teacher hypotheticals**, unrelated to workbook Q
 - Initial `edce30e0e7d7fe2ec0a39941bd2a77bc097e99ec`: [Python run 43883256720](https://github.com/physicsvigilante/conductor_sim/actions/runs/43883256720) could not import the new HTML renderer because its string concatenation continued across lines without parentheses.
 - Corrected `05b926ce7555a62b88216ead96e77d91973b06b9`: new Chromium [run 43883590126](https://github.com/physicsvigilante/conductor_sim/actions/runs/43883590126) failed ONLY in new browser checker, which attempted strict locator `inner_text()` on two genuine matching same-ID event root rows rather than checking both; solver/table had two true crossings.
 - Corrected `33028d8714981d166541c612147891a5abbb1768`: [Python run 43883927237](https://github.com/physicsvigilante/conductor_sim/actions/runs/43883927237) and [visualization run 43883927200](https://github.com/physicsvigilante/conductor_sim/actions/runs/43883927200) reported **1 failed/1,856 passed** due new test setup calling nonexistent `StructuralFamilyPlan.as_dict()` instead of passing an actual arbitrary dictionary. All M29b real browser cases passed in that run. Fixed at `f3d82ba…`; that head had full **16/16 CI green**, with **1,857 Python tests per interpreter**, real FEMM5 97 and full Chromium successful. Those results do NOT qualify the later `fe63cab…` glyph correction without its own full exact-head check.
-- The latest `fe63cab…` one-commit improvement changed ONLY viewer presentation, native/browser badge-bound checks and docs, not the original M24a detector algorithm or physics. Its exact-head CI is being checked before review handoff.
+- The final `fe63cab…` one-commit improvement changed ONLY viewer presentation, native/browser badge-bound checks and docs, not the original M24a detector algorithm or physics. Its own **16/16 exact-head CI PASSED**, as detailed below.
+
+## Final exact-current-head CI evidence — ready for review
+
+**Exact-reviewed-source CI 16/16 SUCCESS on `fe63cab1994b702e7e55348a122ee76f9f5e10ed`, tree `3ff8bcc507dfa625d0d9f22908d85b837a1ed782`:**
+- [Python 3.10 and 3.12 run 43885817631](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817631): **1,857 passed, 97 FEMM-only skipped, 13 warnings per interpreter**.
+- [Real FEMM5 run 43885817758](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817758): **97 passed**, conductor nonregression, NOT an independent M29b event-root reference.
+- [Full real Chromium plus historical visualizations run 43885817321](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817321): **PASS all seven new M29b cases** (six native physics lessons plus hostile-labels) with 390px viewport=document widths, actual event outcomes and bracket rows, mobile table 1080px internally scrollable, visible source identities, zero page/console/network errors. **coincident-terminal** preserves 48 original roots and 48 numeric table rows; chart groups into 3 badges wholly before real stops; **guard-detector** retains an early real root while child source-guard censors later observation.
+- [Additional push Python run 43885595479](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885595479): success.
+- [Exact-source visualization artifact #14234184228](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817321/artifacts/14234184228): **GitHub-reported** SHA-256 `6ddd0ceb6417bd5fee7e440c0a5cb78a5df927e957962062cd514f80f3f0710f`; Chat A has **not independently downloaded/rehashed** this ZIP. Check actual source tree and bytes, not just PR CI synthetic merge `commit.txt`.
 
 ## Release expectations
 
-**DO NOT REVIEW OR MERGE YET if the exact head remains CI pending.** Once 16/16 current `fe63cab…` workflows succeed, update this request/status with **actual** final workflow IDs, counts and artifact digest. A separate Chat B should independently author `projects/conductor_sim/pr-68/reviews/review-01-chat-b.md` with exact head/tree, novel native/alternate-reference tests, original source/runtime/browser evidence, and **PASS / CHANGES-REQUESTED / INSUFFICIENT-EVIDENCE** with explicit blockers and scope limits. It should not edit/merge source PR #68. The owner already authorized routine exact-head merges **only after independent PASS**, so no redundant approval question is required.
+**READY TO REVIEW EXACT SOURCE (DO NOT MERGE BEFORE INDEPENDENT PASS).** The final `fe63cab…` head has **16/16 successful complete CI** and this request has been updated with actual workflow IDs, counts and provider artifact digest.  A separate Chat B should independently author `projects/conductor_sim/pr-68/reviews/review-01-chat-b.md` with exact head/tree, novel native/alternate-reference tests, original source/runtime/browser evidence, and **PASS / CHANGES-REQUESTED / INSUFFICIENT-EVIDENCE** with explicit blockers and scope limits. It should not edit/merge source PR #68. The owner already authorized routine exact-head merges **only after independent PASS**, so no redundant approval question is required.
