@@ -57,7 +57,7 @@ def require(condition, message):
 
 def make_native_plan():
     sources = (
-        UniformRodField(ROD_Q, tuple(ROD_A), tuple(ROD_B)),
+        UniformRodField(ROD_Q, tuple(map(float, ROD_A)), tuple(map(float, ROD_B))),
         FixedPointField(POINTS[0][0], POINTS[0][1]),
         FixedPointField(POINTS[1][0], POINTS[1][1]),
     )
