@@ -21,3 +21,11 @@
 A fixed native RNG provides a more controlled within-case replay, but this run only demonstrates stable **failed** native executions for one seed under a shared test-only loading path. Neither global native numerical root cause, the probability of failures, physical correctness, observer neutrality, a mathematically exact critical-angle branch, safe reported-point error envelope nor a mandatory Stage-2 withholding rule is established. Original production and all original PR #92–#97 research, failed histories, ZIP bytes and reviews remain intact.
 
 **Independent Chat B R2 research/evidence review pending.** Review should independently verify pinned Scene.js randomSeed activation, untouched source inputs/compiled hashes, 24 original failed native runs, four distinct event signatures and the 11/12 CI environment failure. No production release or physics decision permitted. **KEEP PR98 DRAFT AND UNMERGED (including the disposable workflow)**. A later native numerical or Stage-2 policy modification requires a separate owner-approved design, independent physical/model tests, code/browser R2 verification and explicit merge/release authority.
+
+## Independent R2 research review packet — prepared, not yet reviewed
+
+- [Full source- and evidence-pinned independent review REQUEST](REQUEST.md)
+- [Paste-ready separate Chat B review prompt](REVIEWER-PROMPT-01.md)
+- [Chat A developer research report (NOT independent)](DEVELOPER-REPORT-01-CHAT-A.md)
+
+The `reviews/review-01-chat-b.md` path is reserved for actual separate Chat B authorship. Do not create a purported reviewer verdict or merge this research-only/temporary workflow without independent findings and a separate production release decision.
