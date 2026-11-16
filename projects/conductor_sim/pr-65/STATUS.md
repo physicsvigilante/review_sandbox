@@ -1,5 +1,23 @@
 # conductor_sim PR #65 — M28a independent R2 review status
 
+**R2 REVIEW RECEIVED — CHANGES-REQUESTED. Source PR #65 remains DRAFT and UNMERGED.** [Chat B original exact-head review](reviews/review-01-chat-b.md) is preserved for source head `1b0ca1687f6ac7ce63afc59e286336d3210b0b36`, tree `bd432191516da457e2bbbc0c61a382d40419c207`.
+
+**Remediation underway, NOT YET REVIEWED OR MERGEABLE BY EVIDENCE:** Current source branch includes F-01/F-02/F-03 and F-04 response changes, new adversarial regression tests and the reviewer-disclosed gravity baseline-guard transfer. Recent source commit `defe698b4ab7958ab9a3a8c7e7a6bc4057ecb83f`; exact-head CI is running and results must be verified before repinning the R2 targeted re-review packet. Source fields/RK/physical admission unchanged.
+
+| Finding | Independent verdict | Developer disposition (pending current CI and re-review) |
+| --- | --- | --- |
+| F-01 false ring workbook attribution in generic point-only viewer | MAJOR demonstrated | Reusable viewer now displays actual baseline provenance explicitly as an author assertion; no unconditional workbook text. Add point-only/uniform-only native and Chromium tests. |
+| F-02 gauge/reference-only axes labeled physical | MAJOR high confidence | New physical-source property allowlist; reject electric potential/reference point and gravity energy-reference changes, preserve M20b gauge revision capability. Add same-trajectory/different-U regression. |
+| F-03 large-world-offset distinct parallel-plane collapse | MAJOR high confidence | Require exact common-plane identity from accepted float coordinates (exact binary-rational signed displacement), no world-scale 64-ULP allowance. Add z=10^12 m + 0.003 m negative and same-plane positive tests. |
+| F-04 baseline-only time slider hides valid later variation | MINOR | Use sorted union of actual saved timestamps, absent markers at non-saved times, no interpolation. Native reviewer gravity case has baseline source guard but variation completes, and has browser checks. |
+
+This is a developer implementation response, **not a Chat B acceptance**. Hold for exact-head Python/FEMM/Chromium acceptance and a NEW independently authored targeted Chat B report on the new head. Only after separately approving a completed review may the owner authorize merge.
+
+---
+
+## Original pre-review request and evidence (archived, now superseded for merge)
+
+
 **AWAITING SEPARATE CHAT B REVIEW.** Source [DRAFT PR #65](https://github.com/physicsvigilante/conductor_sim/pull/65) is **OPEN, DRAFT AND UNMERGED**. Owner approved beginning M28, NOT merging it.
 
 - **Exact source review HEAD:** `1b0ca1687f6ac7ce63afc59e286336d3210b0b36`; Git tree `bd432191516da457e2bbbc0c61a382d40419c207`; base/main `c0102111bd9c13ef8b02a13ba6431cefada69e70` (M27b F-01 fully merged and 7/7 postmerge checks green).
