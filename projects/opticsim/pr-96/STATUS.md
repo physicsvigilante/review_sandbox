@@ -1,0 +1,11 @@
+# Opticsim PR #96 — preregistered held-out native numerical profiles
+
+**Research execution in progress; no independent R2 review verdict. HOLD, DRAFT AND UNMERGED.**
+
+- Source [draft PR #96](https://github.com/physicsvigilante/opticsim/pull/96), initial case/protocol preregistration commit `3bd989e17ed47932f218a4b339158d59647c9fb2` **before native experiment execution**. Production base/main unchanged `50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518`; pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`.
+- [Frozen held-out protocol](https://github.com/physicsvigilante/opticsim/blob/3bd989e17ed47932f218a4b339158d59647c9fb2/evaluation/heldout-native-profiles-v1/PROTOCOL.md): 6 new synthetic transformed v9 Glass cases, deterministic randomized six trials per case: **12 ordinary OFF**, **12 ordinary ON**, **12 additional-method-TAP ON**, total **36 native process runs**. At critical incidence, no ideal branch or causal observer-neutrality claim.
+- Original first CI at head `89bd636b0e828e49d447e56f23d5314415202509`, [run 43872666690](https://github.com/physicsvigilante/opticsim/actions/runs/43872666690) failed **before native execution**: workflow used `npm run build` (browser bundle) but test-only runner requires `dist/test-core.cjs`. Retain this failure as an actual experiment-setup failure; do not label as native data.
+- Correction only to disposable workflow: `node scripts/build.mjs --test`, at head `340310c87e7331a748e546a549a354fe5698d347`; [new research CI 43872775256](https://github.com/physicsvigilante/opticsim/actions/runs/43872775256) **PENDING** until source results and archived raw records can be checked.
+- Test-only changes: frozen protocol, run.mjs, independent-language exact-check.py, README and disposable research workflow. No production `src/`, vendor, numerical cutoff, source/scene schema, measured result or Stage-2 changes. Original PR #92/#93/#94 source and evidence remain unmodified. **Never merge disposable workflow into main.**
+
+Original eventual native states, failed-run denominators and per-hit raw binary64 data must be verified against actual artifacts before any claims of numerical accuracy. Require separate Chat B **R2 evidence/numerical** review of exact successful head before using evidence for production decisions; do not implement PhyDemo changes or measurement withholding here.
