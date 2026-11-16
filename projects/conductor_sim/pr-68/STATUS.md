@@ -1,3 +1,26 @@
+# conductor_sim PR #68 — M29b independent R2 review handoff
+
+**READY FOR INDEPENDENT SEPARATE-CONTEXT CHAT B REVIEW. EXACT SOURCE 16/16 CI GREEN.** Source [PR #68](https://github.com/physicsvigilante/conductor_sim/pull/68) remains **DRAFT and UNMERGED**. The owner authorizes routine merges only after the separate reviewer returns **PASS** and no blockers; developer CI alone is not a release decision.
+
+- **Exact current source HEAD:** `fe63cab1994b702e7e55348a122ee76f9f5e10ed`; **exact Git tree** `3ff8bcc507dfa625d0d9f22908d85b837a1ed782`; base/main `62ed54af8c32acb5f61acfe3d82744310401208f` (M29a merge 16/16 postmerge green). GitHub live PR head/tree and current main were reverified. No independent M29b verdict has yet been published.
+- **Preimplementation charter** committed `17ecf371de4616045294c8800f0d1e3ca5aba3fd` before any M29b production code. [Source-pinned charter](https://github.com/physicsvigilante/conductor_sim/blob/fe63cab1994b702e7e55348a122ee76f9f5e10ed/docs/m29b_charter.md) · [API and limits](https://github.com/physicsvigilante/conductor_sim/blob/fe63cab1994b702e7e55348a122ee76f9f5e10ed/docs/m29b.md).
+- M29b composes unchanged M22a/M29a named source reassembly, M24a real event localization, M28b unique-root/same-sign/duration-complete comparison and M28a exact-actual-time 3D state differences. No new electric field law, physical guard, event locator, RK or induction. Preserves distinct structural and event-study refusals, censored real terminal/guard histories and source-specific authored identities.
+- The six physical/teacher examples and additional hostile source labels pass a real browser test at 390px; the original 16-root near-coincident terminal clusters retain 48 native root records/table rows. Source-aware cards show ID/name/type/structural ledger; event-time grouped badges are decorative but wholly at/before actual stopping boundaries, not false poststop physical motion. This is not an apparatus geometry viewer.
+- **Exact-reviewed-source CI 16/16 SUCCESS on `fe63cab1994b702e7e55348a122ee76f9f5e10ed`, tree `3ff8bcc507dfa625d0d9f22908d85b837a1ed782`:**
+- [Python 3.10 and 3.12 run 43885817631](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817631): **1,857 passed, 97 FEMM-only skipped, 13 warnings per interpreter**.
+- [Real FEMM5 run 43885817758](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817758): **97 passed**, conductor nonregression, NOT an independent M29b event-root reference.
+- [Full real Chromium plus historical visualizations run 43885817321](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817321): **PASS all seven new M29b cases** (six native physics lessons plus hostile-labels) with 390px viewport=document widths, actual event outcomes and bracket rows, mobile table 1080px internally scrollable, visible source identities, zero page/console/network errors. **coincident-terminal** preserves 48 original roots and 48 numeric table rows; chart groups into 3 badges wholly before real stops; **guard-detector** retains an early real root while child source-guard censors later observation.
+- [Additional push Python run 43885595479](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885595479): success.
+- [Exact-source visualization artifact #14234184228](https://github.com/physicsvigilante/conductor_sim/actions/runs/43885817321/artifacts/14234184228): **GitHub-reported** SHA-256 `6ddd0ceb6417bd5fee7e440c0a5cb78a5df927e957962062cd514f80f3f0710f`; Chat A has **not independently downloaded/rehashed** this ZIP. Check actual source tree and bytes, not just PR CI synthetic merge `commit.txt`.
+- **Historical first-candidate failures preserved:** `edce30e0…` HTML import SyntaxError; `05b926ce…` new Playwright strict-locator assertion on genuine two-root detector; `33028d…` native test calling nonexistent `StructuralFamilyPlan.as_dict()` (1 failed/1,856 passed); `f3d82ba…` then 16/16 successful. The one-commit final `fe63cab…` count-badge boundary correction passed **fresh 16/16**, not inferred from prior-head success.
+- **Independent R2 gate:** [full pinned request](REQUEST.md) · [paste-ready reviewer prompt](REVIEWER-PROMPT-01.md). A fresh Chat B should author `reviews/review-01-chat-b.md` on exact HEAD/tree and challenge a novel rod/point/gravity event transfer against independent quadrature+DOP853 or analytic reference, guard/censor/event-study refusals, multiple-root pairing and source/browser evidence. Reviewer may report **PASS / CHANGES-REQUESTED / INSUFFICIENT-EVIDENCE**; any blocker triggers fix + targeted re-review. No current report or merge exists.
+
+**No M29b independent reviewer PASS or production merge has occurred.**
+
+---
+
+## Archived status before exact-head CI completed
+
 # conductor_sim PR #68 — M29b event family final candidate in validation
 
 **CURRENT SOURCE HEAD `fe63cab1994b702e7e55348a122ee76f9f5e10ed`, tree `3ff8bcc507dfa625d0d9f22908d85b837a1ed782`; GitHub CI is still RUNNING for this head.** [PR #68](https://github.com/physicsvigilante/conductor_sim/pull/68) remains DRAFT and UNMERGED. Independent R2 review is not yet requested or completed. Owner's standing approval applies only after exact-head green CI plus an independently authored PASS.
