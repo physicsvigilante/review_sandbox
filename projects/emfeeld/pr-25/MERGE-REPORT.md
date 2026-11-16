@@ -35,3 +35,54 @@
 4. [ ] Inspect any separately uploaded main-PyVista artifact's screenshot/receipt checks. Append original run IDs, job IDs, conclusions, artifact IDs/digests and auditable limitations to **this same append-only report**. Only then update central status/issue to final post-merge RELEASE QUALIFIED.
 
 **Disposition at this recorded check:** merge successful, independent R1 blocker closure PASS and exact source equivalence VERIFIED; fresh merged-main workflows and archival audit **NOT YET VERIFIED**. Do not claim the complete release gate is closed from pre-merge evidence alone.
+
+
+## Follow-up 01 — FINAL exact merged-main release qualification and original archive audit (2026-11-16 Asia/Kolkata)
+
+**FINAL RELEASE DISPOSITION: QUALIFIED within the explicitly declared automated/native evidence and offscreen viewer scope.** This supersedes, without deleting, the earlier accurate pre-verification statement that main CI and archive checks were open. No source modification, reviewer report rewrite or new merge occurred during this audit.
+
+### Actual GitHub main-push workflow and source identity
+
+- Queried original GitHub Actions workflow-run collection at `https://api.github.com/repos/physicsvigilante/emfeeld/actions/runs?head_sha=9e5924efa60dea56606e0b8eef591f94711b666d&per_page=100` using the connected GitHub read tool (not the narrower PR-only lookup). It returned exactly two **`event=push`, `head_sha=9e5924efa60dea56606e0b8eef591f94711b666d`, `status=completed`, `conclusion=success`** workflows on 2026-11-16 (run attempt 1 each):
+  - [Main release clean-install run #43906624386](https://github.com/physicsvigilante/emfeeld/actions/runs/43906624386): Linux Ubuntu 24.04 **job 133437082534 SUCCESS**, Windows 2022 **job 133437083428 SUCCESS**.
+  - [Main real-PyVista run #43906624433](https://github.com/physicsvigilante/emfeeld/actions/runs/43906624433): Linux **job 133437083130 SUCCESS**.
+- Obtained **original job logs** directly via GitHub. Per OS: **1,464 headless passed**, **18 historical behavioral passed** (one unchanged whole-file freeze test deselected), **33 real-PyVista tests passed**, and the separate **62 focused ensemble tests passed**, which were already included among the 1,464 headless definitions. The original jobs also executed **real E1 fresh-baseline** and **G1 hypothesis-B native-complete despite honestly partial comparison** screenshot commands successfully; separate viewer log recorded **1,464 headless passed** plus offscreen viewer execution/slider-event qualification.
+- GitHub's Git-commit object at the **actual merge SHA** directly reported canonical tree **`ce20aa49d978c94150edbbf017d8fae1e2f6f896`** with **parents exactly** `bf6a18399c604136dd363ad94d40557dbe2c2543` (qualified main/base) and `a56b4680a90647ad4af03a52a0b9053807d10a7b` (independently reviewed corrected source). This agrees with the zero-file-change head-to-merge compare established earlier.
+
+### Original ZIPs independently downloaded; raw bytes SHA256/CRC audited
+
+All three **original** GitHub Actions artifact ZIPs were obtained using the connected GitHub artifact-download tool and read **locally byte-for-byte**, independently of their original GitHub upload logs. Each original downloaded ZIP digest matched **both** its original upload-log SHA256 and GitHub's current artifact metadata digest.
+
+| Main-push artifact | Original artifact ID and link | Verified original ZIP SHA256 | Files and CRC |
+|---|---|---|---|
+| Ubuntu 24.04 release | [14245898469](https://github.com/physicsvigilante/emfeeld/actions/runs/43906624386/artifacts/14245898469) | `4d40836d498b2cebceaa7b132d37ce8ce83954bbfe56e55e2b63db1acbfc2e7d` | **2,157 unique files, all CRC clean** |
+| Windows 2022 release | [14246746561](https://github.com/physicsvigilante/emfeeld/actions/runs/43906624386/artifacts/14246746561) | `c1d4628887816cefc28f2f109686e37e38b1c5fc812ecb90f3ef82ff8446ef43` | **2,157 unique files, all CRC clean** |
+| Separate real-PyVista viewer | [14245957583](https://github.com/physicsvigilante/emfeeld/actions/runs/43906624433/artifacts/14245957583) | `b8498e300977d1e33ef366894b658c486e441c5181ba8bb66889f43161e1aa31` | **22 unique files, all CRC clean** |
+
+### Read-only native, comparison and view receipt audit (BOTH source OS archives)
+
+For **each** original Linux and Windows archive independently:
+
+1. Verified embedded `head-sha.txt` equals the exact merged-main SHA, **not** an older pull-request preview or feature-branch SHA. Rejected duplicate entries, path traversal and CRC corruption.
+2. Rehashed **every file referenced in 33 actual SHA256 evidence inventories** per OS (21 top-level run/ensemble/comparison inventories plus 12 nested native inventories), comparing original bytes with every listed digest. No missing or mismatched referenced file.
+3. Read and checked **three sealed ensembles**, E1 and T1 **complete**, G1 **honestly partial**; every scenario has a freshly recomputed **complete baseline**, two individually accepted sibling V3 revisions and two **complete recorded native runs**. Total **12 complete native runs per OS**, comprising three sealed original parent templates, three recomputed baselines and six sibling executions.
+4. Recomputed the **60 exact native run input SHA256 bindings** per OS (five original inputs of each of 12 runs), checking original investigation, analysis, presentation, reference and revision raw files; verified run reference is the saved exact reference.
+5. Independently validated all **six sealed comparison** request/result mappings against both exact saved baseline and sibling `run.json` raw hashes, preserving declared ordered pair identity. Totals per OS: **32 `ok` measurements and two `unavailable` with typed `unknown_operand` reason** for genuinely absent G1 baseline body counterparts; no omitted, invented or retargeted result.
+6. Verified **six original stored accepted proposal.json raw hashes per OS** against `decision.proposal_sha256`, checked ensemble-captured proposal semantic identity, native store decision exact revision reference and each saved sibling run reference. Neither identity nor accepted construction was mistaken for numerical completion.
+7. Verified embedded actual test logs per OS: 1,464 headless, 18 behavioral plus one historical deselection, 33 viewer, 62 focused (duplicate headless membership). The retained same-author E1/G1/T1 independent-formula/RK4 checker reports **20 static +12 trajectory comparisons, two expected unavailable** per OS. It is **same-author/source CI**, not a new independent full numerical physics derivation.
+8. Decoded both new real-PyVista **E1 fresh-baseline** and **G1 member hypothesis-B** native view PNGs per OS; each is **1200 × 850**, visibly nonblank, and has more than 2,300 distinct RGB colors. Each exact original `presentation.json.frame_sha256` matched its PNG; `run_integrity_sha256` matched the **intended** original native `integrity.json` bytes, and saved original run ID and complete source revision reference matched its respective native `run.json` and `reference.json`. Recorded sample index **0**, physical time **0 s**. The G1 member is native-complete while its comparison remains honest partial. Original frame hashes:
+   - Linux E1 baseline: `8ca503af4673d9d547b4ce919140a3afd1d6638f3112fbe02ac1fe62132b2b8f`
+   - Linux G1 hypothesis-B: `2a2eab68ef0e3bf8daf1c80591e3dc100c4e22f84e6cdad19dc495efa2c057ac`
+   - Windows E1 baseline: `364b2018f3db54ee5a3d7c5d4d28891ff985f96e7c041d4c4cbac3bb3794013a`
+   - Windows G1 hypothesis-B: `1999ff1a8ec200c2eccf70163db1554bc41213c6efed96112f2d3969a440d0d2`.
+9. The separate original viewer artifact's report.json binds exact **merged commit** and reports `status=PASS` on nine offscreen scene cases. Verified **each of its 17 original 1200 × 850 PNGs by reported filename and its exact saved `png_sha256`**, decoded each and checked nonblank image content. There are **16 unique SHA256 digest values** because `composition_flat_000.png` and `composition_nested_000.png` are **intentionally byte-identical**; this is **17 per-file successful bindings**, not a missing 17th PNG. A four-panel contact sheet of the independent E1/G1 Linux and Windows images was manually viewed; scene display was nonblank with distinguishable electric potential in volts vs gravitational potential in J/kg, recorded orbit/particle markers, source-bound IDs, playback/time labels and appropriate schematic/geometry limitations. This is visual inspection of **actual original offscreen images**, not manually operated Windows desktop qualification.
+
+**Independent archive audit machine-readable summary** generated from the original ZIPs: `emfeeld-pr25-postmerge-audit.json`, SHA256 **`d52dd3ca153b0109b642f2e733e811897a9183521e947062b6b2195ae61c33cf`**. This file was generated in this ChatGPT conversation; its digest is evidence for the audit output, **not** a GitHub required check or external authentication. The first audit used a coarse **set of distinct PNG hashes (16)**, despite 17 original images, so a second, more precise audit additionally checked **all 17 reported filenames individually** and kept the earlier audit output as an unmodified first snapshot. This was an audit-accounting refinement, **not** a source or artifact correction; no test failure was concealed or original ZIP modified.
+
+### Final release gate decision and limitations
+
+**PASSED within scope:** exact reviewed source and merge-tree identity, independently cleared R1 F1/F2 defects, main-push Linux/Windows/real-PyVista CI conclusions, every listed archived SHA256 evidence seal, original OS native E1/G1/T1 runs and numerical comparison statuses, source proposal hash bindings, and the original real offscreen render screenshot/source receipts.
+
+**Not claimed:** adversarial cryptographic authentication against an author who can replace and reseal all file hashes; crash-safe distributed/hostile-concurrency ACID; independent human physics certification; complete independently derived physics solution across every possible scenario; manual Windows pointer/slider behavior; classroom teacher learning outcomes; full Maxwell electrodynamics or responding conductors. Each saved ensemble child is an independent prescribed-source alternative, not a physical time step.
+
+**ALL PR #25 declared automated post-merge and archive release gates are now CLOSED/PASSED.** Historical review-01 remains CHANGES REQUESTED on old source SHA, and review-02 remains scoped PASS on exact merged source. No additional reviewer request or owner routine approval is needed to close this exact release gate.
