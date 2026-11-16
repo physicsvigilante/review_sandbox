@@ -1,0 +1,11 @@
+# Chat B prompt — SIM_HEAT PR #34 Option A proposal / offline binding
+
+Independently review **draft [SIM_HEAT PR #34](https://github.com/physicsvigilante/sim_heat/pull/34)** at exact commit **`2f7fc7c0a43a786625abe2648eea0116ef3fd5f7`** (historical F0 branch; immediate source base PR #33 reviewed SHA `bf51e7721bca73720aa9b5f5f2de90defee821ec`).
+
+Read the detailed [REQUEST.md](REQUEST.md), source `OPTION_A_OWNER_DECISION_PROPOSAL.md`, central PROTOCOL/R2 policy/template and existing independent PR #33 review-02. The four **new** source/CI/doc files implement an **offline read-only audit** that checks the exact PR #31 archived checking reference against all 23 original source pins, the original Modelica model/evaluator modal study, the frozen `_verify_bundle` interface, 37 internal exports × 4001 time instants, four integrals and nine public requests. It must never regenerate or materialize the reference, call OpenModelica, or signal owner/native approval.
+
+Verify exact-head [CI #43940482524](https://github.com/physicsvigilante/sim_heat/actions/runs/43940482524) and [artifact #14263031684](https://github.com/physicsvigilante/sim_heat/actions/runs/43940482524/artifacts/14263031684), whole ZIP SHA-256 `c63fb442f3efab80bbfd64b120bbb7c1317696c82a045e5c812073bcbdedac3a`. Check 8 new binding/refusal tests, 9 existing archive tests, 149 frozen H1 tests and complete source/reference preservation.
+
+Adversarially test source/reference drift and challenge the trust/retention proposal. Confirm that the original F0 80× static reference accuracy FAIL and PR #32 bitwise regeneration FAIL remain historical, and that `audit-only` success is **NOT** a trusted canonical-fixture consumer, owner approval, native simulation or C1 transfer.
+
+Write a **new independent report** in `review_sandbox/projects/sim_heat/pr-34/reviews/review-01-chat-b.md`, with scoped PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE, exact pinned source SHA/tree, personally performed vs inspected CI checks, blockers and the smallest owner/F-02 next step. **Do not** edit original or review sources, merge historical PRs, relax 100× limits, grant owner permission or launch OpenModelica.
