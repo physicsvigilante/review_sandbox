@@ -6,11 +6,11 @@
 - **GitHub merge commit:** [`61f059f742b449ea53fdc131970f00f0b3be91fc`](https://github.com/physicsvigilante/conductor_sim/commit/61f059f742b449ea53fdc131970f00f0b3be91fc). Immediate comparison returned `main` **identical** to this commit, ahead/behind=0.
 - **Premerge exact-head CI:** **16/16 SUCCESS** — Python 3.10 and 3.12 **1,840 passed** per interpreter, 97 real FEMM-only skips/11 warnings; real FEMM 5 **97 passed**; real Chromium six M28b reports, including full 16-question/48-root lane/stop geometry acceptance.
 - **Independent review sequence preserved:** [review-01 CHANGES-REQUESTED](reviews/review-01-chat-b.md) for original head `414e69bd…`; [review-02 CHANGES-REQUESTED](reviews/review-02-chat-b.md) for subsequent `b23ebade…` (F01–F04 PASS, F05 introduced); [review-03 PASS](reviews/review-03-chat-b.md) for final exact source. The third reviewer independently checked **201 native located root records across 15 scenarios**, original full artifact SHA256, Git tree equality, actual 1360/390px Chromium screenshots and F-05 lane/bounds. The source physics/ODE/M24a locator stayed unchanged across F-05 fix.
-- **Postmerge CI:** All 15 push workflows started; initial snapshot **12 successful, 3 running, no failures**. This is an **open verification item** until the final exact merge SHA status is checked. Never infer 15/15 before a fresh query.
+- **Postmerge CI:** GitHub returned **16/16 SUCCESS** workflow runs attached to exact merge SHA `61f059f742b449ea53fdc131970f00f0b3be91fc`, including Python 3.10/3.12, real FEMM5 and complete Chromium visualization. No failures/pending runs. M28b production release is **postmerge-verified**.
 - **Release scope:** bounded typed event questions across independently reassembled M28a parameter variants, honest root uniqueness/comparison brackets, native guard/terminal censoring, source-agnostic offline event-time chart. Not an actual source-apparatus drawing or contact/conductor-response model. Original workbook source facts separate from teacher mass/launch/detector, and original axially guided Q41 remains out of scope.
 - **Follow-up:** Continue work on M29a **structural arrangement comparisons** as an independent new charter/branch. No post-release source changes should be committed to this reviewed M28b merge.
 
-**Production merge COMPLETE. Full postmerge CI must be confirmed separately.**
+**Production merge and 16/16 postmerge CI COMPLETE.**
 
 ---
 
