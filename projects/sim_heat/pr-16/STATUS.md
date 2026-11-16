@@ -1,11 +1,11 @@
 # SIM_HEAT H2-03S PR #16 — central R2 review status
 
-**Status: `independent-r2-pass-awaiting-owner-merge-approval`.** Chat B's original [Review 01](reviews/review-01-chat-b.md) found F-01 major, F-02 minor and F-03 trust-boundary question at original source SHA; it remains immutable with `changes-requested`. Chat A corrected the three-file scope, obtained passing exact-new-head CI and documented its [response](responses/response-01-chat-a.md). Chat B independently authored [Review 02](reviews/review-02-chat-b.md), Git blob `ed33aeec36c8e1b1f627f59c3a69e7637bce899d`, **scoped R2 `pass`** on the unchanged corrected SHA `099bd4330a56e129f35493b42231830209a9e964`. **PR #16 remains draft, open and unmerged; separate owner merge approval has NOT been granted.**
+**Status: `merged` — owner-approved 2026-11-16 IST.** Chat B's original [Review 01](reviews/review-01-chat-b.md) found F-01 major, F-02 minor and F-03 trust-boundary question at original source SHA; it remains immutable with `changes-requested`. Chat A corrected the three-file scope, obtained passing exact-new-head CI and documented its [response](responses/response-01-chat-a.md). Chat B independently authored [Review 02](reviews/review-02-chat-b.md), Git blob `ed33aeec36c8e1b1f627f59c3a69e7637bce899d`, **scoped R2 `pass`** on the unchanged corrected SHA `099bd4330a56e129f35493b42231830209a9e964`. **The owner explicitly approved the merge; GitHub merged PR #16 via merge commit `a6f0881236201e3ad7b9dd27d8fd0974c7972f56` on 2026-11-16 09:23:17 UTC. The source PR is closed and merged; `main` matches this commit exactly. Post-merge workflows are being verified independently and are not yet represented as successful in this record.**
 
 | Field | Exact value / current status |
 | --- | --- |
 | Project | `sim_heat` |
-| Source PR | https://github.com/physicsvigilante/sim_heat/pull/16 — **draft, open, unmerged** |
+| Source PR | https://github.com/physicsvigilante/sim_heat/pull/16 — **closed and merged** |
 | Base commit | `c977773578b04a571dfefebe615350b9ed1dcf3e` (main after PR #14) |
 | Original independently reviewed HEAD | `e76df818fcbb9b6826b03db776b6140dd40c4be4` — Chat B Review 01 `changes-requested` |
 | **Current corrected HEAD** | **`099bd4330a56e129f35493b42231830209a9e964`** |
@@ -26,7 +26,10 @@
 | New native builds from viewer CI | **0** — saved S1 native work is on separate experiment workflow |
 | Reviewer Review 01 | [reviews/review-01-chat-b.md](reviews/review-01-chat-b.md) — **`changes-requested`** at first source HEAD; remains unchanged |
 | **Targeted Review 02** | **SCOPED `pass`** — [reviews/review-02-chat-b.md](reviews/review-02-chat-b.md) independently authored at exact corrected source HEAD; Git blob `ed33aeec36c8e1b1f627f59c3a69e7637bce899d` |
-| Owner merge approval | **Not granted; awaiting explicit owner decision despite independent R2 PASS** |
+| Owner merge approval | **Granted explicitly by owner 2026-11-16 IST** |
+| Merge commit | [`a6f0881236201e3ad7b9dd27d8fd0974c7972f56`](https://github.com/physicsvigilante/sim_heat/commit/a6f0881236201e3ad7b9dd27d8fd0974c7972f56); GitHub merged=true, state=closed |
+| Post-merge main identity | **Verified**: `main` identical to merge SHA; zero ahead/behind |
+| Post-merge CI | **Pending verification**, three `main` push runs: [43839286206](https://github.com/physicsvigilante/sim_heat/actions/runs/43839286206), [43839286437](https://github.com/physicsvigilante/sim_heat/actions/runs/43839286437), [43839286528](https://github.com/physicsvigilante/sim_heat/actions/runs/43839286528) |
 | Post-merge CI | Not applicable; source PR is draft/unmerged |
 
 ## Source and previous evidence preservation
@@ -39,14 +42,13 @@
 - Original PR #14's Review 01 findings and Review 02 scoped PASS remain their own immutable historical files. PR #16 is a **new** R2 evidence contract, not a replay of PR #14's verdict.
 - **Independent PR #16 Review 02 completed:** Chat B independently downloaded three SHA-pinned ZIPs, replayed the original genuine S1 archive and H1 receipt, and performed **38 adversarial repinned-ZIP probes**: 36 correctly typed refusals and two intentional admissions showing documented external trust/non-attempt-directory scope limits. F-01 and F-02 resolved; F-03 is a mandatory externally checked run/commit assertion rather than an adapter-side GitHub attestation. Reviewer concluded **scoped R2 PASS, no additional code change required**. A future nonblocking documentation refinement may explicitly say the complete member manifest covers the **native attempt subtree**, not unrelated outer CI-evidence files.
 
-## Final review disposition and remaining gates
+## Final review and merge disposition
 
-- [Original REQUEST.md](REQUEST.md), [Review 01](reviews/review-01-chat-b.md): historical first exact-head request and **changes-requested** findings, unchanged.
-- [Chat A response](responses/response-01-chat-a.md) and [FOLLOW-UP-02.md](FOLLOW-UP-02.md): corrected three-file scope, exact SHA/CI and independent follow-up instructions.
-- [Review 02 — scoped R2 PASS](reviews/review-02-chat-b.md): independently tested original S1 native archive, complete H1 checker/receipt/seal reproduction, 36/36 malformed-archive refusals, two documented trust/scope-limit admissions, original source preservation. Exact approved-for-review source head remains `099bd4330a56e129f35493b42231830209a9e964`.
-- [Successful correction CI 43834101967](https://github.com/physicsvigilante/sim_heat/actions/runs/43834101967), **151 H1 + 4 analytical + 11 Python adapter + 14 Node**, real Chromium desktop/mobile. **No additional whole-project R2 review is required for this unchanged source**.
-- [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md) and [PROTOCOL.md](../../../PROTOCOL.md): owner-approved merge is a **separate** gate.
+- [Review 01](reviews/review-01-chat-b.md): immutable original `changes-requested` at `e76df818fcbb9b6826b03db776b6140dd40c4be4`. F-01/F-02/F-03 original source findings remain documented; do not relabel.
+- [Response 01](responses/response-01-chat-a.md) and [FOLLOW-UP-02.md](FOLLOW-UP-02.md): scoped correction and pinned CI evidence.
+- [Review 02](reviews/review-02-chat-b.md): independently authored **scoped R2 PASS** at unchanged corrected SHA `099bd4330a56e129f35493b42231830209a9e964`. 36 adversarial refusals and two explicit trust-boundary tests, original native S1 archive and numerical-checker replay independently examined. No further code correction or repeated broad R2 review required for this source.
+- Owner explicitly approved the merge. GitHub changed draft PR #16 to ready, then successfully merged the **identical reviewed source head** with expected-head guard, preserving the PR review history. Merge SHA `a6f0881236201e3ad7b9dd27d8fd0974c7972f56`; GitHub reports `merged=true`, source PR `closed`, merge timestamp 2026-11-16 09:23:17 UTC. `main` equals merge SHA, ahead=0 behind=0.
+- Three `main` post-merge workflows were triggered at the merge SHA; verify their **final** conclusions before claiming post-merge CI success. Exact-head source CI [43834101967](https://github.com/physicsvigilante/sim_heat/actions/runs/43834101967) was SUCCESS before merge (151 H1, 4 analytical, 11 Python adapter, 14 Node, real Chromium desktop/mobile).
+- The one-shot S1 OpenModelica evidence workflow and its source branch were **not** merged as a production trigger. The original native output remains `diagnostic_only`, `nativeQualified=false`; no independently measured sensor data, full H1 qualification, R3 reference accuracy certification, unfamiliar-author C1 transfer, symbolic/inverse solver or classroom trial is claimed.
 
-**Next:** Ask the owner for explicit permission to merge **SIM_HEAT PR #16**. If approved, verify that GitHub PR head still equals the reviewed `099bd4330a56e129f35493b42231830209a9e964`, that required CI is successful and no new changes invalidate the review. Mark the draft PR ready if necessary, merge with expected head SHA, verify merge/main identity and post-merge CI, then update this central record. **Do not merge without explicit approval.** The nonblocking documentation specificity around the attempt-subtree manifest does not warrant code modification at this reviewed SHA.
-
-Release limits remain explicit: outputs are historical `diagnostic_only`, `nativeQualified=false`, not externally measured sensor data, R3-certified reference error, full H1 native qualification, C1 held-out model transfer or teacher classroom validation. The adapter matches caller-supplied independently verified GitHub run/commit pins; it **does not** authenticate arbitrary self-pinned archives by itself.
+**Next:** Check the three post-merge workflows on `main` and update this record with their exact conclusions. This post-merge evidence task is not another code-review or merger approval gate.
