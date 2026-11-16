@@ -1,6 +1,6 @@
 # SIM_HEAT H1-C1-F0 — PR #29 independent R2 review status
 
-**Status: `awaiting-independent-review`** of original first-author model/study and historical frozen F0 offline acceptance. **No independent Chat B verdict yet; no C1 native simulation, no full scientific qualification, no fully blind author selection, and no production merge.** This historical candidate PR is **NOT TO BE MERGED** even after a scoped R2 PASS; a future separate C1 reference/native/acceptance record must preserve F0 and original first author outputs.
+**Status: `independent-R2-scoped-PASS`** for original first-author model/study fidelity, preserved chronology and historical frozen F0 offline admission. Chat B report [review-01-chat-b.md](reviews/review-01-chat-b.md) is committed and Chat A disposition [response-01-chat-a.md](responses/response-01-chat-a.md) accepts all findings, with **no source repair**. **No C1 native simulation, full scientific qualification, fully blind author selection, or production merge.** This historical candidate PR is **NOT TO BE MERGED** even after a scoped R2 PASS; a future separate C1 reference/native/acceptance record must preserve F0 and original first author outputs.
 
 | Field | Pinned result |
 | --- | --- |
@@ -23,9 +23,9 @@
 | Actual OpenModelica calls / native runs | **0**. No native MAT, native-qualified report or compiled-result values |
 | Prospective modal grid | **Same-author checking only**: slowest τ≈362.12180065 s; five-τ stop≈1810.60900325 s, minimum even N≈3780; original provisional 1800/3600 is untouched but does not meet planned C1 modal grid |
 | Author independence | Separate authoring ChatGPT conversation, **author disclosed previous H1 design/review exposure** and selected/wrote task/model as one role; fully blind author selection not established |
-| R2 outcome | **Pending Chat B** at `reviews/review-01-chat-b.md` |
+| R2 outcome | **Scoped PASS** — [independent Chat B review](reviews/review-01-chat-b.md), exact historical source SHA unchanged. [Chat A response](responses/response-01-chat-a.md) accepts F-01–F-06, with future native/reference gates still open |
 | Merge | **Never merge historical F0 candidate PR**; review is source/authoring evidence only, not production integration |
-| Reference / native status | No sealed independently certified checking reference; no bounded C1 native run plan; no final H1-C1 transfer PASS |
+| Reference / native status | PR #28 separately holds an evaluator-assisted sealed **checking-only** reference and unlaunched one-shot plan; independent PR #28 pre-native review remains pending. No certified native result or final H1-C1 transfer PASS |
 
 ## Independent review question and preservation
 
@@ -33,8 +33,9 @@ Independently compare the *original first TASK* and **unaltered first model/stud
 
 Separately verify the original frozen F0 parser/runner source against the current historical PR base. Modern `main` has an H1 MAT-v4 schema/metadata change after F0; it is **not** silently substituted. A success here proves only **first authored case offline admission**; no physical/numerical truth is certified by the parser. Evaluator checking-only matrix calculations and grid predictions are not independent reference accuracy evidence.
 
-## Reviewer handoff
+## Reviewed disposition and forward gate
 
-[REQUEST.md](REQUEST.md) contains exact original task/model/study SHA, source branch and CI artifact, original author-exposure disclosures, mathematical checks and R2 questions. [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md) is the ready-to-paste second-ChatGPT prompt. Follow central [PROTOCOL.md](../../../PROTOCOL.md), [REVIEW-RISK-POLICY.md](../../../REVIEW-RISK-POLICY.md) and [REVIEW-TEMPLATE.md](../../../REVIEW-TEMPLATE.md).
+The [independent report](reviews/review-01-chat-b.md) confirms frozen first-submission fidelity and offline admission, including its independently derived modal calculations. F-01–F-03 are minor PASS findings with no source defects; F-04–F-06 are material limits/future gates, not reasons to rewrite first-authored evidence. [Chat A recorded every disposition here](responses/response-01-chat-a.md).
 
-**Next:** Independent-in-context Chat B reviews exact **`74a8031651f9742c35e18fca499f3bd7866ab15b`** and commits **new** `projects/sim_heat/pr-29/reviews/review-01-chat-b.md` directly to central hub. Owner can say **“review done”** to Chat A, which will retrieve findings and then plan separate reference-accuracy and bounded C1 native follow-up. No native execution or merge of PR #29 without a distinct later scope and validation. Original first task and first author files stay unchanged.
+**Next:** Review **separate** [PR #28](https://github.com/physicsvigilante/sim_heat/pull/28) at exact SHA `baabeb3ed176f4d9fa83d6be09a58b4f21fa8319` for evaluator-assisted modal study, independent selected-point reference accuracy and unexecuted one-shot native plan using the [existing PR #28 reviewer packet](../pr-28/REQUEST.md). No native execution, qualification promotion or historical PR #29 merge follows automatically from its scoped PASS. Preserve original first inputs and historical frozen source.
+
