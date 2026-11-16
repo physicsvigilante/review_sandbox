@@ -1,0 +1,27 @@
+# Paste into separate Chat B — Opticsim PR #92 single native-owner original binary64 hit evidence
+
+You are **Chat B**, in a separate ChatGPT conversation, reviewing **actual research-only native optics numerical evidence**. This is not an instruction to merge the research PR, modify PhyDemo, certify optical critical branches, or activate Stage-2 mandatory measurement withholding.
+
+**Hub and original review request:** https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-92/REQUEST.md
+**Chat A developer report (NOT independent):** https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-92/DEVELOPER-REPORT-01-CHAT-A.md
+**Draft source PR:** https://github.com/physicsvigilante/opticsim/pull/92
+**EXACT SOURCE SHA:** `d8367c2d1bd23f3ee7c574feb45e7cc7e7793ee2`
+**Main/base SHA:** `50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518`
+**Four-file exact diff:** https://github.com/physicsvigilante/opticsim/compare/50dd0f4d9530d0a61bb4c7064c4326a8ac0ce518...d8367c2d1bd23f3ee7c574feb45e7cc7e7793ee2
+**11/11 CI +766 Node:** https://github.com/physicsvigilante/opticsim/actions/runs/43854663361
+**Original raw ZIP:** https://github.com/physicsvigilante/opticsim/actions/runs/43854663361/artifacts/14220951106
+**ZIP SHA-256:** `b6acf9c4c519d7f3826fcd501c622636ee67a937cdf41d6c0df5ded33e6db43b`
+**Original input SHA-256:** `79be6692d8e107ed5fa2198abbcfe56a0fb97633aac55db573eec021ea37fc45`
+**Original report SHA-256:** `bc0fee95fe8e0d61176aed8adf96081324cfa0ea1846caf1997e9fbc51570960`
+**Original Python reference SHA-256:** `9e3d386abceaa907063f0c01b3b40fc399e8a6e764da231a1959e6d24c1145ee`
+**Byte-identical long-lived private archive:** https://chatgpt.com/space/page_875b83faac008191b060217019ceb0d8 (may need owner access).
+
+1. Read hub `PROTOCOL.md` and `REVIEW-RISK-POLICY.md`, original source `AGENTS.md` at the **EXACT SHA**, source runner `run.mjs`, independently expressed `exact-check.py`, methodology and former [PR #91 Chat B research review](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-91/reviews/review-01-chat-b.md). Note PR #91 F-01: a misleading pooled `genuineNativeStates` label; the original ZIP is preserved, not repaired. This new study reports three disjoint state totals and assertions.
+2. Independently download/re-hash **ORIGINAL** GitHub ZIP; parse all five authored v9 scene documents, 60 real native execution rows and seed `0x9200a55` schedule. Validate 3 randomized blocks per case, two ordinary-on +two tapped per block, **30 ordinary ON** and **30 single-owner-tap** fresh OS processes. Independently tally **27/3 native complete/fail ordinary ON**, **26/4 tapped**, all 53/7. Treat failed native runs as real trials, not setup omissions. The original runner's `errors:[]` does NOT imply all native traces complete.
+3. **Native callback ownership boundary:** Inspect actual existing `src/planar-media.js` and `src/native-finite-hit-diagnostic.js`. The research code taps **`finiteDiagnostic.beforeIncident`** and invokes its original exactly once; it MUST NOT add another native-calling `Glass.onRayIncident` wrapper. The owning Glass observer still delegates the pinned method once. Extra synchronous copying is **not demonstrated neutral**; distinct native ON and TAP runs cannot be treated as identical-ray causal counterfactuals.
+4. Independently recompute **all 87 original TAP per-hit native binary64** ray/start/end and callback incident-point intersections, using a **different rational/bit-level method**, not Chat A's JS or Python method. Check original polygon finite-face membership, native y-down coords, exact rational forward `t`, finite `u`, pinned cutoff, computed and reported vertex clearance, near-parallel conditioning and exact P* vs supplied point. Chat A's two own implementations agreed **12 exact, 56 UNKNOWN native point difference, 15 INCONSISTENT nonforward, four vertex UNKNOWN**, all 87; independently challenge every result, including exact t/u numerator/denominator where present and actual native error/suppression context.
+5. Check first-event scalar Snell/TIR on ±5° far controls and normal signed *relative* detector power only where a real detector exists. Never assert a unique physically certified ray path at binary64 computed critical, measured Watts, full Fresnel flux, original JEE question-answer completeness, or independent classroom benefit.
+6. Check exact-head CI 11/11, native research step and references; don't invent reviewer-native/Chrome runs you didn't execute. No edit to original raw ZIP, historic PR #90/#91 data, source PR #92, production, or Stage-2 numerical gate. If a numerical source-level concern arises, provide a minimal separate test-only proposal without modifying optics.
+7. **Write your own NEW report as Chat B**, append-only at `physicsvigilante/review_sandbox/projects/opticsim/pr-92/reviews/review-01-chat-b.md`. Verdict **PASS / CHANGES-REQUESTED / INSUFFICIENT-EVIDENCE** **for research data and numerical inference only**, exact source SHA, independently performed tests and the smallest review next step. DO NOT MERGE PR #92 or change native cutoffs.
+
+Return the published review URL. Then the owner can say **“Review complete”** (or “done”) here. No additional user approval is needed for routine separate research work, but a consequential native numerical or Stage-2 production change must still pass the independent review and explicit release controls.
