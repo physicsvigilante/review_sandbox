@@ -1,10 +1,10 @@
 # Opticsim PR #118 — independent review request: native directional detector footprint
 
-**Status: new derived measurement candidate; exact final source CI pending. No independent Chat B verdict yet. DO NOT MERGE.**
+**Status: final exact-head CI verified; independent Chat B review NOT received. DO NOT MERGE.**
 
 ## Candidate, scope and isolation
 
-Source [draft PR #118](https://github.com/physicsvigilante/opticsim/pull/118), `feature/directional-detector-footprint-v1` created **directly from current production main `d3509e82fb65d81aabe336666851f8f2962623f4`**, independently of unreleased v14–v17 optical-object extensions. Current candidate at review-request creation `7d44e52d2c4c5db30d91e4e87970b706c18a90f6`; reviewer must verify final exact PR head and Git tree.
+Source [draft PR #118](https://github.com/physicsvigilante/opticsim/pull/118), `feature/directional-detector-footprint-v1` created **directly from current production main `d3509e82fb65d81aabe336666851f8f2962623f4`**, independently of unreleased v14–v17 optical-object extensions. **Exact final source HEAD `7d44e52d2c4c5db30d91e4e87970b706c18a90f6`**; reviewer must independently verify source Git tree and synthetic CI merge.
 
 The pinned PhyDemo source `811f508d2b070898c241a568b0c167dcb8645251`, simulator, detector/mirror/lens optical propagation, detector `onRayIncident` handler, native hit-event 32-cap collector, original scene versions and old readout defaults **must be unchanged**. New functionality is a **pure derived result on existing opt-in native crossing samples**, not an image solver or new physical component.
 
@@ -23,6 +23,14 @@ Review `src/detector-directional-footprint.js`, `src/observables.js`, `src/nativ
 There are fixed synthetic reference fixtures: `test/fixtures/detector-hit-plate.json` (single native ray through planar n=1.8 and finite mirror; two native detector hits, one in each signed group; independent Snell-derived positions), and `test/fixtures/detector-hit-lens.json` (existing v4 ideal lens + mirror, six forward and five returning native crossings). A separately arithmetic-constructed 45° detector sample checks means and RMS without computing rays. Public CLI tests include complete reflection/refraction, real miss, 33+ crossing overflow and incomplete full-Fresnel withholding. Real Chrome must verify fresh sampling, material-index changes affecting positions, saved qualified export/reopen without embedded native results, empty groups with null statistics, and incomplete suppression. **Do not call any of these an independently executed reviewer-native test unless you actually rerun them.**
 
 Historical R1 detector-hit transfer fixtures and original freeze SHA must stay unchanged. A new *post-exposure* provenance record `test/fixtures/directional-footprint-app-postfreeze-v1.json` records the exact before/after Git blob identity of the viewer opt-in switch, without reclassifying prior tests as blind.
+
+## Final exact-head source evidence (not an independent reviewer-native run)
+
+The final PR #118 source HEAD is `7d44e52d2c4c5db30d91e4e87970b706c18a90f6` with Git tree `f9890d94d91be2e09e00faf9d8c7e6d87531ec47`. Synthetic main-target CI merge `690a4d1fb0f7256a97c59f8b3c1fb2b9e1c4f82c` has the **same exact Git tree**, checked via GitHub commit-object API.
+
+**799/799 supported Node 24 tests PASSED, 11/11 standard workflows successful**, including [unified workflow 44067489898](https://github.com/physicsvigilante/opticsim/actions/runs/44067489898) and [planar/Chrome workflow 44067489904](https://github.com/physicsvigilante/opticsim/actions/runs/44067489904). The new public CLI acceptance script logged **5/5 distinct native outcomes passing**, and the new actual Chrome directional footprint test logged **7/7 checks, 4 screenshots**: forward/return sample groups, physical index edit, qualified export/reopen, genuine detector miss with null centroids and full Fresnel incomplete-run withholding. The prior native hit list's own CLI/Chrome acceptance also passed.
+
+**Historical failed source CI retained:** one initial artifact provenance test copied the wrong old viewer Git blob literal, detected correctly by the test itself. The fixture already held the actual main Git blob; the copied assertion was corrected. No old frozen data, native optics or physical processing was edited to make it pass. The reviewer should inspect first-run failure as well as final CI.
 
 ## Adversarial independent checks requested
 
