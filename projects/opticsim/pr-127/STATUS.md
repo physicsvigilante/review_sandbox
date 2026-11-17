@@ -1,0 +1,13 @@
+# PR #127 — JEE-first native parallel Beam authoring
+
+**PRODUCTION CANDIDATE DRAFT / UNMERGED. Independent R2 review NOT RECEIVED. Exact source-head full CI verification IN PROGRESS as of this record.**
+
+- [Draft PR #127](https://github.com/physicsvigilante/opticsim/pull/127), source HEAD `05385e3daefaffcfc56fb072a12ba81dd6432993`, Git tree `010ddcba6a17715a71e143ed12ab318267e93618`. Temporary CI synthetic main-target merge `fc1b32c98ee5830dd01eed54b066d56c27ed6b19` has the identical Git tree (verified directly). Proper dependency parent is research PR #126 at `2632efa3d1e2187e4cd793eb80a505b7302919c7`; PR currently targets main only to trigger standard workflows.
+- Version **19 is reserved**, because v14–v18 remain held. This does not imply intermediate schemas are already in production or that later integration is automatic. Two source-family profiles accept exactly one native `parallel-beam`: optional ideal thin lens + vertical native aperture, OR one/two parallel slab planes; 0–2 passive detectors.
+- Native pinned `Beam` compiles directly from LLM-authorable JSON, with explicit centre, width, direction and brightness. Whole emitter segment bounds, optical/detector clearances, starting-medium agreement, sampled rim/stop-corner refusals, density/brightness saturation and strict old-schema isolation are validated without custom ray propagation.
+- **Source-CI evidence on earlier identical implementation with pre-final documentation:** **807/807 Node 24 tests passed**, new public JEE problem workflow **7/7 cases passed**, actual Chrome **11/11 checks, 6 screenshots** passed. [Optical run](https://github.com/physicsvigilante/opticsim/actions/runs/44133839725). Exact final source HEAD full 11-workflow status must be rechecked before the gate can be closed.
+- Historical development failure: first v19 native test incorrectly expected lens-converged focal ray direction x-unit=1; actual pinned native x-unit≈0.9996876464. Fixed by independently checking nonzero thin-lens slope, with no solver/cutoff repair. Keep failed CI as evidence.
+- No native images, continuous shadows, 3D illumination, source lineage, diffraction or solved JEE question claim. Fresnel-off slab uses an explicitly warning-qualified approximation; incomplete/full-Fresnel measurements are withheld.
+- [Independent physics review request](REQUEST.md) and [ready-to-paste reviewer prompt](REVIEWER-PROMPT-01.md) exist; report at `reviews/review-01-chat-b.md` **PENDING**. CI builder execution is not independent reviewer runtime validation.
+
+**HOLD:** Original PR #126 plus all older #107/#110/#113/#116/#118/#120/#122/#125 remain draft/unmerged. Main branch protection #123 remains outstanding. No release or merge authorized.
