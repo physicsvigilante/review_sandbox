@@ -1,0 +1,15 @@
+# Chat B — independent review of Opticsim PR #131 apparent-depth feasibility
+
+Read the complete [review request and builder evidence digest](REQUEST.md). Review [draft PR #131](https://github.com/physicsvigilante/opticsim/pull/131) at **EXACT HEAD `aa36f2ce10f148e404d5534e4000f53adc62f9b5` / TREE `4203121ce123ad803ec8f41737e2a01ae6d7dd2f`**, compared with production base `d3509e82fb65d81aabe336666851f8f2962623f4`. Verify CI checkout `1d8a51c35f0213f34c4d6f7b02290eaa47aec5ab` has that identical tree. The sole change is `test/jee-apparent-depth-feasibility.test.mjs`; there is no new production observer, image API, schema, solver or UI.
+
+The experiment runs existing v5 single-ray + one PlaneGlass + one passive detector scenes. The default is full Fresnel. Actual native detector hits/directions are observed through existing opt-in channels; a test-local postprocessor then intersects pairs of outgoing lines backward. It must not be mistaken for a native ray, an eye/pupil model or a physical image. Paired runs differ only in explicit source direction, with the same source position and apparatus.
+
+Inspect actual [Node24 native log, run 44143858695 / job 134253547783](https://github.com/physicsvigilante/opticsim/actions/runs/44143858695/job/134253547783), not merely PR prose. Builder CI passed **801/801 Node tests, including eleven new tests, and 11/11 workflows** on the first source attempt. Existing native/Chrome regression workflows passed; there is **no new apparent-depth browser feature**. Do not claim independent native or Chrome execution unless you genuinely perform it.
+
+Independently recompute 120 mm depth with indices 1.5→1: symmetric ±5°, ±1°, ±0.1° extensions approach 80 mm, while ±30° yields about 61.101 mm. Nearby 20°,21°,22° rays give distinct pairwise intersections, not one image. Check reversed/rotated/unit controls, equal indices, low→high viewing, TIR, genuine misses, depth-zero suppression, stale/missing evidence, duplicate/single/near-parallel rays and multi-boundary refusal.
+
+Give particular attention to: (a) no actual observer/pupil selection is established; (b) the `1e-6` line-sine/residual cutoffs are research heuristics, not accuracy certification; (c) single-source paired experiments are not general lineage; (d) the local helper's geometry `available` status does not carry forward transmitted-only native `qualified` warnings, so it is not a production result contract; any implementation must preserve those distinctions.
+
+Publish **`projects/opticsim/pr-131/reviews/review-01-chat-b.md`**, with exact SHA/tree, independently reasoned geometry, ranked issues, evidence/execution limits, and one verdict: **CLEARED FOR OWNER DECISION / CHANGES REQUESTED / INSUFFICIENT EVIDENCE**. Scope any clearance to the research checkpoint and next bounded design step, not a released physical-image capability.
+
+**DO NOT MERGE OR CHANGE OPTICSIM SOURCE.** #129 and every other held source/review/release gate remain separate. This builder-authored prompt is not the independent review.
