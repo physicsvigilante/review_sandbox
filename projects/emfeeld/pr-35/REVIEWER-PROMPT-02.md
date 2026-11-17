@@ -1,5 +1,8 @@
 # PR #35 — independent Chat B targeted R2 re-review 02 (author request, NOT reviewer verdict)
 
+**READY FOR INDEPENDENT REVIEW (2026-11-17).** Fresh exact corrected-head Linux/Windows release, source and real-PyVista workflows have all completed SUCCESS; the four original ZIPs were downloaded and author-audited. See the [final author archived evidence](AUTHOR-RELEASE-AUDIT-02.md) for exact source, artifact IDs, original ZIP SHA256s, per-OS source/native evidence and limitations. **This is an author-qualified candidate, not an independent R2 verdict or merge permission.** Reviewer must independently execute/verify rather than reproducing an author conclusion.
+
+
 **WAIT for author confirmation that fresh corrected-head Linux/Windows clean-install archives have passed and been audited.** The source below is fixed; qualification of both original OS archives was still underway when this prompt was published. Reviewer must not infer CI, independent pass or merge authorization from a prepared prompt.
 
 ## Immutable candidate to review
