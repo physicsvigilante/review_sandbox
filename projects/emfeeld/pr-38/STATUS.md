@@ -1,0 +1,11 @@
+# PR #38 — initial author R2 request status (2026-11-17)
+
+**SOURCE CANDIDATE OPEN/DRAFT/UNMERGED.** HEAD `68241b9b971c793506a3f0014725f03bb1a8899e`, tree `33b58fb55b387ec2b7c1bdd61bf1af7764db97cd`, qualified main/base `510014fc078c73d37146b9804763e29d04ac0018`, source-equivalent merge-preview `78fbe5143d0714b928ed54e25e755a612c37bbf9`.
+
+A public NASA Space Math published source is **not** genuinely unseen teacher intake and the visible public answer key is **not** an independently withheld judge. Frozen source bytes were first committed ahead of the generated receipt and packet. Author executed first local source-first native trial: one saved exit-speed m/s `ok`, with correct measured physical t/index and explicitly ungraded source status. Original first native-result JSON hash `e52abdc544dc5677703931d6194c85939dd74e02943690ca4c92324f1d6d5ae3` is recorded; the original author first-attempt ZIP was not uploaded to GitHub. The source document declares real NASA facts versus derived author choices, separate km/hour conversion and excluded full ion thruster physics.
+
+**Author local test evidence:** 5 new cases +54 previous question-first tests **59 passed -W error**, historical **18 passed/one obsolete freeze guard deselected**, YAML parse and compileall pass. These are not an independent review and not full-headless local qualification.
+
+**Initial new hosted CI:** source snapshot [#44098382677](https://github.com/physicsvigilante/emfeeld/actions/runs/44098382677) SUCCESS, [Linux/Windows #44098382682](https://github.com/physicsvigilante/emfeeld/actions/runs/44098382682) and [separate real-PyVista #44098382316](https://github.com/physicsvigilante/emfeeld/actions/runs/44098382316) IN PROGRESS. Original new ZIP download/integrity/native audits and **independent separate-context R2 review** still required. No merge or release-qualified claim.
+
+[Author review request](REQUEST.md) and [separate Chat B prompt](REVIEWER-PROMPT-01.md). Issue #37 tracks non-blind rehearsal; [Issue #36](https://github.com/physicsvigilante/emfeeld/issues/36) remains open for genuinely prospective question and independent judge.
