@@ -1,3 +1,11 @@
+## Owner Option A reference-only decision after PR #34 review
+
+**Owner direction recorded: APPROVED for exact PR #31 V2 checking-reference adoption only, explicitly NO native execution.** The user replied “approved” on 2026-11-17 IST to Chat A's specific owner-choice request. [Owner-decision record](OWNER-DECISION-01.md) preserves the exact raw/reference/manifest/source identities and limitations. This conversational owner instruction does **not** establish a GitHub-signed release/trust-root, permanent backup or protected ref.
+
+[New draft SIM_HEAT PR #35](https://github.com/physicsvigilante/sim_heat/pull/35), exact HEAD `f7c69954490c8dcd48d152906e8e2a6d5699481d`, implements a **separate offline-only reference consumer** and owner-decision record; exact-head [CI #44018671528](https://github.com/physicsvigilante/sim_heat/actions/runs/44018671528) succeeded with 11 new tests, 8 old binding, 9 archive and 149 frozen regressions, without native execution. [Central PR #35 R2 packet](../pr-35/REQUEST.md) awaits independent Chat B review. No historical PR merge, native one-shot authorization or qualified C1 result is implied. The existing reviewed PR #34 source/CI remain unchanged.
+
+---
+
 ## Latest disposition — review completed, owner/native gates open
 
 **Status: `SCOPED-R2-PASS-PROPOSAL; OPTION-A-OWNER-DECISION-PENDING; NATIVE-F02-HOLD`.**
