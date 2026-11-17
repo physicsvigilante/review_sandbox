@@ -1,0 +1,30 @@
+name: M35a full pinned executable source snapshot
+on:
+  push:
+    paths: ['.github/workflows/m35a-full-source-snapshot.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde
+      - name: Verify and archive complete text/code source
+        run: |
+          test "$(git rev-parse HEAD)" = a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde
+          test "$(git rev-parse HEAD^{tree})" = d0646c9e4d518008784c42c1fec1c48c81901a09
+          git ls-files -z > tracked-files.z
+          git archive --format=tar.gz HEAD $(git ls-tree --name-only HEAD | grep -v '\.pdf$') > m35a-complete-source.tar.gz
+          sha256sum m35a-complete-source.tar.gz > m35a-source-sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m35a-complete-pinned-source
+          path: |
+            m35a-complete-source.tar.gz
+            m35a-source-sha256.txt
+            tracked-files.z
