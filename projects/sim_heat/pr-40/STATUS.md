@@ -1,3 +1,11 @@
+## PR #40 independent review completed — SCOPED PASS for untrusted fake only
+
+**Current: `SCOPED-R2-PASS-DEFAULT-DENY-FAKE; F02-NATIVE-HOLD`.** Independent [Chat B review-01](reviews/review-01-chat-b.md) passed only the UNTRUSTED in-memory external-CAS contract at exact source `ebe203781e87ba108e8dec845074ca7ca47972ef`, tree `ca0254a94bb2f6785608c0ad8700a693a00f647e`. [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-04 and documents one nonblocking typed-denial cleanup for future formal contracts. [CI #44039595352](https://github.com/physicsvigilante/sim_heat/actions/runs/44039595352) SUCCESS, **260/260 offline tests**, zero OMC.
+
+**PROHIBITIONS RETAINED:** two fake stores both accept claims and reset enables replay; neither is a real owner-controlled cross-host atomic reservation. No independently authenticated owner native release, backup, host/OMC/MSL/toolchain proof, reviewed executable adapter, one-shot lock or owner launch budget has been granted. PR #40 stays draft/unmerged. Historical original F0 80×/100× FAIL and PR32 reviewed V2 bitwise regeneration FAIL remain unchanged.
+
+---
+
 # SIM_HEAT PR #40 — default-deny external CAS contract and untrusted fake
 
 **Status: `awaiting-independent-R2-external-CAS-FAKE-review; NATIVE-F02-HOLD`.** Source [draft PR #40](https://github.com/physicsvigilante/sim_heat/pull/40), exact SHA `ebe203781e87ba108e8dec845074ca7ca47972ef`, tree `ca0254a94bb2f6785608c0ad8700a693a00f647e`, based on independently reviewed PR #39 `ffc96e743a78cb3c63c01d6bf292d1fa84c6164f`. Exactly **four ADDED** offline code/test/docs/workflow paths, no original physics/model/study/reference/runner/owner record edits, all historical F0 PRs still draft/unmerged.
