@@ -300,7 +300,7 @@ def negative_physics(root):
     down=(nextafter(1.,0.),0.,0.)
     down2=(1.-ulp(1.),0.,0.)
     outside_up=(1.+2*ulp(1.),0.,0.)
-    outside_down=(nextafter(down2,0.),0.,0.)
+    outside_down=(nextafter(down2[0],0.),0.,0.)
     for n in (exact,up,down,down2):
         t=replace(s,field=zero_field,gravity=None,
                   initial_velocity_m_s=(0.,.11,.0),plane_normal=n)
