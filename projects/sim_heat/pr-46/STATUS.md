@@ -1,3 +1,9 @@
+## Follow-on draft PR #47 — original nine request field dependencies, separate R2 pending
+
+Following [independent PR46 scoped PASS](reviews/review-01-chat-b.md) for expected 37 exports, four energy histories and nine *uncomputed* requests, [draft source PR #47](https://github.com/physicsvigilante/sim_heat/pull/47) at exact `abd969ce32c8b55899561ad7d80c5792f304927e` adds **four new offline code/test/scope/CI paths** to map nine original public request names/units/operands to eight direct expected model fields plus one left-minus-right temperature difference. It emits **10 signed field terms but zero numerical/native values** and all genuine native release gates remain missing. [Exact-head CI #44079994935](https://github.com/physicsvigilante/sim_heat/actions/runs/44079994935) passed **370/370 OFFLINE tests**, no OMC. [Separate independent PR47 R2 packet](../pr-47/REQUEST.md) awaits Chat B. Original frozen F0 80×/100× FAIL and PR32 original V2 bitwise reproduction FAIL remain unchanged; no production source merge or native approval.
+
+---
+
 ## Independent PR46 R2 complete — SCOPED PASS for EXPECTED 37/4/9 and zero native observations
 
 [Independent Chat B review-01](reviews/review-01-chat-b.md), reviewed Git blob `09286ca2a80d25b11222918d22b8834c6a7e77b7`, gave **SCOPED PASS** at exact source `6c09b44802e869f4a07a2dbda26e2ca37bff83b9`, tree `e25f39673a88d454921331f16d93b43ca9757e97`. [Chat A disposition](responses/response-01-chat-a.md) accepts F-01–F-05. Exact [CI #44071491305](https://github.com/physicsvigilante/sim_heat/actions/runs/44071491305) passed 350/350 OFFLINE methods; reviewer independently checked original PR31 raw archived reference, 37 field names/units, four energy histories and nine request identities.
