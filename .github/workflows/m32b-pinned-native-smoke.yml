@@ -1,0 +1,57 @@
+name: M32b pinned native mixed ancestry focused smoke
+on:
+  push:
+    paths:
+      - ".github/workflows/m32b-pinned-native-smoke.yml"
+  workflow_dispatch:
+jobs:
+  native-mixed-ancestry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 954be78e6495acd4f870e7dd41324f5f5a7f656f
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify literal source head and Git tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "954be78e6495acd4f870e7dd41324f5f5a7f656f"
+          test "$(git rev-parse HEAD^{tree})" = "dd36f0998e43200457e0338446b43159e0a3f999"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install native package and pytest
+        working-directory: source
+        run: python -m pip install -e ".[test]"
+      - name: Execute genuine mixed-order world source and native event tests
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m pytest tests/test_m32b_certified_mixed_ancestry.py -q | tee ../m32b-smoke.log
+      - name: Export actual v2 graph and check source ledger
+        working-directory: source
+        run: |
+          python -m examples.m32b_mixed_ancestry --output output/m32b-actual.json | tee ../m32b-example.log
+      - name: Retain original attempted evidence
+        if: always()
+        run: |
+          test ! -f source/output/m32b-actual.json || sha256sum source/output/m32b-actual.json > m32b-sha256.txt
+          test ! -f m32b-smoke.log || sha256sum m32b-smoke.log >> m32b-sha256.txt
+          test ! -f m32b-example.log || sha256sum m32b-example.log >> m32b-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m32b-first-exact-source-mixed-ancestry
+          path: |
+            m32b-smoke.log
+            m32b-example.log
+            m32b-sha256.txt
+            source/output/m32b-actual.json
+          if-no-files-found: warn
