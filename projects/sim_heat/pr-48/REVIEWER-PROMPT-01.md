@@ -1,0 +1,20 @@
+# Chat B — independent SIM_HEAT PR #48 original source thermal topology and expected-only observation overlay R2
+
+Continue as independent Chat B reviewer for historical [draft SIM_HEAT PR #48](https://github.com/physicsvigilante/sim_heat/pull/48).
+
+**Review EXACT HEAD `4f077d5e3f231dacae5986d66bdaf0bdbe555b83`**, Git tree `4e44ac9e97ea9556472466309b62f53abddd4af6`, from independently reviewed PR47 base `abd969ce32c8b55899561ad7d80c5792f304927e`.
+
+Read full central R2 packet:
+https://github.com/physicsvigilante/review_sandbox/blob/main/projects/sim_heat/pr-48/REQUEST.md
+
+The source adds **FOUR files only** implementing a NONRENDERING, OFFLINE, source-derived JSON topology/view-data overlay. From the exact original frozen Modelica's eight `connect()` calls and frozen `h1.model.topology`, it reconstructs 8 original components, 12 source ports, four actual ideal thermal junction equivalence groups, 4 oriented rod edges, one genuinely parallel flatBridge/roundBridge pair, and 9 authored public request **expected-only** overlays. Source junction groups are `{coldBath.port,coldLead.port_b}`; `{coldLead.port_a,flatBridge.port_b,rightBuffer.port,roundBridge.port_b}`; `{flatBridge.port_a,hotLead.port_b,leftBuffer.port,roundBridge.port_a}`; `{hotBath.port,hotLead.port_a}`. Source lexicographic IDs `junction-00` through `junction-03` are NOT physical positions.
+
+Independently derive exact source junction/connection pairs, rods `port_a→port_b` positive `.Q_flow` **conventions** (not observed flow direction), one parallel rod pair, and 9 expected public field mappings/signs/units against original model/study and PR47. `bufferTemperatureDifference` uses `+leftBuffer.T − rightBuffer.T`. All junction temperatures, rod heat flows, nine public native values are **NULL/NOT COMPUTED**. `layout=null`, `physicalApparatusGeometry=null`, no physical pose, dimensions or coordinates invented. Verify no compiler, MAT decode, numerical computation, reference generation or owner/native permit.
+
+Adversarially mutate source-connect endpoints/order, split/merge junctions, rod orientations, flat/round parallel claim, request placement or field signs, geometry/coordinates, fake native values/owner approval, original saved PR31 raw SHA/seal, bool/int/float types and 11 missing native release gates. Require **FULL `assert_exact_source_bound`**, not shape-only. It is an offline source-view-model, not a native/physics proof.
+
+Inspect exact-head [CI #44098156308](https://github.com/physicsvigilante/sim_heat/actions/runs/44098156308), [artifact #14333659957](https://github.com/physicsvigilante/sim_heat/actions/runs/44098156308/artifacts/14333659957), 37,234-byte ZIP full SHA-256 `fb418536ac09b9f8815b4f9edb4c1f39db30b92d7aa80091bf58d15120683131`, **47/47 CRC-valid**, **389/389 hosted OFFLINE unittest methods**. Verify source diff has four additions only, original frozen 14 F0 source and 23 unlaunched native plan pins pass, original PR31 archived reference unchanged. Original F0 `hotLead.G` reference accuracy **80× versus ≥100× FAIL** and PR32 original V2 bitwise regeneration **FAIL** persist.
+
+Commit a **NEW independent reviewer-authored** `physicsvigilante/review_sandbox/projects/sim_heat/pr-48/reviews/review-01-chat-b.md`, verdict **SCOPED PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE**, citing exact reviewed head/tree and personally executed vs inspected hosted evidence. A scoped PASS can endorse **only the truthful source-derived, nonrendering topology/expected-only overlay**, NEVER a real geometric apparatus, OpenModelica result, signed owner release, global one-shot CAS or production merge.
+
+**Hard stop:** Do NOT edit frozen physics/reference, relax numeric accuracy, merge historical PRs, install/query/build/launch OpenModelica, regenerate original PR31 reference, invent native results/geometry or grant owner-native permission. All 11 real owner/source/release/backup/host/OMC/MSL/executable adapter/plan/durable external CAS/native-budget gates remain MISSING. Any real native work needs a separate fresh independent R2 and new explicit owner authorization for the named version-query/build/single launch and zero retries.
