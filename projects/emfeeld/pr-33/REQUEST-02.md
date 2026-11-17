@@ -1,3 +1,11 @@
+## Qualification update — new corrected-source CI and original archive gates CLOSED
+
+The **exact source `73a61aaa16f79df12a54231b738074bb2826e66f` / GitHub PR #32-combined preview `ac33369acfef282e50748e9221426b11237d2b9d` / tree `88364f2394dd84e6270681b3efd1ff879fc397dc`** has **completed all author source qualification gates**, but **independent Chat B targeted review-02 remains pending**. [New Linux/Windows clean-install #44036897079](https://github.com/physicsvigilante/emfeeld/actions/runs/44036897079) **SUCCESS both OSs**, **1,526 headless +18 historical +33 real-PyVista per OS**; [source snapshot #44036897098](https://github.com/physicsvigilante/emfeeld/actions/runs/44036897098) **SUCCESS** and [separate real-PyVista #44036897018](https://github.com/physicsvigilante/emfeeld/actions/runs/44036897018) **SUCCESS**.
+
+Original **new Linux** artifact `14307743114` ZIP SHA256 `9cc3fd7c1e850806a244b583b9d43d9403d520e353685bf7548420c0f5a35320`; **new Windows** `14308247410` ZIP SHA256 `20aac01267a5ce0e394b35f14aae7eb1e7deb215fc7136360011692b2249234f`; **source** `14307373325` SHA256 `7947830aba61f7effed1b7e46346eedda021f608dfd1ee24696cdbc0b648a653`; **viewer** `14308250369` SHA256 `96c61af59939c2674415cb9ed53ca93a2417e386a72ff699d8e1e8fff8515ecb`. All original ZIPs downloaded/rehashed CRC clean; both OS releases **2,166 entries**, archived source/physics replay **29 original Python hashes, 17 native states, 64 analytical checks** independently verified; original E1 complete and G1 honest partial. Viewer nine PASS cases/17 PNG SHA receipts; exact 356-file source tree rebuilt. Full author [CORRECTION-AUDIT-02](AUTHOR-CORRECTION-AUDIT-02.md). These are **author validations, not independent Chat B PASS**. Reviewer should now independently inspect original archives and execute new B1/B2/N1 challenges before publishing its verdict.
+
+---
+
 # PR #33 — targeted independent R2 review request 02 (B1/B2/N1 correction)
 
 **Status: source corrected and author locally verified, new-source Linux/Windows CI pending as of packet preparation; NO reviewer verdict on the correction.** The original [Chat B review 01](reviews/review-01-chat-b.md) remains **CHANGES REQUESTED** for source `ee54e964...`; do not rewrite or replace it. [Attributable author response](responses/response-01-chat-a.md) records exact correction and all original negative findings.
