@@ -527,6 +527,38 @@ def genuine_source_guard_prefix():
                 outcomes=outcomes,saved_rows=len(comparison["exact_time_trajectory_comparisons"]))
 
 
+def original_graph_mutation_attacks():
+    """Separate fresh issued graphs, tampered before fork plan creation, never
+    modifying the preserved successful review-world baseline.
+    """
+    from conductor_sim import GraphWorldForkPlan
+    def attack(label,mutate):
+        graph=old_graph("v2")
+        mutate(graph)
+        must_fail(label,lambda: GraphWorldForkPlan(
+            graph,"review01:tampered",(
+                PhysicalWorldNode("new","old-west","Genuine mass request",
+                    (CoupledPropertyEdit("test-particle","mass_kg",6.2e-6),)),)))
+    attack("forged original source label",
+           lambda graph: object.__setattr__(
+                graph.plan.original,"source_annotations",
+                (("field:base","Invented source attribution"),)))
+    attack("forged original source identity",
+           lambda graph: object.__setattr__(
+                graph.plan.original,"source_annotations",
+                (("field:invented","Invented source attribution"),)))
+    attack("forged source root model revision",
+           lambda graph: object.__setattr__(
+                graph.plan.original,"scenario_id","review01:forged-root"))
+    attack("forged issued old-world model parent revision",
+           lambda graph: object.__setattr__(
+                graph.entries[2].scenario,"parent_revision_id","SHA-FALSE"))
+    attack("forged retained native source ancestry",
+           lambda graph: object.__setattr__(
+                graph.entries[0].source_ancestry,"gravity_present",False))
+    return 5
+
+
 def legacy(out):
     from conductor_sim import GraphEventInquiryPlan,run_graph_event_inquiry
     hashes={}
@@ -625,6 +657,7 @@ def full(out):
     opposing_roots=two_opposite_signed_roots()
     guard_prefix=genuine_source_guard_prefix()
     hostile(graph,plan,fork)
+    original_graph_mutation_count=original_graph_mutation_attacks()
     (out/"old.json").write_bytes(before)
     (out/"fork.json").write_bytes(plain(second.as_dict()))
     (out/"inquiry.json").write_bytes(plain(inquiry.as_dict()))
@@ -641,6 +674,7 @@ def full(out):
                 eligible_old_event_refusal=event_refused,
                 opposite_signed_roots=opposing_roots,
                 source_guard_prefix=guard_prefix,
+                original_graph_mutation_count=original_graph_mutation_count,
                 hostile_checks=FAILURES,original_graph_sha256=sha256(before).hexdigest())
     (out/"review-results.json").write_bytes(plain(result))
     print("INDEPENDENT_RESULT "+json.dumps(result,sort_keys=True))
