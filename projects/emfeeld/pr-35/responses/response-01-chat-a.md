@@ -28,6 +28,16 @@ Author re-extracted the **actual original GitHub source-snapshot ZIP** and indep
 
 **Still pending at publication:** original corrected-head [Linux/Windows clean-install #44066177397](https://github.com/physicsvigilante/emfeeld/actions/runs/44066177397) was in progress; therefore no both-OS completion, fresh original OS ZIP source/native evidence audit, or independent R2 re-review pass is claimed in this file. Do not merge on this response. A true unseen teacher-authored question and externally judged physical interpretation remain separate future milestones.
 
+## Fresh original Ubuntu release audit (completed after first report)
+
+[Corrected-head Linux/Windows clean-install #44066177397](https://github.com/physicsvigilante/emfeeld/actions/runs/44066177397) **Ubuntu job 133980318679 SUCCESS**; Windows was still IN PROGRESS at this addendum. Downloaded original Ubuntu artifact **14320228516**, whole-ZIP SHA256 `62124d3fb08d52a66730a9d27a7c02708cb0be844a432cf9ea02775a1b12f068` matched GitHub digest. Original ZIP **2,176 unique, CRC-clean, casefold-safe paths**; exact `head-sha.txt=c2e26e7d164e499f32710ee07031a5919b803705` correctly identifies the source-equivalent PR merge-preview, not a post-merge main commit.
+
+Actual Ubuntu original logs: **1,580 headless passed, 18 historical passed (one obsolete all-file guard deselected), 33 real-PyVista passed**. Archived original frozen question, receipt, packet, native-result, assessment and state all hash-bound to unchanged committed question SHA256 `36f56dcc11d6347a1db47adfb103b16472a8e1270641869f52c7220bd086a361` and packet SHA256 `6fe25bf6c738ee13fa837793414b343feeb53116737bcfafcf19c56c36adac5d`. Native report SHA256 `bf11cc7a6abd598bba0ae1746ca934eaf2ebc8c383aff79373676d5b4b06b947`: five named actual `ok` results (launch gravity, final position and velocity at t=2 s, initial/final total energy 12.0125 J). Assessment reports complete **measurement coverage only**, with interpretation and independent physics/teacher usefulness still explicitly unverified/not evaluated. E1 signed ensemble remains global **complete** (10/10 ok); G1 remains honest **partial**, with `body-4-absent` unavailable as typed `unknown_operand/null`, not a fabricated zero. No user Conda or old sealed store changed.
+
+**Windows artifact audit and independent R2 review-02 remain pending in this addendum.**
+
+---
+
 ## Required gate
 
 Finish and verify the **original** corrected-head Linux/Windows workflow and release ZIPs (per-OS logs, original source/packet bytes, native trial output/coverage, independent hash/CRC), then request **separate-context targeted R2 review-02** of the corrected B1 gate and its retained evidence. Only the reviewer can publish their own PASS / CHANGES REQUESTED verdict. Any approved merge still requires fresh actual `main` push CI and original post-merge archive re-audit.
