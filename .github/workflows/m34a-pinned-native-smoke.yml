@@ -1,0 +1,49 @@
+name: M34a pinned non-dyadic oblique motion-plane developer smoke #01
+on:
+  push:
+    paths:
+      - ".github/workflows/m34a-pinned-native-smoke.yml"
+  workflow_dispatch:
+jobs:
+  source-plane-qualification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: ea24a773d3942c4526f1c48ee12e425911bd6650
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check exact immutable candidate source/tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "ea24a773d3942c4526f1c48ee12e425911bd6650"
+          test "$(git rev-parse HEAD^{tree})" = "6b25101225a581229623e2e64c430f6abebcab14"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install source package and native test requirements
+        working-directory: source
+        run: python -m pip install -e ".[test]"
+      - name: Run all M34a physics, oblique reassembly, old schema and refusal regressions
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m pytest tests/test_m34a_plane_normal_idempotence.py -q | tee ../m34a-smoke01.log
+      - name: Retain original attempt logs and SHA256
+        if: always()
+        run: |
+          test ! -f m34a-smoke01.log || sha256sum m34a-smoke01.log > m34a-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m34a-original-pinned-oblique-source-smoke
+          path: |
+            m34a-smoke01.log
+            m34a-sha256.txt
+          if-no-files-found: warn
