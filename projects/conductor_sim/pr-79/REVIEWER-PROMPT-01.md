@@ -43,3 +43,10 @@ A new separate-context PASS is not owner merge approval. Only exact source HEAD/
 ## Preliminary developer CI note
 
 At first request publication all 18/18 focused new source tests, the independently formulated source-head Newtonian SI reference and unchanged released/candidate full historical graph/inquiry bytes were green, but the full Python/FEMM/Chromium CI had not finished; see [STATUS](STATUS.md) and independently recheck live current SHA workflows before stating all green.
+
+
+## FINAL developer validation update: all 17/17 current source-head workflows SUCCESS
+
+After the prompt was first authored, GitHub confirmed **all 17/17 current-source PR-associated workflows completed/success** at unchanged candidate HEAD `5d7a6d195e14c6858540066586b6b40a44160b9b` and real Git TREE `d0646c9e4d518008784c42c1fec1c48c81901a09`. The released independently reviewed M34a `main` and base remain `ecb6740fff851e0dbce2c2784a173638155a9acb`. PR #79 remains OPEN/DRAFT/UNMERGED. [Python 3.10/3.12 #44077650297](https://github.com/physicsvigilante/conductor_sim/actions/runs/44077650297): **1,991 tests passed on EACH**, 97 live-FEMM-only skips in general jobs. [Real FEMM 5 #44077649812](https://github.com/physicsvigilante/conductor_sim/actions/runs/44077649812): **97 genuine solver tests passed**. [Historical real Chromium #44077650220](https://github.com/physicsvigilante/conductor_sim/actions/runs/44077650220): SUCCESS and 1,991 non-FEMM source/visual tests passed. [Source HEAD true Newtonian independent-form SI #44077650204](https://github.com/physicsvigilante/conductor_sim/actions/runs/44077650204), developer pinned 18/18 #44077421977 and old/NEW byte equality #44077727213 also SUCCESS. See [latest STATUS](STATUS.md) for exact evidence, semantics and ZIP digest limitations.
+
+**This opens independent R2 reviewer execution only, not owner merge authority or a Chat B PASS.** Obtain and recheck live source head/tree/CI, create genuinely reviewer-authored new native physics and hostile challenges, publish the original source-pinned review file. Do not conflate these developer/historical CI results with your own independent experiments.
