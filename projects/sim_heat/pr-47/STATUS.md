@@ -1,3 +1,13 @@
+## Independent PR47 R2 complete — SCOPED PASS source-derived request dependencies, native HOLD
+
+[Independent Chat B review-01](reviews/review-01-chat-b.md), blob `579e90e63c070e98d1fe720ff2b2460dc561465d`, returned **SCOPED PASS** at source `abd969ce32c8b55899561ad7d80c5792f304927e`, tree `176b78b7c0a88add9df8794761fc3b94e6bed6e2`. [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-05. Nine original public requests map to 8 direct intended source fields + one `leftBuffer.T - rightBuffer.T` ordered derived difference, 10 signed original expected terms; all nine actual native values remain `not_computed`. [CI #44079994935](https://github.com/physicsvigilante/sim_heat/actions/runs/44079994935) 370/370 hosted **OFFLINE** tests pass. No native effects.
+
+**Mandatory interpretation:** only full `assert_exact_source_bound` binds an untrusted copied dependency map to frozen source; `validate_shape` alone is insufficient, and even full equality is not native provenance. Eleven actual release/native/owner/host/atomic-store gates remain MISSING; original frozen F0 80×/100× accuracy and PR32 bitwise reference regeneration remain genuine FAILs. PR47 stays draft/unmerged.
+
+Next bounded candidate: a separate OFFLINE source-topology + expected-only observation-overlay *view-model* with no invented geometry/pose, native readings or OMC execution; new pinned source CI and independent R2.
+
+---
+
 # SIM_HEAT PR #47 — nine authored public requests to expected field dependencies, R2 pending
 
 **Status `awaiting-independent-R2-original-request-field-dependencies; F02-NATIVE-HOLD`.** Historical [draft SIM_HEAT source PR #47](https://github.com/physicsvigilante/sim_heat/pull/47), exact HEAD `abd969ce32c8b55899561ad7d80c5792f304927e`, Git tree `176b78b7c0a88add9df8794761fc3b94e6bed6e2`, immediately on independently scoped-PASS PR46 `6c09b44802e869f4a07a2dbda26e2ca37bff83b9`. Exactly **FOUR ADDED** source/test/scope/CI files and ZERO inherited changes. Frozen F0 commit `dd8c9432abe97563414bb3ed809e61e673473812`, first authored Modelica, evaluator modal study, approved PR31 saved reference/archive/owner decision, old H1 runner/checker and unlaunched plan all preserved. Historical source PRs remain draft/unmerged.
