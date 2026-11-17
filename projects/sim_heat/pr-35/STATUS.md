@@ -1,3 +1,11 @@
+## Final PR #35 review disposition (current)
+
+**Status: `SCOPED-R2-PASS-OFFLINE-CONSUMER; NATIVE-F02-HOLD`.** [Independent Chat B review-01](reviews/review-01-chat-b.md) completed **SCOPED PASS** at source `f7c69954490c8dcd48d152906e8e2a6d5699481d` (tree `308edef4c44dff1decece98f587ccf7bb8fe0380`). [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-05 and records continuing boundaries. Historical PR #35 remains draft/unmerged. Exact-head [CI #44018671528](https://github.com/physicsvigilante/sim_heat/actions/runs/44018671528) passed all 177 tests and source/archive checks with **zero OMC/native work**.
+
+**Owner Option A approval is checking-data only.** The original F0 80×/100× failed reference and PR #32 bitwise regeneration failure remain unchanged. Current anchor is **unprotected** and a checkout's local remote-tracking ref may be stale: neither is authenticated upstream freshness or durable release trust. Before native, a new reviewed reference-bound adapter/plan, external owner trust root, cross-run one-shot lock, exact host/OMC/MSL/toolchain verification, **separate owner launch permission**, and post-native evidence review remain mandatory. Any future offline prelaunch work is a new candidate, not an execution grant.
+
+---
+
 # SIM_HEAT PR #35 — owner-adopted V2 checking reference, no native permission
 
 **Status: awaiting independent R2 checking-consumer review.**
