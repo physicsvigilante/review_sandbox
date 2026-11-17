@@ -36,12 +36,39 @@ jobs:
         run: |
           set -o pipefail
           PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-72/reviews/review-03-chat-b-probes.py 2>&1 | tee ../review03-native.log
+      - name: Independently rerun UNCHANGED historic Chat B review02 native controls on exact new source
+        working-directory: source
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-72/reviews/review-02-chat-b-probes.py 2>&1 | tee ../review03-retained-native.log
+      - name: Verify historic probe PASS and rejection statuses
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          doc = json.loads(Path("review02-results.json").read_text())
+          assert doc["issues"] == [], doc["issues"]
+          for name in ("F04_HYPOTHESIS_PROVENANCE_REBIND", "F04_PLAN_ID_REBIND",
+                       "F01_NEW_DIRECT_CONSTRUCTOR", "F01_COPY_ORIGINAL_SEAL",
+                       "F01_AFTER_CONSTRUCTION_EXPORT",
+                       "F02_PARENT_MISSING_OBSERVATION", "F02_CHILD_MISSING_OBSERVATION",
+                       "F03_FORGED_CHILD_EVENT_AT_CONSTRUCTOR"):
+              assert doc["outcomes"][name]["outcome"] == "REJECTED", name
+          for name in ("NATIVE_ROD_REFERENCE",
+                       "F02_GENUINE_REFUSAL_PARENT_CHILD_SUCCEEDS",
+                       "F03_NO_RESCUE_VALID_SIBLING_PRESERVED",
+                       "NOVEL_GRAVITY_EY_ANALYTIC_NATIVE"):
+              assert doc["outcomes"][name]["outcome"] == "PASS", name
+          print("REVIEW03_RETAINED_CONTROLS_PASS; script historic SHA fields are not the new checkout identity")
+          PY
       - name: Preserve first-attempt evidence digests
         if: always()
         run: |
           sha256sum reviews/projects/conductor_sim/pr-72/reviews/review-03-chat-b-probes.py > review03-digests.txt
           test ! -f review03-results.json || sha256sum review03-results.json >> review03-digests.txt
           test ! -f review03-native.log || sha256sum review03-native.log >> review03-digests.txt
+          test ! -f review03-retained-native.log || sha256sum review03-retained-native.log >> review03-digests.txt
+          test ! -f review02-results.json || sha256sum review02-results.json >> review03-digests.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -49,5 +76,7 @@ jobs:
           path: |
             review03-results.json
             review03-native.log
+            review03-retained-native.log
+            review02-results.json
             review03-digests.txt
           if-no-files-found: warn
