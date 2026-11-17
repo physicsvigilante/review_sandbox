@@ -1,0 +1,13 @@
+# Opticsim PR #113 — prospective v16 native thick-lens + mirror review status
+
+**AWAITING INDEPENDENT R2 PHYSICAL REVIEW. SOURCE PR DRAFT / UNMERGED. NOT RELEASED.**
+
+- [Opticsim PR #113](https://github.com/physicsvigilante/opticsim/pull/113) proposes isolated `schemaVersion:16`, `model:native-thick-lens-mirror-tracing`; exact current source HEAD **`94ea1a184e025065fe28da49691a3f39dc916296`**. It is temporarily main-targeted only to trigger GitHub Actions; restore dependency base to `feature/native-thick-lens-train-v15` after the exact-head run. **No production merge authorization.**
+- Prerequisite v15 [PR #110](https://github.com/physicsvigilante/opticsim/pull/110) and v14 [PR #107](https://github.com/physicsvigilante/opticsim/pull/107) each have separately authored, scoped R2 clearances but remain owner-held draft/unmerged. A v16 clearance would not release either prerequisite.
+- Physical scope: exactly one fully authored finite nonrotated biconvex native SphericalLens, one independent finite native Mirror, 1–4 exact native single rays and 0–2 passive external detectors. The entire mirror segment lies outside the complete lens x extent with >=0.01 mm clearance. Original v15 lens-source-detector rules and v4 mirror/detector mutual-separation rules are reused; no route, image inference or custom solver.
+- Pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251` is unchanged. Fresnel-off is explicit; incomplete/depth/weak branch traces still suppress requested values.
+- Research-only [PR #112](https://github.com/physicsvigilante/opticsim/pull/112) first demonstrated a native thick-lens/mirror return in a test-only JSON copy; the v16 candidate separately admits canonical authoring and UI revisions.
+- Initial v16 source head `b0d5eef12a465dd9f4c935a5ae477b356ba86f0f` passed **828/828 Node 24 tests and all 11 standard CI workflows**, including **10/10 real-Chrome v16 checks**. Additional two-source and explicit cm/mm controls were added at `70bd7f29...`, followed by an empty same-tree CI attestation commit; **final exact-head CI for `94ea1a184e025065fe28da49691a3f39dc916296` is PENDING** at this status revision. Do not count earlier source runs as final-head evidence.
+- [Detailed independent review request](REQUEST.md) and [ready-to-paste Chat B prompt](REVIEWER-PROMPT-01.md) are prepared. **No independent Chat B report or verdict has been received for PR #113.** Reviewer should write `projects/opticsim/pr-113/reviews/review-01-chat-b.md` only after new independent source and physical evidence inspection.
+
+**HOLD source PR #113 pending exact-head CI, a real separate-context R2 verdict and explicit project-owner release authorization; do not merge or silently upgrade older schemas.**
