@@ -1,0 +1,53 @@
+name: M32b Chat B reviewer01 new native scientific adversarial probes
+on:
+  push:
+    paths:
+      - ".github/workflows/m32b-review01-independent.yml"
+      - "projects/conductor_sim/pr-74/reviews/review-01-chat-b-probes.py"
+  workflow_dispatch:
+jobs:
+  separate-context-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: f299478224d3247e439a08425b4ad23712b20c17
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Strict literal original source HEAD/tree pin
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "f299478224d3247e439a08425b4ad23712b20c17"
+          test "$(git rev-parse HEAD^{tree})" = "a7885a7f7f4a4a34e74af43af5217a71a97fe31b"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install untouched production package
+        working-directory: source
+        run: python -m pip install -e .
+      - name: Run new Chat B SI and hostile native probes
+        working-directory: source
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-74/reviews/review-01-chat-b-probes.py ../review74-chatb-native.json 2>&1 | tee ../review74-chatb-native.log
+      - name: Preserve FIRST reviewer run inputs and output even on failures
+        if: always()
+        run: |
+          sha256sum reviewer/projects/conductor_sim/pr-74/reviews/review-01-chat-b-probes.py > review74-chatb-digests.txt
+          test ! -f review74-chatb-native.log || sha256sum review74-chatb-native.log >> review74-chatb-digests.txt
+          test ! -f review74-chatb-native.json || sha256sum review74-chatb-native.json >> review74-chatb-digests.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m32b-chatb-review01-native-first-attempt
+          path: |
+            review74-chatb-native.json
+            review74-chatb-native.log
+            review74-chatb-digests.txt
+          if-no-files-found: warn
