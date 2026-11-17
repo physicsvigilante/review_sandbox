@@ -19,6 +19,18 @@ Fresh actual [main-push real-PyVista #44075528342](https://github.com/physicsvig
 
 ---
 
+## Actual post-merge Ubuntu release — completed SUCCESS and independently audited
+
+Fresh actual [main-push release #44075528373](https://github.com/physicsvigilante/emfeeld/actions/runs/44075528373), **Ubuntu job `134012445917` COMPLETED SUCCESS** on exact `main` merge `510014fc078c73d37146b9804763e29d04ac0018`. Downloaded original Ubuntu artifact **`14325586236`**, whole ZIP SHA256 **`0bf131fe1a4b3b9ffed52f7bb9f67029ecb5286d32d1a3ab262839e5055c397f`** independently recomputed and identical to GitHub's original artifact digest. Verified **2,176 unique CRC-clean casefold-safe pathname entries** with no unsafe paths. Original `head-sha.txt` is **actual main merge `510014fc...`**, not the older PR preview. Saved test logs record **1,580 current headless + 18 historical behavioral (one obsolete guard deselected) + 33 real-PyVista passed**.
+
+Direct original per-OS native evidence audit: exact frozen raw question SHA256 `36f56dcc11d6347a1db47adfb103b16472a8e1270641869f52c7220bd086a361`, original packet SHA256 `6fe25bf6c738ee13fa837793414b343feeb53116737bcfafcf19c56c36adac5d`; archived lock/question and attempt/question byte-identical to the actual newly merged source-tar originals, receipts correctly bound, `source_authenticity=not_authenticated` and `developer_authored`. Original native-report SHA256 `bf11cc7a6abd598bba0ae1746ca934eaf2ebc8c383aff79373676d5b4b06b947` matches the original assessment receipt. Five distinct native `status=ok` measurements with true saved sample 20 / t=2 s, g=(0,-2,0) m/s², r(2)=(1.8,0.4,0.2) m, v(2)=(0.4,-2.8,0.1) m/s, initial/final energy 12.0125 J. Only **native measurement coverage=complete**; interpretation fidelity, independent physics and educational usefulness remain explicitly not_verified/not_evaluated in original assessment.
+
+Original archived Physics Demo: **17 actual named native ok values**, **64/64 separate analytic checks PASS**, all **29 engine Python source SHA256 receipts** independently verified against the new actual main viewer's source TAR. E1 readout **complete 10/10 ok**, G1 honestly **partial 7 ok + one unavailable/unknown_operand/null**, not fabricated zero.
+
+**Windows actual main-push release is still running at this checkpoint; full both-OS final release disposition remains pending.**
+
+---
+
 ## Actual new main-push CI: pending evidence, not pre-merge relabelling
 
 - Fresh actual `main` push **Linux/Windows clean-install** [#44075528373](https://github.com/physicsvigilante/emfeeld/actions/runs/44075528373), event `push`, head `510014fc...`: **IN PROGRESS** at first observation. Must establish both original OS jobs complete success and separately inspect original headless/historical/PyVista/source-first evidence steps.
