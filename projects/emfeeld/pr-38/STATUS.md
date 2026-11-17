@@ -1,5 +1,15 @@
 # PR #38 — initial author R2 request status (2026-11-17)
 
+## FINAL — PR #38 fully merged and actual-main release-qualified (2026-11-17)
+
+**ALL declared automated source, independent R2, guarded integration and post-merge release/evidence gates CLOSED / PASS** for a strictly NON-BLIND published NASA Space Math ion-grid rehearsal. Exact independently reviewed source head `68241b9b971c793506a3f0014725f03bb1a8899e` with tree `33b58fb55b387ec2b7c1bdd61bf1af7764db97cd`; actual merged `main` commit `066c94e4953c3ef29302c0bb6d0ee2f6cb8b8ca0` with **identical tree**, correct ordered parents, [Chat B scoped independent R2 review-01 PASS](reviews/review-01-chat-b.md) and 11 new reviewer-owned executions.
+
+Fresh **actual main-push** [Linux/Windows clean-install #44107232954](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232954) SUCCESS **both OS** (1,585 headless, 18 historical, 33 real-PyVista each) and [separate real-PyVista #44107232951](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232951) SUCCESS. All three original NEW main-push Ubuntu/Windows/viewer ZIPs independently SHA/CRC/source/native audited: 367 tracked source Git tree identity, 29 engine receipts (Windows CRLF handled), original NASA locked question/packet and one native speed/time/unit, 64/64 earlier physics-demo checks, E1 complete/G1 honest partial and 17 viewer PNG original receipts. An initial first audit harness failure from incorrect raw LF-only comparison to Windows CRLF source hashes was preserved and corrected in the **audit code alone**, with source ZIPs and Git tree unmodified. [Final merge report](MERGE-REPORT.md), [full original postmerge ZIP audit](POSTMERGE-ARCHIVE-AUDIT-01.md); [Issue #37](https://github.com/physicsvigilante/emfeeld/issues/37) CLOSED.
+
+**No prospective external/teacher-authenticated question, independently withheld judge, general physical correctness, NASA key certification, human classroom usefulness or manual Windows desktop/pointer trial** is asserted. NASA's published Problem 2 answer-key discrepancy remains explicit, and native `complete` means only one supported SI measurement with locked context, not general interpretation. Authentic prospective teacher question + independent judge remains [Issue #36](https://github.com/physicsvigilante/emfeeld/issues/36) OPEN.
+
+---
+
 ## CURRENT — complete original Linux/Windows author qualification, R2 independent reviewer outstanding
 
 **EXACT-HEAD AUTHOR QUALIFIED; NOT YET MERGED.** Draft [PR #38](https://github.com/physicsvigilante/emfeeld/pull/38) remains open at feature HEAD `68241b9b971c793506a3f0014725f03bb1a8899e`, Git tree `33b58fb55b387ec2b7c1bdd61bf1af7764db97cd`, released base `510014fc078c73d37146b9804763e29d04ac0018` and source-equivalent CI preview `78fbe5143d0714b928ed54e25e755a612c37bbf9`. Local Git commit ancestry proves question then receipt then authored packet; no original NASA PDF authentication, no blind judge claim.
