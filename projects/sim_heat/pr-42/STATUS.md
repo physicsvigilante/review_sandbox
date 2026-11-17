@@ -1,3 +1,13 @@
+## Independent R2 complete — SCOPED PASS for toy protocol only, F02 NATIVE HOLD
+
+Independent [Chat B review-01](reviews/review-01-chat-b.md), Git blob `c1373461a86ea5a787de694414688097ec1bc588`, independently assessed exact source `32cbb7d02b7db0cbc322fb0e7826861fd902a77a`, tree `da6be0e7eec55d78acebc57da6763d07608dc17b`, and returned **SCOPED PASS** only for the nonexecuting hypothetical state/history model. [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-05. [CI #44047200421](https://github.com/physicsvigilante/sim_heat/actions/runs/44047200421) PASS for 293/293 OFFLINE tests. Original source/references and historical F0/PR32 FAILs preserved.
+
+**Important independent limitation:** Two branches from even the SAME stale immutable toy snapshot can both record a valid first claim, because local immutable history is not an externally shared linearizable CAS. The PR42 split-brain demo also independently starts two fresh roots. Neither claim proves a real cross-host owner-controlled one-shot. All eleven actual release/native prerequisites remain MISSING; no OMC version/build/launch, owner native approval, real reservation or historical source merge is authorized.
+
+Next bounded milestone is offline-only versioned CAS/stale-snapshot modeling and adversarial tests, as a separate draft source head and R2, still NO native use.
+
+---
+
 # SIM_HEAT PR #42 — HYPOTHETICAL one-shot state-machine model (R2 pending)
 
 **Status: `awaiting-independent-R2-fictional-protocol-review; F02-NATIVE-HOLD`.** [Draft source PR #42](https://github.com/physicsvigilante/sim_heat/pull/42) exact head `32cbb7d02b7db0cbc322fb0e7826861fd902a77a`, Git tree `da6be0e7eec55d78acebc57da6763d07608dc17b`; immediate reviewed base PR #41 source `47be71571e5cfdf12a5576ebe6f18db355d2dc4b`. Exactly **FOUR ADDED** Python/model/test/docs/CI paths, zero historical original source/Modelica/reference/owner/runner/plan changes; source PRs remain draft/unmerged.
