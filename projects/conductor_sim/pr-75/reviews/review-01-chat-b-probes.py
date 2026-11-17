@@ -24,12 +24,12 @@ from conductor_sim.motion_events import PlaneEvent, EventPolicy
 
 CHECKS = {}
 SOURCE_HEAD = "117990d239503a947f7be2896c52ffd10a2cacf1"
-E0 = (180., -70., -110.)
-EA = (60., -40., -20.)
-EB = (-50., 70., -20.)
-G = (.03, -.05, .02)
+E0 = (180., -135., -110.)
+EA = (60., -45., -20.)
+EB = (-50., 37.5, -20.)
+G = (.04, -.03, .02)
 R0 = (.003, .012, .06)
-V0 = (.15, .04, -.19)
+V0 = (.15, -.1125, -.19)
 Q = 2e-9
 M = 1.6e-6
 MH = 2.4e-6
@@ -85,7 +85,7 @@ def root_model():
         TestChargeMotionSpec(
             PrescribedField((UniformElectricField(E0),)),
             PointCharge(Q, R0), M, V0, T, .02,
-            plane_normal=(1., 1., 1.),
+            plane_normal=(.6, .8, 0.),
             gravity=UniformGravity(G),
         ),
         (("field:origin", "Original diagonal held field"),),
@@ -191,7 +191,7 @@ def check_world(name, scenario, native):
          name+": localized point not at detector")
     need(samples[-1].time_s==T, name+": native duration not completed")
     # Independent plane closure check, without projection onto x or z axes.
-    need(abs(sum(a))<5e-13 and abs(sum(V0))<5e-13,
+    need(abs(.6*a[0]+.8*a[1])<5e-13 and abs(.6*V0[0]+.8*V0[1])<5e-13,
          name+": three-axis tangent-plane condition incorrect")
     marked("physics_"+name, dict(samples=len(samples), force_n=force, acceleration_m_s2=a,
         x_root_independent_s=independent_root, x_root_native_s=r.sample.time_s,
