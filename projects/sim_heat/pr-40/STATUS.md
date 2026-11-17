@@ -1,3 +1,9 @@
+## Follow-on, separate PR #41: deliberately BLOCKED release-readiness audit (R2 pending)
+
+Following [independent PR #40 scoped PASS](reviews/review-01-chat-b.md) for a nonnative **UNTRUSTED FAKE**, [draft source PR #41](https://github.com/physicsvigilante/sim_heat/pull/41) exact HEAD `47be71571e5cfdf12a5576ebe6f18db355d2dc4b` adds 5 read-only source/JSON/test/docs/CI paths. It checks all original source/ref pins and records **ELEVEN native release prerequisites MISSING**, with deliberate status `BLOCKED_11_NATIVE_RELEASE_GATES_MISSING_OFFLINE_ONLY`. [Exact-head CI #44042672107](https://github.com/physicsvigilante/sim_heat/actions/runs/44042672107) SUCCESS for **275/275 OFFLINE tests**, no OMC/native. [Separate R2 packet](../pr-41/REQUEST.md) awaits independent Chat B review. **No signed/protected owner root, real CAS, native adapter/host/plan or approved version/build/launch budget created.** Original F0 80×/100× FAIL and PR32 bitwise regeneration FAIL remain unchanged.
+
+---
+
 ## PR #40 independent review completed — SCOPED PASS for untrusted fake only
 
 **Current: `SCOPED-R2-PASS-DEFAULT-DENY-FAKE; F02-NATIVE-HOLD`.** Independent [Chat B review-01](reviews/review-01-chat-b.md) passed only the UNTRUSTED in-memory external-CAS contract at exact source `ebe203781e87ba108e8dec845074ca7ca47972ef`, tree `ca0254a94bb2f6785608c0ad8700a693a00f647e`. [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-04 and documents one nonblocking typed-denial cleanup for future formal contracts. [CI #44039595352](https://github.com/physicsvigilante/sim_heat/actions/runs/44039595352) SUCCESS, **260/260 offline tests**, zero OMC.
