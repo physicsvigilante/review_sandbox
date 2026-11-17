@@ -1,0 +1,15 @@
+# Chat B — Independent JEE-first native parallel Beam authoring review (Opticsim PR #127)
+
+You are a separate-context AI technical reviewer, not the builder. Read the complete [REQUEST.md](REQUEST.md) and [v19 scope](https://github.com/physicsvigilante/opticsim/blob/feature/jee-native-parallel-beam-authoring-v19/docs/NATIVE-PARALLEL-BEAM-V19.md).
+
+Inspect [draft PR #127](https://github.com/physicsvigilante/opticsim/pull/127) at exact **source HEAD `05385e3daefaffcfc56fb072a12ba81dd6432993`**, **Git tree `010ddcba6a17715a71e143ed12ab318267e93618`**, against pinned research parent PR #126 `2632efa3d1e2187e4cd793eb80a505b7302919c7`. Verify GitHub synthetic CI merge `fc1b32c98ee5830dd01eed54b066d56c27ed6b19` has the same source tree. Do not treat any later HEAD as reviewed without explicitly updating the request.
+
+Audit true canonical `parallel-beam` physical source and strict v19 versioned isolated composition (lens/aperture or planar slab), entire emission segment and sample-corner checks, detector supporting planes, shared media, source brightness/density, native y-up↔y-down orientation, upstream Beam actual emission and exactly-once observer delegation. Check for a **counterexample that passes admission but starts a beam across a medium/optical boundary**. Ensure all old v1–v13 types/models/saves retain their exact isolation; v14–v18 held branches must not be silently pre-released by the v19 number.
+
+Independently recompute and compare: width40 at density.2 emits y=+17.5 ... −17.5 (8 rays); gap12 blocks6; surviving y±2.5 reaches f100 focal x100 but incident x-unit≈**0.9996876464**, not1; a 60mm n1.5 slab oblique30° gives refracted≈19.4712° and lateral displacement≈11.6288mm; n1.5→1 at60° TIRs; density1 emits40 and event-list >32 overflows without truncating the separate complete count. Full Fresnel incomplete must withhold *all* native readouts. Check actual public CLI packages and browser output/six screenshots including edit/export/invalidity/reopen.
+
+**Source-CI builder evidence:** 807/807 Node, 7/7 public CLI cases, 11/11 actual Chrome checks observed in the first fully connected implementation run. Final documentation-only source-head CI is being tracked separately; inspect its actual outcome, not claims. Initial development CI had a failed assertion that incorrectly required horizontal direction at a focal crossing; corrected with independently calculated nonzero outgoing slope, not by weakening native physics. Preserve this failure.
+
+Publish `projects/opticsim/pr-127/reviews/review-01-chat-b.md` with source identity, physics checks, ranked P0/P1 or nonblocking findings, evidence limits and verdict **CLEARED FOR OWNER DECISION / CHANGES REQUESTED / INSUFFICIENT EVIDENCE**. Say whether you independently executed native PhyDemo/Chrome. No JEE textbook-answer accuracy, physical image, continuous power or human expert certification is implied.
+
+**Never merge.** The reviewed source here is a separate new authoring candidate; prerequisite PR #126 and all earlier reviewed/held branches remain unmerged. Owner authorization and production integration are distinct subsequent decisions.
