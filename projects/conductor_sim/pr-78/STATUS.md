@@ -26,3 +26,10 @@ M34a only preserves a validated native motion-plane normal verbatim when its act
 Artifacts' ZIP SHA256 values above are GitHub-provider-reported metadata; developer did not independently download/re-hash ZIP bytes. Native evidence receipts are in-process source/result integrity checks, not cryptographic signature or original PDF authentication.
 
 **Release gate CLOSED.** This motion-plane numerical/qualification change is R2 physical/evidence critical, even though it is narrow. Require all exact source CI green, an original separate-context Chat B independently authored unknown physical/hostile test report for the precise SHA/TREE with no blockers, separate owner expected-HEAD merge authorization, then all exact merge-SHA main-push workflows successful before declaring M34a released.
+
+
+## Additional exact-byte historical source compatibility PASS
+
+[Old released M33b vs M34a candidate genuine native legacy output #44068338253](https://github.com/physicsvigilante/review_sandbox/actions/runs/44068338253): **SUCCESS**. Two separately checked-out, exact commit/tree asserted source roots (`28f93622...` and `95bbb1b3...`) executed identical genuine native original M29a physical input and M32a **v1**, M32b **v2**, M33a **v3** graph plans, plus an actual M33b freshly asked typed event inquiry. The complete canonical detached JSON outputs were compared by literal Unix `cmp` and were **BYTE-IDENTICAL** across released and candidate source; output SHA256 `80d37d46de066bb15e6073244184968b0e2346fbe1501beb43c0de9039c4d512`. The sampled inputs are unaffected older qualified geometry, not the newly admitted old-refused oblique source. Artifact #14320229601, GitHub-reported ZIP SHA256 `d1a1a55d5d769d074e8ca3ba87260b665daf9e52b6c5858813b393904fdc0644`.
+
+This is developer-authored historical compatibility evidence, not independent reviewer certification. Distinguish genuinely changed M34a-admitted oblique source physics from unchanged old-contract schema/byte behavior for unaffected source inputs.
