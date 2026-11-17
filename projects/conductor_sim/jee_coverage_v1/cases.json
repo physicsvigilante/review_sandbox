@@ -1,0 +1,1193 @@
+{
+  "schema": "conductor_sim.jee30_preregistered_cards.v1",
+  "charter": "projects/conductor_sim/jee_coverage_v1/CHARTER.md",
+  "as_of": "2026-11-17",
+  "released_engine_base_commit": "a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde",
+  "source_syllabus": "https://jeeadv.ac.in/documents/jee-advanced-2026-syllabus.pdf",
+  "authoring": "synthetic teacher-style originals, not past-year JEE problems",
+  "evaluation_contract": "teaching-accompaniment.v1",
+  "status": "preregistered_unexecuted",
+  "count": 30,
+  "strata_count": {
+    "field_potential": 5,
+    "conductors": 5,
+    "work_energy": 5,
+    "motion_events": 5,
+    "model_exploration": 5,
+    "limitations": 5
+  },
+  "conditions": [
+    "Provisional support labels are hypotheses, not scored results",
+    "No case is scored PASS without real model admission, independent physics and claimed visualization evidence",
+    "Do not claim verified JEE actual PYQ fidelity"
+  ],
+  "cases": [
+    {
+      "id": "F01",
+      "family": "field_potential",
+      "level": "Main",
+      "title": "Two equal positive charges, zero field versus positive potential",
+      "prompt": "Two stationary charges of +2 nC are located at x=-0.10 m and x=+0.10 m in vacuum. Calculate electric field vector and potential at the midpoint. Explain why zero field does not imply zero potential.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "charges_nC": [
+          2,
+          2
+        ],
+        "positions_m": [
+          [
+            -0.1,
+            0,
+            0
+          ],
+          [
+            0.1,
+            0,
+            0
+          ]
+        ],
+        "probe_m": [
+          0,
+          0,
+          0
+        ]
+      },
+      "observables": [
+        "E_x,E_y,E_z",
+        "V",
+        "separate source contributions"
+      ],
+      "independent_reference": "Independent Coulomb superposition: each E opposite and equal, net E=0; V=2k(2e-9)/0.1 >0.",
+      "desired_visualization": "Two signed source markers, opposing E vectors, same-sign V graph",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "FixedPointField;PrescribedField;static field/potential sampling",
+      "risk_or_exclusion": "Never replace two point charges with zero-net source.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "F02",
+      "family": "field_potential",
+      "level": "Advanced",
+      "title": "Dipole equatorial plane: zero potential but nonzero field",
+      "prompt": "A fixed +3 nC at x=+0.05 m and -3 nC at x=-0.05 m. At (0,0.20,0), find V and the complete E vector. Why is the field not zero?",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "charges_nC": [
+          3,
+          -3
+        ],
+        "positions_m": [
+          [
+            0.05,
+            0,
+            0
+          ],
+          [
+            -0.05,
+            0,
+            0
+          ]
+        ],
+        "probe_m": [
+          0,
+          0.2,
+          0
+        ]
+      },
+      "observables": [
+        "V",
+        "E_vector",
+        "field direction"
+      ],
+      "independent_reference": "By equal distances, V=kq/r-kq/r=0. E points from positive to negative charge; compute each q(r-r_i)/|r-r_i|^3.",
+      "desired_visualization": "True pair geometry with potential zero locus and nonzero E glyph",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "FixedPointField;PrescribedField;M21b static 2D map",
+      "risk_or_exclusion": "Observe true field, not a fictitious zero-field equatorial line.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "F03",
+      "family": "field_potential",
+      "level": "Advanced",
+      "title": "Finite charged rod on its perpendicular bisector",
+      "prompt": "An insulating rod of length 0.20 m along the x axis is uniformly charged with +2 nC. Find V and E at (0,0.15,0) from the midpoint. Compare finite-rod and point-charge approximations.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "rod_start_m": [
+          -0.1,
+          0,
+          0
+        ],
+        "rod_end_m": [
+          0.1,
+          0,
+          0
+        ],
+        "total_charge_nC": 2,
+        "probe_m": [
+          0,
+          0.15,
+          0
+        ]
+      },
+      "observables": [
+        "V",
+        "E_x",
+        "E_y",
+        "point_limit_difference"
+      ],
+      "independent_reference": "Independently integrate k(lambda dx)/sqrt(x²+y²), k(lambda y dx)/(x²+y²)^(3/2) over -L/2..L/2; E_x=0 by symmetry.",
+      "desired_visualization": "Finite segment and actual field arrows; optional analytic vs point reference",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "UniformRodField;PrescribedField",
+      "risk_or_exclusion": "Rod is fixed insulating source, not induced conducting rod.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "F04",
+      "family": "field_potential",
+      "level": "Advanced",
+      "title": "Two coaxial oppositely charged rings",
+      "prompt": "Two ideal insulating rings of radius 0.10 m are centered at z=0 and z=0.30 m, with charges +5 nC and -3 nC respectively. Plot V(z) and E_z(z) from z=-0.10 to 0.45 m and locate a non-singular stationary point of V if present.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "rings": [
+          {
+            "R_m": 0.1,
+            "z_m": 0,
+            "q_nC": 5
+          },
+          {
+            "R_m": 0.1,
+            "z_m": 0.3,
+            "q_nC": -3
+          }
+        ],
+        "interval_m": [
+          -0.1,
+          0.45
+        ]
+      },
+      "observables": [
+        "V_axis",
+        "E_z_axis",
+        "extrema_of_V_with_qualified_brackets"
+      ],
+      "independent_reference": "For each ring, V=kQ/sqrt(R²+(z-z0)²), E_z=kQ(z-z0)/(R²+(z-z0)²)^(3/2); E_z=-dV/dz.",
+      "desired_visualization": "Coaxial source geometry and signed E/V plots",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "UniformRingAxisField or UniformRingField; M21b static profile",
+      "risk_or_exclusion": "Do not imply constrained 1D motion merely from coaxial source symmetry.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "F05",
+      "family": "field_potential",
+      "level": "Main",
+      "title": "Uniformly charged thin disc, axial potential and surface jump",
+      "prompt": "A nonconducting disc of radius 0.20 m carries +4 nC uniformly. Compare potential and axial E immediately above the disc with their values at z=0.05 m; describe why a single E at the ideal surface is not assigned.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "disc_radius_m": 0.2,
+        "charge_nC": 4,
+        "sample_z_m": [
+          0,
+          0.05
+        ]
+      },
+      "observables": [
+        "V_axis",
+        "E_z_positive_side",
+        "surface_jump"
+      ],
+      "independent_reference": "V(z)=2kQ/(sqrt(R²+z²)+|z|); E_z(z>0)=2kQ/R²[1-z/sqrt(R²+z²)]. Report the one-sided limit, not E(0).",
+      "desired_visualization": "Axial profile with discontinuity/undefined surface field",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "UniformDiskAxisField; qualified axial static profile",
+      "risk_or_exclusion": "Do not call the insulating disc a conducting equipotential plate.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "C01",
+      "family": "conductors",
+      "level": "Advanced",
+      "title": "Grounded conducting sphere and external positive point charge",
+      "prompt": "A grounded metallic sphere of radius 0.10 m is approached by a fixed +1 nC charge at distance 0.30 m from its center. Find total induced charge and direction of force on the external charge.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "R_m": 0.1,
+        "external_q_nC": 1,
+        "center_distance_m": 0.3,
+        "grounded": true
+      },
+      "observables": [
+        "induced_Q",
+        "force_on_external_charge",
+        "sphere_potential"
+      ],
+      "independent_reference": "Kelvin image charge q'=-qR/d at r'=R²/d; conductor Q_ind=-qR/d; attractive force from image charge with correct image-charge force convention.",
+      "desired_visualization": "Source, sphere, induced charge distribution and force arrow",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "ExternalGroundedSphereBackend / analytical image charge, optional real FEMM",
+      "risk_or_exclusion": "Stationary equilibria only; no induced-current time evolution.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "C02",
+      "family": "conductors",
+      "level": "Advanced",
+      "title": "Isolated neutral conductor versus grounded conductor",
+      "prompt": "A neutral isolated metallic sphere and a grounded sphere each have radius 0.10 m; a +1 nC charge is fixed 0.30 m from their centers. Compare sphere potential, induced net charge and external force.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "R_m": 0.1,
+        "external_q_nC": 1,
+        "distance_m": 0.3,
+        "conditions": [
+          "neutral_isolated",
+          "grounded"
+        ]
+      },
+      "observables": [
+        "Q_total_each",
+        "V_sphere_each",
+        "F_on_source_each"
+      ],
+      "independent_reference": "Kelvin image system: grounded image q'=-qR/d; neutral isolated adds central compensating image +qR/d. Q_ground=-qR/d while Q_neutral=0.",
+      "desired_visualization": "Two side-by-side static induced-charge/source panels",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "ExternalSphereBackend;Grounded/FixedNetCharge",
+      "risk_or_exclusion": "Do not equate isolated neutral and grounded constraints.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "C03",
+      "family": "conductors",
+      "level": "Main",
+      "title": "Central charge inside a grounded concentric conducting shell",
+      "prompt": "A +1 nC point charge is at the center of a conducting spherical shell with cavity radius 0.10 m and outer radius 0.12 m. Its outer surface is grounded. Find total charge on each face and E outside.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "inner_radius_m": 0.1,
+        "outer_radius_m": 0.12,
+        "internal_q_nC": 1,
+        "grounded": true
+      },
+      "observables": [
+        "inner_surface_total_Q",
+        "outer_surface_total_Q",
+        "E_outside"
+      ],
+      "independent_reference": "Gauss electrostatic equilibrium yields inner face -q and grounded outer face zero; ideal exterior E=0 for the centered configuration.",
+      "desired_visualization": "Radial section with E and V inside/cavity/metal/outside",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "ConcentricShellBackend;Grounded;internal PointCharge",
+      "risk_or_exclusion": "Requires correct distinction between cavity field and conducting material.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "C04",
+      "family": "conductors",
+      "level": "Advanced",
+      "title": "Two concentric shells under mixed net-charge constraints",
+      "prompt": "Two concentric spherical conducting shells have radii 0.10–0.11 m and 0.20–0.21 m. The inner shell carries +2 nC, and the outer shell is grounded. Find charge distribution and the potential difference between shells.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "shells": [
+          {
+            "ri_m": 0.1,
+            "ro_m": 0.11,
+            "charge_nC": 2
+          },
+          {
+            "ri_m": 0.2,
+            "ro_m": 0.21,
+            "grounded": true
+          }
+        ]
+      },
+      "observables": [
+        "surface_charge_totals",
+        "potential_difference",
+        "E_gap"
+      ],
+      "independent_reference": "Radial Gauss law: inner shell outer surface +2 nC; outer grounded shell inner face -2 nC; potential gap is integral of k(2nC)/r².",
+      "desired_visualization": "Radial E/V graphs and distinct conductor constraints",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "NestedShellBackend;SphericalShell;Grounded/FixedNetCharge",
+      "risk_or_exclusion": "Not a 3D nonconcentric conductor model.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "C05",
+      "family": "conductors",
+      "level": "Advanced",
+      "title": "Two concentric shells connected by an ideal wire",
+      "prompt": "Two initially isolated concentric conducting shells of radii 0.10 m and 0.20 m carry +1 nC and +2 nC. They are joined by an ideal wire and settle to electrostatic equilibrium. Compare static potential and field energy before and after.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "shell_radii_m": [
+          0.1,
+          0.2
+        ],
+        "initial_charge_nC": [
+          1,
+          2
+        ],
+        "ideal_wire": true
+      },
+      "observables": [
+        "before_after_V",
+        "surface_charge_redistribution",
+        "field_energy_change"
+      ],
+      "independent_reference": "Equal-potential final connected conductor constraint plus total charge conservation; compare exact radial electrostatic field energy (epsilon0/2) integral of E² dV.",
+      "desired_visualization": "Before/after fields and energy; no false time-current animation",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "ConnectedShellBackend;ConnectionPlan; two static solutions",
+      "risk_or_exclusion": "Do not interpret energy difference as a solved current waveform.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "W01",
+      "family": "work_energy",
+      "level": "Main",
+      "title": "Work from a uniform electric field",
+      "prompt": "A stationary uniform electric field of +100 V/m along x acts on a +1 nC test charge. Calculate the work of the field for displacement from x=0 to x=0.20 m and the corresponding potential change.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "E_v_m": [
+          100,
+          0,
+          0
+        ],
+        "q_nC": 1,
+        "start_m": [
+          0,
+          0,
+          0
+        ],
+        "end_m": [
+          0.2,
+          0,
+          0
+        ]
+      },
+      "observables": [
+        "delta_V",
+        "W_field",
+        "delta_U"
+      ],
+      "independent_reference": "Delta V=-E delta x=-20 V; W_field=qE delta x=+2e-8 J; delta U=-W_field.",
+      "desired_visualization": "Two endpoints, field direction, V(x) and work ledger",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "UniformElectricField;PrescribedField;endpoint_field_work",
+      "risk_or_exclusion": "Endpoint work is not a dynamic trajectory.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "W02",
+      "family": "work_energy",
+      "level": "Advanced",
+      "title": "Coaxial ring work with transverse uniform field",
+      "prompt": "A +1 nC probe is moved between the centers of two concentric-axis ring systems separated by 0.30 m; fixed ring charges are +5 nC and -3 nC, radii 0.10 m. Add a constant transverse electric field E=(0,200,0) V/m. Compare endpoint work and transverse force.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "rings": [
+          {
+            "z_m": 0,
+            "R_m": 0.1,
+            "q_nC": 5
+          },
+          {
+            "z_m": 0.3,
+            "R_m": 0.1,
+            "q_nC": -3
+          }
+        ],
+        "external_E": [
+          0,
+          200,
+          0
+        ],
+        "test_charge_nC": 1,
+        "endpoints_m": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0.3
+          ]
+        ]
+      },
+      "observables": [
+        "delta_V",
+        "W_field",
+        "F_transverse_at_endpoints"
+      ],
+      "independent_reference": "W_field=q(V_start-V_end). Uniform transverse E contributes zero endpoint work for z-only displacement but qE_y is nonzero.",
+      "desired_visualization": "Ring geometry, endpoint potentials, transverse vector and work table",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "UniformRingAxisField + UniformElectricField;endpoint_field_work",
+      "risk_or_exclusion": "A free particle is not constrained to the ring axis absent a specified guide force.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "W03",
+      "family": "work_energy",
+      "level": "Advanced",
+      "title": "Induced force and energy near grounded conductor",
+      "prompt": "Move a stationary +1 nC point charge quasi-statically from 0.35 m to 0.20 m from the center of a grounded sphere radius 0.10 m. Compare induced force, potential and external work.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "grounded_sphere_radius_m": 0.1,
+        "q_nC": 1,
+        "distances_m": [
+          0.35,
+          0.2
+        ]
+      },
+      "observables": [
+        "F_induced_at_both",
+        "U_induced_at_both",
+        "W_external"
+      ],
+      "independent_reference": "Grounded sphere induced mechanical energy U=-k q² R/[2(d²-R²)]; force F=-dU/dd (correct source-charge half-energy convention).",
+      "desired_visualization": "Static distance sweep and force/induced energy plot",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "ExternalGroundedSphereBackend; force_energy;PositionSweepSpec",
+      "risk_or_exclusion": "These are separate static equilibria; no exact time-dependent induction.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "W04",
+      "family": "work_energy",
+      "level": "Advanced",
+      "title": "Electrostatic energy released by connecting nested shells",
+      "prompt": "A pair of concentric conducting shells is initially insulated, with inner +2 nC and outer -1 nC. They are connected by an ideal wire. Compute before/after radial electrostatic energy and infer energy released.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "radii_m": [
+          0.1,
+          0.22
+        ],
+        "initial_charges_nC": [
+          2,
+          -1
+        ],
+        "ideal_wire": true
+      },
+      "observables": [
+        "E_before_after",
+        "U_electrostatic_before_after",
+        "released_energy"
+      ],
+      "independent_reference": "Charge conservation and equal-potential final constraint; independently integrate (epsilon0/2)E² across piecewise radial regions.",
+      "desired_visualization": "Two equilibrium states and field-energy change",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "ConnectedShellBackend;Energy/ConnectionResult",
+      "risk_or_exclusion": "Energy released is not a simulated heat/current versus time trace.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "W05",
+      "family": "work_energy",
+      "level": "Advanced",
+      "title": "Electric dipole torque and energy at fixed orientations",
+      "prompt": "A rigid dipole of moment p=2e-9 C m is placed in E=1000 V/m. Compare the potential energies at 0°,60°,120° and torque directions at those orientations. Do not assume its rotation is already simulated.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "dipole_moment_Cm": 2e-9,
+        "E_v_m": 1000,
+        "angles_deg": [
+          0,
+          60,
+          120
+        ]
+      },
+      "observables": [
+        "U_angles",
+        "torque_magnitudes",
+        "torque_directions"
+      ],
+      "independent_reference": "U=-pE cos(theta), torque magnitude pE sin(theta) with restoring direction; rigid-body rotational dynamics need an additional model.",
+      "desired_visualization": "Static dipole vector and angle-dependent U/torque chart",
+      "provisional_support": "partially_supported",
+      "candidate_engine_api": "dipole field/energy primitives, standalone analytic reference",
+      "risk_or_exclusion": "Continuous rigid-body angular acceleration may be outside current motion engine.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "M01",
+      "family": "motion_events",
+      "level": "Main",
+      "title": "Nonrelativistic charged-particle deflection in uniform field",
+      "prompt": "A +1 nC, 1 microgram particle enters a region of fixed E=(0,+200,0) V/m at v=(0.20,0,0) m/s, origin (0,0,0). Determine its position, velocity and kinetic energy at t=0.10 s; inspect the curved trajectory.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "q_nC": 1,
+        "mass_kg": 1e-9,
+        "E_v_m": [
+          0,
+          200,
+          0
+        ],
+        "v0_m_s": [
+          0.2,
+          0,
+          0
+        ],
+        "duration_s": 0.1
+      },
+      "observables": [
+        "r_t",
+        "v_t",
+        "kinetic_energy",
+        "trajectory_time_samples"
+      ],
+      "independent_reference": "a=qE/m; r=r0+v0t+at²/2; v=v0+at. Require certified xy motion plane and genuine native saved times.",
+      "desired_visualization": "True-time trajectory with x,y velocity/acceleration vectors",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "TestChargeMotionSpec;UniformElectricField;integrate_test_charge",
+      "risk_or_exclusion": "Clearly not an electron example; inventing relativistic speeds is forbidden.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "M02",
+      "family": "motion_events",
+      "level": "Main",
+      "title": "Velocity reversal against constant electric force",
+      "prompt": "A +1 nC particle of mass 2e-6 kg is initially moving along +x at 0.20 m/s in E=(-100,0,0) V/m. Find reversal time and position, and verify a typed zero-vx event.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "q_nC": 1,
+        "mass_kg": 0.000002,
+        "v0_m_s": [
+          0.2,
+          0,
+          0
+        ],
+        "E_v_m": [
+          -100,
+          0,
+          0
+        ],
+        "duration_s": 0.7
+      },
+      "observables": [
+        "turning_t",
+        "turning_x",
+        "signed_VelocityReversal",
+        "actual_native_trajectory"
+      ],
+      "independent_reference": "a_x=q E_x/m=-0.05 m/s²; t_turn=-v0/a=4 s, outside 0.7 s; a correct run should report no reversal within horizon (or extend responsibly).",
+      "desired_visualization": "Velocity graph with no invented reversal inside the 0.7-s horizon",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "EventStudy;VelocityReversal;EventPolicy",
+      "risk_or_exclusion": "An event beyond observation duration must NOT be claimed as located.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "M03",
+      "family": "motion_events",
+      "level": "Advanced",
+      "title": "Particle launched on charged ring symmetry axis",
+      "prompt": "An insulating ring of radius 0.10 m has charge +5 nC. A +1 nC test particle with mass 1e-6 kg begins at z=0.02 m moving toward the ring center at 0.05 m/s. Study its native axial trajectory and whether a turning point occurs within 0.2 s.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "ring_R_m": 0.1,
+        "ring_charge_nC": 5,
+        "particle_q_nC": 1,
+        "mass_kg": 0.000001,
+        "z0_m": 0.02,
+        "v0_z_m_s": -0.05,
+        "duration_s": 0.2
+      },
+      "observables": [
+        "z_t",
+        "E_z_t",
+        "v_z_t",
+        "turning_if_in_horizon"
+      ],
+      "independent_reference": "Ring E_z=kQ z/(R²+z²)^(3/2); physical a=qE/m; compare energy K+qV, and native velocity-reversal root only if within duration.",
+      "desired_visualization": "Axial ring apparatus, potential curve and true motion/velocity",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "UniformRingAxisField;TestChargeMotionSpec;EventStudy",
+      "risk_or_exclusion": "Do not project an off-axis launch onto ring symmetry axis.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "M04",
+      "family": "motion_events",
+      "level": "Advanced",
+      "title": "Classical Coulomb circular orbit for macroscopic charged beads",
+      "prompt": "A -1 nC test bead of mass 1e-6 kg moves in the xy plane at radius 0.20 m around a fixed +1 nC point source. Choose circular speed from Coulomb force and check one orbital period with true native motion.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "central_charge_nC": 1,
+        "test_q_nC": -1,
+        "mass_kg": 0.000001,
+        "radius_m": 0.2
+      },
+      "observables": [
+        "circular_speed",
+        "period",
+        "r_t",
+        "v_t",
+        "energy_conservation"
+      ],
+      "independent_reference": "v=sqrt(k|qQ|/(mr)), T=2pi r/v; independent analytic circular trajectory; solver uses fixed source and physical xy plane.",
+      "desired_visualization": "Central source, orbit and force/velocity vectors over physical time",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "FixedPointField;TestChargeMotionSpec;integrate_test_charge",
+      "risk_or_exclusion": "Classical macroscopic model only; no claim of stable quantum atomic orbit.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "M05",
+      "family": "motion_events",
+      "level": "Advanced",
+      "title": "Two interacting charges move and deflect each other",
+      "prompt": "Two free finite-mass beads, +1 nC and -1 nC, are released 0.10 m apart. Animate their mutually changing forces and motion of both beads over time.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "bead_charges_nC": [
+          1,
+          -1
+        ],
+        "separation_m": 0.1,
+        "both_movable": true
+      },
+      "observables": [
+        "two_body_trajectories",
+        "backreaction",
+        "center_of_mass"
+      ],
+      "independent_reference": "Newton's third law with simultaneous motion of both positions; fixed-source test-particle approximation is insufficient.",
+      "desired_visualization": "Two moving charges and dynamically changing mutual forces",
+      "provisional_support": "likely_unsupported",
+      "candidate_engine_api": "none; future coupled many-body dynamics",
+      "risk_or_exclusion": "Do not silently freeze one moving bead.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "X01",
+      "family": "model_exploration",
+      "level": "Main",
+      "title": "Mass change affects flight time without changing field",
+      "prompt": "Re-use one verified fixed uniform E=(50,0,0) V/m and +1 nC test-particle model. Compare t to a passive x=0.08 m detector with masses 1e-6 and 2e-6 kg and otherwise identical initial conditions.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "E_v_m": [
+          50,
+          0,
+          0
+        ],
+        "charge_nC": 1,
+        "masses_kg": [
+          0.000001,
+          0.000002
+        ],
+        "x_detector_m": 0.08,
+        "launch_vx_m_s": 0.1
+      },
+      "observables": [
+        "t_detector_each",
+        "native_trajectory_each",
+        "delta_t",
+        "original_unchanged"
+      ],
+      "independent_reference": "Solve x=x0+v0 t+0.5(qE/m)t², positive root for each mass; root shift from genuine native M24a results.",
+      "desired_visualization": "Two trajectories and side-by-side detector time markers",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "M20b physical revision; M24a; M28b;WorldComparison",
+      "risk_or_exclusion": "Only pair unique same-direction duration-complete detector roots.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "X02",
+      "family": "model_exploration",
+      "level": "Advanced",
+      "title": "Structural source addition and replacement",
+      "prompt": "A baseline +1 nC particle in E=(80,0,0) V/m is simulated. Create a sibling adding another held +x field of 40 V/m, and a descendant replacing that newly added source with a -20 V/m field. Compare positions at identical saved physical times.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "base_E_v_m": [
+          80,
+          0,
+          0
+        ],
+        "added_E_v_m": [
+          40,
+          0,
+          0
+        ],
+        "replacement_E_v_m": [
+          -20,
+          0,
+          0
+        ],
+        "q_nC": 1,
+        "mass_kg": 0.000001
+      },
+      "observables": [
+        "source_ID_lineage",
+        "r_t_each",
+        "delta_r_literal_saved_times",
+        "physical_refusal_if_needed"
+      ],
+      "independent_reference": "For constant field each scenario obeys a=qΣE/m; compare only identical saved time rows, with true source replacement ID history.",
+      "desired_visualization": "Source inventory before/after and actual three trajectory paths",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "M22a reassemble;M32b SourceWorldAncestry;M34b forks",
+      "risk_or_exclusion": "Sources are stationary different hypotheses, not moving field sources.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "X03",
+      "family": "model_exploration",
+      "level": "Main",
+      "title": "New detector on unchanged previously solved physical world",
+      "prompt": "After a stationary-source charged-particle trajectory is simulated, ask a new passive plane-crossing question at x=0.10 m without editing charges, mass or launch. Verify the model revision is identical.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "new_detector_x_m": 0.1,
+        "unchanged_model": true
+      },
+      "observables": [
+        "new_event_root_if_any",
+        "unchanged_model_revision",
+        "new_actual_native_event_study"
+      ],
+      "independent_reference": "Genuine fresh event integration on the same source model; do not infer root from browser playback frames.",
+      "desired_visualization": "Same underlying source geometry with newly selected detector",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "GraphEventInquiryPlan;investigate_motion",
+      "risk_or_exclusion": "A detector beyond the horizon should remain not-found/unresolved.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "X04",
+      "family": "model_exploration",
+      "level": "Advanced",
+      "title": "Independent sibling alternatives reuse a local source identifier",
+      "prompt": "Starting from the same verified baseline, branch into two alternatives both adding source ID field:aux with different E values, then remove it on only one branch. Explain why an ID retired on one branch does not poison its sibling.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "baseline_E_v_m": [
+          50,
+          0,
+          0
+        ],
+        "sibling_fields_v_m": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            30,
+            0,
+            0
+          ]
+        ],
+        "shared_branch_local_id": "field:aux"
+      },
+      "observables": [
+        "world_paths",
+        "active_seen_retired_IDs",
+        "native_trajectories",
+        "separate_source_revisions"
+      ],
+      "independent_reference": "Branch-local ancestry; each child force qΣE/m independently; original source model remains immutable.",
+      "desired_visualization": "Fork tree with source-ID histories and per-branch motion",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "M32b/M34b SourceWorldAncestry;GraphWorldForkPlan",
+      "risk_or_exclusion": "Do not interpret same label as same globally shared physical source.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "X05",
+      "family": "model_exploration",
+      "level": "Advanced",
+      "title": "Continue exploring from a previously completed fork",
+      "prompt": "After building and solving a first physical fork, perform a second separate call that adds another source to one of the first fork's newly admitted worlds, then ask a fresh event question. Do not reintegrate the original model.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "stages": 2,
+        "first_stage_complete": true,
+        "new_parent_from_prior_fork": true
+      },
+      "observables": [
+        "preserved_old_trajectories",
+        "new_child_source_identity",
+        "new_event_study",
+        "cumulative_budgets"
+      ],
+      "independent_reference": "Actual native object identity and source ancestry across fork runs; only newly admitted worlds integrated. M35a v2 API is draft and NOT released.",
+      "desired_visualization": "Multi-stage exploration timeline and branch paths",
+      "provisional_support": "draft_only",
+      "candidate_engine_api": "M35a draft GraphWorldForkPlan v2; GraphEventInquiryPlan v2",
+      "risk_or_exclusion": "Do not claim released M34b can fork from a completed *prior fork*.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "R01",
+      "family": "limitations",
+      "level": "Main",
+      "title": "Ideal charged thin shell surface E discontinuity",
+      "prompt": "A fixed insulating spherical shell radius 0.10 m carries +1 nC. Plot E_r and V at r=0.09,0.10,0.11 m. Does one unique radial E exist exactly on the infinitely thin charged surface?",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "R_m": 0.1,
+        "q_nC": 1,
+        "r_samples_m": [
+          0.09,
+          0.1,
+          0.11
+        ]
+      },
+      "observables": [
+        "V_at_each",
+        "E_inside_outside",
+        "E_at_surface_undefined"
+      ],
+      "independent_reference": "V=kQ/max(r,R) continuous; E=0 for r<R and kQ/r² for r>R; no single E(R) in idealized discontinuity.",
+      "desired_visualization": "Radial E graph with a gap at r=R, continuous V curve",
+      "provisional_support": "likely_supported",
+      "candidate_engine_api": "UniformShellField;M21b radial profile",
+      "risk_or_exclusion": "Never interpolate through an undefined surface field.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "R02",
+      "family": "limitations",
+      "level": "Advanced",
+      "title": "Off-axis point beside thin charged disk",
+      "prompt": "A nonconducting uniformly charged disk radius 0.20 m has Q=+2 nC. Find the full E vector at (0.05,0,0.04) m, which is not on its symmetry axis.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "R_m": 0.2,
+        "q_nC": 2,
+        "probe_m": [
+          0.05,
+          0,
+          0.04
+        ]
+      },
+      "observables": [
+        "full_off_axis_E"
+      ],
+      "independent_reference": "Independent 2D surface Coulomb integral; legacy UniformDiskAxisField is defined only on axis.",
+      "desired_visualization": "True off-axis disk geometry and field, or explicit unsupported marker",
+      "provisional_support": "likely_unsupported",
+      "candidate_engine_api": "UniformDiskAxisField must refuse off-axis; no arbitrary disk quadrature solver claimed",
+      "risk_or_exclusion": "Do not reuse axial formula at nonzero transverse radius.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "R03",
+      "family": "limitations",
+      "level": "Advanced",
+      "title": "Irregular 3D conductor with two off-center cavities",
+      "prompt": "One finite irregular conducting block contains two nonconcentric spherical cavities and a charge inside one cavity. Determine full 3D induced surface charge distribution.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "nonaxisymmetric_3d": true,
+        "two_nonconcentric_cavities": true
+      },
+      "observables": [
+        "surface_charge_density_3d",
+        "E_inside_cavities",
+        "V_conductor"
+      ],
+      "independent_reference": "Requires genuinely 3D boundary solve and correct conductor-equilibrium constraints; 2D axisymmetric FEMM cannot silently solve.",
+      "desired_visualization": "3D geometry and explicit qualified refusal when unsupported",
+      "provisional_support": "likely_unsupported",
+      "candidate_engine_api": "no general 3D induced conductor solver; FEMM 5 only qualified models",
+      "risk_or_exclusion": "Do not replace irregular conductor with concentric spheres.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "R04",
+      "family": "limitations",
+      "level": "Advanced",
+      "title": "Unpaired transverse fixed charge breaks a requested motion plane",
+      "prompt": "A test bead is constrained by the authoring API to the xy physical plane. A fixed +1 nC source lies at (0,0,+0.10 m), unpaired with any reflection partner. Request unconstrained free test-charge motion from the xy plane.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "fixed_charge_nC": 1,
+        "source_m": [
+          0,
+          0,
+          0.1
+        ],
+        "launch_m": [
+          0.03,
+          0.04,
+          0
+        ],
+        "plane_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "observables": [
+        "physical_admission_status",
+        "out_of_plane_force_qualifier"
+      ],
+      "independent_reference": "Normal component of qE from off-plane point is nonzero; the declared free planar motion closure fails unless a physical constraint force is also modeled.",
+      "desired_visualization": "Honest unsupported / refusal with full source shown or omitted-with-metadata",
+      "provisional_support": "likely_unsupported",
+      "candidate_engine_api": "TestChargeMotionSpec full physical-plane certification",
+      "risk_or_exclusion": "Never discard transverse force by projecting into xy plane.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    },
+    {
+      "id": "R05",
+      "family": "limitations",
+      "level": "Advanced",
+      "title": "Oil drop motion with drag between biased plates",
+      "prompt": "A charged oil drop moves vertically between parallel plates under gravity, electric force and velocity-dependent Stokes drag. Predict transient terminal approach and collision if any.",
+      "source_type": "new_original_teacher_style_not_previous_year",
+      "givens": {
+        "E_v_m": [
+          0,
+          0,
+          2000
+        ],
+        "mass_kg": 1e-9,
+        "q_nC": 1,
+        "drag": true,
+        "gravity_m_s2": 9.8
+      },
+      "observables": [
+        "v_t_with_drag",
+        "terminal_velocity",
+        "collision_if_any"
+      ],
+      "independent_reference": "Equation m dv/dt=qE-mg-6pi eta r v requires a viscous drag law and boundary interaction not supplied by conservative prescribed test-charge force API.",
+      "desired_visualization": "Plate/drop geometry and honest missing-dynamics classification",
+      "provisional_support": "partially_supported",
+      "candidate_engine_api": "UniformElectricField;UniformGravity only for no-drag subcase",
+      "risk_or_exclusion": "Do not present conservative qE+mg trajectory as the requested drag solution.",
+      "assessment": {
+        "interpretation_fidelity": "not_evaluated",
+        "physical_correctness": "not_evaluated",
+        "simulation_coverage": "not_evaluated",
+        "educational_usefulness": "not_evaluated",
+        "textbook_answer_completeness": "not_attempted"
+      },
+      "evidence": []
+    }
+  ]
+}
