@@ -1,0 +1,102 @@
+name: M35a released baseline audit and source snapshot
+on:
+  push:
+    paths:
+      - ".github/workflows/m35a-baseline-audit.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source and install dependencies
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde
+          test "$(git rev-parse HEAD^{tree})" = d0646c9e4d518008784c42c1fec1c48c81901a09
+          python -m pip install -e '.[test]' pyyaml
+      - name: Static and genuinely executed adversarial baseline probes
+        working-directory: source
+        run: |
+          python - <<'PY'
+          import ast, json, pathlib, collections, dataclasses, math
+          import yaml
+          from conductor_sim import *
+          from conductor_sim.graph_world_fork import GraphWorldForkPlan, run_graph_world_fork
+          from examples.m34b_incremental_forks import build_source_graph
+          out={'source':'a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde','probes':{},'inventory':{}}
+          source=build_source_graph()
+          def probe(name, fn):
+              try: out['probes'][name]={'returned':fn()}
+              except Exception as exc: out['probes'][name]={'exception':type(exc).__name__,'message':str(exc)}
+          def invalid_mode():
+              n=PhysicalWorldNode('invalidmode','old-a','Authored mass change',(CoupledPropertyEdit('test-particle','mass_kg',2e-5),),'trajectory')
+              object.__setattr__(n,'observation','typo-event')
+              p=GraphWorldForkPlan(source,'audit:mode',(n,))
+              r=run_graph_world_fork(p)
+              return {'accepted_plan':True,'status':r.entries[0].status,'mode':r.as_dict()['nodes'][0]['node']['observation']}
+          probe('mutated_invalid_observation_mode',invalid_mode)
+          def self_pair():
+              n=PhysicalWorldNode('newworld','old-a','Authored mass change',(CoupledPropertyEdit('test-particle','mass_kg',2e-5),),'events')
+              pair=WorldComparison('self','old-a','newworld')
+              object.__setattr__(pair,'left_world_id','newworld')
+              p=GraphWorldForkPlan(source,'audit:self',(n,),source.plan.questions,source.plan.policy,(pair,))
+              r=run_graph_world_fork(p)
+              d=r.as_dict()['cross_world_comparisons'][0]
+              return {'accepted_plan':True,'status':d['status'],'left':d['left_world_id'],'right':d['right_world_id']}
+          probe('mutated_same_world_comparison',self_pair)
+          def subnormal_plane():
+              tiny=math.ulp(0.0)
+              spec=TestChargeMotionSpec(PrescribedField((UniformElectricField((0.,0.,0.)),)),PointCharge(1e-9,(0.,0.,0.)),1e-6,(0.,0.,.1),.1,.01,plane_normal=(tiny,tiny,0.))
+              second=dataclasses.replace(spec,duration_s=.2)
+              return {'first':spec.plane_normal,'norm':math.hypot(*spec.plane_normal),'second':second.plane_normal,'same':spec.plane_normal==second.plane_normal}
+          probe('subnormal_plane_normal_idempotence',subnormal_plane)
+          src=list(pathlib.Path('src/conductor_sim').glob('*.py'))
+          mods={p.name:len(p.read_text().splitlines()) for p in src}
+          out['inventory']['production_modules']=len(src)
+          out['inventory']['production_lines']=sum(mods.values())
+          out['inventory']['largest_modules']=sorted(mods.items(),key=lambda x:x[1],reverse=True)[:12]
+          out['inventory']['test_modules']=len(list(pathlib.Path('tests').glob('test_*.py')))
+          out['inventory']['agents']=[str(p) for p in pathlib.Path('.').rglob('AGENTS.md')]
+          imports=[]
+          for p in src:
+              tree=ast.parse(p.read_text())
+              for n in ast.walk(tree):
+                  if isinstance(n,ast.ImportFrom) and n.level and n.module:
+                      for a in n.names:
+                          if a.name.startswith('_'): imports.append((p.name,n.module,a.name))
+          out['inventory']['private_internal_imports']=len(imports)
+          out['inventory']['graph_private_imports']=[x for x in imports if any(t in x[0] for t in ('graph','family','sweep','ancestry'))]
+          workflows=[]
+          for p in pathlib.Path('.github/workflows').glob('*.yml'):
+              d=yaml.safe_load(p.read_text()); events=d.get('on',d.get(True,{}))
+              workflows.append({'file':str(p),'events':events,'jobs':list(d.get('jobs',{})),'steps':sum(len(j.get('steps',[])) for j in d.get('jobs',{}).values())})
+          out['workflows']=workflows
+          out['stale_release_headers']=[str(p) for p in pathlib.Path('docs').glob('m*.md') if 'Development candidate' in p.read_text() or 'not independently reviewed/released' in p.read_text()]
+          pathlib.Path('../baseline-audit.json').write_text(json.dumps(out,indent=2,default=str)+'\n')
+          print(json.dumps(out,indent=2,default=str))
+          PY
+      - name: Retain exact executable source snapshot for detailed review
+        working-directory: source
+        run: |
+          git archive --format=tar.gz HEAD src tests examples tools docs .github pyproject.toml README.md > ../baseline-source.tar.gz
+          cd ..
+          sha256sum baseline-audit.json baseline-source.tar.gz > baseline-sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m35a-baseline-audit-and-exact-source
+          path: |
+            baseline-audit.json
+            baseline-source.tar.gz
+            baseline-sha256.txt
+          if-no-files-found: error
