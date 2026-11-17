@@ -1,3 +1,11 @@
+## Independent R2 completed — scoped PASS for always-BLOCKED local intake, native HOLD
+
+[Independent Chat B review-01](reviews/review-01-chat-b.md), Git blob `ebf679e851fdecb738f3b9dc686ad4ca25680ccb`, returned **SCOPED PASS** for ONLY the read-only always-BLOCKED local untrusted artifact intake at source `331a04c34d465516ffb0ecbb580a334032fa7de2` (tree `fa139f1421c0c763600d1dc3650d152b3157e543`). [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-07. Exact-head [CI #44062963378](https://github.com/physicsvigilante/sim_heat/actions/runs/44062963378) passed **329/329 OFFLINE tests**, zero OMC/native. Reviewer executed 25 isolated actual-source adverse probes and verified the source artifact, 41/41 ZIP CRC and historical science bytes.
+
+**F-06 minor correction queued in separate source candidate:** standard-syntax `1e999` may parse to `inf` despite strict nonstandard `NaN`/`Infinity` token refusal; this **never bypasses BLOCKED** but should be rejected for data-integrity precision. A new PR will test numeric overflow and byte-consistent parsing, without broadening owner or native authority. All 11 real owner/host/protected release/backup/executable adapter/plan/external CAS/native approval requirements remain **MISSING**. Original F0 80×/100× precision FAIL and PR32 bitwise seal-regeneration FAIL remain. PR44 and all historical source PRs stay draft/unmerged; no native launch, MAT qualification or production merge is authorized.
+
+---
+
 # SIM_HEAT PR #44 — read-only local native artifact intake FIREWALL, R2 pending
 
 **Status: `awaiting-independent-R2-always-BLOCKED-local-intake; F02-NATIVE-HOLD`.** [Historical draft source PR #44](https://github.com/physicsvigilante/sim_heat/pull/44) at exact HEAD **`331a04c34d465516ffb0ecbb580a334032fa7de2`**, tree **`fa139f1421c0c763600d1dc3650d152b3157e543`**, immediately based on independently reviewed PR43 `4e220a152e702c06b07320850f5caacff1091bb3`. Exactly **FOUR ADDED** code/test/scope/CI paths; no original frozen F0 source `dd8c9432abe97563414bb3ed809e61e673473812` or source/ref/runner/owner history changed. All experimental PRs remain draft/unmerged.
