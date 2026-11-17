@@ -24,7 +24,7 @@ V = (.25, -.1875, .05)
 G = (.16, -.12, .08)
 E0 = (320., -240., 160.)
 EA = (80., -60., 110.)
-EB = (-200., 150., -140.)
+EB = (-200., 150., -500.)
 EBRAKE = (-1200., 900., -600.)
 N = (.6, .8, 0.)
 REV_P = (.10, -.04, .02)
@@ -300,10 +300,9 @@ def new_science_and_two_studies():
 
 
 def refusal_and_signed_boundaries(g):
-    # Initial velocity is exactly tangential: (.2,.8,2) dot V == 0.
-    # Independent qE/m+g: normal dot baseline accel positive;
-    # beta normal dot accel negative. Refuse only outbound baseline.
-    stop=PlaneEvent("stop:initial",P,(.2,.8,2.),
+    # Initial release is exactly tangential: (0,4,15) dot V == 0.
+    # SI force projection baseline is positive, beta negative.
+    stop=PlaneEvent("stop:initial",P,(0.,4.,15.),
                     "Qualified initial ideal boundary",direction=1,
                     terminal=True,role="ideal-stop-surface")
     run=cs.run_graph_event_inquiry(cs.GraphEventInquiryPlan(
