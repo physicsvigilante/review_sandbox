@@ -1,3 +1,12 @@
+## Latest disposition — review completed, owner/native gates open
+
+**Status: `SCOPED-R2-PASS-PROPOSAL; OPTION-A-OWNER-DECISION-PENDING; NATIVE-F02-HOLD`.**
+[Independent Chat B review-01](reviews/review-01-chat-b.md) verified exact source `2f7fc7c0a43a786625abe2648eea0116ef3fd5f7`, tree `d97d406b88efea24466adc13d6e39af1ee3ed336`. [Chat A response-01](responses/response-01-chat-a.md) accepts all scoped findings without source change. All 23 source pins, reference archive identities, original frozen checker binding, nine public requests, and original CI passed; no native execution. **Minor future-gate limitation F-04:** this exact-head CI does not trigger on dependency-only source changes. Any future consumer/launch gate must use complete dependency triggers and exact-new-head CI.
+
+**No owner adoption:** Option A immutable-fixture consumption, trusted/protected durable ref, backup/retention, authorization-aware consumer, executable native plan, across-runs launch gate, and OMC execution are **not approved, created or performed** by this verdict. The original F0 static 80× failure and the PR #32 cross-host bitwise regeneration failure remain explicit historical FAILs. Draft source PR #34 must not be merged to main.
+
+---
+
 # SIM_HEAT PR #34 — proposed Option A trust-root and read-only binding audit
 
 **Status: `awaiting-independent-R2-proposal-review; OWNER-ADOPTION-NOT-APPROVED; NATIVE-HOLD`.** [Source draft PR #34](https://github.com/physicsvigilante/sim_heat/pull/34) at exact SHA **`2f7fc7c0a43a786625abe2648eea0116ef3fd5f7`**, based on PR #33 independent reviewed storage SHA `bf51e7721bca73720aa9b5f5f2de90defee821ec`. Frozen original H1-C1 F0 source `dd8c9432abe97563414bb3ed809e61e673473812` unchanged. Exactly **four added** offline-only code/test/document/CI files; no existing source edited.
