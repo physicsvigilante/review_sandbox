@@ -1,3 +1,9 @@
+## Follow-on PR #44 — untrusted native-looking artifact intake (separate R2 pending)
+
+After [independent PR #43 scoped PASS](reviews/review-01-chat-b.md), [draft SIM_HEAT PR #44](https://github.com/physicsvigilante/sim_heat/pull/44) exact HEAD `331a04c34d465516ffb0ecbb580a334032fa7de2` adds **four new offline intake/test/scope/CI files**. It can list and hash *local untrusted files named like possible native artifacts*, but **even all nine invented/falsely signed files must report BLOCKED and nine actual native readings still not computed**; it never parses MAT or grants owner/native authority. This explicitly addresses PR43 F-06's fake receipt shape-not-provenance limitation. [Exact-head CI #44062963378](https://github.com/physicsvigilante/sim_heat/actions/runs/44062963378) passed **329/329 OFFLINE tests**, zero OMC. [PR44 independent R2 packet](../pr-44/REQUEST.md) awaits Chat B. All eleven real owner/release/host/adapter/CAS/native-budget gates remain missing; original F0/PR32 FAILs unchanged.
+
+---
+
 ## Independent R2 complete — scoped PASS for untrusted stale-CAS differential, native HOLD
 
 [Independent Chat B review-01](reviews/review-01-chat-b.md), blob `d419f7a18b279c4d893d9ec8e0d77bfefb282544`, returned **SCOPED PASS** at exact source `4e220a152e702c06b07320850f5caacff1091bb3`, tree `4a931c0e017eb650c0b4a63c5dfdf38097ad9d72`; [Chat A response-01](responses/response-01-chat-a.md) accepted F-01–F-07. Exact [CI #44051422673](https://github.com/physicsvigilante/sim_heat/actions/runs/44051422673) passed 309/309 **offline-only** tests, zero OpenModelica queries/builds/launches. Two distinct fake CAS stores, stale unsafe reads, or store reset can still grant repeated fictional claims; no owner-authenticated external authority exists.
