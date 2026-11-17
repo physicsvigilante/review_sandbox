@@ -1,3 +1,19 @@
+# CURRENT PR #29 — INDEPENDENT R1 PASS; MERGED ON MAIN; POST-MERGE RELEASE QUALIFICATION OPEN (2026-11-17 Asia/Kolkata)
+
+**[PR #29](https://github.com/physicsvigilante/emfeeld/pull/29) is CLOSED/MERGED**, guarded exact GitHub merge SHA `3f1ec44a54b24b9f8275a98abf81126a9386bf61`, independently reviewed corrected head `1ae4e327caf2c600466185b17c68521f5217bd0c`, canonical Git tree **`3d9fa4c8b594e46837e6825590e4e5d72db9a030`**, qualified previous main/base `fbdf66e56b3a89a5cf1bea6c0b403c9fc8d9ebcd`. Merge SHA's Git tree and ordered parents match reviewed source/base exactly; head-to-merge GitHub comparison **zero file differences**, and all five changed source/test/CI/doc Git blob SHAs equal reviewed head, merge and current default main.
+
+**[Independent Chat B focused review-01](reviews/review-01-chat-b.md) scoped PASS** at the exact corrected head/tree: 42 novel reviewer-written adversarial test executions all passed (CP1252/UTF-8 real CLI, Markdown injection, signed values/units, original SHA receipts, B1 late integrity drift, no write and historical safeguards). The reviewer independently audited original source/OS/viewer ZIPs. The old first-head Windows CI **FAILED** at Unicode table redirection and remains immutable historical negative evidence, corrected by a two-file table-only UTF-8 stdout change. No physics model/solver/viewer numerical semantics changed.
+
+**Exact-head pre-merge CI PASSED**: [Linux/Windows #43941771034](https://github.com/physicsvigilante/emfeeld/actions/runs/43941771034) both OS success (1,498 headless +18 historical +33 real-PyVista each, 96 focused repeated included in headless); [separate PyVista #43941771047](https://github.com/physicsvigilante/emfeeld/actions/runs/43941771047) and [source snapshot #43941771200](https://github.com/physicsvigilante/emfeeld/actions/runs/43941771200) success. Original author and reviewer archive audits found 2,161 CRC-clean Linux/Windows release entries each, 33 source SHA inventories/450 files, 12 complete native runs, 60 input hashes, six sealed comparisons, 32 ok/two honestly unavailable G1 results and per-OS exact source-bound Markdown. These are **PRE-MERGE artifacts**, not fresh main release ZIPs.
+
+**FRESH MAIN RELEASE GATE OPEN:** Actual GitHub `event=push` workflows on merged SHA `3f1ec44...` are [Linux/Windows clean-install #44019720004](https://github.com/physicsvigilante/emfeeld/actions/runs/44019720004) and [separate real-PyVista #44019720033](https://github.com/physicsvigilante/emfeeld/actions/runs/44019720033). Both were **IN PROGRESS at first check**, with exact main SHA. Original new main release ZIP SHA/CRC/native E1/G1/T1 and viewer artifact audits are not yet performed. Do **NOT** convert pre-merge successes into post-merge outcomes. All requirements, immutable review chronology, caveats and later appended audit results are tracked in [MERGE-REPORT.md](MERGE-REPORT.md).
+
+**Boundaries unchanged:** no independent human physicist certification, malicious all-file hash resealing protection, hostile concurrent distributed ACID, manual Windows desktop pointer operation, classroom usefulness or physical temporal transitions across alternative hypotheses. User local Conda, original sealed studies and historical review reports unchanged.
+
+---
+
+## Historical pre-merge statuses (preserved verbatim below)
+
 # CURRENT PR #29 — AUTHOR QUALIFIED AT CORRECTED HEAD; INDEPENDENT FOCUSED R1 REVIEW PENDING (2026-11-17 Asia/Kolkata)
 
 **[PR #29](https://github.com/physicsvigilante/emfeeld/pull/29) OPEN/DRAFT/UNMERGED**, exact corrected source `1ae4e327caf2c600466185b17c68521f5217bd0c`, canonical Git tree `3d9fa4c8b594e46837e6825590e4e5d72db9a030`, fully post-merge-qualified main/base `fbdf66e56b3a89a5cf1bea6c0b403c9fc8d9ebcd`. GitHub original PR merge-preview `f20da4c198b542257d60f8e0264b73364d48d750` has identical source tree and exact ordered base+head parents. No source merge or independent Chat B reviewer verdict exists.
