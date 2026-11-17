@@ -19,16 +19,16 @@ from conductor_sim.structural_scenarios import NamedSource
 
 Q = 3.2e-9
 M = 2e-6
-P = (.004, -.002, 0.)
-V = (.25, -.125, 0.)
-G = (.16, -.04, .08)
-E0 = (320., -80., 160.)
-EA = (90., 35., 160.)
-EB = (-200., -100., -400.)
-EBRAKE = (-1200., 300., -600.)
-N = (1., 2., -1.)
+P = (.004, -.002, .001)
+V = (.25, -.1875, .05)
+G = (.16, -.12, .08)
+E0 = (320., -240., 160.)
+EA = (80., -60., 110.)
+EB = (-200., 150., -140.)
+EBRAKE = (-1200., 900., -600.)
+N = (.6, .8, 0.)
 REV_P = (.10, -.04, .02)
-REV_V = (-.25, .125, 0.)
+REV_V = (-.25, .1875, -.05)
 PIN = "1c632fe347d4f0b4a41fe421d4cdb5ac0985075f"
 TREE = "2ce33c744440248b4491c38f4ccb673636c08035"
 MARK = []
@@ -300,10 +300,10 @@ def new_science_and_two_studies():
 
 
 def refusal_and_signed_boundaries(g):
-    # Initial physical velocity exactly tangential to this stop plane.
-    # Independent qE/m+g: normal (1,2,0) projected base accel +0.336;
-    # beta has projected accel -0.304. Refuse only the outbound base.
-    stop=PlaneEvent("stop:initial",P,(1.,2.,0.),
+    # Initial velocity is exactly tangential: (.2,.8,2) dot V == 0.
+    # Independent qE/m+g: normal dot baseline accel positive;
+    # beta normal dot accel negative. Refuse only outbound baseline.
+    stop=PlaneEvent("stop:initial",P,(.2,.8,2.),
                     "Qualified initial ideal boundary",direction=1,
                     terminal=True,role="ideal-stop-surface")
     run=cs.run_graph_event_inquiry(cs.GraphEventInquiryPlan(
