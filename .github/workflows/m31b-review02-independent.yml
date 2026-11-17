@@ -1,0 +1,53 @@
+name: M31b independent review02 exact-source adversarial probes
+on:
+  push:
+    paths:
+      - ".github/workflows/m31b-review02-independent.yml"
+      - "projects/conductor_sim/pr-72/reviews/review-02-chat-b-probes.py"
+  workflow_dispatch:
+jobs:
+  independent-review02:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviews
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 72c5f9ffc133da1db79b11c6ba878f95fb8d90c8
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify literal source HEAD and Git tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "72c5f9ffc133da1db79b11c6ba878f95fb8d90c8"
+          test "$(git rev-parse HEAD^{tree})" = "6033283cf38345abd2f2cace5cd7999997509984"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install unchanged native source
+        working-directory: source
+        run: python -m pip install -e .
+      - name: Execute newly authored Chat B probes independently
+        working-directory: source
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-72/reviews/review-02-chat-b-probes.py 2>&1 | tee ../review02-native.log
+      - name: Preserve source identity, logs and result artifacts
+        if: always()
+        run: |
+          sha256sum reviews/projects/conductor_sim/pr-72/reviews/review-02-chat-b-probes.py > review02-digests.txt
+          test ! -f review02-results.json || sha256sum review02-results.json >> review02-digests.txt
+          test ! -f review02-native.log || sha256sum review02-native.log >> review02-digests.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m31b-independent-review02-native-probes
+          path: |
+            review02-results.json
+            review02-native.log
+            review02-digests.txt
+          if-no-files-found: warn
