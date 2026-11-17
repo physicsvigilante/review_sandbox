@@ -1,3 +1,9 @@
+## Follow-on separate non-executing build-text preview (R2 pending)
+
+Following [independent PR #37 review-02 scoped PASS](reviews/review-02-chat-b.md), [draft SIM_HEAT PR #38](https://github.com/physicsvigilante/sim_heat/pull/38) HEAD `a570e3c589457d21b6673701a2d126d7046e1c3c` adds only **four new offline build-script TEXT/CI files**. It reuses the original frozen pure build-script formatter with original staged Modelica/study/library and saved approved V2 scientific reference; the new code cannot invoke the frozen native prepare/execute or OMC. [Exact-head CI #44030612438](https://github.com/physicsvigilante/sim_heat/actions/runs/44030612438) SUCCESS with **229 offline tests**, zero native operations; [separate PR #38 R2 request](../pr-38/REQUEST.md) awaits Chat B. **A text preview is not a runnable/approved native plan or one-shot reservation.** All original physical evidence and old negative results remain untouched.
+
+---
+
 ## Reviewed correction disposition — scoped PASS, native HOLD
 
 [Independent Chat B review-02](reviews/review-02-chat-b.md) returned **SCOPED PASS** for source `2f2b8d5008f51b9972897058328aed8cbcbfbbce` (tree `de397fe3af9bb3385c4ef55354e49c33571dc99b`), closing the original review-01 F-01–F-04 **within offline staged-input readback**. [Chat A accepted and documented findings](responses/response-02-chat-a.md). The old CHANGES REQUESTED review-01 at `d1d6a32252b41dabad832668de642ecaf475a2a3` remains correct at that older source. Original scientific bytes and both original F0/PR32 failures stay unchanged. Current [CI #44028343008](https://github.com/physicsvigilante/sim_heat/actions/runs/44028343008) succeeded (217/217 offline tests, no OMC).
