@@ -21,3 +21,13 @@
 [Copy-ready Chat B prompt](REVIEWER-PROMPT-01.md) · [Detailed request](REQUEST.md).
 
 **Independent source/physics review pending.** CI progress and final evidence must be rechecked at the actual source HEAD. Passing existing native/Chrome regressions does not establish an apparent-depth native or browser image feature. Main remains unchanged/unprotected (issue #123) and held #129/#131/v14–v19 PRs remain separate.
+
+## Exact corrected-source CI completed (builder) — 18 November 2026
+
+**Final/source HEAD `5dc594400a3c8d537c180d1162379b5bfda5e3b1`, Git tree `d02d23e598d8211830928414fb5a1ae232d450f7`**, identical to synthetic merge commit `d3dda63d6d079048e8b144d89ce6dcd92f8710b2` tree. GitHub CI checkout on Node **24.19.0** and pinned native PhyDemo **811f508d2b070898c241a568b0c167dcb8645251** executed **802/802 Node tests PASS**, including all **12 new candidate-A tests**. [Full planar native/browser CI #44156145655](https://github.com/physicsvigilante/opticsim/actions/runs/44156145655) records exact-head output.
+
+**11/11 standard GitHub Actions workflow conclusions SUCCESS**, with one targeted successful retry documented below. All older native/Chrome regression checks passed; **there is no new candidate-A browser simulator or native image**.
+
+**Preserved failures and repairs, not relabelled:** (1) Initial source HEAD `693f84a20899c55129cf4163af54488411108d61` had one real Node historical-SHA freeze failure (801/802 pass) because the original attempt modified a protected `scripts/run-problem.mjs`. The builder restored that file to exact production blob `2efecbf3eddcd9322782cc1667b02fe495fd4fa8` and moved new A-native-verification reporting solely into scoped planner and coverage. No frozen manifest was rewritten. (2) The [qualified-authoring workflow #44156145539](https://github.com/physicsvigilante/opticsim/actions/runs/44156145539) initial attempt at FINAL unchanged source failed at Chrome launch with the explicit diagnostic **Chrome/Chromium unavailable** after successful Node/CLI steps. Other workflow Chrome regressions passed; runner causality is not proved. Targeted **job-only retry, run_attempt=2 SUCCESS**, including browser qualification and real-Chrome supported demos, no source changes. Preserve both attempts when reviewing evidence.
+
+**Gate:** exact-source independent **Chat B implementation/physics R2 review PENDING**; see [reviewer prompt](REVIEWER-PROMPT-01.md) and [full request](REQUEST.md). These are builder CI results, not independent reviewer PhyDemo/Chrome reruns. No merge, owner release or production image claims; held #129, #131, v14–v19 and main protection #123 unchanged.
