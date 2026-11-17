@@ -463,6 +463,40 @@ def hostile(g, run):
     note("hostile native evidence and receipt checks")
 
 
+
+def structural_normal_precision_repro():
+    # Separate independent original-source test: a non-idempotent normalized
+    # analysis-plane normal causes genuine M22a reassembly refusal.
+    # This is NOT M33b inquiry execution.
+    import math
+    n=(1.,2.,-1.)
+    nn=tuple(x/math.hypot(*n) for x in n)
+    nnn=tuple(x/math.hypot(*nn) for x in nn)
+    assert nn != nnn, (nn,nnn)
+    original=PrescribedScenario(
+        "chatb:unstable-normal",
+        cs.TestChargeMotionSpec(
+            cs.PrescribedField((cs.UniformElectricField((320.,-80.,160.)),)),
+            cs.PointCharge(3.2e-9,(.004,-.002,0.)),
+            2e-6,(.25,-.125,0.),.65,.025,
+            plane_normal=n,gravity=cs.UniformGravity((.16,-.04,.08))),
+        (("field:base","Fixed originally valid source"),),
+        "Reviewer independent nonidempotent unit-normal authoring check.")
+    result=cs.run_unified_observation_graph(cs.UnifiedObservationPlan(
+        "chatb:unstable-graph",original,
+        (cs.StructuralWorldNode("add","baseline",StructuralCase(
+            "add","Add held field physically within same plane",
+            add_sources=(NamedSource("field:more","Second held physical source",
+                cs.UniformElectricField((90.,35.,160.))),)),),),
+        retain_source_ancestry=True))
+    node=result.entries[0]
+    assert result.baseline_status=="complete",result.baseline_reason
+    assert node.status=="rejected-structural-model",(node.status,node.reason)
+    assert "structural operation cannot edit particle, analysis or numerical controls" in node.reason
+    return {"status":node.status,"reason":node.reason,
+            "first_normal":nn,"second_normal":nnn,
+            "baseline_status":result.baseline_status}
+
 def legacy(path):
     old={}
     for version in (1,2,3):
@@ -470,6 +504,8 @@ def legacy(path):
         record=native.as_dict()
         assert record["schema"] == f"conductor_sim.unified_observation_graph.v{version}"
         old[f"v{version}"]=record
+    old['structural_normal_precision_repro']=structural_normal_precision_repro()
+    note('original M22a oblique normal re-normalization refusal independently reproduced')
     Path(path).write_text(json.dumps(old,sort_keys=True,allow_nan=False,
                                      separators=(",",":"),ensure_ascii=True)+"\n",
                           encoding="utf-8")
