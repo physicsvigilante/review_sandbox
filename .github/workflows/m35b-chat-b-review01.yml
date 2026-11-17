@@ -1,0 +1,82 @@
+name: M35b Chat B original R2 off-axis physics and adversarial review01
+on:
+  push:
+    paths:
+      - ".github/workflows/m35b-chat-b-review01.yml"
+      - "projects/conductor_sim/pr-82/probes/review-01-chat-b.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-science-and-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 808d7ce9245aaeda3f8f58faff7181776d20183a
+          path: released
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 029ce7ed1d67100d8726cf4f384faa71101ca603
+          path: candidate
+      - name: Require exact old and new immutable source commits and trees
+        run: |
+          test "$(git -C released rev-parse HEAD)" = "808d7ce9245aaeda3f8f58faff7181776d20183a"
+          test "$(git -C released rev-parse 'HEAD^{tree}')" = "f9d14fedd06659f5abf8f822b31bc7e6353f2a37"
+          test "$(git -C candidate rev-parse HEAD)" = "029ce7ed1d67100d8726cf4f384faa71101ca603"
+          test "$(git -C candidate rev-parse 'HEAD^{tree}')" = "89363a917e3862d663d934501a1b5cd8a22a84c0"
+          echo "REVIEWER PINNED SOURCE IDENTITIES MATCH"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently execute new signed Coulomb and old issue80 reproduction
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD/released/src:$PWD/released" python reviewer/projects/conductor_sim/pr-82/probes/review-01-chat-b.py \
+            --mode old --out original-old 2>&1 | tee original-old-attempt.log
+      - name: Independently execute candidate signed Coulomb and native tamper probes
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD/candidate/src:$PWD/candidate" python reviewer/projects/conductor_sim/pr-82/probes/review-01-chat-b.py \
+            --mode candidate --out original-candidate 2>&1 | tee original-candidate-attempt.log
+      - name: Compare original and candidate complete v1 bytes for nine legacy and four new cases
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old=Path("original-old")
+          new=Path("original-candidate")
+          names=sorted(p.name for p in old.glob("*.json") if p.name!="review-summary.json")
+          assert len(names)==13,names
+          for name in names:
+              a=(old/name).read_bytes()
+              b=(new/name).read_bytes()
+              assert a==b,(name,len(a),len(b))
+              print("BYTE IDENTICAL",name,len(a))
+          PY
+      - name: Archive and hash original first attempt with exact source identity
+        if: always()
+        run: |
+          (git -C released rev-parse HEAD && git -C released rev-parse 'HEAD^{tree}' && \
+           git -C candidate rev-parse HEAD && git -C candidate rev-parse 'HEAD^{tree}') > reviewer-source-identity.txt
+          find original-old original-candidate -type f -print0 2>/dev/null | sort -z | xargs -0 -r sha256sum > reviewer-evidence-sha256.txt
+          sha256sum reviewer/projects/conductor_sim/pr-82/probes/review-01-chat-b.py \
+            original-old-attempt.log >> reviewer-evidence-sha256.txt
+          if test -f original-candidate-attempt.log; then sha256sum original-candidate-attempt.log >> reviewer-evidence-sha256.txt; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m35b-chat-b-r2-original-review-first-attempt
+          path: |
+            original-old/
+            original-candidate/
+            original-old-attempt.log
+            original-candidate-attempt.log
+            reviewer-source-identity.txt
+            reviewer-evidence-sha256.txt
+          if-no-files-found: warn
