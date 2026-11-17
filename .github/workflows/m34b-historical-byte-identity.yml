@@ -1,0 +1,62 @@
+name: M34b released M34a vs candidate unchanged graph and inquiry bytes
+on:
+  push:
+    paths:
+      - ".github/workflows/m34b-historical-byte-identity.yml"
+  workflow_dispatch:
+jobs:
+  actual-released-versus-new-native-source-output:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: ecb6740fff851e0dbce2c2784a173638155a9acb
+          path: released
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 5d7a6d195e14c6858540066586b6b40a44160b9b
+          path: candidate
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify literal old and new Git source commits/trees
+        run: |
+          test "$(git -C released rev-parse HEAD)" = "ecb6740fff851e0dbce2c2784a173638155a9acb"
+          test "$(git -C released rev-parse HEAD^{tree})" = "87b1271d437a5bcc58f9328cca9773827a3da7d8"
+          test "$(git -C candidate rev-parse HEAD)" = "5d7a6d195e14c6858540066586b6b40a44160b9b"
+          test "$(git -C candidate rev-parse HEAD^{tree})" = "d0646c9e4d518008784c42c1fec1c48c81901a09"
+          git -C released rev-parse HEAD HEAD^{tree}
+          git -C candidate rev-parse HEAD HEAD^{tree}
+      - name: Install actual scientific Python package
+        run: python -m pip install -e ./candidate
+      - name: Independently generate released native graph v1 v2 v3 and M33b inquiry
+        run: |
+          PYTHONPATH="$PWD/released/src:$PWD/released" python review-hub/projects/conductor_sim/pr-78/m34a-legacy-byte.py > m34b-released-legacy.json
+      - name: Generate candidate original graph v1 v2 v3 and M33b inquiry
+        run: |
+          PYTHONPATH="$PWD/candidate/src:$PWD/candidate" python review-hub/projects/conductor_sim/pr-78/m34a-legacy-byte.py > m34b-candidate-legacy.json
+      - name: Check full genuine historical native outputs are byte-for-byte identical
+        run: |
+          cmp m34b-released-legacy.json m34b-candidate-legacy.json
+          echo "PASS: released M34a and candidate M34b original v1/v2/v3 graphs and new M33b event inquiry are literally byte-identical"
+      - name: Seal original and compared historical outputs with file hashes
+        if: always()
+        run: |
+          for file in m34b-released-legacy.json m34b-candidate-legacy.json; do
+            if [ -f "$file" ]; then sha256sum "$file"; fi
+          done | tee m34b-legacy-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m34b-released-versus-candidate-native-legacy-json-bytes
+          path: |
+            m34b-released-legacy.json
+            m34b-candidate-legacy.json
+            m34b-legacy-sha256.txt
+          if-no-files-found: warn
