@@ -1,3 +1,9 @@
+## Latest author integration preflight — PR #32 + PR #33 combined local suite PASS
+
+After exact-source CI/ZIP audit, a **disposable** 356-file local tree containing independently verified released PR #32 main + four *unchanged* new PR #33 files was tested before any GitHub merge. Predicted uncommitted composite Git tree `0a446f52f443ecafbe4fee3625a246737aa84b80`. **113 focused and 1,515 full headless PASS** with `-W error`, full log SHA256 `1004da348a36d75e617351feee79e96d6ddfb8ffc39e992b0901420097a442ad`. Detailed [COMBINED-BASE-PREFLIGHT-01](COMBINED-BASE-PREFLIGHT-01.md). **This is not actual GitHub merged-main qualification, not an independent review, and not a reason to bypass R2.** Source PR remains draft with old-base preview pending separate Chat B review. Original released PR #32 main was not altered.
+
+---
+
 # CURRENT — PR #33 exact-source AUTHOR QUALIFIED; independent R2 review pending (2026-11-17)
 
 **Source [draft PR #33](https://github.com/physicsvigilante/emfeeld/pull/33) remains OPEN/DRAFT/UNMERGED** at corrected exact head `ee54e96488e5cd9d2eb904abf65811627bfcc006`, tree `b8581afb8816052980dc03be27a3ad8acf1dd447`, original qualified PR #29 base `3f1ec44a54b24b9f8275a98abf81126a9386bf61`, same-tree CI preview `821a1ffb85cdf1c57113531e70cb26f5b77ae5c1`. Preserve the original old-head Windows ZIP-test-fixture failure; corrected one-commit change is test-only.
