@@ -19,6 +19,17 @@ Original archived `visual_inspection=PENDING`: nine automated offscreen/slider P
 
 ---
 
+## Direct post-merge local focused/historical source replay
+
+From the *new actual main-push viewer ZIP*, safely extracted its original `tested-source.tar`, freshly indexed all 367 tracked files with Git and **verified exact merged main tree `33b58fb55b387ec2b7c1bdd61bf1af7764db97cd`**. The original source was not edited. Offline Linux CPython 3.13.5, NumPy 2.3.5, SciPy 1.17.0, pytest 9.0.2:
+
+- `PYTHONPATH=src python -m pytest -q -W error tests/test_nasa_ion_public_v0.py tests/test_question_first_trial_v1.py tests/test_question_first_saved_time_v1.py` → **59 passed in 5.96s**. Original log SHA256 `d38daed8d2adbd96ecffc67bb04c48a7d03e1d5522015266a70d6054997ef2f1`.
+- `PYTHONPATH=src python -m pytest -q -W error pilots/authorability_v1/test_pilot.py -k 'not test_all_available_parent_files_remain_frozen'` → **18 passed, one obsolete all-file freeze guard deselected in 0.55s**. Original log SHA256 `456d700264ae18c81d4f9632ca545071212712598f2d9b280d11022c3f4dc0d9`.
+
+These are **local focused/historical replays**, not a full local cumulative 1,585-test pass, independent reviewer-owned tests or a substitute for fresh hosted post-merge Linux/Windows CI.
+
+---
+
 ## Remaining actual-main release gate (first observation)
 
 Fresh **actual `main` push** [Linux/Windows clean-install workflow #44107232954](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232954) and [separate real-PyVista workflow #44107232951](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232951) triggered on exact merge `066c94e4...`, **IN PROGRESS / QUEUED** respectively at first observation. Require original jobs to complete success; download all new actual-main artifacts (not prior PR artifacts), independently SHA/CRC/path/source-tree/native-replay audit, verify original OS test counts, source-first exact frozen bytes and native m/s/time/unit receipts, previous signed E1 complete/G1 honest partial, prior Physics Demo 17 native/64 checks and 29 engine hashes; verify separate new main viewer 9 offscreen cases, 17 PNG SHA receipts and exact merged source tree. After full actual-main release closure, update this record's FINAL section and close Issue #37.
