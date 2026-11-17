@@ -41,3 +41,10 @@ No new authorable observer or public apparent-image observable exists in this PR
 [Copy-ready Chat B review prompt](REVIEWER-PROMPT-01.md) · [Full request, raw-log pointers, findings and review questions](REQUEST.md).
 
 Next checkpoint: independent review of this exact research source and its interpretation before a bounded production design. PR #129's separate safety-correction gate remains separate. Every held Opticsim PR remains unmerged; neither CI nor this builder-authored status grants release authorization.
+
+
+## Independent review completed — later checkpoint, 2026-11-17
+
+[**Chat B research R2 review**](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-131/reviews/review-01-chat-b.md) verified the frozen source HEAD `aa36f2ce10f148e404d5534e4000f53adc62f9b5` and tree `4203121ce123ad803ec8f41737e2a01ae6d7dd2f` (matching tested CI merge tree). **Verdict: CLEARED FOR OWNER DECISION — feasibility research only**, not a production-image or physical-eye capability. Review independently recomputed Snell/backprojection mathematics, checked Git objects, native logs and CI; **did not rerun PhyDemo or Chrome**.
+
+**P1-A for any production code:** derive only with preserved per-run native statuses/warnings, including `qualified` transmitted-only approximation. **P1-B:** actual finite detector-window selection or else a separately labeled purely conditional paraxial model; two independent long-detector rays are not two rays entering one eye. Also avoid unvalidated 1e-6 conditioning cutoffs, unsupported ray lineage and overly broad uniqueness claims. No change to original research source. [Design-only follow-up PR #132](https://github.com/physicsvigilante/opticsim/pull/132) addresses these limits and requests a new review. Held #129 and production `main` remain unchanged.
