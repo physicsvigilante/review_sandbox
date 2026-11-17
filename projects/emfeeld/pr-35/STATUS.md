@@ -1,5 +1,15 @@
 # EM Fields PR #35 — Question-First Trial V1 source/evidence qualification status
 
+## FINAL — PR #35 fully merged and qualified (2026-11-17)
+
+**ALL declared implementation, independent R2, guarded integration and actual-main post-merge release gates CLOSED / PASS.** Independently reviewed corrected head `72873b800db9b57051e1587aafd7ba5d938e1e41`, exact tree `a82188148568653311581d9d4c02e8c96a37d3cf`. Actual GitHub merge/main `510014fc078c73d37146b9804763e29d04ac0018`, **same tree**, ordered exact parents [prior released main, corrected reviewed head]. [Independent Chat B R2 review-02](reviews/review-02-chat-b.md) PASS (old review-01 CHANGES REQUESTED retained on superseded source).
+
+Fresh actual main-push [Linux/Windows clean-install #44075528373](https://github.com/physicsvigilante/emfeeld/actions/runs/44075528373) SUCCESS **both** OS: 1,580 headless, 18 historical and 33 real-PyVista per OS. Fresh actual main-push [separate real-PyVista #44075528342](https://github.com/physicsvigilante/emfeeld/actions/runs/44075528342) SUCCESS; original new viewer evidence independently audited with all 17 PNG hash receipts. Original new Linux/Windows/viewer ZIPs fully byte/CRC/source/SI-native-audited; exact source tree reconstructed, source-first question and packet SHA-bound, five native measurements verified, prior signed E1 complete/G1 partial and 29 engine hashes unchanged. [Final merge report](MERGE-REPORT.md), [full new original postmerge archive audit](POSTMERGE-ARCHIVE-AUDIT-01.md).
+
+No teacher-authored external question, blind interpretation, human certified physical correctness, external source authenticity, classroom benefit or manual Windows pointer evidence is inferred. A genuine prospective task is separately tracked as [Issue #36](https://github.com/physicsvigilante/emfeeld/issues/36). This is a qualified **native measurement-coverage workflow** only.
+
+---
+
 ## CURRENT — corrected B1 source fully AUTHOR-qualified on Linux/Windows; independent R2 review-02 pending (2026-11-17)
 
 **PR #35 is OPEN / DRAFT / UNMERGED**, corrected source head `72873b800db9b57051e1587aafd7ba5d938e1e41`, tree `a82188148568653311581d9d4c02e8c96a37d3cf`, qualified unchanged main base `1b0149d773f924e67e0cd1f950da8b5d0ffacaa2`. CI merge-preview `c2e26e7d164e499f32710ee07031a5919b803705` has identical tree and ordered parents [base, new head]. Original R2 Chat B [review-01](reviews/review-01-chat-b.md) remains **CHANGES REQUESTED** on the earlier head. Its first B1 false-complete saved-time failure is preserved unchanged.
