@@ -20,7 +20,7 @@ from conductor_sim.structural_scenarios import NamedSource
 Q = 3.2e-9
 M = 2e-6
 P = (.004, -.002, .001)
-V = (.25, -.1875, -.25)
+V = (.25, -.1875, 0.)
 G = (.16, -.12, .08)
 E0 = (320., -240., 160.)
 EA = (80., -60., 110.)
@@ -28,7 +28,7 @@ EB = (-200., 150., -500.)
 EBRAKE = (-1200., 900., -600.)
 N = (.6, .8, 0.)
 REV_P = (.10, -.04, .02)
-REV_V = (-.25, .1875, .25)
+REV_V = (-.25, .1875, 0.)
 PIN = "1c632fe347d4f0b4a41fe421d4cdb5ac0985075f"
 TREE = "2ce33c744440248b4491c38f4ccb673636c08035"
 MARK = []
@@ -300,9 +300,9 @@ def new_science_and_two_studies():
 
 
 def refusal_and_signed_boundaries(g):
-    # Exact unit normal (0,-.8,.6): dot V = .15-.15 == 0 exactly.
-    # SI force projection baseline is positive, beta negative.
-    stop=PlaneEvent("stop:initial",P,(0.,-.8,.6),
+    # Exact unit normal z: Vz == 0 exactly, baseline acceleration z>0,
+    # beta acceleration z<0. Both are physically qualified original models.
+    stop=PlaneEvent("stop:initial",P,(0.,0.,1.),
                     "Qualified initial ideal boundary",direction=1,
                     terminal=True,role="ideal-stop-surface")
     run=cs.run_graph_event_inquiry(cs.GraphEventInquiryPlan(
