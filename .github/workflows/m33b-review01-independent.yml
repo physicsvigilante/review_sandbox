@@ -1,0 +1,73 @@
+name: M33b Chat B review01 independent pinned native science and evidence
+on:
+  push:
+    paths:
+      - ".github/workflows/m33b-review01-independent.yml"
+      - "projects/conductor_sim/pr-76/reviews/review-01-chat-b-probes.py"
+  workflow_dispatch:
+jobs:
+  separate-context-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 1c632fe347d4f0b4a41fe421d4cdb5ac0985075f
+          path: candidate
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: a88a5eefc308331555efe6a07c67fd72a712d6a1
+          path: released
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Assert literal candidate HEAD/tree and released base
+        run: |
+          test "$(git -C candidate rev-parse HEAD)" = "1c632fe347d4f0b4a41fe421d4cdb5ac0985075f"
+          test "$(git -C candidate rev-parse HEAD^{tree})" = "2ce33c744440248b4491c38f4ccb673636c08035"
+          test "$(git -C released rev-parse HEAD)" = "a88a5eefc308331555efe6a07c67fd72a712d6a1"
+          git -C candidate rev-parse HEAD HEAD^{tree}
+      - name: Install untouched candidate and released source
+        run: |
+          python -m pip install -e candidate
+      - name: Reviewer first attempt new native three-component SI, roots, provenance, hostile experiments
+        working-directory: candidate
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-76/reviews/review-01-chat-b-probes.py --full ../review76-chatb-native.json 2>&1 | tee ../review76-chatb-native.log
+      - name: Candidate original legacy v1 v2 v3 source graph output
+        working-directory: candidate
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-76/reviews/review-01-chat-b-probes.py --legacy ../review76-chatb-candidate-legacy.json 2>&1 | tee ../review76-chatb-candidate-legacy.log
+      - name: Released original legacy v1 v2 v3 source graph output
+        run: |
+          set -o pipefail
+          python -m pip install -e released
+          cd released
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-76/reviews/review-01-chat-b-probes.py --legacy ../review76-chatb-released-legacy.json 2>&1 | tee ../review76-chatb-released-legacy.log
+      - name: Bytewise retained v1 v2 v3 old graph against released main
+        run: |
+          cmp review76-chatb-candidate-legacy.json review76-chatb-released-legacy.json
+          echo "Reviewer original v1/v2/v3 base vs candidate JSON byte identical"
+      - name: Retain FIRST reviewer artifacts even on failed attempt
+        if: always()
+        run: |
+          sha256sum reviewer/projects/conductor_sim/pr-76/reviews/review-01-chat-b-probes.py > review76-chatb-digests.txt
+          for f in review76-chatb-*.log review76-chatb-*.json; do
+            test ! -f "$f" || sha256sum "$f" >> review76-chatb-digests.txt
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m33b-chatb-review01-independent-first-attempt
+          path: |
+            review76-chatb-*.log
+            review76-chatb-*.json
+            review76-chatb-digests.txt
+          if-no-files-found: warn
