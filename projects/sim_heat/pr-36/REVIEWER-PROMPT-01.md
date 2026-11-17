@@ -1,0 +1,11 @@
+# Chat B — independent SIM_HEAT PR #36 F-02 disabled plan review
+
+Review historical **[draft SIM_HEAT PR #36](https://github.com/physicsvigilante/sim_heat/pull/36)** at **exact source HEAD `7cfa35a1cd5cc858e48bcdc4da453bf2dc22b7f2`**, based on independently reviewed PR #35 `f7c69954490c8dcd48d152906e8e2a6d5699481d`.
+
+Read [REQUEST.md](REQUEST.md), the central protocol/risk policy/template and the pinned source `qualification/h1_c1/f02/F02_DESIGN_SCOPE.md`. Five new files implement a **DESIGN-ONLY, NON-EXECUTABLE** future native-control plan and offline preflight. The plan schema is explicitly incompatible with the old executable H1 native runner. It must refuse any real native permission, OMC version query/build/launch, retries, reference regeneration, unknown source/host authority, or fake one-shot reservation.
+
+Independently verify original frozen source and first author inputs, actual approved PR #31 V2 archived reference, original 23 source pins, 37 ×4001 saved checking outputs, four integrals and nine public requests. Preserve original F0 80× accuracy FAIL and PR #32 V2 bitwise regeneration FAIL. Scrutinize the new preview's whole Git blob pin and negative cases, ensure no actual executable adapter/native evidence is created, and check owner approval is for OFFLINE reference checking only.
+
+Inspect exact-head [CI #44021139785](https://github.com/physicsvigilante/sim_heat/actions/runs/44021139785) and [artifact #14301321539](https://github.com/physicsvigilante/sim_heat/actions/runs/44021139785/artifacts/14301321539) (ZIP SHA-256 `da1d22fc1d0b4e3bdd8c6ae44d04fbc340ac01f24c479d32aedda6352299bc2a`), 25 ZIP entries, 13 new F02 tests + 11 consumer + 8 binding + 9 archive + 149 frozen H1 = 190 offline test methods. Verify zero OMC operations.
+
+Commit a **NEW** independent report to `projects/sim_heat/pr-36/reviews/review-01-chat-b.md` in `physicsvigilante/review_sandbox` with scoped PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE, actual independent vs inspected checks, and remaining trust-root, across-run one-shot and **separate owner native-launch** gates. **Do not** edit source, fabricate native evidence, grant owner permission, widen F0 tolerances, merge historical PRs or launch OpenModelica.
