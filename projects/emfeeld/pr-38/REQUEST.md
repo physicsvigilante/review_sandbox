@@ -1,5 +1,9 @@
 # EM Fields PR #38 — independent R2 review request: NASA public-source ion-grid rehearsal
 
+## Exact-head final author qualification is now available
+
+The original new candidate [Linux/Windows CI #44098382682](https://github.com/physicsvigilante/emfeeld/actions/runs/44098382682) **COMPLETED SUCCESS both OS** (each **1,585 headless + 18 historical + 33 real PyVista**), [separate PyVista #44098382316](https://github.com/physicsvigilante/emfeeld/actions/runs/44098382316) SUCCESS and [source ZIP #44098382677](https://github.com/physicsvigilante/emfeeld/actions/runs/44098382677) SUCCESS. Four original artifact ZIPs were downloaded and author-audited: Ubuntu **14334933210**, SHA256 `774babdd484d233e28deb8b7ca9354c890702a4ac7162a3cc7d18a051b272f5c`; Windows **14335977410**, SHA256 `6364941c412f34a5fc2706ff042c0bbf237081a72c9f2bcc9d89134395edd41f`; viewer **14334383850**, SHA256 `322b305d3e38e5a175a81a1d7fa7ba48bc6b6e22af0097d93bb44a3b0e9980dd`; source **14334468187**, SHA256 `0712ceef3b00214f334ec049f3ca59f0bd93952a19c614b2a42b170fbf1da8ac`. Full original ZIP/source/native evidence [author audit](AUTHOR-RELEASE-AUDIT-01.md). **Independent review remains PENDING.** These successful author checks do not supersede the initial pending state retained below or confer teacher/blind certification.
+
 **Author request only; no independent verdict. Source candidate is DRAFT, not merged.** This test is deliberately **NON-BLIND**: a publicly available NASA Space Math question and its answer key are on the same PDF page. It is **not** Issue #36's independently supplied unseen teacher problem/withheld judge study.
 
 ## Exact pinned source
