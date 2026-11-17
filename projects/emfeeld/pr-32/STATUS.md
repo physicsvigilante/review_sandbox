@@ -1,3 +1,13 @@
+## Update — PR #32 MERGED after R2 PASS; main release gates open (2026-11-17)
+
+**Actual GitHub merge commit `a18c26f050f5320ce8a9d61f7169e32cd6e31f38` is now on `main`.** Verified Git tree `9f59fd94a15a1f0c2759ab8662b23a36a41810da`, exactly the frozen independently reviewed source `fb2ebe0c65425a79dec1482bc26162756f72f5d5`. Ordered merge parents [prior qualified main `3f1ec44a54b24b9f8275a98abf81126a9386bf61`, reviewed source `fb2ebe...`]; GitHub comparison head-to-merge has zero changed files. GitHub PR #32 is CLOSED/MERGED after `expected_head_sha` guarded merge.
+
+[**Independent Chat B review 01**](reviews/review-01-chat-b.md) **R2 PASS** for the original five-file bounded physics/evidence demonstration, with 19 new reviewer-owned challenge outcomes including 88 native observations over four unseen physics packets; separately verified the original source, both pre-merge OS ZIPs and 17 original observations / 64 original analytical checks. No demonstrated blockers. This is independent context, not human physics/classroom certification.
+
+**Fresh actual `main` push workflows**: [Linux/Windows #44030140577](https://github.com/physicsvigilante/emfeeld/actions/runs/44030140577) and [real-PyVista #44030140648](https://github.com/physicsvigilante/emfeeld/actions/runs/44030140648). Both were **in progress** at initial observation and are **not** qualified by the earlier exact-PR-head CI. Original post-merge ZIP retrieval / independent per-file hash/source/native replay inspection remain release gates. No main source snapshot workflow is expected automatically from its PR-only trigger. See complete [merge and release record](MERGE-REPORT.md). Issue #31 remains open until release evidence closed.
+
+---
+
 ## Update — exact-head author CI completed successfully (2026-11-17)
 
 **Author automated qualification PASSED at exact source `fb2ebe0c65425a79dec1482bc26162756f72f5d5` / tree `9f59fd94a15a1f0c2759ab8662b23a36a41810da`.** GitHub PR merge-preview commit `c27ecb64f894d7dec14a7d592990d2946574a27a` has precisely that same Git tree, with ordered parents [qualified main `3f1ec44...`, exact feature head `fb2ebe0...`].
