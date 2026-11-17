@@ -76,3 +76,12 @@ The largest current risks are **release coordination and extensibility**, not a 
 - Review clearance, exact-source CI, explicit owner release approval and production merge are **four distinct events**.
 
 **Current disposition:** Product direction remains technically promising with substantive native capabilities. The immediate engineering priority should be safe release/integration and validated reusable source/geometry composition, not more answer formatting or UI automation. This audit is a source-and-evidence review with documented limits; it does not claim a universal numerical correctness certificate.
+
+
+## Post-audit integration outcome — same date, separate evidence
+
+[Research PR #122](https://github.com/physicsvigilante/opticsim/pull/122) completed its **source-CI compatibility rehearsal** at head `70cf502d19e243e4a8d7d1e0795f008c101c582d` (Git tree `df9282da11ff416d0033cdf7e09509ba8dc24bc9`). The synthetic main-target CI merge was independently inspected as the **same exact tree**. **865/865 Node 24 tests and 11/11 workflows passed**, including 5 existing public directional-footprint CLI cases, 7 real-Chrome footprint checks, 13 v18 aperture Chrome checks, and four new combined native integration tests.
+
+Actual native evidence in this source-CI run: the v18 two-lens/mirror return crossed the detector twice in opposite normal directions (one in each group; each one-event sample RMS 0, **not a physical zero-width image**). An aperture-blocked case had zero native detector crossings with **null** mean and RMS statistics in both groups, and reported one true native absorber hit. A footprint-only requested result still enabled the pre-existing hit-event observer; depth-8 incomplete propagation suppressed all sampled measurements. The first attempted combined CI failed a *historical v18 viewer Git-blob pin*; it was fixed **in the disposable integration branch only** by preserving original v18 and footprint pins and introducing a separate integrated viewer SHA. Failed CI remains visible.
+
+**Disposition:** The specific compatibility risk between held #118 and v18 #120 has been reduced by positive exact-source native/public-CLI/Chrome evidence, but no independently rerun PhyDemo reviewer experiment, targeted cross-feature physical review, owner approval or production release occurred. The branch was retargeted to v18 as a draft and remains **UNMERGED**. Release governance and v18 independent physics review remain the highest-priority gates.
