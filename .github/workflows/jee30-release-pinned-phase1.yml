@@ -1,0 +1,84 @@
+name: JEE-30 original preregistration and literal released-M34b phase-one physics
+
+on:
+  push:
+    paths:
+      - ".github/workflows/jee30-release-pinned-phase1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-si-physics-and-honest-refusals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify exact released physical source commit and actual Git tree
+        run: |
+          set -euo pipefail
+          test "$(git -C source rev-parse HEAD)" = "a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde"
+          test "$(git -C source rev-parse 'HEAD^{tree}')" = "d0646c9e4d518008784c42c1fec1c48c81901a09"
+          git -C source rev-parse HEAD 'HEAD^{tree}'
+      - name: Install original released physics engine without modifying source
+        run: python -m pip install -e ./source
+      - name: Register exactly thirty original JEE-style cards without inventing coverage scores
+        run: |
+          python review-hub/projects/conductor_sim/jee_coverage_v1/validate_cards.py \
+            --bank review-hub/projects/conductor_sim/jee_coverage_v1/cases.json \
+            --output output/jee30-registration.json
+      - name: Run twelve original JEE scientific source-HEAD probes and honest refusals
+        run: |
+          python review-hub/projects/conductor_sim/jee_coverage_v1/physics_smoke.py \
+            --bank review-hub/projects/conductor_sim/jee_coverage_v1/cases.json \
+            --output output/jee30-phase1-probes.json
+      - name: Confirm no untested case is called a passing simulation
+        run: |
+          python - <<'PY'
+          import json
+          r = json.load(open('output/jee30-registration.json'))
+          p = json.load(open('output/jee30-phase1-probes.json'))
+          assert r['cards_preregistered'] == 30
+          assert r['cards_simulated'] == r['cards_physics_verified'] == 0
+          assert p['open_developer_probes_executed'] == 12
+          assert p['native_trajectory_cases'] == 2
+          assert p['static_physics_probes'] == 8
+          assert p['honest_domain_refusals'] == 2
+          assert p['unprobed_registered_cases'] == 18
+          assert p['educational_viewer_grades'] == 0
+          assert p['blinded_problem_interpretations_scored'] == 0
+          assert len(p['rows']) == 12 and all(x['physics_probe_status']=='PASS' for x in p['rows'])
+          print('PASS: honest JEE-30 denominators, 12 original physics probes, zero fabricated complete JEE simulations')
+          PY
+      - name: Retain first-attempt evidence and SHA256 file digests
+        if: always()
+        run: |
+          mkdir -p output
+          for f in review-hub/projects/conductor_sim/jee_coverage_v1/CHARTER.md \
+                   review-hub/projects/conductor_sim/jee_coverage_v1/cases.json \
+                   review-hub/projects/conductor_sim/jee_coverage_v1/validate_cards.py \
+                   review-hub/projects/conductor_sim/jee_coverage_v1/physics_smoke.py \
+                   output/jee30-registration.json output/jee30-phase1-probes.json; do
+            if [ -f "$f" ]; then sha256sum "$f"; fi
+          done > output/jee30-sha256.txt
+          cat output/jee30-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jee30-released-m34b-original-physics-phase1-first-attempt
+          path: |
+            output/jee30-registration.json
+            output/jee30-phase1-probes.json
+            output/jee30-sha256.txt
+          if-no-files-found: warn
