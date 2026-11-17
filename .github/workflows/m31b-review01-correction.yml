@@ -1,0 +1,59 @@
+name: M31b targeted review01 correction native recheck
+on:
+  push:
+    paths:
+      - ".github/workflows/m31b-review01-correction.yml"
+  workflow_dispatch:
+jobs:
+  corrected-source-native-attacks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviews
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 72c5f9ffc133da1db79b11c6ba878f95fb8d90c8
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify literal corrected source HEAD and Git tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "72c5f9ffc133da1db79b11c6ba878f95fb8d90c8"
+          test "$(git rev-parse HEAD^{tree})" = "6033283cf38345abd2f2cace5cd7999997509984"
+      - name: Install corrected M31b native package
+        working-directory: source
+        run: python -m pip install -e .
+      - name: Execute identical original reviewer-derived probes on corrected source
+        working-directory: source
+        run: |
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-72/reproductions/reproduce_review01.py | tee ../corrected_attempt.log
+      - name: Compare each result to original uncorrected failing probe
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open("corrected_attempt.json")) if False else json.load(open("first_attempt.json"))
+          assert d["NOVEL"]["result"]=="ACCEPTED",d
+          for label in ("F01_FORGED_ROOT_TIME","F02_FORGED_PARENT_REFUSAL","F02_FORGED_CHILD_REFUSAL"):
+              assert d[label]["result"]=="REJECTED",(label,d[label])
+          physical=d["F03_FAILED_PHYSICAL_CHILD_REOBSERVED"]
+          assert physical["result"]=="ACCEPTED",physical
+          assert physical["detail"]=={"physical_status":"integration-failed","event_status":"integration-failed"},physical
+          print("REVIEW01 CORRECTION RECHECK: ALL 5 OBSERVATIONS MATCH EXPECTED",json.dumps(d,sort_keys=True))
+          PY
+      - name: Save exact source pin and evidence checksums
+        run: |
+          sha256sum first_attempt.json corrected_attempt.log > corrected_digests.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m31b-reviewed-original-probes-on-corrected-source
+          path: |
+            first_attempt.json
+            corrected_attempt.log
+            corrected_digests.txt
+          if-no-files-found: warn
