@@ -484,7 +484,7 @@ def event_boundaries():
         "chatb75:opposite",original,(
             PhysicalWorldNode("reverse","baseline","Actual reverse x launch",
                 (CoupledPropertyEdit("test-particle","position_m",(.16,.012,.06)),
-                 CoupledPropertyEdit("test-particle","initial_velocity_m_s",(-.45,.20,.25))),
+                 CoupledPropertyEdit("test-particle","initial_velocity_m_s",(-.45,.3375,.25))),
                 "events"),),
         "events",(opposite_question,),POLICY,retain_source_ancestry=True,
         comparisons=(WorldComparison("opposite","baseline","reverse"),))
