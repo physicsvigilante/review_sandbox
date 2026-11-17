@@ -1,0 +1,83 @@
+name: M34a Chat B review01 new independently authored oblique R2 science
+on:
+  push:
+    paths:
+      - ".github/workflows/m34a-review01-chat-b-independent.yml"
+      - "projects/conductor_sim/pr-78/reviews/review-01-chat-b-probes.py"
+  workflow_dispatch:
+jobs:
+  independent-adversarial-science:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 28f93622fd8cfb816e23ef36027992b1a5aaded8
+          path: released
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 95bbb1b39e650e1db633ea8cef9c8ad4e129dcce
+          path: candidate
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Enforce exact released and candidate source commit and tree
+        run: |
+          test "$(git -C released rev-parse HEAD)" = "28f93622fd8cfb816e23ef36027992b1a5aaded8"
+          test "$(git -C released rev-parse HEAD^{tree})" = "2ce33c744440248b4491c38f4ccb673636c08035"
+          test "$(git -C candidate rev-parse HEAD)" = "95bbb1b39e650e1db633ea8cef9c8ad4e129dcce"
+          test "$(git -C candidate rev-parse HEAD^{tree})" = "87b1271d437a5bcc58f9328cca9773827a3da7d8"
+      - name: Install pinned candidate runtime only, not developer test oracle
+        run: python -m pip install -e candidate
+      - name: Reviewer new same-input released genuine bug reproduction
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD/released/src" python reviewer/projects/conductor_sim/pr-78/reviews/review-01-chat-b-probes.py --mode old --output review78-old.json 2>&1 | tee review78-old.log
+      - name: Reviewer new full candidate physics source ancestry refusal and hostile tests
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD/candidate/src" python reviewer/projects/conductor_sim/pr-78/reviews/review-01-chat-b-probes.py --mode new --output review78-new.json 2>&1 | tee review78-new.log
+      - name: Compare independent initial SHA and normal bits for unchanged original
+        run: |
+          python - <<'PY'
+          import json
+          old=json.load(open("review78-old.json"))
+          new=json.load(open("review78-new.json"))["old_new"]
+          assert old["root_revision_id"]==new["root_revision_id"]
+          assert old["original_normal_hex"]==new["original_normal_hex"]
+          assert old["accepted"] is False and new["accepted"] is True
+          print("PASS new independent same original SHA and normal bits with old refusal/new admission")
+          PY
+      - name: Reviewer unaffected legacy v1 v2 v3 and M33b native inquiry on candidate
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD/candidate/src" python reviewer/projects/conductor_sim/pr-78/reviews/review-01-chat-b-probes.py --mode legacy --output review78-candidate-legacy.json 2>&1 | tee review78-candidate-legacy.log
+      - name: Reviewer unchanged legacy released-source native outputs
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD/released/src" python reviewer/projects/conductor_sim/pr-78/reviews/review-01-chat-b-probes.py --mode legacy --output review78-released-legacy.json 2>&1 | tee review78-released-legacy.log
+      - name: Enforce byte-exact reviewer-authored unaffected native legacy outputs
+        run: |
+          cmp review78-candidate-legacy.json review78-released-legacy.json
+          echo "PASS candidate/released reviewer original v1/v2/v3/M33b byte-for-byte"
+      - name: Preserve first attempts logs and hashes even if a reviewer test fails
+        if: always()
+        run: |
+          sha256sum reviewer/projects/conductor_sim/pr-78/reviews/review-01-chat-b-probes.py > review78-digests.txt
+          for f in review78-*.json review78-*.log; do
+            test ! -f "$f" || sha256sum "$f" >> review78-digests.txt
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m34a-chat-b-review01-independent-first-attempt
+          path: |
+            review78-*.json
+            review78-*.log
+            review78-digests.txt
+          if-no-files-found: warn
