@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: physicsvigilante/conductor_sim
-          ref: c90956a5e4a26464115ff88a1d0dbd42b6fe56e7
+          ref: aee86f5407c8cd32a9ec296458e401c52bff20fb
           path: source
       - uses: actions/setup-python@v5
         with:
@@ -23,8 +23,8 @@ jobs:
       - name: Verify literal source head and Git tree
         working-directory: source
         run: |
-          test "$(git rev-parse HEAD)" = "c90956a5e4a26464115ff88a1d0dbd42b6fe56e7"
-          test "$(git rev-parse HEAD^{tree})" = "a57d6b7743a7bc3b3fe7bcb4602b98b11bcbcfd6"
+          test "$(git rev-parse HEAD)" = "aee86f5407c8cd32a9ec296458e401c52bff20fb"
+          test "$(git rev-parse HEAD^{tree})" = "046f17e38484dbdbfca74689954dccf4a17c5c88"
           git rev-parse HEAD
           git rev-parse HEAD^{tree}
       - name: Install native package and pytest
@@ -38,6 +38,7 @@ jobs:
       - name: Export actual v2 graph and check source ledger
         working-directory: source
         run: |
+          set -o pipefail
           python -m examples.m32b_mixed_ancestry --output output/m32b-actual.json | tee ../m32b-example.log
       - name: Retain original attempted evidence
         if: always()
@@ -48,7 +49,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: m32b-corrected-double-crossing-ancestry
+          name: m32b-corrected-export-pipefail
           path: |
             m32b-smoke.log
             m32b-example.log
