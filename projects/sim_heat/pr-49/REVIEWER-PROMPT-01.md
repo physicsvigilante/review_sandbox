@@ -1,0 +1,20 @@
+# Chat B — independent SIM_HEAT PR #49 OFFLINE NONPHYSICAL HTML/SVG schematic R2
+
+Continue as independent Chat B reviewer for historical [draft SIM_HEAT PR #49](https://github.com/physicsvigilante/sim_heat/pull/49).
+
+**Review EXACT source HEAD `04461dd840c3249ced06c4bf0bdeecc25babe962`**, Git tree `55333659660daf041e8fa04bfef3ff9474924b02`, immediate independently reviewed PR48 base `4f077d5e3f231dacae5986d66bdaf0bdbe555b83`.
+
+Read the full review packet:
+https://github.com/physicsvigilante/review_sandbox/blob/main/projects/sim_heat/pr-49/REQUEST.md
+
+This adds FOUR new offline source/test/docs/CI paths and produces a **self-contained HTML/SVG nonphysical thermal source schematic**, with nine original public request dropdown entries and source-field highlights. The exact original author Modelica determines the thermal junctions and rods. The viewer chooses **ARBITRARY DIAGRAM PIXELS** for legibility: no physical coordinates, rod lengths, real apparatus geometry/pose, temperature colors, measured heat direction, time series, numerical reference regeneration or actual computed native values. All nine public readings, four node native temperatures and four rod native heat flows remain **NULL/not_computed**. The arrows are only the frozen positive `port_a→port_b` `.Q_flow` convention. The two parallel `flatBridge`/`roundBridge` rods have separate **schematic lanes**, not real spacing.
+
+Verify original 4-junction source graph/hotBath→leftBuffer→rightBuffer→coldBath reading order, all 8 original Modelica components/8 connects, four oriented conductors and nine correct request highlight targets/units/signs (difference `leftBuffer.T − rightBuffer.T`). Check full original source-bound validation rather than shape-only, NO native/owner permission, and the HTML/CSP/no remote assets/JS `textContent` handling. Review accessibility labels and keyboard-select semantics by source; **do not claim real browser testing unless performed**.
+
+Inspect exact-head [CI #44104959258](https://github.com/physicsvigilante/sim_heat/actions/runs/44104959258) and [artifact #14338042242](https://github.com/physicsvigilante/sim_heat/actions/runs/44104959258/artifacts/14338042242), original ZIP **44,522 bytes**, SHA-256 `4194d32832918a4d26689f5b853524a1f0de071f35681d137b4e0357690274e6`, **51/51 CRC-valid**. Verify standalone `open-offline-schematic.html`, **11,149 bytes**, SHA `7ef7527aac8b0cab6bbdcdbfc7a03485845b039e8ab3fd958cb66589f8ec4a9a`; 409/409 current-head hosted OFFLINE tests (20 new +389 previous), original frozen 14/23 source pins and two historically **failed** interim runs: #44104466557 (HTML syntax error) and #44104706280 (SVG test root misclassification); neither is retroactively a PASS.
+
+Preserve original F0 hotLead.G 80× vs mandatory ≥100× **FAIL**, PR32 original PR31 V2 bitwise-regeneration **FAIL**, original owner-adopted saved PR31 V2 reference **OFFLINE checking only**, all 11 genuinely missing native owner/release/host/adapter/protected external CAS gates and all nine native public values **not_computed**. No OpenModelica version query/build/launch, MAT/native evidence or source merge.
+
+Commit your NEW independent R2 report directly to `physicsvigilante/review_sandbox/projects/sim_heat/pr-49/reviews/review-01-chat-b.md` with **SCOPED PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE**, exact SHA/tree and personally tested versus inspected CI evidence. The PASS can cover only the source-truthful OFFLINE nonphysical viewer, not an actual native result, measured geometry/heat direction, browser certification, owner release, production merge or global one-shot.
+
+**Do NOT** change frozen source/reference, regenerate original PR31, merge historical PRs, run/install/query OMC, certify native heat/temperatures, or grant owner native permission. A real native attempt still requires a separate authenticated owner release/backup/host/toolchain, reviewed executable nonregenerating adapter/plan, owner-controlled durable external atomic CAS, independent pre-native R2 and **distinct explicit owner authorization for the exact version/build/one-model-launch/no-retry budgets**.
