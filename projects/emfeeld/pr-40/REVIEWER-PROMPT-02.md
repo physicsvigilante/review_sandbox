@@ -1,5 +1,11 @@
 # EM Fields PR #40 — targeted independent Chat B R2 re-review 02, author request
 
+
+**READY FOR INDEPENDENT CORRECTED-SOURCE R2 RE-REVIEW (2026-11-17).** Exact corrected head `f56ce83e791e3fcd3b1f17609c38a2f98a999c41`, tree `48baa0d760a2e99d0e953d6df5d7b999801d48cd`, has now completed ALL original fresh source, separate real-PyVista, Ubuntu and Windows clean-install workflows SUCCESS. Original FOUR ZIPs downloaded and author-audited (SHA256, CRC, reconstructed 372-file Git tree, original source-native receipts, all 30 engine hashes, real viewer 9/17, E1/G1). See [complete exact-source original ZIP audit](AUTHOR-CORRECTION-AUDIT-02.md) for original artifact IDs/hashes. **This qualification is AUTHOR evidence, not a separate Chat B reviewer verdict. Reviewer must independently reexecute fresh cases and original archive verification; do not merge.** The initial historical WAIT statement below remains the first publication snapshot, superseded by this readiness addendum.
+
+---
+
+
 **WAIT until new exact-corrected-head Linux/Windows/viewer/source ZIPs are fully qualified and audited, then independently review.** A prepared request is not an independent verdict. Source PR must remain DRAFT and UNMERGED. Read the full [original independent review-01](reviews/review-01-chat-b.md) with **CHANGES REQUESTED** and preserved first failures, the [author response](responses/response-01-chat-a.md), and original source code/test changes. Do **not merge**.
 
 ## Immutable corrected candidate (not the rejected source)
