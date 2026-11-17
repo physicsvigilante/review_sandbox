@@ -179,7 +179,7 @@ def probe_M02():
     spec=TestChargeMotionSpec(field,PointCharge(+1e-9,(0.,0.,0.)),
                               2e-6,(.2,0.,0.),.7,.05,plane_normal=(0.,0.,1.))
     scenario=PrescribedScenario(
-        "jee30-m02",spec,(("field:E","Stationary teacher-authored leftward electric field"),),
+        "jee30-m02",spec,(("field:E","Stationary leftward E"),),
         "Original JEE-style uniform deceleration and absent in-window reversal.")
     question=VelocityReversal("vx:turn", (1.,0.,0.),
                               "x-velocity zero and changes sign",direction=-1)
