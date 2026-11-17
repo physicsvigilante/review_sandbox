@@ -30,6 +30,18 @@ These are **local focused/historical replays**, not a full local cumulative 1,58
 
 ---
 
+## Actual main-push Ubuntu release — complete, original ZIP audited
+
+Original [actual `main` Linux/Windows release workflow #44107232954](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232954), **Ubuntu 24.04 job COMPLETED SUCCESS**, on exact merged commit `066c94e4953c3ef29302c0bb6d0ee2f6cb8b8ca0`. Downloaded **original new Ubuntu artifact ID `14340110597`**, whole ZIP SHA256 **`e317d4694647a6d7eb75aacee0475b6d2ab37ba72f51ff3d71cd9e730c2022dd`**, independently rehashed and compared with GitHub original digest. All **2,186 original ZIP entries** path-safe, casefold unique and full CRC-clean. Original `head-sha.txt` equals actual merged main commit, not the earlier PR preview.
+
+Direct archived source/physics evidence: original logs show **1,585 headless, 18 historical behavioral/one obsolete freeze guard deselected, 33 real-PyVista passed**. Original source-first question SHA256 **`cd797751a84d86caa57c2024620215895c1414169c6682b96933e4b4cf25cc23`** and authored packet SHA256 **`f86211065ec99e3e82181de256d321a6ebb054f9b397440996529a3ec6ccfeda`** match exact original archived lock/replay/receipt copies; source authenticity `not_authenticated` and origin `external_unverified` preserved. Native report SHA256 **`ab928b94cbb930d8589352a1ba180f81e4d7dda67997b57473bc35c05242ec20`**, directly rehashed and matched original assessment receipt. Actual `exit_speed_native` **43,484.58452036887 m/s**, `status=ok`, real `sample_index=20`, `time_s=3.2195317385273e-8 s`. Assessment `native_measurement_coverage=complete` for **one native supported SI observation**, while interpretation fidelity remains `not_verified` and independent physics/educational usefulness remain `not_evaluated`.
+
+Original Physics Demo **64/64** analytic reference checks pass; **29/29 original `src/emfeeld` source SHA256** receipts verified against safely reconstructed **367-file actual merged main viewer TAR**. Original sealed E1 **complete 10 ok**, G1 **partial 7 ok +1 unavailable `unknown_operand/null`**, not overwritten or made complete. Source question/packet and old saved evidence unchanged.
+
+**The fresh actual-main Windows job and its own original ZIP remained outstanding at this original Ubuntu audit**, so overall both-OS release was not yet declared complete.
+
+---
+
 ## Remaining actual-main release gate (first observation)
 
 Fresh **actual `main` push** [Linux/Windows clean-install workflow #44107232954](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232954) and [separate real-PyVista workflow #44107232951](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232951) triggered on exact merge `066c94e4...`, **IN PROGRESS / QUEUED** respectively at first observation. Require original jobs to complete success; download all new actual-main artifacts (not prior PR artifacts), independently SHA/CRC/path/source-tree/native-replay audit, verify original OS test counts, source-first exact frozen bytes and native m/s/time/unit receipts, previous signed E1 complete/G1 honest partial, prior Physics Demo 17 native/64 checks and 29 engine hashes; verify separate new main viewer 9 offscreen cases, 17 PNG SHA receipts and exact merged source tree. After full actual-main release closure, update this record's FINAL section and close Issue #37.
