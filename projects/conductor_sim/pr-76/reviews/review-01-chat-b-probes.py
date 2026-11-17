@@ -310,7 +310,7 @@ def refusal_and_signed_boundaries(g):
         (cs.WorldComparison("stopdiff","baseline","beta"),)))
     assert run.entries[0].status=="rejected-event-study"
     assert run.entries[0].native is None and run.entries[0].scenario is g.plan.original
-    assert run.entries[1].status=="complete" and run.entries[1].native is not None
+    assert run.entries[1].status=="complete" and run.entries[1].native is not None, [(e.status,e.reason) for e in run.entries]
     assert run.as_dict()["cross_world_comparisons"][0]["status"]=="unpaired"
     note("real ideal initial stop refusal on accepted baseline vs accepted beta")
 
