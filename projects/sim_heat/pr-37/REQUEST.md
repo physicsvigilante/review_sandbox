@@ -1,0 +1,49 @@
+# SIM_HEAT PR #37 — independent R2: F02 exact-byte, NON-NATIVE input staging
+
+**Source project:** [physicsvigilante/sim_heat](https://github.com/physicsvigilante/sim_heat), [draft PR #37](https://github.com/physicsvigilante/sim_heat/pull/37); historical experimental F0 branch, **NEVER MERGE TO MAIN**.
+**Exact source HEAD:** `d1d6a32252b41dabad832668de642ecaf475a2a3`, Git tree **`af85a6f1848a0f1231612144a1230689be8cf0f2`**.
+**Immediate base:** independently reviewed PR #36 exact SHA `7cfa35a1cd5cc858e48bcdc4da453bf2dc22b7f2`, tree `4dca5b38619374465021b0d0e71a28ce6787df8e`. Original H1-C1 frozen F0 source `dd8c9432abe97563414bb3ed809e61e673473812`.
+**Review class:** R2 evidence semantics and future native-input staging integrity, not a native-runner or physical-law change.
+**Source diff:** exactly 6 files relative to reviewed PR36: **4 ADDED** (`stage_immutable_inputs.py`, `test_stage_immutable_inputs.py`, `IMMUTABLE_INPUT_STAGE_SCOPE.md`, `.github/workflows/h1-c1-f02-immutable-input-stage.yml`) and **2 MODIFIED** (`offline_control_preflight.py` and `test_offline_control_preflight.py` for review F-06 explicit type checking). All these paths are under the new F02 experiment or its offline CI; frozen H1/Modelica/library/model/study/reference spec/original runner/owner record and PR31 archived binary/manifest are untouched.
+**Reviewer deliverable:** NEW `projects/sim_heat/pr-37/reviews/review-01-chat-b.md` written by independent Chat B, scoped PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE. Chat A must not write purported reviewer findings.
+
+## Origin and unchanged reference/failure evidence
+
+Owner approved **Option A solely for offline checking of one exact existing mathematical reference**, not OpenModelica. [Recorded owner direction](../pr-34/OWNER-DECISION-01.md), [PR #35 consumer review](../pr-35/reviews/review-01-chat-b.md), [PR #36 disabled design review](../pr-36/reviews/review-01-chat-b.md). Source branch/anchor is ordinary/unprotected and cached local `origin` ref is not live GitHub freshness, signed root of trust or permanent retention.
+
+Original first-author Modelica source SHA-256 `9a165e5ce2cc85da84ecc8bc4e63e2990f2066f3547dc6ba8508fa1afbe5f435`, original first study SHA `b235d4242728c44dd994e09db3ffd92d197398dde3fe6c8f006a801981997fdc`; evaluator-modal study SHA `b43e85b6b10afd6550a43322cf98097fe9781a606ee01bc031eadbfd4783b31b` (first model unchanged, assisted grid separate). Frozen thermal library `SimHeat.mo` SHA `e57955b6c32cb34321a6b1908306c4ea9a63ae259b95a5fd48c7e8d3b4da10ea`. Original unlaunched native plan SHA `f46b2621b38427ffc098d16d91695a134b7dc4d7f913021be625ee74b8a9319a` with **23 SHA input pins** — it has NOT been executed.
+
+Owner-adopted PR31 V2 archived scientific JSON is exactly **4,409,800 original bytes**, SHA `0db511dd8dba023d16518667de256029cf3e073463ea21e2478aeac8afd1f368`, canonical seal **`d2b8e2ca8e1f929cac7b028dcc3f7d0b453921d193f877eb091e23ac70aa4ce9`**; stored reviewed XZ file SHA `fc5a7df5928c3fb8aef2ba4af516dfbd32b42c0450ebef1051ad4fd7efebd17f`, whole manifest SHA `50467b138ed64cdb908f2c763bc777e6babf0bb04a0711568acc559112e66f84`. This is the already independently verified 37 × 4001 fields / 4 × 4001 integrals checking reference, **NOT a native trace**. Prior original F0 reference `hotLead.G` had **80×** rather than required **100×** exact-physical accuracy: original F0 **FAIL remains**. PR32 two-host regeneration of the original PR31 canonical seal also **FAIL remains**; alternate regenerated V2 `c30e...` is not a substitute for approved original `d2b8...`.
+
+## New staging adapter — scope to review
+
+`stage_immutable_inputs.py` checks disabled F02 source/plan preflight and owner-adopted **offline-only** scientific reference consumer before writing. It creates one fresh label-scoped directory under `c1_f02_stage_evidence/`, **never overwrites** an existing attempt, with exactly **four input files** and **two offline metadata files**:
+
+- `model.mo`: exact original physical Modelica bytes (872 bytes), first-author model SHA above.
+- `study.json`: exact evaluator-assisted modal study bytes (6,616 bytes), SHA above; nine requests preserved.
+- `SimHeat.mo`: exact frozen thermal library bytes (3,674 bytes), SHA above.
+- `reference.bundle.json`: **exact saved original PR31 V2 raw scientific JSON bytes** (4,409,800), obtained by lossless XZ decompression after hard-pinning compressed bytes and verifying original raw SHA/size/canonical seal; **no `reference.prepare`**.
+- `STAGED_INPUTS_MANIFEST.json` and `STAGE_STATE.json`: exact sha256 of each, nonnative/refusal/historical flags, incomplete/success state. No executable script, `build.mos`, native plan, MAT, CSV or one-shot reservation.
+
+Status is `OFFLINE_STAGED_EXACT_INPUTS_NOT_NATIVE` and completion `STAGED_NOT_EXECUTED`, with all native/plan/owner launch flags FALSE. A mid-copy crash keeps `INCOMPLETE_NONNATIVE` and must not be admitted as completed; duplicate labels and unexpected files/commands refuse. `verify` checks all expected SHA values and original canonical seal, rejects extra/missing/symlink files, forged permission fields, amended history or manifest limitations. CLI accepts `stage-offline-only` and `verify-offline-only` only; **no native launch, compiler query, build or plan-generation path exists**.
+
+PR36 Chat B **minor F-06**: standalone `validate_preview()` could accept `True` or `1.0` for a proposed launch budget of `1` due Python equality. This branch fixes `type(maxLaunchesAfterSeparateApproval) is int` and requires explicit scalar types of modal grid fields, with negative bool/float tests. The original hash-pinned disabled plan remains untouched and cannot be transformed to `sim_heat.native_batch/1` by this code.
+
+## CI and evidence
+
+**Exact-head [CI #44024037373](https://github.com/physicsvigilante/sim_heat/actions/runs/44024037373): completed SUCCESS** at `d1d6a32252b41dabad832668de642ecaf475a2a3`. **[Artifact #14302720735](https://github.com/physicsvigilante/sim_heat/actions/runs/44024037373/artifacts/14302720735)**, ZIP **1,190,471 bytes**, SHA-256 **`0c10f8c1e71857354b3566940215ffccde3bfaf2157aed948a66db9ab00914b0`**; Chat A independently downloaded/rehashed and checked **35/35 CRC-valid** ZIP members, actual staged `model.mo`, `study.json`, `SimHeat.mo`, `reference.bundle.json` SHA bytes, saved status/manifest and tests. Staged 4 source+reference input SHA values match original above.
+
+Executed offline tests: **16 new staged-input** + **15 disabled preview/strict types** + **11 owner consumer** + **8 binding** + **9 archive** + **149 frozen H1** = **208/208 PASS**. Frozen 14 original source pin checks and original 23-plan-file identity binding pass; no OMC commands/version queries/builds/launches. Full-push trigger without paths filter; checkout without persisted credentials, `contents:read` workflow.
+
+Earlier [developer staging CI #44023899014](https://github.com/physicsvigilante/sim_heat/actions/runs/44023899014) **FAILED** three new negative test methods from *expected-refusal message text mismatch*, while the tested behaviors actually refused. This run and artifact remain failures; no real physical/Modelica result/refusal changed. Corrected test messages at new exact-head CI PASSED. No historical evidence modified or relabeled.
+
+## Adversarial reviewer questions
+
+1. Verify exact commit/tree and four-added/two-scoped-modified diff; all source/model/study/reference bundle/frozen-law/native runner and first-author SHA pins unchanged. Rehash actual archived stage and PR31 saved raw bundle. Confirm byte-for-byte original data copy, not numerical regeneration or a new scientific seal.
+2. Examine path traversal/symlink/write constraints, staged directory uniqueness and incomplete/duplicate attempt handling, exact file allow-list, readback SHA checks, canonical JSON verification, original source and owner-consumer gates; could an altered/partial package mistakenly be admitted as completed? Independently inject a changed source byte, staged reference byte, manifest native flag/unknown command, extra build script, missing file or changed source/study identity where feasible.
+3. Test F06 standalone numeric types: `true` and `1.0` for integer launch budget, `true`/`4000.0` intervals, `false` startTime, integer/bool stopTime and tolerance; verify original whole-plan Git pin and semantic validation. Distinguish individually checked values from other numerical equality edge cases.
+4. Review the no-native limit: this is a data snapshot, *not* a compilable runtime plan/runner. Verify no OpenModelica/version query/build/launch, no scripts/executables/MAT/CSV and no native or owner permission. CLI only stage/verify. Staging directory/receipt and apparently green CI are **not** native readiness or simulation results.
+5. Independently retrieve CI ZIP, compare complete original hashes, CRCs, 208 offline test-method counts, 14 and 23 frozen pins, status/manifest/history flags, retained failed first CI and current successful exact-head CI. Separate personally rerun adversarial checks vs inspected hosted tests.
+6. Give **SCOPED PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE** for this *OFFLINE input staging and F06 type-hardening* only. Do not approve an actual executable native adapter/plan, a trust-root release, one-shot reservation or an OMC run. Specify missing exact owner-authenticated release/ref freshness/backup, actual host OMC/MSL/toolchain, durable across-run lock, separately reviewed runnable adapter, **new owner approval of a specific launch budget**, and post-native independent traces.
+
+**Strict stop:** no Modelica source modification, historical PR merges, tolerance waivers, stale-reference substitution, OMC query/build/launch or simulated reading claims. Follow central [PROTOCOL](../../../PROTOCOL.md), [REVIEW-RISK-POLICY](../../../REVIEW-RISK-POLICY.md), and [review template](../../../REVIEW-TEMPLATE.md).
