@@ -501,7 +501,7 @@ def genuine_source_guard_prefix():
         "point-guard",
         "New genuine fixed near-neutral Coulomb point on predicted path",
         add_sources=(NamedSource(
-            "source:guard","Weak held singular source requiring honest native guard",
+            "source:guard","Weak held point guard",
             FixedPointField(1e-30,strike)),)), "events")
     fork=run_graph_world_fork(GraphWorldForkPlan(
         old,"review01:guard-new",(node,),questions,POLICY,
