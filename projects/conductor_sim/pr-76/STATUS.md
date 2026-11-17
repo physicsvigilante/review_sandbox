@@ -51,3 +51,16 @@ Original early source-head focused test failure #44049612009 remains retained an
 Original failed reviewer attempts #44060986199, #44061144990, #44061213058, #44061393173, #44061516665, #44061618799, #44061722505 remain preserved and attributed to the inherited structural limitation or reviewer fixture/negative-test assumptions, not silently relabeled PASS. Developer first failed 12/13 #44049612009 stays separately preserved. The reviewer did not change production source, merge or authorize release.
 
 **Release gate remaining: owner approval only**, provided an immediate premerge live SHA/tree, base and 16/16 CI recheck still agrees. Reviewer explicitly withheld merge permission. After owner approval, mark ready, use GitHub expected-head guard `1c632fe347d4f0b4a41fe421d4cdb5ac0985075f`, confirm new `main` SHA/tree equals reviewed tree and verify each triggered postmerge workflow independently before declaring M33b fully released. No review or CI result substitutes for owner authorization.
+
+
+## M33b expected-HEAD merge confirmed — postmerge verification initially PENDING
+
+**Owner continuation of the release workflow, 2026-11-17.** Immediately before merge, developer independently rechecked [PR #76](https://github.com/physicsvigilante/conductor_sim/pull/76) OPEN/DRAFT/UNMERGED at exact Chat B-reviewed source HEAD `1c632fe347d4f0b4a41fe421d4cdb5ac0985075f`, true Git TREE `2ce33c744440248b4491c38f4ccb673636c08035`, released M33a `main`/base `a88a5eefc308331555efe6a07c67fd72a712d6a1`, and **16/16 COMPLETED SUCCESS** premerge workflows. [Independent Chat B R2 review #01](reviews/review-01-chat-b.md) remained PASS scoped to the exact head/tree, without demonstrated M33b inquiry blockers.
+
+The source PR was marked ready, then merged using GitHub `expected_head_sha=1c632fe347d4f0b4a41fe421d4cdb5ac0985075f`, normal merge method. GitHub confirms:
+- **[PR #76 CLOSED/MERGED](https://github.com/physicsvigilante/conductor_sim/pull/76)**.
+- **[Merge SHA 28f93622fd8cfb816e23ef36027992b1a5aaded8](https://github.com/physicsvigilante/conductor_sim/commit/28f93622fd8cfb816e23ef36027992b1a5aaded8)** is current `main`.
+- Exact merge parents: previously released M33a `a88a5eefc308331555efe6a07c67fd72a712d6a1` and exact reviewed M33b head `1c632fe347d4f0b4a41fe421d4cdb5ac0985075f`.
+- Merge Git TREE `2ce33c744440248b4491c38f4ccb673636c08035` **matches independently reviewed source tree exactly**.
+
+**At the first merge-SHA-specific GitHub Actions query**, **15 main-push workflows were in progress**. Do **not** claim full release until all these postmerge checks finish successfully, especially Python 3.10/3.12, 97 historical real FEMM, and historical real Chromium. The M33b feature adds no novel FEMM engine or browser scene. Inherited oblique plane-normal normalization limitation remains separately tracked at [source issue #77](https://github.com/physicsvigilante/conductor_sim/issues/77), not silently changed inside the independently reviewed M33b implementation.
