@@ -50,3 +50,16 @@ These GitHub workflows are PR-head associated; standard PR checkout can use GitH
 - Implementer independently rechecked source PR #75 **OPEN / DRAFT / UNMERGED**, HEAD `117990d2...`, unchanged base/main `ad99239f...`, exact source tree as reviewed, **18/18 completed/success** current-HEAD GitHub workflows and no pending/failing run. Python 3.10 and 3.12 each **1,948 passed**; real FEMM 5 **97 passed**, historical Chromium **SUCCESS**.
 
 **Release gate awaits a separate owner approval of the protected expected-HEAD merge.** The reviewer expressly did not authorize merge or readiness transition. Do NOT merge solely from review “done.” If owner approves, first recheck live PR head/tree/main/CI, then mark ready and merge using expected-HEAD `117990d239503a947f7be2896c52ffd10a2cacf1`; verify actual merge commit/tree against reviewed tree and all main postmerge triggered checks before labeling M33a fully released. The PR remains DRAFT and UNMERGED as of this entry.
+
+
+## M33a approved and merged into main — post-merge checks PENDING
+
+**Owner explicitly approved merge on 2026-11-17.** Immediately before merge, developer rechecked reviewed PR #75 exact HEAD `117990d239503a947f7be2896c52ffd10a2cacf1`, Git tree `655a5539b4107c5660ae7b105cf1b30e0339c2fb`, released M32b main/base `ad99239faf6a4a2229134b95f82c599f7be9d520`, current source-associated **18/18 COMPLETED SUCCESS** workflows and independent [R2 PASS review #01](reviews/review-01-chat-b.md). No changes were made to the reviewed production source.
+
+PR #75 was marked ready, then successfully merged with GitHub `expected_head_sha=117990d239503a947f7be2896c52ffd10a2cacf1` using a regular merge. GitHub returned:
+- **[PR #75 CLOSED/MERGED](https://github.com/physicsvigilante/conductor_sim/pull/75)**
+- **[Merge commit a88a5eefc308331555efe6a07c67fd72a712d6a1](https://github.com/physicsvigilante/conductor_sim/commit/a88a5eefc308331555efe6a07c67fd72a712d6a1)**
+- Merge parent #1: prior released `main` / base `ad99239faf6a4a2229134b95f82c599f7be9d520`; merge parent #2: exact reviewed candidate `117990d239503a947f7be2896c52ffd10a2cacf1`.
+- **Actual merge Git tree `655a5539b4107c5660ae7b105cf1b30e0339c2fb` is identical to the reviewed source-tree**, and remote `main` points at the merge SHA/tree.
+
+**Postmerge status at this first check:** an exact merge-SHA GitHub Actions query found **15 triggered main-push workflows**, **14 in progress and 1 queued**. These are NOT yet passed; do not claim M33a fully released until all actual merge-SHA workflows complete successfully. Historical FEMM/Chromium main checks and full Python must pass again for exact main commit. No new M33a browser scene or FEMM solver is implied by those regression tests.
