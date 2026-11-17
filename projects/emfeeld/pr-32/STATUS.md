@@ -1,3 +1,15 @@
+# CURRENT — PR #32 FULLY POST-MERGE RELEASED (2026-11-17 Asia/Kolkata)
+
+**Physics Demonstration V1 is merged and fully release-qualified** on `main` merge commit `a18c26f050f5320ce8a9d61f7169e32cd6e31f38`, canonical Git tree `9f59fd94a15a1f0c2759ab8662b23a36a41810da`. Reviewed source `fb2ebe0c65425a79dec1482bc26162756f72f5d5` has the same exact tree. [Chat B R2 review 01](reviews/review-01-chat-b.md) **PASS**, no blocking defects, 19 reviewer-owned challenges/88 new observations, independently reconstructed pre-merge source and audited original pre-merge Linux/Windows ZIPs.
+
+**Fresh actual main-push CI COMPLETE SUCCESS:** [Linux/Windows release #44030140577](https://github.com/physicsvigilante/emfeeld/actions/runs/44030140577), jobs `133859825450` Ubuntu and `133859824990` Windows 2022, each **1,502 headless +18 historical +33 real-PyVista passed**, with distinct demonstration replay confirming **17 original named native observations and 64 reference checks PASS**. [Separate real-PyVista #44030140648](https://github.com/physicsvigilante/emfeeld/actions/runs/44030140648) **SUCCESS**.
+
+**New original post-merge ZIPs actually downloaded and independently audited:** Linux artifact `14305546256` SHA256 `005de875812ef7392861cc2e95c1aa04dc77621586c43943aa4685e272b624a8`, Windows `14305786418` SHA256 `fd78ea37951a61c214d391b5d2dc16962d35296774d483364b0f76461dd4048f`. Both **2,166 CRC-clean unique entries, 29 independently verified original source Python hashes per OS, exact same authored packet/manifest bytes, 17/17 actual physical observations and 64/64 source-bound comparisons**. Original viewer ZIP `14305285724` SHA256 `327d72c8ca76179817caaef85eaf5133ccf4e3fd43ecc5414f3c0b9c10cd77f3`: **22 CRC-clean unique entries, 17 PNG hashes, 9 PASS offscreen cases**, original source tar reconstructed to exact merged Git tree. E1 original native readout remains complete; G1 honestly partial/unknown-operand. Cross-OS native JSON byte identity is not claimed.
+
+**All declared automated and original archive release gates CLOSED.** Full [merge report](MERGE-REPORT.md) and [direct original-archive audit](POSTMERGE-ARCHIVE-AUDIT-01.md) contain exact first-try evidence, original IDs/SHA and limitations. This does not establish human physics certification, manual Windows mouse interaction, classroom usefulness, global numerical error bounds, full Maxwell/magnetic dynamics, hostile full hash-reseal defense or cross-OS output-byte identity. Original historical pending snapshots preserved below. Unrelated draft PR #33 remains separate/unmodified by this release.
+
+---
+
 ## Update — PR #32 MERGED after R2 PASS; main release gates open (2026-11-17)
 
 **Actual GitHub merge commit `a18c26f050f5320ce8a9d61f7169e32cd6e31f38` is now on `main`.** Verified Git tree `9f59fd94a15a1f0c2759ab8662b23a36a41810da`, exactly the frozen independently reviewed source `fb2ebe0c65425a79dec1482bc26162756f72f5d5`. Ordered merge parents [prior qualified main `3f1ec44a54b24b9f8275a98abf81126a9386bf61`, reviewed source `fb2ebe...`]; GitHub comparison head-to-merge has zero changed files. GitHub PR #32 is CLOSED/MERGED after `expected_head_sha` guarded merge.
