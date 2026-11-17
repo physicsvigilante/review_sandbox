@@ -1,3 +1,9 @@
+## Follow-on PR #42 — pure HYPOTHETICAL one-shot model, separate independent R2 pending
+
+After [independent PR #41 scoped PASS](reviews/review-01-chat-b.md) for a correctly **BLOCKED** release-readiness audit, [draft SIM_HEAT PR #42](https://github.com/physicsvigilante/sim_heat/pull/42) adds four files for a **pure Python fictional state-machine checker** at exact HEAD `32cbb7d02b7db0cbc322fb0e7826861fd902a77a`. It explores 22 toy states (21 accepted/133 refused possible fictional event edges), refuses toy retries after crash/outage and **demonstrates two independent fresh states can BOTH claim a first slot**, so no global protected native CAS exists. [Exact-head CI #44047200421](https://github.com/physicsvigilante/sim_heat/actions/runs/44047200421) SUCCESS, **293 OFFLINE tests**, no OMC. [Separate PR42 R2 request](../pr-42/REQUEST.md) awaits independent Chat B. No real owner-approved query/build/launch budget, protected release/backup, host attestation, runnable adapter or across-run reservation was created; **all 11 native gates remain OPEN**. Historical original F0 and PR32 scientific FAILs persist.
+
+---
+
 ## Reviewed disposition — scoped PASS for read-only HOLD, native execution still blocked
 
 [Independent Chat B review-01](reviews/review-01-chat-b.md), blob `fc3a67b2d26a2f23a73194bfae13f1e373093235`, returned **SCOPED PASS** at source `47be71571e5cfdf12a5576ebe6f18db355d2dc4b` (tree `4996f76e66b1d0a51236ee017df4d203aab0aee2`) for correctly asserting `BLOCKED_11_NATIVE_RELEASE_GATES_MISSING_OFFLINE_ONLY`. The independently executed **308 adverse direct-gate checks** refused; exact-head CI passed 275/275 offline methods. [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-04 and preserves scientific/source provenance.
