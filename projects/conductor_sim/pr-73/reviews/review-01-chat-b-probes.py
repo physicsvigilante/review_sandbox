@@ -257,6 +257,48 @@ def parent_rejection_challenge():
             "pair_status":pair["status"]}
 
 
+
+def source_guard_challenge():
+    # Deliberately reuse a baseline guarded physical setup only; this is a NEW
+    # independently selected graph composition and its assertions.
+    from examples.m29a_structural_family import model
+    fam=model("guard-and-refusal")
+    new_source=StructuralCase(
+        "independent-guard",
+        "Chat B authored attracting held charge inside physical time horizon.",
+        add_sources=(NamedSource(
+            "point:reviewer-attract", "New strongly attractive fixed point",
+            __import__("conductor_sim", fromlist=["FixedPointField"]).FixedPointField(
+                -1e-10, (.2,0.,0.)),
+        ),),
+    )
+    events = (
+        PlaneEvent("first", (.05,0.,0.), (1.,0.,0.),
+                   "Earlier positive x crossing", direction=1),
+        PlaneEvent("beyond", (.22,0.,0.), (1.,0.,0.),
+                   "Unobserved detector beyond source guard", direction=1),
+    )
+    p=UnifiedObservationPlan(
+        "chatb:guarded",fam.baseline,
+        (StructuralWorldNode("independent-guard","baseline",new_source,"events"),),
+        "events",events,EventPolicy(.007,1e-8,1e-7,1e-6),
+    )
+    result=run_unified_observation_graph(p)
+    child=result.entries[0]
+    check(child.status=="censored-source-guard","source guard not classified")
+    d=child.native.as_dict()
+    check(d["outcomes"]["first"]=="located","pre-guard root lost")
+    check(d["outcomes"]["beyond"]=="search-truncated",
+          "after-guard detector falsely resolved or absent")
+    pairs=result.as_dict()["nodes"][0]["parent_event_time_comparisons"]
+    check(all(x["status"]=="unpaired" for x in pairs),
+          "guard event shift was improperly claimed")
+    check(all("estimated_numerical_shift_s" not in x for x in pairs),
+          "guard event shift carries fabricated numeric time")
+    return {"status":child.status, "outcomes":d["outcomes"],
+            "pair_statuses":[x["status"] for x in pairs],
+            "last_saved_time_s":child.native.trajectory.samples[-1].time_s}
+
 def attack_evidence(run, errors):
     attacks = {}
     def probe(label, fn):
@@ -341,6 +383,7 @@ def main(output):
           "genuine same-signed event parent/child pair lost")
     analytic = independent_reference(run)
     crossings = other_event_challenges()
+    guard = source_guard_challenge()
     parent = parent_rejection_challenge()
     attacks = attack_evidence(run, errors)
     check(not errors, "adversarial probes: "+str(errors))
@@ -353,6 +396,7 @@ def main(output):
         "real_parent_ids": [e.node.parent_id for e in run.entries],
         "analytic_3d_uniform_gravity": analytic,
         "double_crossing": crossings,
+        "source_guard": guard,
         "parent_refusal_child_success": parent,
         "attacks": attacks,
         "errors": errors,
