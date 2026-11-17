@@ -207,7 +207,7 @@ def review_novel():
     need(r.baseline_status=="complete", "baseline native M24a failed")
     need([e.status for e in r.entries] == [
         "complete","complete","complete","complete","rejected-structural-model"],
-        "branch statuses mismatch "+repr([e.status for e in r.entries]))
+        "branch statuses mismatch "+repr([(e.status,e.reason) for e in r.entries]))
     alpha,beta,heavier,retired,revived = r.entries
     need(revived.scenario is None and revived.assembly is None and
          revived.native is None and revived.source_ancestry is None,
