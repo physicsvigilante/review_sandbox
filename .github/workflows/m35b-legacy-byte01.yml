@@ -1,0 +1,56 @@
+name: M35b actual released M35a versus candidate eight full legacy native records
+on:
+  push:
+    paths:
+      - ".github/workflows/m35b-legacy-byte01.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  literal-full-historical-native-record-bytes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 808d7ce9245aaeda3f8f58faff7181776d20183a
+          path: released
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 2e7f555dbba7c71d2cf5f80072484e20b6113077
+          path: candidate
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify both exact native Git source identities
+        run: |
+          test "$(git -C released rev-parse HEAD)" = "808d7ce9245aaeda3f8f58faff7181776d20183a"
+          test "$(git -C released rev-parse HEAD^{tree})" = "f9d14fedd06659f5abf8f822b31bc7e6353f2a37"
+          test "$(git -C candidate rev-parse HEAD)" = "2e7f555dbba7c71d2cf5f80072484e20b6113077"
+          test "$(git -C candidate rev-parse HEAD^{tree})" = "7ec06ec5e30c437864edf77c0556a1f0038ad6d3"
+      - name: Run eight true historical native results on actual released source
+        run: |
+          PYTHONPATH="$PWD/released/src:$PWD/released" python review-hub/projects/conductor_sim/issue-80/legacy_native_bytes.py --output output/legacy-released.json | tee released-summary.txt
+      - name: Run the exact same eight native results on M35b candidate
+        run: |
+          PYTHONPATH="$PWD/candidate/src:$PWD/candidate" python review-hub/projects/conductor_sim/issue-80/legacy_native_bytes.py --output output/legacy-candidate.json | tee candidate-summary.txt
+      - name: Compare every historical result field byte-for-byte
+        run: |
+          cmp output/legacy-released.json output/legacy-candidate.json
+          sha256sum output/legacy-released.json output/legacy-candidate.json
+          echo "PASS: all eight native legacy M28a/M28b source outputs byte-identical"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m35b-real-base-versus-new-legacy-native-byte-evidence
+          path: |
+            output/legacy-released.json
+            output/legacy-candidate.json
+            released-summary.txt
+            candidate-summary.txt
+          if-no-files-found: warn
