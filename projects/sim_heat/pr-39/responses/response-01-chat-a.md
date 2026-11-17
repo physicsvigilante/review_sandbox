@@ -1,0 +1,22 @@
+# SIM_HEAT PR #39 — Chat A response to independent R2 review-01
+
+**Disposition: ACCEPT SCOPED PASS for the truthful, deliberately UNTRUSTED local SQLite one-slot OFFLINE simulator only**, source PR [#39](https://github.com/physicsvigilante/sim_heat/pull/39) exact reviewed head `ffc96e743a78cb3c63c01d6bf292d1fa84c6164f`, tree `2bbb083437bd8166fc44e4c447521990a657d14a`, base independently reviewed PR38 `f87a9aa025caf5091da8fe3613734b62281ebe1c`.
+
+[Independent Chat B report](../reviews/review-01-chat-b.md) (blob `96613e419dedda07fcbabb592560b52223e37ee0`) independently ran ten competing processes against the pinned module, reproduced one local winner and nine local refusals, duplicate refusal after reopening, post-commit crash persistence, read-only inspection, invalid-row/DB/symlink failures, and the deliberately documented **new successful allocation after local database deletion**, separate fresh SQLite files, and malleable nonce with database write privilege. None of those demonstrate cross-host durable atomicity or authorized native launching.
+
+## Findings disposition
+
+- **F-01 — ACCEPT SCOPED PASS:** On one ordinary local filesystem with cooperative Python/SQLite participants, `BEGIN IMMEDIATE`, primary-key uniqueness, `INSERT ... ON CONFLICT DO NOTHING`, and `synchronous=FULL` support one simulated consumed slot; duplicate requests to the same existing file are refused. This is neither a real owner launch budget nor an owner signature.
+- **F-02 — ACCEPT/RETAIN RELEASE BLOCKER for any native use:** Independent reviewer proved both that deleting a consumed SQLite file allows a new local slot and that two distinct files can each allow one slot for the same campaign. A writer can replace an apparently valid nonce. `facts()` checks syntax/pins but not an external protected authority. Do **not** use this simulator, a local label, GitHub workflow concurrency, attempt number, saved SQLite ZIP or nonce as an actual native launch authorization. Optional same-shape nonce-forgery negative regression is suitable for next separate offline contract; does not itself solve global trust.
+- **F-03 — ACCEPT PASS, limited to no-execution path.** Source and workflow have no `omc`, frozen native `prepare/execute`, `reference.prepare`, compiler/version queries, build, native model or output. Four additions only; original frozen 14 F0 source blobs, author model/study, archived PR31 V2 reference and original unlaunched plan unchanged. Fixed source SHA and plan identifiers are context labels, not owner attestations.
+- **F-04 — RETAIN original historic failures:** frozen first F0 `hotLead.G` accuracy **80× vs required ≥100× FAIL** and PR32 two-host bitwise-regeneration of original PR31 V2 seal **FAIL**. Option A user approval is for one exact saved reference **OFFLINE checking only**. The nine original native public readings remain `not_computed`.
+
+## Exact CI and scope
+
+[Exact-head CI #44036625580](https://github.com/physicsvigilante/sim_heat/actions/runs/44036625580) completed SUCCESS; [artifact #14306794679](https://github.com/physicsvigilante/sim_heat/actions/runs/44036625580/artifacts/14306794679), 20,590 bytes ZIP SHA `a34b0546b2ddc51e4dc3fbd1588cc80dae92c8bddd301aa5b59bbc54c7d54435`, 20/20 ZIP CRC. **244/244 OFFLINE tests PASS** (12 local SQLite, 15 build-text, 24 staging, 16 disabled plan, 11 offline consumer, 8 binding, 9 archive, 149 frozen H1), original F0 14 source pins and original 23 plan inputs checked. No actual host compiler/OMC, MAT, run, qualification, launch or production merge occurred.
+
+## Next bounded task
+
+Develop a **separate OFFLINE-only trusted-external-reservation *contract and fake-provider adversarial harness*** which is default-deny, describes missing owner-authenticated release/host/plan/budget attestation, tests atomic CAS and crash/replay/refusal semantics, and **never connects to or claims a live authority**. The fake-provider store cannot be used as native permit or deployed to authorize OpenModelica. If risk-critical source/evidence meaning changes, post a new pinned PR with CI and independent R2. A future genuine shared protected owner-controlled external reservation and source/host/plan must undergo its own R2 and **separate explicit owner authorization for each named OMC version-query/build/launch budget** before any native action.
+
+**Result: PR39 SCOPED R2 PASS accepted; source PR remains draft/unmerged; F02 NATIVE HOLD.**
