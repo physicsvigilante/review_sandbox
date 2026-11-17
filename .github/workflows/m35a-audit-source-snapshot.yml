@@ -1,0 +1,39 @@
+name: M35a audit exact released source snapshot
+on:
+  push:
+    paths:
+      - '.github/workflows/m35a-audit-source-snapshot.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde
+          path: source
+      - name: Verify immutable released source and inspect repository instructions
+        run: |
+          test "$(git -C source rev-parse HEAD)" = 'a5113fa4cc924ac10cbb35b2f2d7ac80e11f1bde'
+          test "$(git -C source rev-parse HEAD^{tree})" = 'd0646c9e4d518008784c42c1fec1c48c81901a09'
+          git -C source rev-parse HEAD HEAD^{tree} | tee source-identity.txt
+          find source -name AGENTS.md -not -path '*/.git/*' -print -exec cat {} \;
+          git -C source ls-tree -r HEAD > source-tree.txt
+      - name: Retain complete original source without any generated payload or Git credentials
+        run: |
+          git -C source archive --format=tar HEAD | gzip -n > source.tar.gz
+          sha256sum source.tar.gz source-identity.txt source-tree.txt > sha256.txt
+          cat sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m35a-audit-released-source
+          path: |
+            source.tar.gz
+            source-identity.txt
+            source-tree.txt
+            sha256.txt
+          if-no-files-found: error
