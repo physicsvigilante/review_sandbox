@@ -1,3 +1,9 @@
+## Follow-on new draft PR #43 — offline stale-snapshot/linearization counterexamples, separate R2 pending
+
+Following [independent PR #42 scoped PASS](reviews/review-01-chat-b.md), [draft source PR #43](https://github.com/physicsvigilante/sim_heat/pull/43) at exact source `4e220a152e702c06b07320850f5caacff1091bb3` adds only four fake-only Python/test/scope/CI files for versioned stale-snapshot comparison. One volatile fake's versioned CAS accepts 1 of 16 stale readers; **naive stale read, TWO distinct fake stores, and fake reset deliberately permit multiple fictional claims**. Fake lost-ack results cannot establish a native effect or allow a second one-object claim. [Exact-head CI #44051422673](https://github.com/physicsvigilante/sim_heat/actions/runs/44051422673) SUCCESS with **309 OFFLINE tests**, no OMC. [Separate PR #43 R2 request](../pr-43/REQUEST.md) awaits independent Chat B. All eleven real owner/protected release/host/native adapter/external durable CAS permissions remain MISSING; PRs stay draft/unmerged, original F0 80×/100× and PR32 bitwise accuracy FAILs retained.
+
+---
+
 ## Independent R2 complete — SCOPED PASS for toy protocol only, F02 NATIVE HOLD
 
 Independent [Chat B review-01](reviews/review-01-chat-b.md), Git blob `c1373461a86ea5a787de694414688097ec1bc588`, independently assessed exact source `32cbb7d02b7db0cbc322fb0e7826861fd902a77a`, tree `da6be0e7eec55d78acebc57da6763d07608dc17b`, and returned **SCOPED PASS** only for the nonexecuting hypothetical state/history model. [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-05. [CI #44047200421](https://github.com/physicsvigilante/sim_heat/actions/runs/44047200421) PASS for 293/293 OFFLINE tests. Original source/references and historical F0/PR32 FAILs preserved.
