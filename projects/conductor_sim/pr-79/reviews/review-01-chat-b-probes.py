@@ -255,19 +255,40 @@ def hostile(graph,plan,run):
               lambda: GraphWorldForkPlan(graph,"review01:dup",(a,a)))
     must_fail("old node ID reused",
               lambda: GraphWorldForkPlan(graph,"review01:oldid",(
-                  replace(a,node_id="old-west"),)))
+                  replace(a,node_id="old-west",
+                          case=replace(a.case,case_id="old-west")),)))
     must_fail("forward parent",
               lambda: GraphWorldForkPlan(graph,"review01:forward",(
                   replace(a,parent_id="unknown"),)))
     must_fail("old old comparison",
               lambda: GraphWorldForkPlan(graph,"review01:oldpair",(a,),
+                  QUESTIONS,POLICY,
                   comparisons=(WorldComparison("old-only","old-west","old-east"),)))
     must_fail("duplicated unordered reverse pair",
               lambda: GraphWorldForkPlan(graph,"review01:reverse",(a,),
+                  QUESTIONS,POLICY,
                   comparisons=(WorldComparison("lr","old-west","add"),
                                WorldComparison("rl","add","old-west"))))
     must_fail("too many new nodes",
               lambda: GraphWorldForkPlan(graph,"review01:six",(a,)*6))
+    depth_nodes=tuple(
+        PhysicalWorldNode(f"d{i}", "old-heavy" if i==1 else f"d{i-1}",
+            "Genuine node to challenge maximum lineage depth",
+            (CoupledPropertyEdit("test-particle","mass_kg",6e-6+i*1e-7),))
+        for i in range(1,6))
+    must_fail("source-root depth exceeds six",
+              lambda: GraphWorldForkPlan(graph,"review01:depth",depth_nodes))
+    four_edits=(
+        CoupledPropertyEdit("test-particle","mass_kg",6e-6),
+        CoupledPropertyEdit("test-particle","charge_c",3e-9),
+        CoupledPropertyEdit("test-particle","initial_velocity_m_s",(.12,.18,-.02)),
+        CoupledPropertyEdit("field:base","field_v_m",(600.,900.,-100.)),
+    )
+    budget_nodes=tuple(PhysicalWorldNode(
+        f"budget{i}","old-west",f"Independent source mass/property budget {i}",
+        four_edits) for i in range(4))
+    must_fail("thirteen or more physical edits",
+              lambda: GraphWorldForkPlan(graph,"review01:budget",budget_nodes))
     must_fail("fabricate alternate runner issue",
               lambda: GraphWorldForkRun(plan,run.entries))
     must_fail("forge new node status",
