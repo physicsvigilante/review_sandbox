@@ -250,6 +250,27 @@ def test_legacy_and_attacks(run):
                     case=replace(run.plan.nodes[1].case,
                                  note="Revised unobserved source interpretation")),
             *run.plan.nodes[2:]))))
+    refuses("forged_original_root",lambda:replace(
+        run,plan=replace(run.plan,original=replace(
+            run.plan.original,provenance="Another source transcription"))))
+    relabeled=replace(run.plan.nodes[0],case=replace(
+        run.plan.nodes[0].case,add_sources=(replace(
+            run.plan.nodes[0].case.add_sources[0],
+            label="Altered purported held-source provenance"),)))
+    refuses("forged_source_display_label",lambda:replace(
+        run,plan=replace(run.plan,nodes=(relabeled,*run.plan.nodes[1:]))))
+    reparent=replace(run.plan.nodes[5],parent_id="baseline")
+    refuses("forged_structural_parent",lambda:replace(
+        run,plan=replace(run.plan,nodes=(*run.plan.nodes[:5],
+                                         reparent,*run.plan.nodes[6:]))))
+    altered=replace(run.entries[5].source_ancestry,
+                    parent_revision_id=run.plan.original.revision_id,
+                    revision_path=(*run.entries[5].source_ancestry.revision_path[:-2],
+                                   run.plan.original.revision_id,
+                                   run.entries[5].source_ancestry.model_revision_id))
+    refuses("forged_parent_certificate",lambda:replace(
+        run,entries=(*run.entries[:5],replace(
+            run.entries[5],source_ancestry=altered),*run.entries[6:])))
     edit=run.entries[2]
     changed_edit=replace(edit.node,edits=(CoupledPropertyEdit(
         "field:base","field_v_m",(720.,0.,-240.)),edit.node.edits[1]))
