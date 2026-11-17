@@ -1,0 +1,59 @@
+name: M33a pinned cross-branch native developer smoke
+on:
+  push:
+    paths:
+      - ".github/workflows/m33a-pinned-native-smoke.yml"
+  workflow_dispatch:
+jobs:
+  native-world-compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 117990d239503a947f7be2896c52ffd10a2cacf1
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify literal pinned source HEAD and git tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "117990d239503a947f7be2896c52ffd10a2cacf1"
+          test "$(git rev-parse HEAD^{tree})" = "655a5539b4107c5660ae7b105cf1b30e0339c2fb"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install source package and pytest
+        working-directory: source
+        run: python -m pip install -e ".[test]"
+      - name: Execute ALL new M33a native physics, event and adversarial regressions
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m pytest tests/test_m33a_cross_world_comparisons.py -q | tee ../m33a-smoke.log
+      - name: Execute real opt-in v3 graph export and independent SI verification
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m examples.m33a_cross_world --output output/m33a-native.json | tee ../m33a-example.log
+          python tools/m33a_independent_crossworld.py --native output/m33a-native.json --output output/m33a-independent.json | tee ../m33a-independent.log
+      - name: Seal retained first-attempt numerical smoke and artifacts
+        if: always()
+        run: |
+          sha256sum m33a-smoke.log m33a-example.log m33a-independent.log source/output/m33a-native.json source/output/m33a-independent.json > m33a-sha256.txt 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m33a-pinned-native-developer-first-smoke
+          path: |
+            m33a-smoke.log
+            m33a-example.log
+            m33a-independent.log
+            m33a-sha256.txt
+            source/output/m33a-native.json
+            source/output/m33a-independent.json
+          if-no-files-found: warn
