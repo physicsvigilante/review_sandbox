@@ -1,3 +1,5 @@
+> **HISTORICAL REVIEW-01 REQUEST:** This packet originally concerned source `a570e3c589457d21b6673701a2d126d7046e1c3c`, where [Chat B returned CHANGES REQUESTED](reviews/review-01-chat-b.md) for manifest literal-type ambiguity. The corrected new source `f87a9aa025caf5091da8fe3613734b62281ebe1c` has separate [targeted REQUEST-02.md](REQUEST-02.md) and [REVIEWER-PROMPT-02.md](REVIEWER-PROMPT-02.md), with green exact-head CI but awaiting **NEW** `reviews/review-02-chat-b.md`. The original review-01 outcome and CI remain historically correct. No native execution or production merge is authorized.
+
 # SIM_HEAT PR #38 — focused R2: non-regenerating Modelica build TEXT preview (never executed)
 
 **Source project:** [SIM_HEAT draft PR #38](https://github.com/physicsvigilante/sim_heat/pull/38). **Historical F0 experimental lineage, NEVER MERGE TO MAIN**.
