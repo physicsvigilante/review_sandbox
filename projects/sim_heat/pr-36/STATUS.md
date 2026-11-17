@@ -1,3 +1,9 @@
+## Follow-on offline staging milestone — separate R2 review requested
+
+[Draft source PR #37](https://github.com/physicsvigilante/sim_heat/pull/37), pinned HEAD `d1d6a32252b41dabad832668de642ecaf475a2a3`, builds on the previously reviewed disabled F-02 PR #36. It adds **offline-only exact byte staging** of original Modelica, modal study, frozen library and approved saved PR31 checking reference plus type-strict F-06 corrections. [CI #44024037373](https://github.com/physicsvigilante/sim_heat/actions/runs/44024037373) PASS at current head: 208 offline tests and exact 4-input SHA checks, no OMC. First candidate [CI #44023899014](https://github.com/physicsvigilante/sim_heat/actions/runs/44023899014) failed three test-message expectations and remains a failed run; no physical/numerical effect. [Separate PR #37 R2 packet](../pr-37/REQUEST.md) is **awaiting independent review**. No real native adapter/runner, launch permit, trust-root release or one-shot reservation is created. Historic original F0 80× error and PR32 cross-host bitwise FAIL remain unchanged.
+
+---
+
 ## Reviewed disposition — 2026-11-17
 
 **Status: `SCOPED-R2-PASS-DISABLED-F02-DESIGN; NATIVE-HOLD`.** [Independent Chat B review](reviews/review-01-chat-b.md) confirmed the non-executable design at exact source `7cfa35a1cd5cc858e48bcdc4da453bf2dc22b7f2` (tree `4dca5b38619374465021b0d0e71a28ce6787df8e`). [Chat A response](responses/response-01-chat-a.md) accepts findings F-01–F-06. Original failed F0 reference accuracy and PR #32 cross-host bitwise reproduction remain historical FAILs. No native execution, version query, owner launch permission, runtime plan or source merge follows.
