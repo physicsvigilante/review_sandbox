@@ -1,3 +1,13 @@
+## Independent PR46 R2 complete — SCOPED PASS for EXPECTED 37/4/9 and zero native observations
+
+[Independent Chat B review-01](reviews/review-01-chat-b.md), reviewed Git blob `09286ca2a80d25b11222918d22b8834c6a7e77b7`, gave **SCOPED PASS** at exact source `6c09b44802e869f4a07a2dbda26e2ca37bff83b9`, tree `e25f39673a88d454921331f16d93b43ca9757e97`. [Chat A disposition](responses/response-01-chat-a.md) accepts F-01–F-05. Exact [CI #44071491305](https://github.com/physicsvigilante/sim_heat/actions/runs/44071491305) passed 350/350 OFFLINE methods; reviewer independently checked original PR31 raw archived reference, 37 field names/units, four energy histories and nine request identities.
+
+**NON-NATIVE/RELEASE HOLD:** all 37 channels and four integrals are **expected analytical comparison interfaces**, not actual OpenModelica exported data. All nine public native values remain `not_computed`. Reviewer F-04 observed `validate_shape` alone is insufficient for input identity; external copies must use full `assert_exact_expected` and additionally require independent real provenance. All eleven real owner/release/backup/host/adapter/external CAS/pre-native release gates remain MISSING. Original F0 80×/100× accuracy FAIL and PR32 original V2 regenerated seal bitwise FAIL retained. PR46 draft/unmerged; no OMC operation.
+
+Next bounded experiment: map nine authored public requests to frozen model/export *dependencies* OFFLINE ONLY, preserving expected-vs-observed distinction with no numerical computation or real authority; separate draft PR + exact-head CI + independent R2.
+
+---
+
 # SIM_HEAT PR #46 — source-derived expected 37/4/9 scientific outputs, ZERO native observations; R2 pending
 
 **Status: `awaiting-independent-R2-expected-exports-not-native; F02-NATIVE-HOLD`.** [Historical draft SIM_HEAT PR #46](https://github.com/physicsvigilante/sim_heat/pull/46), exact SHA **`6c09b44802e869f4a07a2dbda26e2ca37bff83b9`**, Git tree **`e25f39673a88d454921331f16d93b43ca9757e97`**, immediate independently scoped-PASS corrected PR45 source `278f8224fa23ec20bc6c7342ab433b9be17e4434`. Exactly **FOUR new** offline code/tests/scope/CI files, zero inherited modified/deleted. Original frozen F0 `dd8c9432abe97563414bb3ed809e61e673473812`, first-author Modelica, evaluator modal study, physical checker/runner, PR31 V2 archived reference and owner decision remain frozen. Historical source PRs stay draft/unmerged.
