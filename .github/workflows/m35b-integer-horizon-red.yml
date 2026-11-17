@@ -1,0 +1,56 @@
+name: M35b old legal integer-native horizon vs overly strict first candidate
+on:
+  push:
+    paths:
+      - ".github/workflows/m35b-integer-horizon-red.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  old-accepted-current-candidate-falsely-rejects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 808d7ce9245aaeda3f8f58faff7181776d20183a
+          path: released
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: cb5eec5afb6a64b3cf11f00d2e38e85b5e6f3200
+          path: first-candidate
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Assert original and initial candidate exact Git source SHA/TREE
+        run: |
+          test "$(git -C released rev-parse HEAD)" = "808d7ce9245aaeda3f8f58faff7181776d20183a"
+          test "$(git -C released rev-parse 'HEAD^{tree}')" = "f9d14fedd06659f5abf8f822b31bc7e6353f2a37"
+          test "$(git -C first-candidate rev-parse HEAD)" = "cb5eec5afb6a64b3cf11f00d2e38e85b5e6f3200"
+          test "$(git -C first-candidate rev-parse 'HEAD^{tree}')" = "6d704170cde51c3959af3e78fd089490a0dc4663"
+      - name: Released M35a genuine native original M28a/M28b accepts integer duration
+        run: |
+          PYTHONPATH="$PWD/released/src:$PWD/released" python review-hub/projects/conductor_sim/m35b_legacy/integer_horizon_probe.py --expect accepted | tee m35b-old-int.txt
+      - name: Prove M35b first candidate newly incorrectly refused same authentic physical model
+        run: |
+          PYTHONPATH="$PWD/first-candidate/src:$PWD/first-candidate" python review-hub/projects/conductor_sim/m35b_legacy/integer_horizon_probe.py --expect previous-overstrict | tee m35b-red-int.txt
+      - name: Save original-versus-incorrect-native-acceptance evidence
+        if: always()
+        run: |
+          for f in m35b-old-int.txt m35b-red-int.txt; do
+            if [ -f "$f" ]; then sha256sum "$f"; fi
+          done > m35b-integer-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m35b-original-valid-integer-native-rejected-by-initial-candidate
+          path: |
+            m35b-old-int.txt
+            m35b-red-int.txt
+            m35b-integer-sha256.txt
+          if-no-files-found: warn
