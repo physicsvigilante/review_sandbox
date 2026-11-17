@@ -28,3 +28,9 @@ The builder **restored** scripts/run-problem.mjs exactly to the original Git blo
 If the final source SHA/tree changes or final Node24/CI is not complete, mark INSUFFICIENT EVIDENCE or request refreshed identity. Preserve all historical freezes. Do not merge, deploy, or claim independent native/Chrome execution unless actually performed. Feature B (short finite-window observer rays) remains separately gated; main protection issue #123 and held #129 / v14-v19 branches remain independent.
 
 Publish projects/opticsim/pr-133/reviews/review-01-chat-b.md with exact SHA/tree, ranked P0-P3 issues, evidence limits and **one verdict: CLEARED FOR OWNER DECISION / CHANGES REQUESTED / INSUFFICIENT EVIDENCE**.
+
+## Builder final exact-head evidence now ready — review, do not trust the summary blindly
+
+- [Full Node24 native/planar/browser run #44156145655](https://github.com/physicsvigilante/opticsim/actions/runs/44156145655): actual CI checkout `d3dda63d6d079048e8b144d89ce6dcd92f8710b2`, same Git tree as authored source; supported Node24.19.0 and pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`. Logged **802/802 Node tests PASS**, including 12 new A tests; native planar/browser steps pass.
+- All **11/11** existing workflow conclusions SUCCESS for exact HEAD `5dc594400a3c8d537c180d1162379b5bfda5e3b1`, **with transparent targeted retry**: [qualified authoring run #44156145539](https://github.com/physicsvigilante/opticsim/actions/runs/44156145539), initial attempt failed browser startup with **Chrome/Chromium unavailable** (Node and previous steps passed). A **job-only attempt 2** succeeded on exact unchanged source; both browser qualification and three supported Chrome demonstration steps passed. No claim of proven runner cause.
+- Independently inspect complete Git tree, source and CI run objects, raw native logs, Chrome job step summaries and early failure; don't label 11 workflows 11 independent physics replications.
