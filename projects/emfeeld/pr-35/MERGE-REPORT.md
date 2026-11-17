@@ -31,6 +31,22 @@ Original archived Physics Demo: **17 actual named native ok values**, **64/64 se
 
 ---
 
+## Direct local replay on safely extracted actual merged source (supplemental)
+
+From the **actual new main-push viewer ZIP**, safely extracted the original 362-file `tested-source.tar`, whose independently reconstructed Git tree is `a82188148568653311581d9d4c02e8c96a37d3cf`, matching actual `main` commit `510014fc078c73d37146b9804763e29d04ac0018`. Without modifying any tracked source, executed in an offline Linux container:
+
+```sh
+PYTHONPATH=src python -m pytest -q -W error tests/test_question_first_saved_time_v1.py tests/test_question_first_trial_v1.py
+# 54 passed in 5.44s
+
+PYTHONPATH=src python -m pytest -q -W error pilots/authorability_v1/test_pilot.py -k 'not test_all_available_parent_files_remain_frozen'
+# 18 passed, 1 deselected in 0.46s
+```
+
+These are **supplemental post-merge local focused/historical checks**, not a full local headless regression, independent reviewer-owned cases or a replacement for the fresh original Linux/Windows clean-install workflow.
+
+---
+
 ## Actual new main-push CI: pending evidence, not pre-merge relabelling
 
 - Fresh actual `main` push **Linux/Windows clean-install** [#44075528373](https://github.com/physicsvigilante/emfeeld/actions/runs/44075528373), event `push`, head `510014fc...`: **IN PROGRESS** at first observation. Must establish both original OS jobs complete success and separately inspect original headless/historical/PyVista/source-first evidence steps.
