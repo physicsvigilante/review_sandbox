@@ -1,3 +1,11 @@
+## Reviewed disposition — 2026-11-17
+
+**Status: `SCOPED-R2-PASS-DISABLED-F02-DESIGN; NATIVE-HOLD`.** [Independent Chat B review](reviews/review-01-chat-b.md) confirmed the non-executable design at exact source `7cfa35a1cd5cc858e48bcdc4da453bf2dc22b7f2` (tree `4dca5b38619374465021b0d0e71a28ce6787df8e`). [Chat A response](responses/response-01-chat-a.md) accepts findings F-01–F-06. Original failed F0 reference accuracy and PR #32 cross-host bitwise reproduction remain historical FAILs. No native execution, version query, owner launch permission, runtime plan or source merge follows.
+
+**Minor future correction F-06:** standalone plan semantics currently permit Python bool/float equality for the integer proposed launch budget; current SHA remains safe under whole-plan pin, but new adapter work must enforce explicit types and test malformed JSON values. A new head requires its own tests and scoped review. Missing external owner-authenticated source trust root, live ref freshness, protected/retained Git release, host toolchain identity and genuine across-run one-shot lock continue to block native execution.
+
+---
+
 # SIM_HEAT PR #36 — F-02 non-executable native-control design review
 
 **Status: `awaiting-independent-R2-control-design-review; NATIVE-EXECUTION-HOLD`.** Historical source [draft PR #36](https://github.com/physicsvigilante/sim_heat/pull/36) HEAD **`7cfa35a1cd5cc858e48bcdc4da453bf2dc22b7f2`**, base PR #35 reviewed offline-only consumer `f7c69954490c8dcd48d152906e8e2a6d5699481d`. Original frozen F0 `dd8c9432abe97563414bb3ed809e61e673473812` unchanged. Exactly 5 source paths **added** and zero edited/deleted. No historical PR merge.
