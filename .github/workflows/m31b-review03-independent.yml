@@ -1,0 +1,53 @@
+name: M31b independent review03 corrected-source provenance probes
+on:
+  push:
+    paths:
+      - ".github/workflows/m31b-review03-independent.yml"
+      - "projects/conductor_sim/pr-72/reviews/review-03-chat-b-probes.py"
+  workflow_dispatch:
+jobs:
+  independent-review03:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviews
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 7f52376c197d4667dba8c54463f995fce4d7df73
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify exact literal production source HEAD and Git tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "7f52376c197d4667dba8c54463f995fce4d7df73"
+          test "$(git rev-parse HEAD^{tree})" = "fe3df0fff668887d8f938b8be35ea124f6b22816"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install unchanged production package
+        working-directory: source
+        run: python -m pip install -e .
+      - name: Execute NEW independent Chat B F-04 attacks and native positive controls
+        working-directory: source
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-72/reviews/review-03-chat-b-probes.py 2>&1 | tee ../review03-native.log
+      - name: Preserve first-attempt evidence digests
+        if: always()
+        run: |
+          sha256sum reviews/projects/conductor_sim/pr-72/reviews/review-03-chat-b-probes.py > review03-digests.txt
+          test ! -f review03-results.json || sha256sum review03-results.json >> review03-digests.txt
+          test ! -f review03-native.log || sha256sum review03-native.log >> review03-digests.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m31b-independent-review03-first-attempt
+          path: |
+            review03-results.json
+            review03-native.log
+            review03-digests.txt
+          if-no-files-found: warn
