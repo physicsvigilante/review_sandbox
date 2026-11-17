@@ -1,0 +1,35 @@
+# Chat B — independent detector-directional-footprint review for Opticsim PR #118
+
+You are a **separate-context independent AI-assisted reviewer** of a *new derived native detector measurement*, not the source implementer. Do not count the builder's green tests as independent physical verification. The candidate is [draft Opticsim PR #118](https://github.com/physicsvigilante/opticsim/pull/118), **main-based and independent of the unreleased v14–v17 composition branches**. At preparation the candidate HEAD is **`7d44e52d2c4c5db30d91e4e87970b706c18a90f6`**; independently check PR HEAD and Git tree. If a later CI fix changed the tree, review that exact final source or report your findings as stale.
+
+**Read the detailed review request:** [REQUEST.md](REQUEST.md) and the [measurement limits document](https://github.com/physicsvigilante/opticsim/blob/feature/directional-detector-footprint-v1/docs/DETECTOR-DIRECTIONAL-FOOTPRINT.md).
+
+## Physics/measurement contract to audit
+
+Existing core PhyDemo pin `811f508d2b070898c241a568b0c167dcb8645251`, native `Detector` tracing, existing opt-in `detector-hit-events` callbacks, 32-hit bound and default detector count/power measurements remain untouched. The new `detector-directional-footprint` kind derives *unweighted* sampled mean, min, max, span and population RMS along the detector's finite p1→p2 segment, **separately grouped by the sign of incoming unit direction dotted with the detector's left normal** `n=(-ty,tx)` in y-up coordinates. It makes **no optical image, PSF, continuous irradiance, physical beam-power or source ancestry claim**, and must not pair outbound and return crossings into fabricated ray histories.
+
+Independently verify the pure function `src/detector-directional-footprint.js`: correct detector geometry, tangent/normal signs, mean-centered RMS (not E[x²]-E[x]²), world-coordinate centroid, null metrics for zero native hits, n=1 sampled RMS zero semantics, near-grazing |u·n|<=1e−8 refusal, original event cap 32 and endpoint/segment 0.01/1e−5 mm guards. Check that malformed, contradictory, nonfinite or incomplete per-hit input makes **only the new statistic unavailable**, never changes the native count or invents crossing coordinates.
+
+Then inspect the **complete opt-in capture chain** `scripts/author-scene.mjs`, `src/native-observations.js`, `src/app.js`, `src/observables.js`, `src/evidence-panel.js`, `src/result-preview.js`. A request for the NEW kind **alone** must enable exactly the existing native event observer; no request must preserve old default observation keys. Correct scene hash, full native completion, no errors/truncation, and bounded hit list are mandatory. Native warning-based approximation is displayed as qualified sampled measurement, not a confirmed full-Fresnel image.
+
+## Adversarial reference cases
+
+Read `test/detector-directional-footprint.test.mjs`, `scripts/detector-directional-footprint-acceptance.mjs`, `scripts/detector-directional-footprint-browser.mjs` and the unchanged original physical test fixtures.
+
+- Planar n=1.8 and finite mirror (`test/fixtures/detector-hit-plate.json`): one native ray crosses a horizontal detector twice in opposite directions. Independently calculate the two intercepts from Snell and finite-line geometry. Report signed normal classifications and means. Fresnel-off warning is a declared approximation.
+- Existing v4 ideal lens and mirror (`test/fixtures/detector-hit-lens.json`): 11 actual sampled detector events, six with incoming +x and five with incoming -x. A finite vertical detector with p1→p2 upward has positive left normal -x, so the **six +x crossings belong to the negative-normal group**, and the five -x returns to the positive-normal group. Independently calculate mean and sampled RMS from native event coordinates, not by assuming each sample belongs to a particular source.
+- Independent synthetic 45-degree detector with explicitly supplied five points: positive-normal along distances 10,20,30 mm has mean20, population RMS sqrt(200/3) mm; negative-normal 50,70 mm has mean60 and RMS10 mm. All points are on the same physical detector, not an optical result.
+- A true detector miss must return count0 and **null centroid/extremes/span/RMS** in both groups. A 33+ native overflow must withhold the entire summary while leaving complete native counts unchanged. Directly altered coordinates, altered distance or near-parallel unit direction must be refused; stale SHA or incomplete Fresnel/depth-limited run must suppress values rather than infer a spot.
+- Check ordinary public CLI runs, actual Chrome physical index revision with fresh sampling, qualified export/reopen without embedded runtime observations, empty-group display, and incomplete Fresnel withholding. Inspect exact-head run logs, not just source test assertions. The added evidence-panel summary must classify the derived result as **native sampled readout**, not a conditional image.
+
+## Source provenance and limits
+
+This feature is based on production `main` at `d3509e82fb65d81aabe336666851f8f2962623f4`; independently compare all changed paths. The original R1 frozen detector-hit transfer and older post-exposure context must be unchanged. A new `test/fixtures/directional-footprint-app-postfreeze-v1.json` separately records the viewer's pre/post Git blob identities and is **not a new blind evaluation**. The first CI attempt after adding that fixture failed because a test copied an incorrect pre-feature blob literal; this was corrected without changing frozen original data, and the failed attempt remains visible. Do not claim that an independent experiment was performed by the builder.
+
+**Exact final-head CI:** at preparation, the 11 standard workflows on `7d44e52d2c4c5db30d91e4e87970b706c18a90f6` are still running. Examine all workflow conclusions, Node 24 regression totals, public-CLI `detector-directional-footprint-acceptance.mjs` result and real-Chrome `detector-directional-footprint-browser.mjs` result. Source CI uses a synthetic main-target merge; independently compare exact source/tree against checked-out synthetic merge. If you lack a separate Node >=24.19/pinned PhyDemo environment, state clearly that you inspected source CI and independently recomputed scalar examples, **not** that you ran independent native ray tracing.
+
+## Independent report
+
+Publish a **new, separately authored** report to `physicsvigilante/review_sandbox/projects/opticsim/pr-118/reviews/review-01-chat-b.md`, with exact reviewed source HEAD/tree, independent arithmetic/geometry vs source-native evidence, ranked reproducible findings, numerical and educational limitations, and one explicit verdict **CLEARED FOR OWNER DECISION**, **INSUFFICIENT EVIDENCE**, or **CHANGES REQUESTED**. No human optics expert, point-spread-function certification, image-detection claim, user-conversation disclosure or textbook-answer completeness is implied.
+
+**Never merge PR #118 or the unrelated unreleased v14 #107, v15 #110, v16 #113, v17 #116.** Review clearance and owner release approval are separate gates.
