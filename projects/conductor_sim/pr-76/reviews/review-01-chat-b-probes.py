@@ -235,7 +235,7 @@ def new_science_and_two_studies():
     g=graph()
     old=g.as_dict()
     status={e.node.node_id:e.status for e in g.entries}
-    assert status["alpha"] == status["beta"] == status["mass"] == "complete"
+    assert status["alpha"] == status["beta"] == status["mass"] == "complete", status
     assert status["retire"] == status["retard"] == status["opposite"] == "complete"
     assert status["resurrect"] == "rejected-structural-model", status
     assert status["invalid"] in ("rejected-physical-model","rejected-physical-edit"), status
