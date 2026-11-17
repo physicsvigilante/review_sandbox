@@ -1,3 +1,13 @@
+## Independent PR #45 R2 completed — SCOPED PASS for finite JSON/read-consistent untrusted inventory, native HOLD
+
+[Chat B review-01](reviews/review-01-chat-b.md), independent reviewer-authored blob `46372af012f817e134c0afc03ff05f7e4855fec9`, passed ONLY the **finite-exponent JSON rejection and single captured raw-byte SHA/parse** correction at exact reviewed source `278f8224fa23ec20bc6c7342ab433b9be17e4434`, tree `fc0dbe955a14a73e7e54dd8060cb5d469a6f91e6`. [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-06. [CI #44066896537](https://github.com/physicsvigilante/sim_heat/actions/runs/44066896537) completed SUCCESS: 333/333 **OFFLINE** unittest methods, 41/41 artifact CRC checks, no OMC. [Earlier pre-job YAML run #44066782667](https://github.com/physicsvigilante/sim_heat/actions/runs/44066782667) remains a historical FAILURE.
+
+All candidate local files and SHA hashes remain **UNTRUSTED**, never native evidence; local filesystem directory/TOCTOU and owner provenance are not authenticated. **All eleven actual owner/source/release/backup/host/OMC/executable adapter/atomic one-shot/pre-native native-budget gates still MISSING**. Original F0 80×/100× reference accuracy FAIL and PR32 original V2 bitwise-regeneration FAIL remain preserved; nine actual native public results not computed. Source PR45 remains draft/unmerged.
+
+Next separately reviewable work: read-only expected-export/public-request **coverage inventory**, with unambiguous `expected` versus `observed_native:not_computed`, original 37 outputs, four integrals and nine public requests; no generated physics, compiler, actual MAT/CSV or native permission.
+
+---
+
 # SIM_HEAT PR #45 — finite JSON overflow and single-byte source intake correction, R2 pending
 
 **Status: `awaiting-independent-R2-PR44-F06-parser-correction; NATIVE-HOLD`.** Historical [draft source PR #45](https://github.com/physicsvigilante/sim_heat/pull/45), exact candidate SHA **`278f8224fa23ec20bc6c7342ab433b9be17e4434`**, tree `fc0dbe955a14a73e7e54dd8060cb5d469a6f91e6`, immediately based on independently R2-passed PR44 source `331a04c34d465516ffb0ecbb580a334032fa7de2`. Exactly **3 modified PR44 intake/test/scope files and 1 new offline CI workflow**; no physical model/first author/evaluator study, archived PR31 reference, native runner, old plan or owner-adoption record changes. Historical F0 PRs stay draft/unmerged.
