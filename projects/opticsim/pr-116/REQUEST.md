@@ -1,10 +1,10 @@
 # Opticsim PR #116 â€” R2 physics review request: bounded multi-element native depth (v17)
 
-**Status: prepared for independent review once final source-CI is verified. No Chat B verdict received. DO NOT MERGE.**
+**Status: final exact-head source CI verified; independent Chat B R2 review not yet received. DO NOT MERGE.**
 
 ## Source and dependencies
 
-- Source [draft PR #116](https://github.com/physicsvigilante/opticsim/pull/116), new `feature/native-two-thick-lens-mirror-v17` branch based on previously R2-cleared but owner-held v16 `94ea1a184e025065fe28da49691a3f39dc916296` [PR #113](https://github.com/physicsvigilante/opticsim/pull/113). Source head is under active CI corrections at request creation; **independent reviewer must inspect final exact source HEAD and its Git tree**. The source PR temporarily targets main solely to activate existing workflow triggers, then must be retargeted to the unreleased v16 dependency.
+- Source [draft PR #116](https://github.com/physicsvigilante/opticsim/pull/116), new `feature/native-two-thick-lens-mirror-v17` branch based on previously R2-cleared but owner-held v16 `94ea1a184e025065fe28da49691a3f39dc916296` [PR #113](https://github.com/physicsvigilante/opticsim/pull/113). **Exact final source HEAD `9157c7a9ba7b21d6c9fe816897612537e45e6b30`**, correctly targeting the unreleased v16 feature branch after temporary main-target CI. Independently verify the exact Git tree and source/synthetic-merge identity.
 - v16 depends on reviewed but unreleased v15 [PR #110](https://github.com/physicsvigilante/opticsim/pull/110) and v14 [PR #107](https://github.com/physicsvigilante/opticsim/pull/107); all remain DRAFT/UNMERGED and require independent owner merge authorization.
 - Pinned native PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`; it must not change. No new solver, fake ray route, modified brightness threshold or native cutoff.
 
@@ -26,9 +26,16 @@ Synthetic fixture `examples/native-two-thick-lens-mirror-v17.json`: source S1 (â
 
 New `test/native-two-thick-lens-mirror-v17.test.mjs` includes native 11-event return and independent local face Snell geometry, authentic missed finite mirror, object-list reversal, off-axis ray, independent two-source scene, cm/mm authored units, version-sensitive policies, old v15/v16 saved depth rejection, geometry/material/refusal controls, stale-scene/qualified export, explicit preview depth-8 incompleteness and full-Fresnel truncation. The new `scripts/native-two-thick-lens-mirror-browser.mjs` must exercise actual Chrome edits to both lenses/mirror, return/miss, invalid overlap with stale-result withholding, qualified export/reopen, ray miss, and UI disclosure of depth 16. Historic UI source hash provenance is appended as a separate v17 file rather than revising original frozen evidence.
 
-**At the time of this request, the final candidate CI must be separately verified.** An initial source HEAD had failed historical negative tests that assumed newly authorable v17 apparatus must still be rejected; they were updated to verify **new authoring is v17-allowed while historical saved v15/v16 formats are still forbidden**, without editing the previously reviewed production code or old golden inputs. Another v17 test explicitly supplying the v17-only policy while choosing a v15/v16 model was corrected to require refusal until the deep policy is removed. All initial failed runs must stay visible, and the reviewer must examine final exact-head CI rather than count a previous successful run.
+**Final exact-head CI is verified by Chat A but MUST be inspected independently by Chat B.** Initial source heads failed historical negative tests that assumed newly authorable v17 apparatus must stay rejected; those tests were corrected to verify **new authoring is v17-allowed while existing saved v15/v16 formats still reject the extra component**. Another v17 test deliberately selecting an older profile while retaining v17-only deep policy now explicitly checks that this is rejected, and a test-helper typo was fixed. No previously reviewed production physics or historical frozen data was modified. The first failed runs remain visible.
 
 Adversarial review should inspect 0.009/0.011-mm geometry gaps, two-source reflection/detector event merging, reverse rays, light entering between lenses, unexpected TIR/rim corner re-hits, non-air shared index, full Fresnel weak-branch cutoff at depth16, processed-ray/16-depth boundary and whether the simulator detects an incomplete run rather than invent a complete ray path. Success in a single fixture is not evidence of a universal minimum depth.
+
+## Final exact-head Node and Chrome evidence (source CI, not reviewer-native execution)
+
+- **Final exact source HEAD:** `9157c7a9ba7b21d6c9fe816897612537e45e6b30`, Git tree `6b4e0f1654df6d0c1be68762f57f36b2c542f921`.
+- Main-target CI synthetic merge `90e201cc429c2859c39789d5514d8e43f847578e`, parent main `d3509e82...` plus source HEAD, has the **same exact tree**. Reviewer must fetch both Git commit objects, rather than simply trusting this statement.
+- **841/841 Node 24 tests PASSED, 11/11 standard workflows SUCCESS** at that exact source SHA: [unified 44052685694](https://github.com/physicsvigilante/opticsim/actions/runs/44052685694), [planar/Chrome 44052685718](https://github.com/physicsvigilante/opticsim/actions/runs/44052685718) including **10/10 new v17 browser checks**.
+- The source CI logs include a complete depth16 two-lens return, the default/explicit preview-depth8 incomplete/withheld controls, native multi-source sampling and all-six full-Fresnel requested outputs suppressed on truncation ~0.06506578. Additional test-only topology controls at final HEAD show a mirror **between** the lenses (L2 genuinely missed), a **mirror-first** ray, a ray that **misses both glass bodies** but strikes the finite mirror, and right-to-left reflection through both lenses. Their success does not imply all possible paths are complete or numerical contact events reliable.
 
 ## Independent output required
 
