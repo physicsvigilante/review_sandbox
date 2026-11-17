@@ -1,0 +1,62 @@
+name: M32a pinned native graph smoke and independent SI reference
+
+on:
+  push:
+    paths:
+      - ".github/workflows/m32a-pinned-native-smoke.yml"
+  workflow_dispatch:
+
+jobs:
+  m32a-exact-source-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: e62856ddcee5cdc2cae30cbaf3122d4d93e3a04a
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify pinned source and tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "e62856ddcee5cdc2cae30cbaf3122d4d93e3a04a"
+          test "$(git rev-parse HEAD^{tree})" = "b734f58ef92d5b4d7832f1a25d8457d65fbe5bf9"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install native package and pytest
+        working-directory: source
+        run: python -m pip install -e ".[test]"
+      - name: Focused genuine M32a native graph acceptance suite
+        working-directory: source
+        run: |
+          python -m pytest tests/test_m32a_unified_observation_graph.py -q | tee ../m32a-native-smoke.log
+      - name: Real M32a source-graph export
+        working-directory: source
+        run: |
+          python -m examples.m32a_unified_observations --case uniform-events --output output/m32a-numerical.json
+      - name: Independent direct Newtonian field/force/state/root calculation
+        working-directory: source
+        run: |
+          python tools/m32a_independent_uniform.py --native output/m32a-numerical.json --output output/m32a-independent-reference.json
+      - name: Preserve evidence
+        if: always()
+        run: |
+          test ! -f source/output/m32a-numerical.json || sha256sum source/output/m32a-numerical.json > m32a-digests.txt
+          test ! -f source/output/m32a-independent-reference.json || sha256sum source/output/m32a-independent-reference.json >> m32a-digests.txt
+          test ! -f m32a-native-smoke.log || sha256sum m32a-native-smoke.log >> m32a-digests.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m32a-graph-source-pinned-smoke
+          path: |
+            m32a-native-smoke.log
+            m32a-digests.txt
+            source/output/m32a-numerical.json
+            source/output/m32a-independent-reference.json
+          if-no-files-found: warn
