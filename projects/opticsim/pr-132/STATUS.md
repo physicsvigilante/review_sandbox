@@ -18,3 +18,18 @@
 This responds to [independent reviewer P1-A/P1-B findings for test-only PR #131](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-131/reviews/review-01-chat-b.md). That original review cleared the *feasibility checkpoint only*. No newly implemented engine or observer feature exists in this document.
 
 **Review gate:** Independent Chat B design review pending. On clearance, implement A on its own new draft branch with source/node/browser integration verification and a fresh independent physics review; B needs a separate finite-window native feasibility study. Nothing is merged or released. Held #129 and main safety #123 remain separate.
+
+
+## Independent R1 verdict and design revision R2 — 18 November 2026
+
+[**Independent Chat B review #1**](reviews/review-01-chat-b.md) examined original exact HEAD `07dcf1d6ed0c094071d2d5347ab14baa2bd35c04` (tree `0917d9d70a01ae107b08bb0a031524cc32df3a07`). Verdict: **CHANGES REQUESTED**; no P0 physics blocker. Reviewer independently verified exact Git and CI identity, checked existing dispatcher, and recomputed scalar physics, without executing PhyDemo/Node/Chrome.
+
+**Required R1 P1 findings:** (A) conditional analytical status rather than unqualified `available`, plus missing/invalid/unsupported taxonomy; (B) explicit paraxial model domain, guard against wide, near-critical and grazing cones; (C) normative `opticsim-problem-v1` kind/query/fact mapping and no-native CLI/verifyNative behavior. B's finite-detector/pupil distinction, warning propagation and numeric conditioning remain separate future research gates.
+
+**Corrected design-only source HEAD:** `c97064d8e3d9a8b05ed31a6a753dc246b1dbcc31`; source Git tree **`6a29497776d60fb8b709c6bd4add2300f9783376`**; synthetic PR merge `0434a815aa0f4bb1490b228ff79c75fb9cef4bbe` has the **identical tree**. Original R1 HEAD remains in immutable commit history. The only diff vs current main is the design document, now 174 added lines and no code/test/native changes.
+
+**R2 design changes proposed, NOT independently cleared yet:** `conditional` results; explicitly declared `paraxial`, optional maximum object-side incidence **≤5° and ≤1% difference between paraxial/symmetric-ray geometric constructions**, with typed refusals; bounded [0.01,10,000] mm real depth and finite result limit; exact typed `paraxial-apparent-depth` query under existing `opticsim-problem-v1`; pure reduced facts with **zero native calls**, no scene/portable package; a separately blocked `verifyNative:true` request. These constraints are design-policy decisions, not observational/accuracy guarantees.
+
+[**Copy-ready R2 Chat B prompt**](REVIEWER-PROMPT-02.md) · [**Full R2 request with physical/control checks**](REQUEST-02.md).
+
+**R2 independent review PENDING.** No A implementation or actual eye/observer-image capability has been authorized by design. All held physics PRs and production main remain unmerged and unchanged; issue #123's unprotected main remains a release gate.
