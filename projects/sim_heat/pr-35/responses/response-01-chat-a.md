@@ -1,0 +1,21 @@
+# SIM_HEAT PR #35 — Chat A disposition of independent R2 review-01
+
+**Disposition: ACCEPT SCOPED PASS for offline-only owner-directed Option A checking-reference consumer at exact source `f7c69954490c8dcd48d152906e8e2a6d5699481d`, Git tree `308edef4c44dff1decece98f587ccf7bb8fe0380`.** Reviewer [review-01-chat-b.md](../reviews/review-01-chat-b.md) is independently attributed, not a Chat A report.
+
+The source [draft PR #35](https://github.com/physicsvigilante/sim_heat/pull/35) remains open/unmerged, based on independently reviewed PR #34 `2f7fc7c0a43a786625abe2648eea0116ef3fd5f7`. Original frozen F0 source `dd8c9432abe97563414bb3ed809e61e673473812` remains unchanged.
+
+## Finding dispositions
+
+- **F-01 — ACCEPT/PASS owner direction scope.** Chat A's original [owner record](../pr-34/OWNER-DECISION-01.md) notes user approval for *Option A reference adoption only, with no native*. Its central Git blob SHA-1 is `599bfd42362c5d75224c82291b08b3f97310eb7c`, consumer-pinned local adoption JSON blob is `0fc2e11e6e2bf618799ec5b314e2872f14236d8c`; neither is an independently signed GitHub owner identity or native authorization.
+- **F-02 — ACCEPT/PASS fixed original reference/source.** PR #31 raw 4,409,800-byte archived mathematical JSON SHA-256 `0db511dd8dba023d16518667de256029cf3e073463ea21e2478aeac8afd1f368`, canonical seal `d2b8e2ca8e1f929cac7b028dcc3f7d0b453921d193f877eb091e23ac70aa4ce9`, PR #33 compressed SHA-256 `fc5a7df5928c3fb8aef2ba4af516dfbd32b42c0450ebef1051ad4fd7efebd17f` and whole manifest SHA `50467b138ed64cdb908f2c763bc777e6babf0bb04a0711568acc559112e66f84` remain distinct and preserved. All original author inputs and 14 frozen H1 files are byte-identical; the prior independent PR #31 numerical review supports, but is not rerun in this R2.
+- **F-03 — ACCEPT/PASS no native capability.** Approved read-only API and `check-reference-only` CLI may expose scientific data but confer no execution authority; no fallback to `reference.prepare`, no rewritten old native runner, no native plan, Modelica query/build/launch, or native result.
+- **F-04 — ACCEPT/PASS exact-head CI and negatives.** [CI #44018671528](https://github.com/physicsvigilante/sim_heat/actions/runs/44018671528) succeeded at exact reviewed SHA with original evidence ZIP [#14300325854](https://github.com/physicsvigilante/sim_heat/actions/runs/44018671528/artifacts/14300325854) SHA-256 `4d42841f3eb83701e30ab4e761be39cb548f4394841f296c03245bd74e57216a`; 11 consumer tests + 8 binding + 9 archive + 149 frozen H1 = **177** tests, pinned source/plan input checks and unfiltered push trigger. Earlier two failed developer CI runs remain unchanged and correctly labeled test-harness failures, not model failures.
+- **F-05 — ACCEPT documented limit; future R2 native blocker.** The code reads cached Git `refs/remotes/origin/...`: successful offline identity check does not prove upstream freshness, branch protection/signature or retention. The review verified the live anchor's state `protected=false`. A future release/native gate must establish a trusted external owner-approved root and live authoritative source/retention outside the checked-data API. A mocked missing/moved local ref does not prove a remote move would be detected.
+
+## Next bounded milestone
+
+Prepare a **separate draft, non-executing F-02 reference-bound native-adapter contract and offline guards** on a new historical branch, including input/source/reference identity checks, planned host/version constraints, a durable across-run one-shot reservation proposal and explicit **disabled/no-launch state**. Do not run the frozen `h1_native_batch.py::prepare` (it regenerates and can change the V2 seal), open a launch event/workflow or create any simulated C1 result. A new independent R2 review will be required before any future native launch proposal.
+
+**Historical failure retention:** frozen F0 original static 80x versus required 100x reference accuracy remains **FAIL**, PR #32 cross-host bitwise regeneration of original PR #31 seal remains **FAIL**. The Option A owner approval covered only *this immutable checking reference for offline scientific use*; no approval for native, source merge, signed/protected ref, or release is inferred.
+
+**Status:** scoped PR #35 PASS accepted; source PR remains draft/unmerged, owner trust-root/natively controlled F-02 gate OPEN.
