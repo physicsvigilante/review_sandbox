@@ -1,0 +1,38 @@
+# Independent R2 review request — JEE-first native parallel Beam authoring, PR #127
+
+**Research/feature candidate only. DRAFT, UNMERGED, NOT RELEASED.** Review exact source [Opticsim PR #127](https://github.com/physicsvigilante/opticsim/pull/127) HEAD `05385e3daefaffcfc56fb072a12ba81dd6432993`, source Git tree `010ddcba6a17715a71e143ed12ab318267e93618`. A temporary `main`-target GitHub CI synthetic merge `fc1b32c98ee5830dd01eed54b066d56c27ed6b19` has the identical tree, verified directly from Git objects. Source was based on native feasibility PR #126 at `2632efa3d1e2187e4cd793eb80a505b7302919c7` and production `main` at `d3509e82fb65d81aabe336666851f8f2962623f4`. Review should confirm all current Git identities and actual dependency bases.
+
+## Nature of this change
+
+This is the first **canonically authorable** true finite parallel emitter. It does not substitute an upstream source after a point-source hash is prepared. Check `src/parallel-beam.js`, `src/composition-profiles.js`, `src/contract.js`, `src/authoring.js`, `src/adapter.js`, `src/observables.js`, `src/app.js`, public examples/CLI, and Chrome test. Native PhyDemo pin `811f508d2b070898c241a568b0c167dcb8645251` remains unchanged.
+
+Review deliberately **reserved schema/adapter v19**, chosen to avoid colliding with already held v14–v18 feature candidates. Main still contains v1–v13; no release/migration is implied by an unused version gap. This is a dependency-planning risk: examine whether applying this after reviewed v14–v18 requires a new combined release/tree review. All prior reviewed source heads and frozen R1/R2 evidence remain unchanged.
+
+Canonical physical source: `parallel-beam` with exactly centre x/y, **width 10–100 mm**, directionDeg and brightness (0.01–1). Native `Beam` is compiled with two world-y-up segment endpoints converted to native y-down; `emisAngle:0`, `random:false`, `lambert:false`. Global ray density is separately numeric. One deterministic source is supported, not a point source or a continuous 3D wavefront. Brightness greater than ray density is **refused** to prevent silent per-ray saturation.
+
+Two **separate model profiles** under isolated version19:
+- `native-parallel-lens-tracing`: exactly one finite Beam, 0–1 ideal vertically aligned thin lenses, 0–1 vertical centered-gap native Aperture, 0–2 passive native Detector. Beam direction for this first profile is exactly horizontal (0/±180), including genuine misses/reverse direction.
+- `native-parallel-planar-tracing`: exactly one finite Beam, 1–2 parallel `PlaneGlass` interfaces with matching adjacent absolute indices, 0–2 passive Detector. No lens/stop mixes, no extra sources. Beam may be oblique if not nearly grazing. All emission endpoints must lie on one consistent safe side of EACH plane, detectors wholly on one medium side.
+
+The source geometry rule must validate the ENTIRE emitting segment (±10000 bounds, plane/optical clearances, no detector supporting-line straddle). For initial deterministic emitted samples, reject near lens rims or opaque stop/gap endpoints (0.01 mm margin). These are **bounded initial-geometry admission checks**, not outgoing optical ray tracing, and do not certify all possible native secondary-refraction/corner floating-point cases. Verify implementation actually checks each restriction and cannot be bypassed by an inappropriate alternate profile or version upgrade. Incomplete native rays/stale evidence must be withheld rather than repaired.
+
+## Independently calculate these scalar references
+
+1. A 40 mm wide Beam centred at (−100,0), heading +x with density .2 emits eight pinned-native midpoint samples, y=+17.5,+12.5,+7.5,+2.5,−2.5,−7.5,−12.5,−17.5 (mm), **not** eight angular directions. At density 1 it emits 40 samples; uncalibrated continuous irradiance cannot be inferred.
+2. An explicitly vertical centered aperture at x=−50, outer length100 mm and gap12 mm absorbs six of those samples, leaving y=±2.5 through an ideal f=100 mm lens at x=0. Native detector at x=100 records two crossings at y≈0. However the rays arrive with **NONZERO** slope ∓(2.5/100), so their incomingUnit.x is 1/sqrt(1+0.025²)≈0.9996876464, not 1. The builder's first CI attempt incorrectly asserted horizontal arrival and failed one Node test; verify it was corrected by genuine physics rather than relaxed tolerances, and retain the failed attempt.
+3. Two parallel planes x=0 and x=60 mm with outer n=1 and interior n=1.5, oblique native Beam 30° from +x. Independent Snell angle θ=asin(sin30°/1.5)≈19.4712°, emerging parallel with d_perp=60 sin(30°−θ)/cosθ≈11.6288 mm. Compare each actual native detector crossing to independent source intercept. Repeat n=1.8 with explicit adjacent index consistency.
+4. One high→low boundary n=1.5 to1, incidence60° exceeds critical θc=asin(1/1.5)≈41.8103°; eight native total-internal reflections, no manufactured transmitted rays.
+5. A dense 40 mm emitter produces 40 physically native detector crossings. The existing 32-hit *event list* is unavailable while complete original crossing **count=40** remains available. This is a **v19** (not v18) overflow control. Do not call an overflow an image or leak the first 32 as a complete footprint.
+6. Full-Fresnel native slab branches become incomplete at depth8; all requested measurements must be suppressed, not relabelled zero or silently omitted. Test malformed widths, near gap corners, source/optics overlap, mismatched planar indices, source straddling a medium, near-grazing directions and brightness saturation.
+
+## Source-CI and limitations
+
+`test/jee-parallel-authoring-v19.test.mjs` adds **9 new Node acceptance tests** on top of the v1–v13 main + the 8 research-native #126 tests (total **807 expected**). `scripts/jee-parallel-beam-acceptance.mjs` uses the actual public `runProblemEvidence` path for **7 original synthetic JEE-style cases**, including complete, incomplete and refused scenes. `scripts/jee-parallel-beam-browser.mjs` runs actual Chrome on those packages and records **11 checks and 6 screenshots** (physical beam-width edits, stop shifts, invalidation, export/reopen, slab edit and Fresnel gating). Check real source CI and exact tested tree, not this summary. The final exact source CI results are to be updated once all workflows have finished. The initial invalid focal horizontal-direction assertion is a known failed developer test and must remain documented.
+
+Potential missing coverage: y-axis/up/down native Beam propagation outside v19's intentionally horizontal lens scope; full arbitrary parallel-beam illumination of finite triangles/circles, 3D projection and image/PSF/radiometry; sample-point approach to rim after a reflected or refracted secondary encounter. The result is **no original JEE problem solved or scored**. The older [JEE Atlas](https://github.com/physicsvigilante/opticsim/blob/main/evaluation/optical-systems-atlas-v1/README.md) provides needs discovery only.
+
+## Required independent report
+
+Publish separate `physicsvigilante/review_sandbox/projects/opticsim/pr-127/reviews/review-01-chat-b.md` with exact source and Git tree, independently recomputed physical references, code/CI evidence and failure provenance, ranked reproducible blocking versus coverage findings, and explicit verdict **CLEARED FOR OWNER DECISION**, **CHANGES REQUESTED**, or **INSUFFICIENT EVIDENCE**. State whether independently executed pinned PhyDemo and Chrome or only inspected builder CI. A second-context AI review is not human optics certification.
+
+**Never merge PR #127, #126 or any held #107/#110/#113/#116/#118/#120/#122/#125.** Branch-protection risk #123 remains separate. Owner release authorization is NOT requested or implied.
