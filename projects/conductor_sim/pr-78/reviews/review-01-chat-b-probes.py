@@ -393,8 +393,18 @@ def full():
         check(anc.world_path[-1]==row.node.node_id,
               "branch-local path ends at real node "+row.node.node_id)
         if row.assembly is not None:
-            check(row.assembly.parent is parent,
-                  "M22a real assembly immediate source parent object "+row.node.node_id)
+            # M22a retains a previous ScenarioReassembly wrapper when the
+            # graph's immediately preceding structural node has one.
+            prior_row=next((earlier for earlier in run.entries
+                            if earlier.node.node_id==row.node.parent_id),None)
+            expected_assembly_parent=(prior_row.assembly if prior_row is not None
+                                      and prior_row.assembly is not None else parent)
+            check(row.assembly.parent is expected_assembly_parent,
+                  "M22a exact native assembly-parent object "+row.node.node_id)
+            check((row.assembly.parent.scenario if
+                   isinstance(row.assembly.parent,ScenarioReassembly)
+                   else row.assembly.parent) is parent,
+                  "M22a actual immediate physical source parent object "+row.node.node_id)
             check(row.assembly.as_dict()["parent_revision_id"]==parent.revision_id,
                   "M22a stored actual physical parent SHA "+row.node.node_id)
     check(run.entries[2].source_ancestry.retired_source_ids==("held:A",),
