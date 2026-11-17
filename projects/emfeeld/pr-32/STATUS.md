@@ -1,0 +1,11 @@
+# EM Fields PR #32 — frozen source candidate, independent R2 review gated by current CI
+
+**Status at creation (2026-11-17 Asia/Kolkata):** [PR #32](https://github.com/physicsvigilante/emfeeld/pull/32) DRAFT/OPEN/UNMERGED, exact source `fb2ebe0c65425a79dec1482bc26162756f72f5d5` / tree `9f59fd94a15a1f0c2759ab8662b23a36a41810da`, qualified source main/base `3f1ec44a54b24b9f8275a98abf81126a9386bf61`. [Issue #31](https://github.com/physicsvigilante/emfeeld/issues/31) tracks the physics demonstration.
+
+**New source candidate** adds one uniform-electric question packet, independent analytic and negative/CLI/replay tests, frozen SHA256/64-check reference manifest, a teaching interpretation guide, and a dedicated Linux/Windows release workflow replay step that archives original source-bound native evidence. Production engine source and previously sealed native evidence unchanged. Original input SHA256 `ff9ce129f906b4cb6b68fa27819e33fa6d54637a8c3412d4f6fb1970c11ecf52`.
+
+**Exact-head CI at first inspection:** [Linux/Windows #44024850240](https://github.com/physicsvigilante/emfeeld/actions/runs/44024850240) QUEUED; [real-PyVista #44024850302](https://github.com/physicsvigilante/emfeeld/actions/runs/44024850302) QUEUED; [source snapshot #44024850273](https://github.com/physicsvigilante/emfeeld/actions/runs/44024850273) QUEUED. Source CI completion and original archived evidence audits have **NOT YET** been asserted at this timestamp; earlier 1,500-test viewer CI on obsolete pre-replay draft `d969062...` passed but is NOT the final head.
+
+**Independent review status:** Not started / no Chat B verdict. [REQUEST](REQUEST.md) and [REVIEWER-PROMPT-01](REVIEWER-PROMPT-01.md) are author-published, not a reviewer report. Risk R2 because qualification/physical evidence is being claimed for a concrete physics question. Do not treat a queued check or self-review as qualification, and do not merge until both exact-head CI and independent R2 review pass.
+
+**After review:** owner returns “review done”; Chat A validates original review and exact source before any guarded integration, then separately qualifies fresh *actual merged main* Linux/Windows/PyVista, source and original archived evidence. Original G1/E1/T1 and PR #29 archives remain untouched. No claimed magnetic force law, self-consistent EM, independent human physics or classroom certification.
