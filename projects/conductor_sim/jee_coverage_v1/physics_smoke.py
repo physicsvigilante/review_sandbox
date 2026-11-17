@@ -18,10 +18,11 @@ from pathlib import Path
 from conductor_sim import (
     ElectrostaticProblem, ExternalGroundedSphereBackend,
     FixedPointField, Grounded, PointCharge, PrescribedField,
-    PrescribedScenario, SolidSphere, TestChargeMotionSpec,
+    SolidSphere, TestChargeMotionSpec,
     UniformDiskAxisField, UniformElectricField, UniformRingAxisField,
     UniformRodField, UniformShellField, integrate_test_charge,
 )
+from conductor_sim.scenarios import PrescribedScenario
 from conductor_sim.motion_events import EventPolicy, EventStudy, VelocityReversal, investigate_motion
 from conductor_sim.solver import SingularField, UnsupportedProblem
 
