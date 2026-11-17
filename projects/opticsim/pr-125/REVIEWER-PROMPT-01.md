@@ -1,0 +1,9 @@
+# Chat B — independent targeted review of Opticsim PR #125
+
+In a separate context, read the full [review request](REQUEST.md). Inspect [draft research PR #125](https://github.com/physicsvigilante/opticsim/pull/125) **at exact HEAD `fe38be8808e033e25042adca0e01afd4680a9439` and Git tree `fd72c1dad242e3b754bb56b1b4ec6c1df71e1084`**. It is a child of separately reviewed PR #122 at `70cf502d19e243e4a8d7d1e0795f008c101c582d`. Do not assume old review transfers to the new source.
+
+This follow-up changes only one native test, one new real-Chrome test script, its workflow wiring, and an editorial README sentence. Verify the exact four-file diff and no pinned solver/admission/readout modifications. The expected source-CI evidence is **866/866 Node tests, 11/11 standard workflows, 9 real-Chrome combined v18 footprint-only checks and 6 screenshots**. Check actual logs and screenshots rather than PR prose. Independently recompute detector normal and 2-direction on-axis return geometry; distinguish N=1 sample RMS 0 from physical image width. Check stop y-shift from 0 to +30 gives genuine zero detected samples and **null** empty-group spread; verify invalid overlay suppresses stale readings, qualified exported scene contains no native results, reopening retraces, and Fresnel-on native incomplete suppresses footprint and older counts/absorptions.
+
+Retain the other review's **F2 >32 v18 native-hit feasibility as OPEN**; do not claim it passed in this follow-up. State whether you independently ran native PhyDemo and Chrome or merely inspected source-CI. Publish `projects/opticsim/pr-125/reviews/review-01-chat-b.md` with precise source identity, evidence, ranked findings and one verdict: **CLEARED FOR OWNER DECISION**, **CHANGES REQUESTED**, or **INSUFFICIENT EVIDENCE**.
+
+**Never merge any PR.** #125 is research-only, #122/#120/#118 preserve original reviewed commits, and all dependent owner release holds remain unchanged.
