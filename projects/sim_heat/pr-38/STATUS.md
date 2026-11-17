@@ -1,3 +1,13 @@
+## Independent targeted review-02 completed — SCOPED PASS, native HOLD
+
+[Chat B's independent review-02](reviews/review-02-chat-b.md) (reviewer-authored Git blob `598ab499130ec10e17ae002a3a3ce44e3bcab704`) returned **SCOPED PASS** for the corrected literal build-text preview manifest integrity at source `f87a9aa025caf5091da8fe3613734b62281ebe1c`, tree `e55d00c700665012e1e27be0f28a877348969f3f`. It independently executed **33/33** on-disk F-01 adverse verifier probes. [Chat A response-02](responses/response-02-chat-a.md) accepts the scoped result. Original [review-01 CHANGES REQUESTED](reviews/review-01-chat-b.md) remains valid for older source `a570e3c589457d21b6673701a2d126d7046e1c3c`.
+
+The exact-head [CI #44032986237](https://github.com/physicsvigilante/sim_heat/actions/runs/44032986237) **SUCCESS** at reviewed SHA retains 232/232 **offline** methods and original source/reference pins, with zero OMC version/build/launch. Corrected PR #38 stays draft/unmerged. The original frozen F0 80× accuracy failure and PR32 bitwise regeneration failure remain genuine FAILs. **No native runtime plan, trusted release/backup, host attestation, owner native-launch approval or durable across-run one-shot reservation has been created.**
+
+**Next:** separately review an offline-only simulation/prototype for one-shot storage semantics; it must never be represented as a real protected cross-host native launch permission.
+
+---
+
 ## Latest status — PR #38 F-01 corrected, targeted R2 review-02 pending
 
 **Current status: `CHANGES-REQUESTED-review-01; F01-corrected-at-new-SHA; R2-review-02-pending; NATIVE-HOLD`.** The original [independent Chat B report](reviews/review-01-chat-b.md) returned **CHANGES REQUESTED** at source `a570e3c589457d21b6673701a2d126d7046e1c3c`, tree `0f5af0d11d3c96b5b4decc3ea8dd0fae2ae201b6` for F-01 parsed-JSON equality accepting numeric `0` as literal false and `4000.0` as integer 4000. Original physical reference byte identity and passive text/no-OMC boundary passed. Its verdict remains historically valid at that source.
