@@ -1,3 +1,11 @@
+## Reviewed correction disposition — scoped PASS, native HOLD
+
+[Independent Chat B review-02](reviews/review-02-chat-b.md) returned **SCOPED PASS** for source `2f2b8d5008f51b9972897058328aed8cbcbfbbce` (tree `de397fe3af9bb3385c4ef55354e49c33571dc99b`), closing the original review-01 F-01–F-04 **within offline staged-input readback**. [Chat A accepted and documented findings](responses/response-02-chat-a.md). The old CHANGES REQUESTED review-01 at `d1d6a32252b41dabad832668de642ecaf475a2a3` remains correct at that older source. Original scientific bytes and both original F0/PR32 failures stay unchanged. Current [CI #44028343008](https://github.com/physicsvigilante/sim_heat/actions/runs/44028343008) succeeded (217/217 offline tests, no OMC).
+
+**Native gate remains HOLD.** Reviewer confirmed local stage-label checks do **not** authenticate a global attempt: coordinated changes to both manifest/state labels may still be accepted by an offline predicate. It is not a durable one-shot lock. Release trust, actual OMC/MSL/host evidence, independent runnable adapter, new owner native approval and post-native R2 are still absent. Draft PR #37 remains unmerged.
+
+---
+
 # SIM_HEAT PR #37 — independent review and corrected staging-readback status
 
 **Current: `F-01–F-04 corrected candidate; awaiting targeted Chat B R2 review-02`; NATIVE EXECUTION HOLD.** The original [independent review-01](reviews/review-01-chat-b.md) returned **CHANGES REQUESTED** at source `d1d6a32252b41dabad832668de642ecaf475a2a3`, tree `af85a6f1848a0f1231612144a1230689be8cf0f2`. The scientific staged-byte identity and PR36 F-06 type fix passed, but the reviewer reproduced duplicate JSON key acceptance and coordinated preview/manifest tamper plus label/parent-symlink/type limits.
