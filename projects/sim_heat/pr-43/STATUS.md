@@ -1,3 +1,13 @@
+## Independent R2 complete — scoped PASS for untrusted stale-CAS differential, native HOLD
+
+[Independent Chat B review-01](reviews/review-01-chat-b.md), blob `d419f7a18b279c4d893d9ec8e0d77bfefb282544`, returned **SCOPED PASS** at exact source `4e220a152e702c06b07320850f5caacff1091bb3`, tree `4a931c0e017eb650c0b4a63c5dfdf38097ad9d72`; [Chat A response-01](responses/response-01-chat-a.md) accepted F-01–F-07. Exact [CI #44051422673](https://github.com/physicsvigilante/sim_heat/actions/runs/44051422673) passed 309/309 **offline-only** tests, zero OpenModelica queries/builds/launches. Two distinct fake CAS stores, stale unsafe reads, or store reset can still grant repeated fictional claims; no owner-authenticated external authority exists.
+
+**F-06 note:** copied well-shaped fake snapshots and modified fake `status`/`fakeCounts` are NOT owner-signed provenance. Do not treat `validate_receipt` as authentication. All 11 real release/host/owner/plan/external-CAS gates remain **MISSING**. Frozen F0 80×/100× scientific precision FAIL and PR32 cross-host original-seal bitwise regeneration FAIL remain unchanged; PR #43 and all experimental PRs stay draft/unmerged.
+
+Next bounded candidate: a **separate read-only, always-blocked evidence-intake firewall** that can hash untrusted local candidate files but never certify native results, create physical observations or override missing gates. A future actual native attempt requires distinct exact owner authorization and independent pre-native R2.
+
+---
+
 # SIM_HEAT PR #43 — stale-snapshot versioned CAS OFFLINE differential, independent R2 pending
 
 **Status: `R2-AWAITING-CHAT-B-UNTRUSTED-STALEREAD-CAS; F02-NATIVE-HOLD`.** Historical source [draft PR #43](https://github.com/physicsvigilante/sim_heat/pull/43), exact HEAD **`4e220a152e702c06b07320850f5caacff1091bb3`**, tree **`4a931c0e017eb650c0b4a63c5dfdf38097ad9d72`**, immediate base independently reviewed PR42 `32cbb7d02b7db0cbc322fb0e7826861fd902a77a`. Exactly **FOUR ADDED** files, zero frozen history edits/merges; original frozen F0 `dd8c9432abe97563414bb3ed809e61e673473812` remains unchanged.
