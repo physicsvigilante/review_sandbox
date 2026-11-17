@@ -476,6 +476,57 @@ def two_opposite_signed_roots():
     return calculated
 
 
+def genuine_source_guard_prefix():
+    """Reviewer-chosen nearly force-neutral fixed point exactly on a Newtonian
+    trajectory: the original Coulomb singularity guard must truncate native
+    evidence without inventing late detector crossings.
+    """
+    from conductor_sim import GraphWorldForkPlan, run_graph_world_fork, FixedPointField
+    baseline=original_model()
+    strike=independent_state(baseline.spec,.65)[0]
+    questions=(
+        PlaneEvent("review:early",(.05,0.,0.),(1.,0.,0.),
+                   "Reviewer's early actual detector",direction=1),
+        PlaneEvent("review:late",(.30,0.,0.),(1.,0.,0.),
+                   "Reviewer's late censored detector",direction=1),
+    )
+    old=run_unified_observation_graph(UnifiedObservationPlan(
+        "review01:guard-original",baseline,(
+            PhysicalWorldNode("old-mass","baseline",
+                "Extra old physically observed world",
+                (CoupledPropertyEdit("test-particle","mass_kg",4.1e-6),),
+                "events"),),"events",questions,POLICY,
+        retain_source_ancestry=True))
+    node=StructuralWorldNode("point-guard","baseline",StructuralCase(
+        "point-guard",
+        "New genuine fixed near-neutral Coulomb point on predicted path",
+        add_sources=(NamedSource(
+            "source:guard","Weak held singular source requiring honest native guard",
+            FixedPointField(1e-30,strike)),)), "events")
+    fork=run_graph_world_fork(GraphWorldForkPlan(
+        old,"review01:guard-new",(node,),questions,POLICY,
+        (WorldComparison("prefix","baseline","point-guard"),)))
+    e=fork.entries[0]
+    assert e.scenario is not None and e.native is not None
+    assert e.status=="censored-source-guard",(e.status,e.reason)
+    assert e.native.trajectory.termination=="source-guard"
+    outcomes=e.native.as_dict()["outcomes"]
+    assert outcomes["review:early"]=="located",outcomes
+    assert outcomes["review:late"]=="search-truncated",outcomes
+    last=e.native.trajectory.samples[-1].time_s
+    assert last<baseline.spec.duration_s
+    comparison=fork.as_dict()["cross_world_comparisons"][0]
+    assert comparison["status"]=="compared"
+    assert comparison["exact_time_trajectory_comparisons"]
+    assert all(row["time_s"]<=last for row in comparison["exact_time_trajectory_comparisons"])
+    assert all(root["status"]=="unpaired" and
+               "estimated_numerical_shift_s" not in root
+               for root in comparison["event_time_comparisons"])
+    return dict(termination=e.native.trajectory.termination,
+                last_saved_s=last,source_position_m=strike,
+                outcomes=outcomes,saved_rows=len(comparison["exact_time_trajectory_comparisons"]))
+
+
 def legacy(out):
     from conductor_sim import GraphEventInquiryPlan,run_graph_event_inquiry
     hashes={}
@@ -572,6 +623,7 @@ def full(out):
     refused=negative_models(graph)
     event_refused=old_event_refusal_can_parent()
     opposing_roots=two_opposite_signed_roots()
+    guard_prefix=genuine_source_guard_prefix()
     hostile(graph,plan,fork)
     (out/"old.json").write_bytes(before)
     (out/"fork.json").write_bytes(plain(second.as_dict()))
@@ -588,6 +640,7 @@ def full(out):
                 mismatched_studies=mismatch, physical_refusals=refused,
                 eligible_old_event_refusal=event_refused,
                 opposite_signed_roots=opposing_roots,
+                source_guard_prefix=guard_prefix,
                 hostile_checks=FAILURES,original_graph_sha256=sha256(before).hexdigest())
     (out/"review-results.json").write_bytes(plain(result))
     print("INDEPENDENT_RESULT "+json.dumps(result,sort_keys=True))
