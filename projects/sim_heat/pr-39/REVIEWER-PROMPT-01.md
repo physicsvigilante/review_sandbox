@@ -1,0 +1,13 @@
+# Chat B — SIM_HEAT PR #39 LOCAL one-slot SQLite SIMULATOR review
+
+Continue as independent Chat B R2 reviewer for **historical draft [SIM_HEAT PR #39](https://github.com/physicsvigilante/sim_heat/pull/39)** at **exact source commit `ffc96e743a78cb3c63c01d6bf292d1fa84c6164f`**, tree `2bbb083437bd8166fc44e4c447521990a657d14a`, immediate independently reviewed base PR #38 `f87a9aa025caf5091da8fe3613734b62281ebe1c`.
+
+Read the complete packet: https://github.com/physicsvigilante/review_sandbox/blob/main/projects/sim_heat/pr-39/REQUEST.md
+
+The four new files implement only a **local-filesystem Python SQLite one-slot concurrency simulation**. Ten cooperative child processes contest a single local SQLite row; one should commit a simulated slot and nine refuse. Repeated claims and post-commit crashes should not free that local row. A *deliberate test deletes the local SQLite database and successfully allocates again*—proof that this is **NOT a genuine durable cross-host/owner-controlled native one-shot reservation**. Source/receipt labels `realAcrossRunReservationAllocated=false`, `sharedAcrossHosts=false`, `nativeAllowed=false`, `ownerNativeLaunchApproved=false` must remain explicit. No compiler/OMC, native runner, Modelica simulation, build or one-shot authority exists here.
+
+Independently inspect SQLite atomicity/concurrent claims and crash/deletion/tampered row tests, no-native CLI refusals, source historical preservation, and truthful limitations. Check exact-head [CI #44036625580](https://github.com/physicsvigilante/sim_heat/actions/runs/44036625580) and [artifact #14306794679](https://github.com/physicsvigilante/sim_heat/actions/runs/44036625580/artifacts/14306794679), whole ZIP SHA-256 `a34b0546b2ddc51e4dc3fbd1588cc80dae92c8bddd301aa5b59bbc54c7d54435`, 20 ZIP members, **244/244 offline tests** (12 new plus 232 previously reviewed). Verify the original F0 80× vs mandatory 100× reference FAIL and PR32 bitwise V2 regeneration FAIL remain intact, with nine actual native readings still not computed.
+
+Write a NEW independent report in `physicsvigilante/review_sandbox/projects/sim_heat/pr-39/reviews/review-01-chat-b.md` with scoped PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE, exact head/tree, personally performed vs CI-observed tests and remaining requirements for an actual owner-controlled external atomic lock.
+
+**Do not** modify source, merge historical PRs, run OpenModelica or reference regeneration, grant launch authority, or misstate this simulator as a global one-shot gate. Actual native work still requires separate explicit owner approval of a named source/host/plan/budget, trusted release/backup, new independent pre-native R2 and post-native evaluation.
