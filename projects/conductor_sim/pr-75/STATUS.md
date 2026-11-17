@@ -63,3 +63,19 @@ PR #75 was marked ready, then successfully merged with GitHub `expected_head_sha
 - **Actual merge Git tree `655a5539b4107c5660ae7b105cf1b30e0339c2fb` is identical to the reviewed source-tree**, and remote `main` points at the merge SHA/tree.
 
 **Postmerge status at this first check:** an exact merge-SHA GitHub Actions query found **15 triggered main-push workflows**, **14 in progress and 1 queued**. These are NOT yet passed; do not claim M33a fully released until all actual merge-SHA workflows complete successfully. Historical FEMM/Chromium main checks and full Python must pass again for exact main commit. No new M33a browser scene or FEMM solver is implied by those regression tests.
+
+
+## M33a FULLY RELEASED — all 15/15 exact merge-SHA main workflows succeeded
+
+**Release completed 2026-11-17.** GitHub confirms [PR #75](https://github.com/physicsvigilante/conductor_sim/pull/75) **CLOSED/MERGED**. Current remote `main` HEAD is **[a88a5eefc308331555efe6a07c67fd72a712d6a1](https://github.com/physicsvigilante/conductor_sim/commit/a88a5eefc308331555efe6a07c67fd72a712d6a1)**. The merge has expected parents `ad99239faf6a4a2229134b95f82c599f7be9d520` (previous `main`) and `117990d239503a947f7be2896c52ffd10a2cacf1` (exact independent-review PASS source). Its Git tree **`655a5539b4107c5660ae7b105cf1b30e0339c2fb`** is *identical* to the source tree independently reviewed by Chat B.
+
+GitHub Actions query filtered to the **literal merge SHA `a88a5eef...`**, `main` push event, returned **15/15 COMPLETED/SUCCESS**; **zero** failed, cancelled, pending or in-progress. Not a premerge check substituted for postmerge verification:
+
+- [Main-push Python #44046360003](https://github.com/physicsvigilante/conductor_sim/actions/runs/44046360003): Python **3.10: 1,948 passed, 97 FEMM-only skipped, 16 warnings**; Python **3.12: 1,948 passed, 97 FEMM-only skipped, 16 warnings**. Both completed SUCCESS.
+- [Main-push real FEMM 5 #44046359900](https://github.com/physicsvigilante/conductor_sim/actions/runs/44046359900): **97 real solver tests passed** in 21.06s. Historical conductor physics regression, not a new M33a FEMM world solver.
+- [Main-push visualization and source/Chromium #44046359934](https://github.com/physicsvigilante/conductor_sim/actions/runs/44046359934): **SUCCESS**; Python non-FEMM visualization/regressions **1,948 passed, 97 deselected, 16 warnings** plus workflow's retained browser/source checks. These are historical browser acceptance checks, not a new M33a scene renderer.
+- Remaining 12 actual main-push workflows (M15c/M17c/M18b/M18c/M19a/M19b/M19e/M20a/M21c/M21d/M21e/M22a) each **COMPLETED/SUCCESS**.
+
+Original prior unsuccessful independently expressed verifier and reviewer fixture attempts remain disclosed in earlier source-pinned packet; their failure logs are not overwritten or mislabeled. The source passed new M33a 13/13 developer native tests, independently expressed source-HEAD Newtonian and adversarial checks, and original separate-context reviewer [R2 PASS #01](reviews/review-01-chat-b.md) before the owner approved the exact-HEAD safeguarded merge. Reviewer F-03 nonblocking generic v3 metadata wording may be considered as a future independent documentation/contract follow-up; deliberately no postreview source change occurred before merge.
+
+**M33a is fully released.** Cross-branch alternative physical world comparisons are now part of released `main`: original native trajectories and typed event observations, true source inventory/revision/ancestry on each side, exact saved SI timestamps and uniquely qualified event shifts, with unchanged v1/v2 legacy outputs when comparison requests are absent. No newly claimed solver laws, moving sources, induced conductor response, scene graph, unrestricted 3D, PDF authentication or cryptographic security.
