@@ -1,0 +1,35 @@
+# M34b PR #79 — Certified incremental physical-world forks: review/release status
+
+**Developer-authored evidence/status; NOT independently authored R2 PASS, not owner merge authorization. Source PR #79 is DRAFT / OPEN / UNMERGED.**
+
+- Production source PR: https://github.com/physicsvigilante/conductor_sim/pull/79
+- Exact candidate source HEAD: `5d7a6d195e14c6858540066586b6b40a44160b9b`
+- Exact candidate native Git TREE: `d0646c9e4d518008784c42c1fec1c48c81901a09`
+- Independently reviewed and fully released M34a base/main: `ecb6740fff851e0dbce2c2784a173638155a9acb`
+- Base Git TREE: `87b1271d437a5bcc58f9328cca9773827a3da7d8`
+- Frozen charter-only commit: `5dcde3c5bf0426f66d8c8b01a467c16d01f34adb` (before implementation)
+- Risk: **R2 — real new physical source-world admission, full M32b branch-local source ancestry, M24a original event evidence, M33a pairings, in-process receipt**
+- [Full scientific REVIEW REQUEST](REQUEST.md) · [Original Chat B REVIEWER-PROMPT-01](REVIEWER-PROMPT-01.md) · [central review protocol](../../../PROTOCOL.md)
+- Expected **NEW independent** report: `projects/conductor_sim/pr-79/reviews/review-01-chat-b.md` — not yet published.
+
+## Scientific content / source change
+
+A real issued `UnifiedObservationRun` whose graph has already been physically qualified and integrated can now be reused as an immutable source for 1..5 NEW whole-source physical hypotheses. A new `GraphWorldForkPlan` accepts bounded genuine M22a source structure changes and M20b physical property revisions with exact real immediate parent and M32b branch-local retired ID lineage, independently integrates ONLY admitted NEW worlds using native original M19/M27 or M24a, records physically refused worlds truthfully, and permits evidence-qualified old/new or new/new right-minus-left native comparisons. The original graph is never reintegrated, and its old v1/v2/v3 or M33b inquiry JSON evidence remains unchanged.
+
+Saved-time rows require literal matching physical SI clocks; unique same-direction root shifts require identical full native M24a detector question/policy and two duration-complete studies; same event ID alone is insufficient. Source guard, terminal/multiple/opposite signed event histories are not claimed as full-horizon event root shifts. Detached standalone source-fork v1 output is bound to the original complete source graph SHA and new runner-issued in-process receipt, NOT third-party cryptographic proof or trusted JSON model importing.
+
+No new electrostatic/force/energy law, FEMM backend, responding conductor, moving held source, collision, new RK/event solver, unrestricted 3D, scene graph, browser ODE, PDF-authentication or arbitrary LLM callbacks.
+
+## Developer validations — do NOT conflate with separate Chat B scientific review
+
+1. [First original pinned native smoke #44076616526](https://github.com/physicsvigilante/review_sandbox/actions/runs/44076616526): **SUCCESS, 13/13 tests** on original source-only commit `bd999c9d3887893a8c53df6d4bab1e008d232bbf`, tree `ec97c1e8d6919b69ccc4246600d655263f2e2aeb`. Real source graph 3 old worlds and fork 5 new requested (4 physically admitted/integrated, 1 retired-ID refused), real native same-typed M24a events, inherited source history. Artifact #14326105251, provider-reported ZIP SHA256 `53276276dc8cb6bcf20fe124a4ec33a111f3ae05a7733c4db09ca56051671731`. The native implementation was retained unchanged; focused tests later expanded.
+2. [Exact HEAD/TREE pinned expanded original/native scientific smoke #44077421977](https://github.com/physicsvigilante/review_sandbox/actions/runs/44077421977): **SUCCESS, 18/18 tests**, including explicit spy confirming **only the 4 new admitted worlds are integrated**, original 3 world native result object identities retained, actual structural→physical→structural and source retirement, valid independent same-ID siblings, old v3 graph compatibility, genuine source guards/terminal/multi-root refusals, mismatched same-ID event geometry/policy, M34a oblique qualified physical worlds, typing/lineage bounds and adversarial native/Boolean timestamps. Uses literal `5d7a6d195e14c6858540066586b6b40a44160b9b` / tree `d0646c9e4d518008784c42c1fec1c48c81901a09`. Executed original graph and new fork JSON. Artifact #14326046497, GitHub-reported ZIP SHA256 `0da6dd3ef1c9d9ac3b51ef82ac36c48144a430ca5a724e8d2b7856e8842d52ce`.
+3. [Exact HEAD source PR independently expressed Newtonian SI and native comparison #44077650204](https://github.com/physicsvigilante/conductor_sim/actions/runs/44077650204): **SUCCESS**. Its standard-library-only checker imports **NO conductor_sim** and recomputes real 3 old + 4 new admitted native worlds' each saved 3D SI qE force, velocity, position, unique signed detector times, branch-local active/ever seen/retired source IDs and parent model SHA, 3 old/new/new/new right-minus-left pairings and exact root-shift intervals; refuses 7 deliberately tampered detached evidence controls. Artifact #14325338324, GitHub-reported ZIP SHA256 `da8f0d78bab6828b383c137f0d595c15c08d3b5e19bbc75a9b067062fab0c02d`. This is independent-form developer arithmetic, **not a separate-context reviewer-developed unknown physics case**.
+4. [Released M34a vs candidate M34b native old v1/v2/v3 and M33b inquiry byte identity #44077727213](https://github.com/physicsvigilante/review_sandbox/actions/runs/44077727213): **SUCCESS**, original released SHA/tree and candidate exact SHA/tree separately checked out, actual authentic old native graph and typed new event-inquiry output generated by the same source script, complete canonical detached JSON is **BYTE-IDENTICAL**, per-file SHA256 `80d37d46de066bb15e6073244184968b0e2346fbe1501beb43c0de9039c4d512` both sides. Artifact #14325517631, provider-reported ZIP SHA256 `7dc99105977c528adcaa7dc7254c765684dabbbf341a20883b6c71b708d92aa3`.
+5. At first packet publication the full exact-current-source **Python 3.10/3.12**, 97 genuine FEMM5 and historic real Chromium/source checks were in progress. A later API sample showed **15/17 current-head workflows success, Python and Chromium still in progress**, zero observed failures. Do not claim all green until a fresh completed-source query. No developer failure in original/expanded pinned M34b native checks; original failed attempts from reviewer should still be retained if discovered.
+
+All source HEAD artifact ZIP digests above are GitHub-provider metadata, not independent downloaded/rehashed binary payloads. Source graph root is teacher-authored, not PDF-authenticated, and receipts are in-process only.
+
+## Outstanding release gate
+
+**Do not merge or mark ready** until current-source PR workflows ALL completed/success, one NEW original separate-context Chat B full R2 scientific/provenance review independently reports **PASS/no blockers** on exact HEAD/tree with new physically unfamiliar simulations and hostile evidence probes, and the owner separately authorizes an expected-head guarded merge. Then verify GitHub main merge SHA/tree matches reviewed source tree and **every** triggered main-push postmerge workflow passes before declaring M34b released.
