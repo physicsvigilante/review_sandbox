@@ -1,0 +1,44 @@
+name: M31b review-01 source-pinned first-attempt probes
+on:
+  push:
+    paths:
+      - ".github/workflows/m31b-review01-reproduction.yml"
+      - "projects/conductor_sim/pr-72/reproductions/reproduce_review01.py"
+  workflow_dispatch:
+jobs:
+  exact-source-first-attempt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviews
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 7c177e7da153992d963c966091c76ed12faab5a0
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Confirm original reviewed source commit AND tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "7c177e7da153992d963c966091c76ed12faab5a0"
+          test "$(git rev-parse HEAD^{tree})" = "23ea42ef39d2a3a67df4bb564398aa5727c828b5"
+      - name: Install pinned package
+        working-directory: source
+        run: python -m pip install -e .
+      - name: Reproduce published Chat B probes on old source
+        working-directory: source
+        run: |
+          python ../reviews/projects/conductor_sim/pr-72/reproductions/reproduce_review01.py | tee ../first_attempt.log
+      - name: Upload retained first-attempt evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m31b-review01-original-source-attempt
+          path: |
+            first_attempt.json
+            first_attempt.log
+          if-no-files-found: warn
