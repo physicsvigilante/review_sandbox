@@ -61,12 +61,41 @@ jobs:
               assert doc["outcomes"][name]["outcome"] == "PASS", name
           print("REVIEW03_RETAINED_CONTROLS_PASS; script historic SHA fields are not the new checkout identity")
           PY
+      - name: Independently rerun UNCHANGED reviewer02 F-01 F-02 F-03 and analytic probes
+        working-directory: source
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-72/reviews/review-02-chat-b-probes.py 2>&1 | tee ../review03-legacy-controls.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a = json.loads(Path("../review02-results.json").read_text())
+          assert a["issues"] == [], a["issues"]
+          required = {
+            "F04_HYPOTHESIS_PROVENANCE_REBIND": "REJECTED",
+            "F04_PLAN_ID_REBIND": "REJECTED",
+            "F03_NO_RESCUE_VALID_SIBLING_PRESERVED": "PASS",
+            "F02_GENUINE_REFUSAL_PARENT_CHILD_SUCCEEDS": "PASS",
+            "NOVEL_GRAVITY_EY_ANALYTIC_NATIVE": "PASS",
+            "NATIVE_ROD_REFERENCE": "PASS",
+            "F01_AFTER_CONSTRUCTION_EXPORT": "REJECTED",
+            "F02_PARENT_MISSING_OBSERVATION": "REJECTED",
+            "F02_CHILD_MISSING_OBSERVATION": "REJECTED",
+          }
+          for key, expected in required.items():
+              assert a["outcomes"][key]["outcome"] == expected, (key, a["outcomes"].get(key))
+          print("REVIEW03 PRIOR INDEPENDENT F01 F02 F03 CONTROLS PASS")
+          print("NOTE original historic review02 source pins embedded in script outputs are not checkout claims")
+          PY
       - name: Preserve first-attempt evidence digests
         if: always()
         run: |
           sha256sum reviews/projects/conductor_sim/pr-72/reviews/review-03-chat-b-probes.py > review03-digests.txt
+          sha256sum reviews/projects/conductor_sim/pr-72/reviews/review-02-chat-b-probes.py >> review03-digests.txt
           test ! -f review03-results.json || sha256sum review03-results.json >> review03-digests.txt
           test ! -f review03-native.log || sha256sum review03-native.log >> review03-digests.txt
+          test ! -f review03-legacy-controls.log || sha256sum review03-legacy-controls.log >> review03-digests.txt
+          test ! -f review02-results.json || sha256sum review02-results.json >> review03-digests.txt
           test ! -f review03-retained-native.log || sha256sum review03-retained-native.log >> review03-digests.txt
           test ! -f review02-results.json || sha256sum review02-results.json >> review03-digests.txt
       - uses: actions/upload-artifact@v4
