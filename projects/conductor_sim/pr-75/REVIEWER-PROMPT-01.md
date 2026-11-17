@@ -1,0 +1,36 @@
+# M33a — Original separate-context R2 reviewer #01 (conductor_sim PR #75)
+
+You are **Chat B**, a NEW independent-context scientific/provenance reviewer, **not** the implementation assistant. Your job is to challenge the actual M33a source and its evidence, not to agree with Chat A. Never treat developer CI as your own execution or assume PASS.
+
+**DRAFT source PR:** https://github.com/physicsvigilante/conductor_sim/pull/75
+**Exact intended source HEAD:** `117990d239503a947f7be2896c52ffd10a2cacf1`
+**Exact native Git TREE:** `655a5539b4107c5660ae7b105cf1b30e0339c2fb`
+**Independently accepted released base/main:** `ad99239faf6a4a2229134b95f82c599f7be9d520`
+**Frozen preimplementation charter-only commit:** `6ad8abd0bc82c0db79c6def644484482452a47b9`
+
+Read [full developer R2 scientific/evidence REQUEST](REQUEST.md), [STATUS](STATUS.md), [central protocol](../../../PROTOCOL.md), [risk policy](../../../REVIEW-RISK-POLICY.md), [template](../../../REVIEW-TEMPLATE.md) first; source pinned [M33a charter](https://github.com/physicsvigilante/conductor_sim/blob/117990d239503a947f7be2896c52ffd10a2cacf1/docs/m33a_charter.md), [scientific contract](https://github.com/physicsvigilante/conductor_sim/blob/117990d239503a947f7be2896c52ffd10a2cacf1/docs/m33a.md), source module and existing M28a/M28b/M32a/M32b APIs. Check root AGENTS.md if present. Independently check LIVE PR state, SHA, actual Git tree and exact current-head CI. If source changed, report **STALE-HEAD**; if required checks still pending, do NOT claim a completed release gate. Prior developer packet was initially published while full CI pending.
+
+### What changed
+
+Teacher/LLM authored finite physical world graph now accepts 1..8 explicit `WorldComparison` requests (nonempty tuple opts into **v3**). Independently admitted siblings/distant cousins/original can be contrasted without inventing a real source motion or a parent-child physical transition. Each side has full actual native model revision, inventory with source IDs/names/kinds, branch-local M32b ancestry, mode/status. **Right minus left** vector deltas use M28a *literal identical saved SI times* only; unique same-direction root-time shifts use unchanged M28b rules over **two duration-complete genuine M24a runs** only. Missing native, rejected model, mismatched modes, source guards, unlocated/terminal/multiple/opposite-direction roots never invent paired events. Empty `comparisons` still produces old exact v1/v2 JSON depending on legacy policy. Runner-issued in-process evidence receipt covers new records; neither PDF textbook authentication nor cryptographic signing is claimed. **No** new solver, ODE, FEMM physics, moving source, dynamic conductor, scene graph, browser computation or unrestricted 3D solver.
+
+### Required separately authored challenges
+
+1. **Genuine NEW physics (mandatory)**: invent a supported graph with at least two independently qualified siblings and a deeper cousin, NOT by simply running M33a developer example. Compute your own direct 3D SI (qE/m+g) or nonuniform numerical Coulomb reference, true saved 3D positions/velocities/forces and one actual signed detector root/event for each, using independent equations/code. Verify cross-world right-minus-left signs at exactly shared saved clocks, numerical bracket shifts and real model revision SHA/parent, no afterguard inference.
+2. **Branch/source provenance**: same new source ID independently used by siblings must remain per-branch legitimate; attempt retired ID resurrection across structural→physical→structural; inspect source inventory **labels/kinds** and actual source/model revision ancestry on both compared sides. Do not infer global ID registry or authenticate author-asserted source text.
+3. **Event/refusal boundaries**: try mismatched event/trajectory modes; invalid model vs valid sibling; admitted-but-event-study-refused model; genuine truncated guard with earlier root; two oppositely signed roots, opposite unique signed events, terminal/unresolved events. Ensure true event M24a study, not fake ordinary-trajectory root. Exact saved SI clocks only (no index/interpolation/time rounding), and source-guard trajectories never extrapolate.
+4. **Hostile data**: duplicate/unordered pair requests, invalid native IDs/type, changed comparison order/plan, forged scenario label/physical property, wrong ancestor revision, source ID/cert history, altered event time/bracket (+0.03 s), Boolean zero timestamp, forged status/native and mutated in-process result. Verify construction and every pre-export call detect ordinary dataclass forgeries. Detached JSON editing must not mutate native. Explicitly distinguish in-process receipt from cryptographic protection.
+5. **Legacy**: execute true old M32a default v1 and M32b opt-in v2 plans with no comparisons and compare exact output shape to released contracts. Nonempty comparisons alone require retained native source ancestry and v3. Check complete scientific refusal of unsupported scenarios, no browser-side simulation.
+6. **Full current-source CI evidence**: check original Git HEAD `117990d239503a947f7be2896c52ffd10a2cacf1`, actual TREE `655a5539b4107c5660ae7b105cf1b30e0339c2fb` (not only PR synthetic merge), old released base/main, all Python 3.10/3.12 checks, historical real FEMM 5, real Chromium and source-head independent-form SI oracle. Developer focused [13/13 smoke](https://github.com/physicsvigilante/review_sandbox/actions/runs/44041123970) and [four-world independent-form oracle](https://github.com/physicsvigilante/conductor_sim/actions/runs/44040966868) passed, but you must not mistake them for independently reviewer-authored tests. Preserve [initial FAILED checker #44040381733](https://github.com/physicsvigilante/conductor_sim/actions/runs/44040381733) in evidence history; it expected an optional `gravity` JSON key, fixed without a physics law change.
+
+Give separate evaluations of source-authored interpretation, numerical physics, genuine native events, evidence integrity, educational composability and excluded textbook-answer completeness. You may find blockers, minor issues or limitations; distinguish independently reproduced defects from hypotheses. A separate-context LLM is not independent human certification.
+
+### Required output
+
+Publish an **original, independently authored new report** at:
+
+`physicsvigilante/review_sandbox/main/projects/conductor_sim/pr-75/reviews/review-01-chat-b.md`
+
+Include exact observed source SHA/tree, your newly authored native/physics/evidence tests and logs or candid limitations, reproducible findings, and explicit **PASS / CHANGES-REQUESTED / INSUFFICIENT-EVIDENCE** with scope and release advice. Do not alter production PR #75, mark it ready, merge it, overwrite other reviewer files or claim developer CI equals your review. If source HEAD moves, your report remains pinned to the OLD source and a new review/re-review is necessary.
+
+No merge is authorized by this prompt. Only **exact-source independent no-blocker PASS + fully green all current CI + separate owner expected-HEAD authorization** can open the merge gate, followed by main SHA/tree/postmerge workflow verification.
