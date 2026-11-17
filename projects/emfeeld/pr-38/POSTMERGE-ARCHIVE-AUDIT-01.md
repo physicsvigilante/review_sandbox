@@ -1,0 +1,48 @@
+# PR #38 — original ACTUAL-main post-merge source and evidence archive audit 01
+
+**Final author-side release verdict (2026-11-17): PASS**, bounded strictly to the **NON-BLIND public NASA ion-grid source-first rehearsal**. This is an audit of *new actual `main` push* archives after guarded integration, not a relabeling of pre-merge PR ZIPs, a teacher-provided unseen question or independent answer-key certification.
+
+## Exact independently reviewed source and actual integration
+
+- [PR #38](https://github.com/physicsvigilante/emfeeld/pull/38) **CLOSED/MERGED**, actual GitHub main/merge commit **`066c94e4953c3ef29302c0bb6d0ee2f6cb8b8ca0`**, canonical Git tree **`33b58fb55b387ec2b7c1bdd61bf1af7764db97cd`**. Exact source before merge **`68241b9b971c793506a3f0014725f03bb1a8899e`**, same canonical tree; independently [scoped R2 Chat B review-01 PASS](reviews/review-01-chat-b.md) on that exact source, with **11 original reviewer-owned cases passed**, original four pre-merge artifact ZIP audits. Qualified prior main/base **`510014fc078c73d37146b9804763e29d04ac0018`**. Actual merge parents ordered **[qualified base, independently reviewed head]**, source identity verified on actual main.
+- New source changes were **six bounded paths** (frozen NASA public question, local receipt, subsequently authored native packet, tests, explanatory contract and release-CI replay step); **zero `src/emfeeld` field laws, solver, numerical tolerances, viewer, stored studies or previous signed ensemble changes**.
+- The public NASA Space Math Problem 1 PDF contains a public answer key, and the 0.7-mm geometry input was explicitly sourced from separate Problem 2. Original question `external_unverified` and local unkeyed receipt `not_authenticated`; question before packet Git chronology is independently verifiable, but external NASA provider delivery and a blind withheld judge are **not authenticated or claimed**.
+
+## Fresh ACTUAL `main` push workflows
+
+- [Fresh Linux/Windows clean-install release #44107232954](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232954), `event=push`, head **`066c94e4...`**: **COMPLETED SUCCESS** on Ubuntu-24.04 and Windows-2022, original jobs both successful. Each original OS ZIP archived **1,585 headless tests passed, 18 historical behavioral passed/one obsolete all-file guard deselected, 33 real-PyVista tests passed**. Five author NASA source-first tests are included in 1,585, never double counted.
+- [Fresh separate real-PyVista viewer #44107232951](https://github.com/physicsvigilante/emfeeld/actions/runs/44107232951), `event=push`, same merged main SHA: **COMPLETED SUCCESS**; original full viewer report **nine** offscreen scene/time/slider cases PASS, original **17** PNG SHA receipts verified. The original viewer's explicit `visual_inspection=PENDING` remains honest: no manual Windows pointer/classroom test.
+
+## Three ORIGINAL new post-merge ZIPs (downloaded, independently audited)
+
+| NEW actual-main artifact | GitHub artifact ID | Original whole-ZIP SHA256 | CRC-checked unique entries |
+|---|---:|---|---:|
+| Ubuntu-24.04 release | **14340110597** | `e317d4694647a6d7eb75aacee0475b6d2ab37ba72f51ff3d71cd9e730c2022dd` | **2,186** |
+| Windows-2022 release | **14340731217** | `9073ebb5fc726facd086be7d6f2099acc9066b21c94095d08aff320a234355be` | **2,186** |
+| Separate real-PyVista viewer | **14339925304** | `dff4fc92241d0c33433d8b1de59991d560a0ad04af1d4913dc45fa8292f0275f` | **22** |
+
+Each downloaded original ZIP was independently rehashed as whole bytes and matched the original GitHub artifact SHA256 digest. Every ZIP entry was actually read for CRC, and checked for absolute/unsafe paths, duplicates and case-fold collisions. Both original OS `head-sha.txt` files contain **actual merged main `066c94e4...`**, not an older source-equivalent PR preview.
+
+Original **new viewer** `tested-source.tar` SHA256 **`9f71b03387ff69ffadb08d740166160c11691377652f47e83040bcb10571db7e`**; safely extracted all **367 tracked source files** and rebuilt a fresh Git tree **`33b58fb55b387ec2b7c1bdd61bf1af7764db97cd`** identical to the actual merged `main` tree. All original 17 PNG receipts rehashed from the viewer ZIP, and each image had an actual valid PNG signature. Original viewer `tests.log` contains 1,585 headless passes. This is a new main-push source archive; raw TAR byte identity to old pre-merge source snapshots is not required.
+
+## Direct original source-first native evidence in EACH OS ZIP
+
+Original stored `nasa-ion-public-v0` lock/question, lock/receipt, CI-replay/question/receipt/packet/native-result/assessment/state were inspected and bound together, not simply trusted because CI was green:
+
+- Source question SHA256 **`cd797751a84d86caa57c2024620215895c1414169c6682b96933e4b4cf25cc23`**, authored packet SHA256 **`f86211065ec99e3e82181de256d321a6ebb054f9b397440996529a3ec6ccfeda`**. Exact raw copies in both OS ZIPs match, original requested ID `exit_speed_native` and source receipt's `not_authenticated` / `external_unverified` labels retained.
+- Original Ubuntu native JSON SHA256 **`ab928b94cbb930d8589352a1ba180f81e4d7dda67997b57473bc35c05242ec20`**, speed **43,484.58452036887 m/s**. Original Windows native JSON SHA256 **`20854e0f07a98af4a6b3eba3b6318b73f9ee8672a4b36175d4239242a16ba038`**, speed **43,484.584520368866 m/s**. These original native-result JSON SHA256s are independently rehashed and agree with the **respective OS's own** assessment receipt; OS bytes are legitimately different. No false byte-identical-platform claim.
+- Each native report's one named `speed` result has `status=ok`, true saved particle 0/sample **20**/`time_s=3.2195317385273e-8 s`, unit **m/s**, numerical value agreeing with separately computed `sqrt(2qΔV/m)` under disclosed model assumptions. External request **km/hour** requires explicit conversion ×3.6 outside native engine (about **156,545 km/hour**); no native unit-conversion or question interpretation solver is claimed.
+- Original `assessment.json`: `native_measurement_coverage=complete` for **one named supported SI observation only**, `issues=[]`, state `execution_complete=true`. Critically `interpretation_fidelity=not_verified`, `independent_physics_correctness=not_evaluated`, `educational_usefulness=not_evaluated`, `textbook_answer_completeness=not_evaluated`. A numerically correct native case does not authenticate NASA/source provenance, blind judging, the official key, physics in general or classroom usefulness.
+
+## Preservation of previous physics evidence, source and failures
+
+- Each original main-push OS archived Physics Demonstration V1 **64/64** analytical reference checks PASSED. **29 original `src/emfeeld/*.py` SHA256 engine-file receipts** checked against the exact new viewer source TAR. Ubuntu original LF hashes match directly; Windows original checkout hashes match **standard CRLF-translation** of those same original source bytes. No engine-file change was concealed.
+- Both original OS archives keep signed **E1 global complete, 10 ok** and **G1 honest global partial, 7 ok +1 unavailable/unknown_operand/null**, not artificially made complete or converted to a zero value.
+- Supplemental local replay on safely extracted *actual merged-main* viewer source: `PYTHONPATH=src python -m pytest -q -W error tests/test_nasa_ion_public_v0.py tests/test_question_first_trial_v1.py tests/test_question_first_saved_time_v1.py` → **59 passed** (original log SHA256 `d38daed8d2adbd96ecffc67bb04c48a7d03e1d5522015266a70d6054997ef2f1`). Historical behavioral replay → **18 passed, one obsolete freeze guard deselected** (original log SHA256 `456d700264ae18c81d4f9632ca545071212712598f2d9b280d11022c3f4dc0d9`). These are local focused/historical supplemental checks, **not** a local full 1,585-pass claim.
+- **Preserved first author audit-script failure:** the first post-merge three-archive audit compared Windows original CRLF `engine_sha256` receipts against canonical viewer TAR LF file-byte hashes and raised an `AssertionError` for `__init__.py`. A direct independent recomputation demonstrated the Windows original hash equals the SHA256 of normal CRLF-translation of the unchanged viewer source. The **audit script only** was corrected to compare canonical LF for Ubuntu and CRLF-translated original bytes for Windows; all 29 hashes then passed. Original ZIP contents, feature source, logs and Git tree were **not altered**. This was a harness assumption error, not a source regression or a valid first full PASS. Both attempts are described rather than hiding the initial failed check.
+
+## Final scientific and release disposition
+
+**PR #38 now satisfies all declared source-first non-blind rehearsal gates:** exact-source R2 reviewer PASS, guarded tree-identical integration, fresh actual-main Linux/Windows clean-install success, fresh separate real-PyVista success, original new ZIP/source/native evidence re-audits and honest existing signed results. Owner-controlled merge was a separate action after reviewer technical verdict.
+
+**This qualifies no blind or teacher-supplied study.** The NASA p.64 public key is visible and its Problem 2 force/acceleration results differ from the disclosed uniform-field-from-rest derivation; the source and key remain unchanged and this discrepancy is explicitly documented for expert evaluation. The underlying engine has not become a natural-language interpreter, plasma ion-thruster simulation or certified global physics reference. Independent external provider/withheld judge remains open in [Issue #36](https://github.com/physicsvigilante/emfeeld/issues/36). No human interactive Windows viewer or classroom usefulness certification has been performed.
