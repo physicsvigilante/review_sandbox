@@ -425,13 +425,13 @@ def event_boundaries():
     old=make_plan("terminal-refusal")
     refusal=UnifiedObservationPlan(
         "chatb75:refusal",old.family.baseline,(
-            StructuralWorldNode("badstudy","baseline",old.family.cases[0],"events"),
-            PhysicalWorldNode("recovery","badstudy",
+            StructuralWorldNode("reversed-force","baseline",old.family.cases[0],"events"),
+            PhysicalWorldNode("recovery","reversed-force",
                 "Real M20b correction makes an event study admissible",
                 (CoupledPropertyEdit("field:Eplus","field_v_m",(500.,0.,0.)),
                  CoupledPropertyEdit("test-particle","mass_kg",2e-6)),"events"),
         ),"events",old.questions,old.policy,retain_source_ancestry=True,
-        comparisons=(WorldComparison("event-refusal","badstudy","recovery"),))
+        comparisons=(WorldComparison("event-refusal","reversed-force","recovery"),))
     x=run_unified_observation_graph(refusal)
     need(x.entries[0].status=="rejected-event-study" and x.entries[0].scenario is not None
          and x.entries[0].native is None and
