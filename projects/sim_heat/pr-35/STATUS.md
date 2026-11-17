@@ -1,3 +1,9 @@
+## Follow-on: separate, NON-EXECUTABLE F-02 design (review pending)
+
+[Draft SIM_HEAT PR #36](https://github.com/physicsvigilante/sim_heat/pull/36), exact HEAD `7cfa35a1cd5cc858e48bcdc4da453bf2dc22b7f2`, branches directly from reviewed PR #35 `f7c69954490c8dcd48d152906e8e2a6d5699481d`. It adds only a **disabled** source/host/one-shot native-control *preview* and OFFLINE checks (five files, no edits to frozen source/reference/runner). [Exact-head CI #44021139785](https://github.com/physicsvigilante/sim_heat/actions/runs/44021139785) passed 190 offline regressions; zero OMC. Its [separate R2 packet](../pr-36/REQUEST.md) is awaiting independent Chat B review. This adds **no owner/native execution permission**, trust-root protection or persistent one-shot lock. Original Option A offline checking approval remains exact/narrow; original failed F0/PR32 evidence unchanged.
+
+---
+
 ## Final PR #35 review disposition (current)
 
 **Status: `SCOPED-R2-PASS-OFFLINE-CONSUMER; NATIVE-F02-HOLD`.** [Independent Chat B review-01](reviews/review-01-chat-b.md) completed **SCOPED PASS** at source `f7c69954490c8dcd48d152906e8e2a6d5699481d` (tree `308edef4c44dff1decece98f587ccf7bb8fe0380`). [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-05 and records continuing boundaries. Historical PR #35 remains draft/unmerged. Exact-head [CI #44018671528](https://github.com/physicsvigilante/sim_heat/actions/runs/44018671528) passed all 177 tests and source/archive checks with **zero OMC/native work**.
