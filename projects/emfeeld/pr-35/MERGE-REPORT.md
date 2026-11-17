@@ -1,3 +1,19 @@
+## FINAL DISPOSITION — PR #35 FULLY POST-MERGE RELEASE QUALIFIED (2026-11-17)
+
+**Question-First Physics Trial V1 is merged and all declared release gates are CLOSED / PASS** for its bounded source-first question/actual native-measurement-coverage purpose. Actual source and `main` merge commit **`510014fc078c73d37146b9804763e29d04ac0018`**, canonical tree **`a82188148568653311581d9d4c02e8c96a37d3cf`**, exactly matches independently [Chat B R2 review-02 PASS](reviews/review-02-chat-b.md) on corrected source `72873b800db9b57051e1587aafd7ba5d938e1e41`. Earlier original review-01 **CHANGES REQUESTED** on old source and first failed saved-time attempt remain unchanged historical evidence.
+
+**Fresh actual main-push CI SUCCESS:** [Linux/Windows clean-install #44075528373](https://github.com/physicsvigilante/emfeeld/actions/runs/44075528373), Ubuntu job `134012445917` and Windows 2022 job `134012446345` each **1,580 headless +18 historical +33 real-PyVista passed**; [separate main-push real-PyVista #44075528342](https://github.com/physicsvigilante/emfeeld/actions/runs/44075528342) **SUCCESS**. All original NEW actual-main artifact ZIPs downloaded, independently SHA/CRC/path/source/native audited:
+
+- **Ubuntu original release artifact `14325586236`** SHA256 `0bf131fe1a4b3b9ffed52f7bb9f67029ecb5286d32d1a3ab262839e5055c397f`, 2,176 unique CRC-clean entries.
+- **Windows original release artifact `14326255395`** SHA256 `0f916440177da6a7f9ed3babc758386fc132bcc266931fbc43a0841fcf2ab6c7`, 2,176 unique CRC-clean entries.
+- **Separate real-viewer artifact `14325081441`** SHA256 `14f09acd069ef6ab6f01df7de5889cffbb086df89b9fa7e7d26c536f83d2cf3f`, 22 CRC-clean entries, nine original offscreen PASS, 17 verified PNG SHA receipts and its original 362-file source TAR independently rebuilt to exact actual merged `main` Git tree.
+
+Both actual OS original archives retain the byte-identical original developer-only question/packet and accurate SHA receipts, actual five native observation measurements (sample/time/physical values/units), explicit independent interpretation/physics/teacher **not_verified/not_evaluated**, original Physics Demonstration **17 actual native `ok` observations /64 analytic checks**, **29 engine Python file source hashes**, signed E1 global **complete/10 ok**, signed G1 global **partial/7 ok +1 unavailable unknown_operand/null** (not a fabricated zero). The two post-merge native JSON bytes happen to be identical in this run; cross-OS byte identity is **not** required. Original post-merge test evidence is distinct from earlier PR-head previews and is not a relabeled pre-merge check.
+
+Detailed direct source/evidence/CRC and original artifact IDs: **[POSTMERGE-ARCHIVE-AUDIT-01.md](POSTMERGE-ARCHIVE-AUDIT-01.md)**. A separate true prospective independently supplied teacher/question-provider case and withheld judge is next [Issue #36](https://github.com/physicsvigilante/emfeeld/issues/36) and has **not** occurred. No independent human general physics correctness, arbitrary-language interpretation, classroom usefulness, authenticated external origin, complete visual inspection or Windows desktop mouse verification is asserted.
+
+---
+
 # PR #35 — Question-First Physics Trial V1 merge and release record
 
 **CURRENT (2026-11-17): INTEGRATED on main; fresh actual main-push Linux/Windows/viewer CI and original archive audit PENDING.** Merge and pre-merge author qualification are distinct from actual post-merge release qualification. Do not call this milestone fully released until the original new main-push jobs and artifacts are verified.
