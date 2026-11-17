@@ -52,3 +52,10 @@ These are **exact new corrected-head**, not failed prior-head, author/hosted res
 - [New corrected-head Linux/Windows clean-install #44025432673](https://github.com/physicsvigilante/emfeeld/actions/runs/44025432673) jobs `133844496365` Ubuntu and `133844496758` Windows **were IN PROGRESS at this follow-up**; their exact full headless/historical/native results and **new** release ZIP audits remain PENDING. No other source changes made after `ee54e96`.
 
 **Independent reviewer R1 report still absent.** Do not merge; old one-failed Windows test-fixture evidence remains unchanged and distinct from the corrected-source full CI.
+
+
+## Corrected-head qualification follow-up 02 — full local headless success (2026-11-17 Asia/Kolkata)
+
+The earlier local full-suite timeout at 24% was a true incomplete first attempt and remains preserved. After source head `ee54e96488e5cd9d2eb904abf65811627bfcc006` was independently reconstructed from original corrected-source snapshot, a **separate full local headless regression** was executed to completion on **the exact unchanged GitHub-tested 352-file source**:
+
+`PYTHONPATH=src python -m pytest -q -W error tests` -> **1,511 passed in 111.00 seconds**, exit 0, original captured stdout log SHA256 **`0355aeab9747b45f237b1e96674cd33d6e213127f91e50dc12d4ab064e4bd97a`**. The preceding exact-source **109 focused cases** also passed with `-W error`. This is **author-side local verification**, not hosted original Windows CI or a new independent Chat B review verdict. New exact-corrected GitHub Linux/Windows clean-install #44025432673 was still in progress when this follow-up was recorded; do not infer its final result.
