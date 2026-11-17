@@ -1,0 +1,68 @@
+name: M34b expanded source-pinned native and independent SI fork smoke 02
+on:
+  push:
+    paths:
+      - ".github/workflows/m34b-pinned-native-smoke02.yml"
+  workflow_dispatch:
+jobs:
+  genuine-native-incremental-forks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 5d7a6d195e14c6858540066586b6b40a44160b9b
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Confirm actual source commit and Git tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "5d7a6d195e14c6858540066586b6b40a44160b9b"
+          test "$(git rev-parse HEAD^{tree})" = "d0646c9e4d518008784c42c1fec1c48c81901a09"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install genuine source native test requirements
+        working-directory: source
+        run: python -m pip install -e ".[test]"
+      - name: Run all incremental physical source, event and hostile evidence regressions
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m pytest tests/test_m34b_incremental_world_forks.py -q | tee ../m34b-native-tests02.log
+      - name: Run and retain original and NEW physical worlds as finite JSON
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m examples.m34b_incremental_forks \
+            --original-output output/m34b-source.json \
+            --output output/m34b-fork.json | tee ../m34b-demo02.log
+      - name: Independently recompute all original and NEW native Newtonian data
+        working-directory: source
+        run: |
+          set -o pipefail
+          python tools/m34b_independent_forks.py --original output/m34b-source.json --fork output/m34b-fork.json --output output/m34b-independent.json | tee ../m34b-independent02.log
+      - name: Retain exact first-attempt original evidence digests
+        if: always()
+        run: |
+          for file in m34b-native-tests02.log m34b-demo02.log source/output/m34b-source.json source/output/m34b-fork.json source/output/m34b-independent.json m34b-independent02.log; do
+            if [ -f "$file" ]; then sha256sum "$file"; fi
+          done | tee m34b-sha256-02.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m34b-incremental-source-pinned-expanded-native-and-si
+          path: |
+            m34b-native-tests02.log
+            m34b-demo02.log
+            m34b-sha256-02.txt
+            source/output/m34b-source.json
+            source/output/m34b-fork.json
+            source/output/m34b-independent.json
+            m34b-independent02.log
+          if-no-files-found: warn
