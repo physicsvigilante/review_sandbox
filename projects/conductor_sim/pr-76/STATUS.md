@@ -64,3 +64,19 @@ The source PR was marked ready, then merged using GitHub `expected_head_sha=1c63
 - Merge Git TREE `2ce33c744440248b4491c38f4ccb673636c08035` **matches independently reviewed source tree exactly**.
 
 **At the first merge-SHA-specific GitHub Actions query**, **15 main-push workflows were in progress**. Do **not** claim full release until all these postmerge checks finish successfully, especially Python 3.10/3.12, 97 historical real FEMM, and historical real Chromium. The M33b feature adds no novel FEMM engine or browser scene. Inherited oblique plane-normal normalization limitation remains separately tracked at [source issue #77](https://github.com/physicsvigilante/conductor_sim/issues/77), not silently changed inside the independently reviewed M33b implementation.
+
+
+## M33b FULLY RELEASED — exact main merge SHA postmerge checks 15/15 SUCCESS
+
+**Release completed 2026-11-17.** [PR #76](https://github.com/physicsvigilante/conductor_sim/pull/76) is CLOSED/MERGED, exact current source `main` HEAD **[28f93622fd8cfb816e23ef36027992b1a5aaded8](https://github.com/physicsvigilante/conductor_sim/commit/28f93622fd8cfb816e23ef36027992b1a5aaded8)**. Merge parents are previously released M33a `a88a5eefc308331555efe6a07c67fd72a712d6a1` and exact independently reviewed M33b source `1c632fe347d4f0b4a41fe421d4cdb5ac0985075f`. Merge Git TREE `2ce33c744440248b4491c38f4ccb673636c08035` matches the independently reviewed source tree exactly.
+
+An exact main-branch/head-SHA/event GitHub Actions filter returned **15/15 main-push workflows COMPLETED/SUCCESS**; zero failed, pending or cancelled. The same merge SHA also triggered an extra separate branch creation workflow when M34a started; this branch workflow was **not counted** as a main postmerge run (avoid head-SHA-only overcounting).
+
+- [Main-push Python #44065689558](https://github.com/physicsvigilante/conductor_sim/actions/runs/44065689558): Python 3.10 **1,963 passed**, Python 3.12 **1,963 passed**, 97 dedicated real-FEMM tests skipped in each general job, 16 historical warnings. Both Python jobs completed SUCCESS.
+- [Main-push real FEMM 5 #44065689365](https://github.com/physicsvigilante/conductor_sim/actions/runs/44065689365): **97 real solver tests passed** in 25.79 s. Historical conductor field solver regression, not a new M33b FEMM event-analysis capability.
+- [Main-push visualization and Chromium #44065689531](https://github.com/physicsvigilante/conductor_sim/actions/runs/44065689531): **SUCCESS**; non-FEMM visualization/authoring tests **1,963 passed, 97 deselected, 16 warnings**, sampled browser console/page/network error arrays empty. Historical browser checks, not a newly authored M33b browser scene.
+- All 12 other triggered `main` push workflows completed SUCCESS.
+
+Owner continuation authorization, exact-HEAD expected-SHA merge, independent source/tree-pinned R2 PASS #01 and all source-head 16/16 CI were verified before merging; no M33b source revision occurred after the independent review. Prior developer/reviewer failed-first-attempt logs remain retained, not erased. M33b does not claim new field laws, source motion, responding conductors, unrestricted 3D, new FEMM solver, browser ODE or cryptographically authenticated textbook facts.
+
+**M33b FULLY RELEASED.** Inherited non-idempotent oblique motion-plane normalization issue [#77](https://github.com/physicsvigilante/conductor_sim/issues/77) remains a separate scientific/composability follow-up. M34a charter-only work starts from the reviewed M33b merge tree, does not retroactively modify the M33b release.
