@@ -1,3 +1,13 @@
+## Independent R2 completed — scoped PASS for UNTRUSTED local demo; NATIVE HOLD
+
+[Chat B's independent review-01](reviews/review-01-chat-b.md) (Git blob `96613e419dedda07fcbabb592560b52223e37ee0`) passed **only** source `ffc96e743a78cb3c63c01d6bf292d1fa84c6164f`, tree `2bbb083437bd8166fc44e4c447521990a657d14a`, as a **deliberately insufficient LOCAL SQLite simulation**. [Chat A's response-01](responses/response-01-chat-a.md) accepts findings F-01–F-04 without source changes. Independent 10-process contention, committed-row crash, database deletion/recreation, independent-file double-claims and changeable nonce were all demonstrated. The deletion/recreation **success** is proof the demo is **not** a genuine owner-controlled durable global one-shot lock.
+
+[Exact-head CI #44036625580](https://github.com/physicsvigilante/sim_heat/actions/runs/44036625580) SUCCESS, 244/244 OFFLINE tests, zero OMC. Source [draft PR #39](https://github.com/physicsvigilante/sim_heat/pull/39) remains unmerged. The original F0 80×/100× accuracy FAIL and PR32 original V2 seal-regeneration FAIL remain unchanged. **No signed/protected owner reference release, external atomic authority, host/compiler attestation, reviewed runnable adapter, actual across-run reservation, native plan/launch or owner native permission exists.**
+
+Next bounded task: develop OFFLINE-only specification/adversarial fake for a future protected shared external CAS API; it must never be accepted as owner authority or used to invoke native code without a distinct release, review, budget and owner authorization.
+
+---
+
 # SIM_HEAT PR #39 — local SQLite one-slot SIMULATOR, not native reservation
 
 **Status: `awaiting-independent-R2-LOCAL-one-slot-simulation-review; NATIVE-HOLD`.** Source [draft PR #39](https://github.com/physicsvigilante/sim_heat/pull/39) at exact HEAD **`ffc96e743a78cb3c63c01d6bf292d1fa84c6164f`**, tree `2bbb083437bd8166fc44e4c447521990a657d14a`; base independently R2-reviewed corrected PR #38 `f87a9aa025caf5091da8fe3613734b62281ebe1c`. Four NEW Python code/test/docs/workflow paths and no edits to historical frozen F0 original `dd8c9432abe97563414bb3ed809e61e673473812`, first-author model/study, evaluator grid, original frozen H1 laws/checker/runner, approved PR31 saved V2 reference or owner/adoption records. Historic experiment PRs remain draft/unmerged.
