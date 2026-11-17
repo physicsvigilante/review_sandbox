@@ -1,0 +1,71 @@
+name: M33b developer pinned fresh native event inquiry smoke
+on:
+  push:
+    paths:
+      - ".github/workflows/m33b-pinned-native-smoke.yml"
+  workflow_dispatch:
+jobs:
+  source-native-inquiry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 78429f1b6c3c7de2ef271b26ad56ecd74828d020
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Assert literal unmerged source commit and Git tree
+        working-directory: source
+        run: |
+          test "$(git rev-parse HEAD)" = "78429f1b6c3c7de2ef271b26ad56ecd74828d020"
+          test "$(git rev-parse HEAD^{tree})" = "4dab5d0d4d19ba17ffa356c3f0da9491fc37c6ec"
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+      - name: Install real source package and pytest
+        working-directory: source
+        run: python -m pip install -e ".[test]"
+      - name: Execute ALL new M33b physics and hostile evidence regressions
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m pytest tests/test_m33b_graph_event_inquiry.py -q | tee ../m33b-native-test.log
+      - name: Export real retained source graph and NEW M24a event studies
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m examples.m33b_event_inquiry \
+            --source-graph-output output/m33b-source-graph.json \
+            --output output/m33b-inquiry.json | tee ../m33b-example.log
+      - name: Independently recompute saved Newtonian states and detector roots
+        working-directory: source
+        run: |
+          set -o pipefail
+          python tools/m33b_independent_inquiry.py \
+            --source-graph output/m33b-source-graph.json \
+            --inquiry output/m33b-inquiry.json \
+            --output output/m33b-independent.json | tee ../m33b-independent.log
+      - name: Retain first-attempt logs and exact file SHA evidence
+        if: always()
+        run: |
+          for file in m33b-native-test.log m33b-example.log m33b-independent.log source/output/m33b-source-graph.json source/output/m33b-inquiry.json source/output/m33b-independent.json; do
+            if [ -f "$file" ]; then sha256sum "$file"; fi
+          done | tee m33b-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m33b-pinned-native-developer-first-smoke
+          path: |
+            m33b-native-test.log
+            m33b-example.log
+            m33b-independent.log
+            m33b-sha256.txt
+            source/output/m33b-source-graph.json
+            source/output/m33b-inquiry.json
+            source/output/m33b-independent.json
+          if-no-files-found: warn
