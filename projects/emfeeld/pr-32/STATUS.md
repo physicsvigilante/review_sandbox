@@ -1,3 +1,15 @@
+## Update — exact-head author CI completed successfully (2026-11-17)
+
+**Author automated qualification PASSED at exact source `fb2ebe0c65425a79dec1482bc26162756f72f5d5` / tree `9f59fd94a15a1f0c2759ab8662b23a36a41810da`.** GitHub PR merge-preview commit `c27ecb64f894d7dec14a7d592990d2946574a27a` has precisely that same Git tree, with ordered parents [qualified main `3f1ec44...`, exact feature head `fb2ebe0...`].
+
+- [Original release workflow #44024850240](https://github.com/physicsvigilante/emfeeld/actions/runs/44024850240) **SUCCESS on BOTH OSs**: Ubuntu job `133842607562`, Windows 2022 job `133842607851`. Each job's original log confirms **1,502 headless passed**, **18 historical passed (one obsolete freeze guard deselected)**, **33 real-PyVista passed**; the distinct new **Physics Demonstration V1 replay step completed successfully**, reporting `{"passed": true, "cases": 1}` and **17 native observations / 64 analytically authored checks PASS**. The separate repeated focused suites are included in the 1,502 headless definitions, not extra tests.
+- [Original separate real-PyVista #44024850302](https://github.com/physicsvigilante/emfeeld/actions/runs/44024850302) **SUCCESS**; original render job `133842607502` also reports **1,502 headless passed**. [Original source snapshot #44024850273](https://github.com/physicsvigilante/emfeeld/actions/runs/44024850273) **SUCCESS**, source job `133842607333`.
+- Original artifact *metadata* returned by GitHub: Linux release id `14302329642`, reported artifact digest `sha256:c36add45d0e604891dcee5b8e12fff39514929f994ca933acc1be1ca73e8a2e8`; Windows release id `14303856346`, digest `sha256:b9b0c9e22c39df8a01c69813d71a3f96571a9c4d5f6a1811567ed56e4bf7dad0`; separate viewer id `14303026553`, digest `sha256:e5b8bb63295c2e903c0b48888ee926bd79fd41d0413b41d55d947191e2c43f9f`; source-snapshot id `14301834027`, digest `sha256:baef27805b2a72e62af82c4b50e05371ce98972cae5d5b0951360d7a871cbb35`. These are **GitHub-reported archive checksums**, not yet independently rehashed downloaded originals. Do **not** claim original ZIP CRC/file inventory or per-file replay hash audit completed without actually performing it.
+
+**GATE NOW READY FOR INDEPENDENT CHAT B R2 REVIEW** using [REVIEWER-PROMPT-01](REVIEWER-PROMPT-01.md). The reviewer must independently inspect original artifacts, run new adversarial physics and integrity cases, and publish a new attributable `reviews/review-01-chat-b.md` verdict. There is **no independent verdict yet; PR #32 remains draft/unmerged**. Source integration and fresh *actual main-push* release qualification remain pending.
+
+---
+
 # EM Fields PR #32 — frozen source candidate, independent R2 review gated by current CI
 
 **Status at creation (2026-11-17 Asia/Kolkata):** [PR #32](https://github.com/physicsvigilante/emfeeld/pull/32) DRAFT/OPEN/UNMERGED, exact source `fb2ebe0c65425a79dec1482bc26162756f72f5d5` / tree `9f59fd94a15a1f0c2759ab8662b23a36a41810da`, qualified source main/base `3f1ec44a54b24b9f8275a98abf81126a9386bf61`. [Issue #31](https://github.com/physicsvigilante/emfeeld/issues/31) tracks the physics demonstration.
