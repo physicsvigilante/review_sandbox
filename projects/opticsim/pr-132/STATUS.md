@@ -35,3 +35,10 @@ This responds to [independent reviewer P1-A/P1-B findings for test-only PR #131]
 **R2 independent review PENDING.** No A implementation or actual eye/observer-image capability has been authorized by design. All held physics PRs and production main remain unmerged and unchanged; issue #123's unprotected main remains a release gate.
 
 **Corrected-source R2 regression CI (builder):** all **11/11 GitHub Actions workflows SUCCESS** at exact HEAD `c97064d8e3d9a8b05ed31a6a753dc246b1dbcc31`. [Optical composition run #44151601237](https://github.com/physicsvigilante/opticsim/actions/runs/44151601237) passed the existing Node and Chrome regression steps. These test unchanged native/production code only, not the unimplemented apparent-depth A method. Independent design R2 remains pending.
+
+
+## Independent design R2 completed — later verification (2026-11-18)
+
+[**Chat B review #2**](reviews/review-02-chat-b.md) independently cleared revised source HEAD `c97064d8e3d9a8b05ed31a6a753dc246b1dbcc31`, tree `6a29497776d60fb8b709c6bd4add2300f9783376`, verdict **CLEARED FOR OWNER DECISION — design only**. Original R1 remains **CHANGES REQUESTED**, unchanged. Reviewer verified source/tree identities, recomputed Snell/paraxial/symmetric angle controls, and confirmed all three R1 P1 requirements were addressed at *design level*: conditional status/refusals; narrow ≤5° AND ≤1% symmetric-construction discrepancy; exact no-native deterministic planner/CLI query and explicit blocked `verifyNative:true`. Reviewer did **not** run native PhyDemo, Node or Chrome, and did not review later implementation source.
+
+[Draft implementation PR #133](https://github.com/physicsvigilante/opticsim/pull/133) is a separate actual-engine change based directly on production main. Its final-source builder CI passed **802/802 Node24 and 11/11 workflows** after retaining one earlier historical frozen-file SHA failure and a final-source browser-runner retry. [Independent source/physics review prompt](../pr-133/REVIEWER-PROMPT-01.md) is prepared. No production merge or image/eye capability is implied.
