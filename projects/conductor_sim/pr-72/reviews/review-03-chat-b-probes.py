@@ -161,12 +161,13 @@ def run():
     if wrong_annotations != annotated:
         fake_model = replace(entry_obj.scenario,
                              source_annotations=wrong_annotations)
-        fake_entry = replace(entry_obj, scenario=fake_model)
-        fake_family = replace(original.physical_family, entries=(fake_entry,))
-        fake_child = replace(original.children[0], physical_entry=fake_entry)
-        expect_reject("F04_REVISED_SOURCE_LABEL",
-                      lambda: replace(original, physical_family=fake_family,
-                                      children=(fake_child,)))
+        def changed_source_label():
+            fake_entry = replace(entry_obj, scenario=fake_model)
+            fake_family = replace(original.physical_family, entries=(fake_entry,))
+            fake_child = replace(original.children[0], physical_entry=fake_entry)
+            return replace(original, physical_family=fake_family,
+                           children=(fake_child,))
+        expect_reject("F04_REVISED_SOURCE_LABEL", changed_source_label)
     else:
         record("F04_REVISED_SOURCE_LABEL", "FAILED", "No source labels to challenge")
 
