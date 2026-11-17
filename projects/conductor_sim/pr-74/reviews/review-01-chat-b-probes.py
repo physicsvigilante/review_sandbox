@@ -215,8 +215,14 @@ def test_novel_mixed_graph():
 
 def test_legacy_and_attacks(run):
     p=novel_plan()
+    oldfirst=physical("oldmass","baseline",
+                      (("test-particle","mass_kg",1.3e-6),),"trajectory")
+    oldsecond=StructuralWorldNode("oldstruct","oldmass",StructuralCase(
+        "oldstruct","A structural source after physical must refuse under v1.",
+        add_sources=(NamedSource("field:later","Late existing field",
+                        UniformElectricField((50.,0.,0.))),)),"trajectory")
     refuses("legacy_structural_after_physical",lambda: UnifiedObservationPlan(
-        "review74:old",p.original,(p.nodes[2],)))
+        "review74:old",p.original,(oldfirst,oldsecond)))
     # Build a valid default legacy plan without the opt-in.
     only=UnifiedObservationPlan("review74:legacy",p.original,(
         physical("massonly","baseline",(("test-particle","mass_kg",1.3e-6),),
@@ -340,7 +346,7 @@ def test_event_safety():
         "review74:bidirectional",d.family.baseline,(
             physical("mass","baseline",
                      (("test-particle","mass_kg",1.1e-6),)),
-            StructuralWorldNode("retarding","mass",d.family.cases[0],"events"),
+            StructuralWorldNode(d.family.cases[0].case_id,"mass",d.family.cases[0],"events"),
         ),"events",d.questions,d.policy,retain_source_ancestry=True))
     names=[]
     for native in (dc.baseline_native,dc.entries[0].native,dc.entries[1].native):
