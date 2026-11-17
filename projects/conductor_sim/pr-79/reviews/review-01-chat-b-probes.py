@@ -347,8 +347,8 @@ def old_event_refusal_can_parent():
           terminal=True,role="ideal-stop-surface"),)
     old=run_unified_observation_graph(UnifiedObservationPlan(
         "review01:old-event-refusal",original_model(),(
-            StructuralWorldNode("physical-but-unobserved","baseline",
-                 StructuralCase("physical-but-unobserved",
+            StructuralWorldNode("unobserved","baseline",
+                 StructuralCase("unobserved",
                      "Genuinely allowed in-plane field, old event refused",
                      add_sources=(NamedSource("field:extra","Extra valid held",
                      UniformElectricField((45.,90.,0.))),)),"events"),),
@@ -357,7 +357,7 @@ def old_event_refusal_can_parent():
     assert parent.scenario is not None and parent.native is None
     assert parent.status=="rejected-event-study",parent.status
     new=run_graph_world_fork(GraphWorldForkPlan(old,"review01:after-old-refusal",(
-        PhysicalWorldNode("genuine-child","physical-but-unobserved",
+        PhysicalWorldNode("genuine-child","unobserved",
             "Qualified physical mass after old refused event observation",
             (CoupledPropertyEdit("test-particle","mass_kg",5.5e-6),),
             "trajectory"),)))
