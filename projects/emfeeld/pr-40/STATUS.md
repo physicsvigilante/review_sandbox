@@ -1,5 +1,19 @@
 # EM Fields PR #40 — project-wide reliability audit status
 
+
+## CURRENT — corrected exact-source author release gates CLOSED; independent R2 re-review pending (2026-11-17)
+
+**DRAFT / OPEN / UNMERGED** [PR #40](https://github.com/physicsvigilante/emfeeld/pull/40): new corrected HEAD `f56ce83e791e3fcd3b1f17609c38a2f98a999c41`, canonical source tree `48baa0d760a2e99d0e953d6df5d7b999801d48cd`, released base/main `066c94e4953c3ef29302c0bb6d0ee2f6cb8b8ca0`. Original independent [R2 review-01](reviews/review-01-chat-b.md) **CHANGES REQUESTED** on superseded original source `9fa09dec...`; three findings corrected in one new commit and 13 regression executions, original failed test/report preserved. [Author correction and negative evidence](responses/response-01-chat-a.md).
+
+**Fresh corrected-source ALL CI success:** [Linux/Windows #44143094109](https://github.com/physicsvigilante/emfeeld/actions/runs/44143094109) both OS original jobs complete success **1,642 headless +18 historical/one obsolete guard deselected +33 real-PyVista per OS**. [Separate real viewer #44143094009](https://github.com/physicsvigilante/emfeeld/actions/runs/44143094009) success (nine offscreen cases and seventeen PNG receipts), [source snapshot #44143094100](https://github.com/physicsvigilante/emfeeld/actions/runs/44143094100) success. All four corrected original ZIPs downloaded, author verified exact whole-ZIP SHA256/CRC/path, rebuilt original **372-file source Git tree** to `48baa0d7...`, verified original source-first packet/native receipts and **30/30 engine Python source SHA256s** on both OS (Windows CRLF accounted), Physics Demo **64/64** analytic checks, E1 complete/G1 honest partial. All per-OS original native JSON SHA256 differences preserved. [Full author original ZIP audit](AUTHOR-CORRECTION-AUDIT-02.md).
+
+Local corrected source had **1,642 full headless passed -W error**, 18 historical passed and original V6/discovery/demo replay passed. No local real-PyVista was claimed; separate actual hosted viewer evidence above is independent runtime but not independent reviewer certification.
+
+**ONLY OUTSTANDING PRE-MERGE GATE:** targeted separate-context reviewer-owned [R2 re-review 02 instructions](REVIEWER-PROMPT-02.md), independently execute and record `reviews/review-02-chat-b.md` PASS / CHANGES REQUESTED on this **new** exact head/tree. No such report exists yet. **Do not merge until a valid independent PASS and owner/source guard.** After any guarded merge, actual `main` push CI and original new ZIP/source/native audits are separate gates. Original review-01 negative cases, history, signed evidence and old source-pinned studies are preserved.
+
+---
+
+
 ## CURRENT — first independent R2 CHANGES REQUESTED on OLD head; new correction HEAD/CI underway (2026-11-17)
 
 **SOURCE PR #40 DRAFT / OPEN / UNMERGED.** Independent original [Chat B R2 review-01](reviews/review-01-chat-b.md) **CHANGES REQUESTED** on superseded `9fa09dec92b8925591505d1da0bc2639a53a30d9` (tree `9491d39d3f0415a5e90f1848173cf73af5d02584`). Its numerical first failures are preserved. New exact HEAD **`f56ce83e791e3fcd3b1f17609c38a2f98a999c41`**, Git tree **`48baa0d760a2e99d0e953d6df5d7b999801d48cd`**, qualified prior main/base `066c94e4953c3ef29302c0bb6d0ee2f6cb8b8ca0`. One correction commit modifies exactly **three paths**: piecewise sphere/shell scale-safe potential and field arithmetic, consistent invalid saved-time no-integration telemetry, and 13 R2 regressions. No new physical law/solver tolerance and no changed stored evidence.
