@@ -1,5 +1,28 @@
 # EM Fields PR #40 — corrected R2 source & viewer original archive audit 02
 
+## FINAL author pre-merge corrected-source qualification — all original four ZIPs PASS (2026-11-17)
+
+**AUTHOR exact-corrected-source pre-merge CI/archive verdict: PASS**, source HEAD **`f56ce83e791e3fcd3b1f17609c38a2f98a999c41`**, exact source Git tree **`48baa0d760a2e99d0e953d6df5d7b999801d48cd`**, qualified prior `main` **`066c94e4953c3ef29302c0bb6d0ee2f6cb8b8ca0`**. Corrected GitHub CI merge-preview **`392ce9330322fd181116553063ae3ca5412134c1`** has exactly the same Git tree and ordered [base, corrected HEAD] parents. No real main merge has occurred. The original independent R2 review-01 remains **CHANGES REQUESTED** on OLD `9fa09dec...`; no independent corrected-head review-02 verdict exists yet.
+
+**New corrected source GitHub workflows ALL COMPLETED SUCCESS**, fresh exact HEAD / attempt 1: [Ubuntu/Windows clean-install #44143094109](https://github.com/physicsvigilante/emfeeld/actions/runs/44143094109) both OS original logs **1,642 headless +18 historical behavioral (one obsolete freeze guard deselected) +33 real-PyVista passed per OS**. [Separate real viewer #44143094009](https://github.com/physicsvigilante/emfeeld/actions/runs/44143094009) SUCCESS, original nine offscreen scenes PASS, 17 PNG SHA receipts verified, archived 1,642 headless passed. [Original source snapshot #44143094100](https://github.com/physicsvigilante/emfeeld/actions/runs/44143094100) SUCCESS.
+
+| ORIGINAL corrected-head GitHub artifact | ID | Whole ZIP SHA256 independently computed | Checked |
+|---|---:|---|---|
+| Ubuntu 24.04 release | **14354843906** | **`57d94a6846a1b0ec8a5747285b80abafa36d4a9950309bdfb185ba2a07440cd3`** | **2,186 unique/path-safe/casefold-safe CRC-clean entries** |
+| Windows 2022 release | **14355679247** | **`f1b92267c16526505ae182b6ecf92776686b04047530b883101ec5d82201d2f4`** | **2,186 unique/path-safe/casefold-safe CRC-clean entries** |
+| Separate real viewer | **14355736801** | **`dd3eb764b7c8cbb6d0f3d70ce0ca0ed7674e7e94a7c5162c7a45edc41ee462db`** | **22 CRC-clean entries, 9 offscreen cases, 17 original PNG SHA receipts** |
+| Exact source snapshot | **14354877974** | **`ca8c866c77632ca633af1782a6a6aad3f1cb1c66db57cf52957bb4bec1d40a3e`** | **4 CRC-clean entries, all 372 tracked source Git blobs and original tree** |
+
+**Original ZIP contents audited separately rather than trusting green CI:** all downloaded ZIP whole-file SHA256s matched GitHub artifact metadata; every ZIP member CRC-read/path validated. Original source TAR SHA256 **`8487828b3ee21a220716c3e94ac28780a1378cca1a966f388f5a84653cdda193`** matches both original source and viewer archive byte-for-byte; fresh Git index/tree and archived `git-tree.txt` reconstructed exact corrected 372-file source tree. Both original OS `head-sha.txt` values correctly name source-equivalent **PR preview `392ce...`**, not post-merge main.
+
+Both original OS archives retain the exact previously committed original developer gravity question SHA256 **`36f56dcc11d6347a1db47adfb103b16472a8e1270641869f52c7220bd086a361`** and packet SHA256 **`6fe25bf6c738ee13fa837793414b343feeb53116737bcfafcf19c56c36adac5d`**, with **5/5 actual native `ok`** requests/true times and only `native_measurement_coverage=complete`. Actual per-OS native JSON SHA256: **Ubuntu `bf11cc7a6abd598bba0ae1746ca934eaf2ebc8c383aff79373676d5b4b06b947`**, **Windows `6638d653fdc757a8420d3c04f60c7a5a400ce3176ad88f3d3434afef8fb79145`**, each correctly bound by its *own* archived assessment receipt; OS native bytes are **NOT** claimed equal. Public NASA **NON-BLIND** source/pkt original SHA256 `cd797751a84d86caa57c2024620215895c1414169c6682b96933e4b4cf25cc23`/`f86211065ec99e3e82181de256d321a6ebb054f9b397440996529a3ec6ccfeda` and native report Ubuntu `ab928b94cbb930d8589352a1ba180f81e4d7dda67997b57473bc35c05242ec20`, Windows `20854e0f07a98af4a6b3eba3b6318b73f9ee8672a4b36175d4239242a16ba038`, original 1/1 saved native `speed` `ok`. Both scientific interpretation/teacher fields correctly remain not_verified/not_evaluated.
+
+Both original OS archives' Physics Demonstration has **64/64** same-author analytical checks pass, all **30** engine Python source SHA256 receipts verified against original corrected source tree (Windows ordinary CRLF checkout considered), E1 signed ensemble **complete** and G1 signed ensemble honest **partial** with unknown operand/unavailable/null retained. No original source-question, stored study/ensemble, signed measurement, or historic failure was overwritten. No new physical law introduced.
+
+**Remaining gate before merge:** separate-context independent targeted R2 **review-02** of this exact corrected source, with fresh reviewer-owned numerical, no-attempt telemetry and evidence-preservation challenges and independent original artifact audit, written to `reviews/review-02-chat-b.md` as PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE. **This author audit is not that verdict. PR remains DRAFT/UNMERGED.** After any guarded source merge, new actual `main` push Linux/Windows/viewer CI and new original post-merge ZIP audits are distinct gates. The source-hash compatibility and scientific/teacher nonclaims from the original report remain.
+
+---
+
 **Author pre-merge qualification (2026-11-17): corrected source and separate real-PyVista original archives PASS; fresh corrected-head Linux/Windows full release and independent R2 re-review still PENDING.** This is not independent Chat B PASS on the new source, permission to merge, or an actual post-merge `main` release audit.
 
 ## Exact immutable correction/source lineage
