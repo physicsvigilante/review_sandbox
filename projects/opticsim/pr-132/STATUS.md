@@ -33,3 +33,5 @@ This responds to [independent reviewer P1-A/P1-B findings for test-only PR #131]
 [**Copy-ready R2 Chat B prompt**](REVIEWER-PROMPT-02.md) · [**Full R2 request with physical/control checks**](REQUEST-02.md).
 
 **R2 independent review PENDING.** No A implementation or actual eye/observer-image capability has been authorized by design. All held physics PRs and production main remain unmerged and unchanged; issue #123's unprotected main remains a release gate.
+
+**Corrected-source R2 regression CI (builder):** all **11/11 GitHub Actions workflows SUCCESS** at exact HEAD `c97064d8e3d9a8b05ed31a6a753dc246b1dbcc31`. [Optical composition run #44151601237](https://github.com/physicsvigilante/opticsim/actions/runs/44151601237) passed the existing Node and Chrome regression steps. These test unchanged native/production code only, not the unimplemented apparent-depth A method. Independent design R2 remains pending.
