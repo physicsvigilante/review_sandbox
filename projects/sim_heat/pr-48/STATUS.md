@@ -1,3 +1,13 @@
+## Independent R2 complete — SCOPED PASS for original source-only thermal topology/overlays
+
+[Independent Chat B review-01](reviews/review-01-chat-b.md) Git blob `fe4cb1d4cfa5e906abe22094c5532dc64ce10624` returned **SCOPED PASS** at exact source `4f077d5e3f231dacae5986d66bdaf0bdbe555b83`, tree `4e44ac9e97ea9556472466309b62f53abddd4af6`. [Chat A response-01](responses/response-01-chat-a.md) accepts F-01–F-04. Independent source union-find rederived 8 original components, 12 source ports, 8 connect() declarations, 4 ideal junction classes, 4 oriented rods and one parallel flat/round pair, and all nine original `not_computed` request overlays; no physical geometry or observed numerical values. Exact-head [CI #44098156308](https://github.com/physicsvigilante/sim_heat/actions/runs/44098156308) PASS, **389/389 HOSTED OFFLINE** methods. No OpenModelica.
+
+**SOURCE/RELEASE NATIVE HOLD:** shape-only validation is insufficient; copied overlays require `assert_exact_source_bound`, which is still not owner signature/native provenance. Original F0 80× versus mandatory ≥100× scientific FAIL and PR32 original PR31 V2 cross-host bitwise-regeneration FAIL persist. All eleven real owner/source/release/host/OMC/adapter/shared external CAS/pre-native approval gates remain genuinely MISSING. All nine native public readings not computed. PR48 stays draft/unmerged. Any real OMC action still needs separate named explicit owner authorization.
+
+Next separately-scoped bounded candidate: **OFFLINE nonphysical HTML/SVG schematic view** from this original source graph, with text-only expected observation highlighting and no actual geometry/temperatures/heat flows, browser/network/native actions or release approval; independent R2 for viewer semantics.
+
+---
+
 # SIM_HEAT PR #48 — original thermal topology and expected public overlays, independent R2 pending
 
 **Status: `awaiting-independent-R2-source-topology-overlay; F02-NATIVE-HOLD`.** Historical [draft source PR #48](https://github.com/physicsvigilante/sim_heat/pull/48), exact HEAD **`4f077d5e3f231dacae5986d66bdaf0bdbe555b83`**, Git tree **`4e44ac9e97ea9556472466309b62f53abddd4af6`**, immediately based on independently scoped-PASS PR47 source `abd969ce32c8b55899561ad7d80c5792f304927e`. Exactly **FOUR ADDED** code/test/scope/CI paths, ZERO inherited source changes/merges. Original frozen F0 `dd8c9432abe97563414bb3ed809e61e673473812`, first-author Modelica/study, evaluator modal study, original saved PR31 V2 checking reference/manifest and owner adoption, original H1 checker/runner and unlaunched native plan all unchanged.
