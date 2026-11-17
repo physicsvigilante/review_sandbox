@@ -39,7 +39,7 @@ Verify that old v1–v13 contracts, golden results, native-vendor files, source 
 
 ## Execution evidence and independence
 
-The source test commit `1074f1be...` passed **806/806 Node 24 tests**, **11/11 standard source workflows** and the retained real-Chrome scenarios, with explicit `R2_F1_NATIVE_EVIDENCE` / `R2_F2_NATIVE_EVIDENCE` lines in CI logs. At the **new PR #107 HEAD**, separately inspect exact-head CI workflow run metadata and the two evidence lines. Do not count the test-branch CI as exact-head CI unless SHA matches.
+The source test commit `1074f1be...` passed **806/806 Node 24 tests**, **11/11 standard workflows** and retained real-Chrome scenarios. **Separately, on exact current PR #107 HEAD `fe3a030be7bfba8e5808e4e1e2e66d6815e7add7`**, all **11/11 standard workflows succeeded**. [Exact-head unified Node 24 run (806/806)](https://github.com/physicsvigilante/opticsim/actions/runs/44024873262) and [exact-head planar/real-Chrome run with `R2_F1_NATIVE_EVIDENCE` and `R2_F2_NATIVE_EVIDENCE` logged](https://github.com/physicsvigilante/opticsim/actions/runs/44024873455). Verify actual head_sha and run conclusions independently; do not confuse source CI with a new independent reviewer execution.
 
 If able to run a fresh supported checkout, use Node >=24.19 with the pinned upstream, run `npm run setup`, `node scripts/build.mjs --test`, then `node --test test/two-glass-r2-review-regressions.test.mjs`. Recompute independent scalar Fresnel/Snell and geometry facts; do not treat source unit tests alone as independent reproduction. If the environment cannot run the native core, disclose this limitation explicitly. Do not claim new browser evidence unless actually executed by you.
 
