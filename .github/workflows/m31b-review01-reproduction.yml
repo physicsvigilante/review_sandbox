@@ -32,7 +32,7 @@ jobs:
       - name: Reproduce published Chat B probes on old source
         working-directory: source
         run: |
-          python ../reviews/projects/conductor_sim/pr-72/reproductions/reproduce_review01.py | tee ../first_attempt.log
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-72/reproductions/reproduce_review01.py | tee ../first_attempt.log
       - name: Upload retained first-attempt evidence
         if: always()
         uses: actions/upload-artifact@v4
