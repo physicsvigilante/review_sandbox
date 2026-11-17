@@ -399,6 +399,9 @@ def cross_event_study_incompatibility(graph):
         ("review01:policy",QUESTIONS,EventPolicy(.021,1e-9,1e-9,1e-7)),
         ("review01:direction",(PlaneEvent("review:x",(.16,0.,0.),(1.,0.,0.),
                                    "Same ID, opposite direction",direction=-1),),POLICY),
+        ("review01:terminal",(PlaneEvent("review:x",(.16,0.,0.),(1.,0.,0.),
+                                   "Same ID now terminal",direction=1,
+                                   terminal=True),),POLICY),
     ]:
         result=run_graph_world_fork(GraphWorldForkPlan(
             graph,forkid,n,q,policy,
@@ -412,6 +415,65 @@ def cross_event_study_incompatibility(graph):
                             event_status=comparison["event_time_comparisons"][0]["status"],
                             saved_rows=len(comparison["exact_time_trajectory_comparisons"])))
     return results
+
+
+def two_opposite_signed_roots():
+    """New analytic two-root parabola, neither developer event-family fixture nor
+    a saved-sample interpolation. Both whole-duration worlds have two physical
+    crossings in opposite directions: never an admissible unique event shift.
+    """
+    from conductor_sim import GraphWorldForkPlan,run_graph_world_fork
+    base=PrescribedScenario(
+        "review01:two-root-baseline",
+        TestChargeMotionSpec(
+            PrescribedField((UniformElectricField((-1500.,0.,1000.)),)),
+            PointCharge(2e-9,(.016,.020,-.004)),
+            4e-6,(.6,1.2,0.),2.0,.05,
+            plane_normal=(2.,-1.,3.),
+            gravity=UniformGravity((.115,.20,-.01))),
+        (("field:retarding","New reviewer oblique retarding field"),),
+        "Original independently constructed genuine signed-double-root physics.")
+    q=(PlaneEvent("review:double",(.16,0.,0.),(1.,0.,0.),
+                 "New signed double crossing",direction=0),)
+    old=run_unified_observation_graph(UnifiedObservationPlan(
+        "review01:two-root-old",base,(
+            PhysicalWorldNode("old-decel","baseline",
+                "Increase negative deceleration for two x crossings",
+                (CoupledPropertyEdit("test-particle","mass_kg",3.5e-6),),
+                "events"),),"events",q,POLICY,retain_source_ancestry=True))
+    fork=run_graph_world_fork(GraphWorldForkPlan(
+        old,"review01:two-root-new",(
+            PhysicalWorldNode("new-decel","old-decel",
+                "Independently revise deceleration to different double crossing",
+                (CoupledPropertyEdit("test-particle","mass_kg",3.9e-6),),
+                "events"),),q,POLICY,
+        (WorldComparison("double","old-decel","new-decel"),)))
+    all_worlds=(("old",old.entries[0]),("new",fork.entries[0]))
+    calculated={}
+    for name,row in all_worlds:
+        native=row.native
+        assert native is not None and native.trajectory.termination=="duration"
+        ev=sorted((ev for ev in native.events
+                   if ev.event_id=="review:double"),key=lambda item:item.sample.time_s)
+        assert len(ev)==2,(name,len(ev))
+        assert (ev[0].direction,ev[1].direction)==(1,-1),name
+        spec=row.scenario.spec
+        p0=spec.particle.position_m[0]
+        u=spec.initial_velocity_m_s[0]
+        ax=independent_state(spec,0)[3][0]
+        disc=u*u+2*ax*(.16-p0)
+        assert ax<0 and disc>0
+        roots=sorted(((-u+sqrt(disc))/ax,(-u-sqrt(disc))/ax))
+        assert roots[0]>0 and roots[-1]<spec.duration_s
+        for e,t in zip(ev,roots):
+            assert abs(e.sample.time_s-t)<3e-6,(name,t,e.sample.time_s)
+        calculated[name]=roots
+    record=fork.as_dict()["cross_world_comparisons"][0]
+    assert record["status"]=="compared"
+    assert record["exact_time_trajectory_comparisons"]
+    assert record["event_time_comparisons"][0]["status"]=="unpaired"
+    assert "estimated_numerical_shift_s" not in record["event_time_comparisons"][0]
+    return calculated
 
 
 def legacy(out):
@@ -509,6 +571,7 @@ def full(out):
     mismatch=cross_event_study_incompatibility(graph)
     refused=negative_models(graph)
     event_refused=old_event_refusal_can_parent()
+    opposing_roots=two_opposite_signed_roots()
     hostile(graph,plan,fork)
     (out/"old.json").write_bytes(before)
     (out/"fork.json").write_bytes(plain(second.as_dict()))
@@ -524,6 +587,7 @@ def full(out):
                 second_fork_reused_old_native_identities=True,
                 mismatched_studies=mismatch, physical_refusals=refused,
                 eligible_old_event_refusal=event_refused,
+                opposite_signed_roots=opposing_roots,
                 hostile_checks=FAILURES,original_graph_sha256=sha256(before).hexdigest())
     (out/"review-results.json").write_bytes(plain(result))
     print("INDEPENDENT_RESULT "+json.dumps(result,sort_keys=True))
