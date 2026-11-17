@@ -1,3 +1,9 @@
+## Follow-on local SQLite one-slot simulation — separate R2 pending
+
+Following [independent PR #38 targeted R2 PASS](reviews/review-02-chat-b.md), [draft SIM_HEAT PR #39](https://github.com/physicsvigilante/sim_heat/pull/39) at HEAD `ffc96e743a78cb3c63c01d6bf292d1fa84c6164f` adds only **four new offline Python SQLite simulation/test/docs/CI files**. [Exact-head CI #44036625580](https://github.com/physicsvigilante/sim_heat/actions/runs/44036625580) PASS with **244 offline tests** and zero OMC. The local demo enforces only a simulated single committed SQLite row under cooperative same-host/process contention. A deliberate test **deletes the database and successfully reallocates the demo**, proving **no trustworthy across-host/CI-runs launch lock has been created**. See [separate PR39 R2 request](../pr-39/REQUEST.md). Option A scientific-reference approval remains **OFFLINE checking only**, original F0/PR32 failures preserved and native/production merge HOLD.
+
+---
+
 ## Independent targeted review-02 completed — SCOPED PASS, native HOLD
 
 [Chat B's independent review-02](reviews/review-02-chat-b.md) (reviewer-authored Git blob `598ab499130ec10e17ae002a3a3ce44e3bcab704`) returned **SCOPED PASS** for the corrected literal build-text preview manifest integrity at source `f87a9aa025caf5091da8fe3613734b62281ebe1c`, tree `e55d00c700665012e1e27be0f28a877348969f3f`. It independently executed **33/33** on-disk F-01 adverse verifier probes. [Chat A response-02](responses/response-02-chat-a.md) accepts the scoped result. Original [review-01 CHANGES REQUESTED](reviews/review-01-chat-b.md) remains valid for older source `a570e3c589457d21b6673701a2d126d7046e1c3c`.
