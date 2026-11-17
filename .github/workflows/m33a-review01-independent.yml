@@ -1,0 +1,71 @@
+name: M33a Chat B reviewer01 independent native and baseline compatibility
+on:
+  push:
+    paths:
+      - ".github/workflows/m33a-review01-independent.yml"
+      - "projects/conductor_sim/pr-75/reviews/review-01-chat-b-probes.py"
+  workflow_dispatch:
+jobs:
+  source-pinned-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 117990d239503a947f7be2896c52ffd10a2cacf1
+          path: candidate
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: ad99239faf6a4a2229134b95f82c599f7be9d520
+          path: released
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Prove literal candidate Git SHA/tree and unchanged base SHA
+        run: |
+          test "$(git -C candidate rev-parse HEAD)" = "117990d239503a947f7be2896c52ffd10a2cacf1"
+          test "$(git -C candidate rev-parse HEAD^{tree})" = "655a5539b4107c5660ae7b105cf1b30e0339c2fb"
+          test "$(git -C released rev-parse HEAD)" = "ad99239faf6a4a2229134b95f82c599f7be9d520"
+          git -C candidate rev-parse HEAD HEAD^{tree}
+          git -C released rev-parse HEAD HEAD^{tree}
+      - name: Install untouched exact source and dependencies
+        working-directory: candidate
+        run: python -m pip install -e .
+      - name: New real M33a native/3D SI/hostile tests (FIRST reviewer attempt)
+        working-directory: candidate
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-75/reviews/review-01-chat-b-probes.py ../m33a-chatb75-native.json 2>&1 | tee ../m33a-chatb75-first.log
+      - name: Legacy v1/v2 true released base, raw stable JSON
+        working-directory: released
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-75/reviews/review-01-chat-b-probes.py --legacy ../m33a-chatb75-base.json 2>&1 | tee ../m33a-chatb75-base.log
+      - name: Legacy v1/v2 candidate and EXACT JSON equivalence to released source
+        working-directory: candidate
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-75/reviews/review-01-chat-b-probes.py --legacy ../m33a-chatb75-head.json 2>&1 | tee ../m33a-chatb75-head.log
+          cmp ../m33a-chatb75-base.json ../m33a-chatb75-head.json
+          echo "Legacy released/base vs candidate original v1/v2 export JSON byte comparison PASS"
+      - name: Retain FIRST reviewer results even if failed
+        if: always()
+        run: |
+          sha256sum reviewer/projects/conductor_sim/pr-75/reviews/review-01-chat-b-probes.py > m33a-chatb75-digests.txt
+          for f in m33a-chatb75-*.log m33a-chatb75-*.json; do
+            test ! -f "$f" || sha256sum "$f" >> m33a-chatb75-digests.txt
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m33a-chat-b-review01-native-original-attempt
+          path: |
+            m33a-chatb75-*.json
+            m33a-chatb75-*.log
+            m33a-chatb75-digests.txt
+          if-no-files-found: warn
