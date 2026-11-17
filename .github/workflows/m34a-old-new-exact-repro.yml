@@ -1,0 +1,75 @@
+name: M34a exact released vs candidate non-dyadic plane admission evidence
+on:
+  push:
+    paths:
+      - ".github/workflows/m34a-old-new-exact-repro.yml"
+      - "projects/conductor_sim/pr-78/m34a-old-new-repro.py"
+  workflow_dispatch:
+jobs:
+  same-teacher-input-both-native-source-trees:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 28f93622fd8cfb816e23ef36027992b1a5aaded8
+          path: released
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 95bbb1b39e650e1db633ea8cef9c8ad4e129dcce
+          path: candidate
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Confirm both literal Git commit and source trees
+        run: |
+          test "$(git -C released rev-parse HEAD)" = "28f93622fd8cfb816e23ef36027992b1a5aaded8"
+          test "$(git -C released rev-parse HEAD^{tree})" = "2ce33c744440248b4491c38f4ccb673636c08035"
+          test "$(git -C candidate rev-parse HEAD)" = "95bbb1b39e650e1db633ea8cef9c8ad4e129dcce"
+          test "$(git -C candidate rev-parse HEAD^{tree})" = "87b1271d437a5bcc58f9328cca9773827a3da7d8"
+          git -C released rev-parse HEAD HEAD^{tree}
+          git -C candidate rev-parse HEAD HEAD^{tree}
+      - name: Install test runtime dependencies (without changing either pinned source tree)
+        run: python -m pip install -e ./candidate
+      - name: Assert genuine old-source physical reassembly false refusal
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD/released/src" python review-hub/projects/conductor_sim/pr-78/m34a-old-new-repro.py --expect refusal | tee old-refusal.json
+      - name: Assert corrected source fully admits exact same physical reassembly
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD/candidate/src" python review-hub/projects/conductor_sim/pr-78/m34a-old-new-repro.py --expect admitted | tee corrected-admission.json
+      - name: Assert identical original teacher model SHA and expected old/new physical outcome
+        run: |
+          python - <<'PY'
+          import json
+          before=json.load(open('old-refusal.json'))
+          after=json.load(open('corrected-admission.json'))
+          assert before['root_revision_id']==after['root_revision_id']
+          assert before['original_normal']==after['original_normal']
+          assert before['accepted'] is False and after['accepted'] is True
+          assert before['candidate_child_revision_id'] is None
+          assert type(after['candidate_child_revision_id']) is str
+          assert before['verdict']==after['verdict']=='PASS'
+          print('PASS: exact same true source-model SHA, old false refusal, new valid admission')
+          PY
+      - name: Seal first result files and exact hashes
+        if: always()
+        run: |
+          for file in old-refusal.json corrected-admission.json; do
+            if [ -f "$file" ]; then sha256sum "$file"; fi
+          done | tee m34a-old-new-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m34a-same-oblique-input-released-refusal-vs-corrected-native
+          path: |
+            old-refusal.json
+            corrected-admission.json
+            m34a-old-new-sha256.txt
+          if-no-files-found: warn
