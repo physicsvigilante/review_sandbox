@@ -1,3 +1,9 @@
+## Follow-on — separate UNTRUSTED external-CAS design, R2 pending
+
+Following [PR #39's independent scoped PASS](reviews/review-01-chat-b.md) for **LOCAL SQLite-only** simulation, [draft SIM_HEAT PR #40](https://github.com/physicsvigilante/sim_heat/pull/40) at exact source `ebe203781e87ba108e8dec845074ca7ca47972ef` adds **four new offline contract/fake/tests/CI files**. The native-authority interface **unconditionally refuses**; one in-memory fake store allows only one simulated claim, while two independent fake stores or resetting one demonstrably allow **multiple** fake first claims for the same campaign. This is proof of a missing trusted shared owner-controlled store, **not** a real reservation. [Exact-head CI #44039595352](https://github.com/physicsvigilante/sim_heat/actions/runs/44039595352) passed **260/260 offline methods**, zero OMC. The [separate PR40 R2 packet](../pr-40/REQUEST.md) is awaiting Chat B. Original F0 80× error FAIL, PR32 original V2 bitwise regeneration FAIL, and native launch hold remain unchanged.
+
+---
+
 ## Independent R2 completed — scoped PASS for UNTRUSTED local demo; NATIVE HOLD
 
 [Chat B's independent review-01](reviews/review-01-chat-b.md) (Git blob `96613e419dedda07fcbabb592560b52223e37ee0`) passed **only** source `ffc96e743a78cb3c63c01d6bf292d1fa84c6164f`, tree `2bbb083437bd8166fc44e4c447521990a657d14a`, as a **deliberately insufficient LOCAL SQLite simulation**. [Chat A's response-01](responses/response-01-chat-a.md) accepts findings F-01–F-04 without source changes. Independent 10-process contention, committed-row crash, database deletion/recreation, independent-file double-claims and changeable nonce were all demonstrated. The deletion/recreation **success** is proof the demo is **not** a genuine owner-controlled durable global one-shot lock.
