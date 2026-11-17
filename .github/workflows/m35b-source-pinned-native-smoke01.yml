@@ -1,0 +1,57 @@
+name: M35b first pinned legacy sweep native issue-80 regressions
+on:
+  push:
+    paths:
+      - ".github/workflows/m35b-source-pinned-native-smoke01.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  literal-source-native-legacy-status-and-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 18ef3d05b7e02ec4a33226b6661f60338f1b0c87
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate genuine production source SHA and native Git tree
+        run: |
+          test "$(git -C source rev-parse HEAD)" = "18ef3d05b7e02ec4a33226b6661f60338f1b0c87"
+          test "$(git -C source rev-parse 'HEAD^{tree}')" = "7be935a8013cb0113ae6ee5f492be05df53e3868"
+          git -C source rev-parse HEAD 'HEAD^{tree}'
+      - name: Install real native physics source
+        working-directory: source
+        run: python -m pip install -e ".[test]"
+      - name: Execute honest adversarial native M35b legacy sweep validation tests
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m pytest tests/test_m35b_legacy_sweep_integrity.py -q | tee ../m35b-focused01.log
+      - name: Execute M28a and M28b real legacy physics/renderer regressions
+        working-directory: source
+        run: |
+          set -o pipefail
+          python -m pytest tests/test_m28a_trajectory_sweep.py tests/test_m28b_event_sweep.py -q | tee ../m35b-retained01.log
+      - name: Seal original failed-or-passed evidence for exact source
+        if: always()
+        run: |
+          for f in m35b-focused01.log m35b-retained01.log; do
+            if [ -f "$f" ]; then sha256sum "$f"; fi
+          done | tee m35b-native-sha01.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m35b-original-exact-source-native-first-attempt
+          path: |
+            m35b-focused01.log
+            m35b-retained01.log
+            m35b-native-sha01.txt
+          if-no-files-found: warn
