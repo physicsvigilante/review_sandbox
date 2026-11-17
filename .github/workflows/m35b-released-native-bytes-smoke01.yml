@@ -1,0 +1,62 @@
+name: M35b original released M35a vs hardening candidate native sweep byte identity
+on:
+  push:
+    paths:
+      - ".github/workflows/m35b-released-native-bytes-smoke01.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  released-vs-candidate-genuine-nine-sweep-bytes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review-hub
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 808d7ce9245aaeda3f8f58faff7181776d20183a
+          path: released
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 445ad482d5a5fed875d52865df5aba52d570c354
+          path: candidate
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pin exact literal OLD released and NEW candidate Git source+TREE
+        run: |
+          test "$(git -C released rev-parse HEAD)" = "808d7ce9245aaeda3f8f58faff7181776d20183a"
+          test "$(git -C released rev-parse 'HEAD^{tree}')" = "f9d14fedd06659f5abf8f822b31bc7e6353f2a37"
+          test "$(git -C candidate rev-parse HEAD)" = "445ad482d5a5fed875d52865df5aba52d570c354"
+          test "$(git -C candidate rev-parse 'HEAD^{tree}')" = "f5032042f2ebfa85b5317f2d7fba2c972b9b1e0c"
+      - name: Generate actual original release nine native M28a/M28b sweep outputs
+        run: |
+          PYTHONPATH="$PWD/released/src:$PWD/released" python review-hub/projects/conductor_sim/m35b_legacy/legacy_v1_snapshot.py --checkout-root released --output released-original.json | tee released-original-meta.json
+      - name: Generate new stricter candidate nine genuinely native sweep outputs
+        run: |
+          PYTHONPATH="$PWD/candidate/src:$PWD/candidate" python review-hub/projects/conductor_sim/m35b_legacy/legacy_v1_snapshot.py --checkout-root candidate --output candidate-current.json | tee candidate-current-meta.json
+      - name: Check complete original-source and corrected source JSON literally BYTE identical
+        run: |
+          cmp released-original.json candidate-current.json
+          echo "PASS: nine genuine old M28a/M28b native complete/censored/rejected/terminal source sweeps are exactly byte-identical"
+      - name: Record original/candidate full detached native evidence SHA256
+        if: always()
+        run: |
+          for f in released-original.json candidate-current.json released-original-meta.json candidate-current-meta.json; do
+            if [ -f "$f" ]; then sha256sum "$f"; fi
+          done | tee m35b-nine-bytes-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m35b-original-released-versus-candidate-nine-legacy-native-bytes
+          path: |
+            released-original.json
+            candidate-current.json
+            released-original-meta.json
+            candidate-current-meta.json
+            m35b-nine-bytes-sha256.txt
+          if-no-files-found: warn
