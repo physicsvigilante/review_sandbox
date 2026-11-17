@@ -1,0 +1,52 @@
+# SIM_HEAT PR #48 — independent R2 for original thermal topology and public observation overlay (OFFLINE view-data ONLY)
+
+**Source:** [historical draft SIM_HEAT PR #48](https://github.com/physicsvigilante/sim_heat/pull/48). **DO NOT MERGE historical frozen F0 experimental source PRs to production main.**
+**Exact source HEAD:** `4f077d5e3f231dacae5986d66bdaf0bdbe555b83`; **Git tree:** `4e44ac9e97ea9556472466309b62f53abddd4af6`.
+**Immediate independent-reviewed base:** PR47 source `abd969ce32c8b55899561ad7d80c5792f304927e`, tree `176b78b7c0a88add9df8794761fc3b94e6bed6e2`; [Chat B independent SCOPED PASS](../pr-47/reviews/review-01-chat-b.md) for nine original expected source export dependency names/signs/units **with ZERO native numerical observations**.
+**Frozen original F0 implementation:** `dd8c9432abe97563414bb3ed809e61e673473812`, historical errors remain.
+**Diff:** exactly FOUR **ADDED** paths, no changes/deletions to any inherited science/runner/owner/ref files: `qualification/h1_c1/f02/offline_topology_observation_overlay.py`, `test_offline_topology_observation_overlay.py`, `TOPOLOGY_OBSERVATION_OVERLAY_SCOPE.md`, `.github/workflows/h1-c1-f02-source-topology-overlay.yml`.
+**Review class:** R2 for physical topology, source-port junction, sign orientation, request placement and evidence semantics. Current code is **nonrendering, source-derived JSON only**, without model execution or physical geometry.
+**Independent reviewer output:** NEW Chat B-authored `projects/sim_heat/pr-48/reviews/review-01-chat-b.md` in the central review repository, SCOPED PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE; Chat A must never write that independent verdict.
+
+## Purpose: what original frozen model ACTUALLY connects
+
+The user originally authored one exact frozen 872-byte Modelica model `h1/cases/H1_C1_MODAL/model.mo`, raw SHA `9a165e5ce2cc85da84ecc8bc4e63e2990f2066f3547dc6ba8508fa1afbe5f435`; evaluator modal study `b43e85b6b10afd6550a43322cf98097fe9781a606ee01bc031eadbfd4783b31b`. The original parser `h1.model.topology` groups connected thermal ports by transitive equivalence from the actual 8 author-written `connect()` declarations. `Topology.edges` contains rod identities/endpoint source node indices and an admitted conductance, but this new view-model deliberately **does NOT publish numerical conductance or any simulation output**. It uses the original Modelica parser, original node union/edge source and the independently reviewed PR47 public field dependency inventory; not an LLM-invented circuit.
+
+**The exact 4 source-derived ideal junction equivalence classes** (names are deterministic source-sorted PORT IDs, NOT physical coordinates/position):
+
+| Junction ID | Original anchor owner | Exact source thermal ports |
+|---|---|---|
+| `junction-00` | coldBath | `coldBath.port`, `coldLead.port_b` |
+| `junction-01` | rightBuffer | `coldLead.port_a`, `flatBridge.port_b`, `rightBuffer.port`, `roundBridge.port_b` |
+| `junction-02` | leftBuffer | `flatBridge.port_a`, `hotLead.port_b`, `leftBuffer.port`, `roundBridge.port_a` |
+| `junction-03` | hotBath | `hotBath.port`, `hotLead.port_a` |
+
+Total **8** original components (2 Body, 2 FixedTemperature, 3 RodArea, 1 RodCircular), **12** unique terminal ports, **8** author-ordered `connect(a,b)` wires grouped by source-junction equivalence, **4** rod edges each oriented by original `port_a → port_b` names, and **1** source-proven pair `flatBridge` / `roundBridge` between original left/right junction classes. Positive `rod.Q_flow` is a **sign convention**, not a claim of observed positive flow or heat direction. There are no invented material properties, rod shapes/positions, apparatus dimensions or screen coordinates.
+
+**Nine public request source overlays** inherit exact PR47 field dependencies and link to a thermal source terminal/junction, oriented rod edge or authored thermal Body:
+- `leftTemperature` / `rightTemperature` at their original Body ports, expected `leftBuffer.T`, `rightBuffer.T`;
+- four original conductor heat flows at the oriented source rods, expected `hotLead.Q_flow`, `flatBridge.Q_flow`, `roundBridge.Q_flow`, `coldLead.Q_flow`;
+- original `leftEnergyChange`, `rightEnergyChange` at Body owner components, expected `.dU` fields;
+- one `bufferTemperatureDifference` at two source-ordered ports, expected **`+leftBuffer.T - rightBuffer.T`**, no numeric subtraction.
+
+**Absolutely NO Modelica values are observed.** Each junction `nativeTemperature=null`, each rod `nativeHeatFlow=null`, each public request `nativeValue=null`, all status `not_computed`. `nativeObservationCount=0`, `nativePublicRequestsStillNotComputed=9`, `releaseBlocked=true`, all compiler/build/launch/owner/real-CAS/native/science-success flags false. `layout=null`, `physicalApparatusGeometry=null`, all `physicalPoseSpecified=false`. Source topology is not a drawing/3D representation or browser widget; even physically plausible source graphs may not match an unseen real apparatus.
+
+New `validate_shape` is a **NON-AUTHORITATIVE shape/denial guard**; `assert_exact_source_bound` must be used for copied inputs, re-deriving the original Modelica/PR47 source and comparing complete canonical JSON bytes. Even full exact match is NOT owner signing or genuine native provenance. It refuses fake/missing/duplicate junctions, altered connect endpoints/order, swapped rod orientations/parallel claim, wrong request placement/unit/sign, injected coordinate/geometry or native values, and fake owner permissions. The command `describe-source-topology-only` returns an informational expected view-model, never an executable native plan. No new renderer/image is created.
+
+## Exact-head CI/artifact and source preservation
+
+[**GitHub Actions #44098156308**](https://github.com/physicsvigilante/sim_heat/actions/runs/44098156308) **completed SUCCESS** at exact pinned source SHA. [**Artifact #14333659957**](https://github.com/physicsvigilante/sim_heat/actions/runs/44098156308/artifacts/14333659957), original ZIP **37,234 bytes**, whole-file SHA-256 **`fb418536ac09b9f8815b4f9edb4c1f39db30b92d7aa80091bf58d15120683131`**. Chat A independently downloaded/rehashed actual ZIP, validated **47 unique members, 47/47 CRC**, original head-sha/head-tree and four `A` path diff. Its `source-topology-no-native.json` was independently checked for EXACT junction groups above, parallel two-bridge pair, 9 uncomputed overlays, all native flags false, no pose/geometry.
+
+**389/389 OFFLINE unittest methods PASS**, confirmed by genuine exact-head job logs: **19 new** source topology/port/junction/rod/pose/native refusal tests + **20 PR47** field dependency +17 PR46 expected coverage +24 PR45 JSON intake +16 PR43 stale CAS +18 PR42 toy protocol +15 PR41 HOLD +16 PR40 fake CAS +12 PR39 SQLite +15 PR38 nonexecuting Modelica script preview +24 PR37 immutable staging +16 PR36 disabled-plan +11 Option A owner-approved offline consumer +8 original study/reference binding +9 archived reference +149 frozen H1. All 14 frozen original F0 source SHA and 23 original unlaunched native-plan source pins pass; original PR31 archived XZ + full manifest SHA pins verified. Read-only pinned Github Actions/python packages, no `omc`, native executable, MAT decoding, new numerical reference generation or source merge.
+
+**Scientific and owner holds untouched:** original frozen F0 `hotLead.G` numerical reference precision only **80× against mandatory ≥100×: FAIL**. PR32 two-host reproduction of ORIGINAL PR31 V2 seal **FAIL**, alternate `c30e…` seal NOT adopted. The user approved only the original saved PR31 V2 **analytical checking reference for OFFLINE CHECKING**, raw SHA `0db511dd8dba023d16518667de256029cf3e073463ea21e2478aeac8afd1f368`, original seal `d2b8e2ca8e1f929cac7b028dcc3f7d0b453921d193f877eb091e23ac70aa4ce9`. All nine actual H1_C1_MODAL native public outputs remain `not_computed`.
+
+## Independent reviewer tasks and absolute boundary
+
+1. Independently verify exact PR48 source head/tree, four additions only, frozen original F0 physics/native runner/checker, author Modelica/study, saved original PR31 reference/owner offline scope and old failed evidence unchanged.
+2. Independently trace ORIGINAL `h1.model.topology` union of the eight author-written `connect()` calls. Enumerate all **12 distinct original ports** into the **four exact equivalence sets** above, each with one Body/bath owner. Confirm four distinct oriented rods and a genuine two-rod flat/round parallel group, with no invented geometry/pose or implied actual flow direction.
+3. Inspect all nine public request source location overlays and exact PR47 expected terms. Check source port `a/b` identity and `port_a→port_b` rod orientation, the original first-minus-second difference sign, no numeric values, and absence of actual native outputs.
+4. Try falsifying each group: split/merge/rename junctions, remove/add/reorder connect() wires, swap rod `port_a/b`, fabricate a rod pair, create coordinates, inject junction temperature or rod flow or public native answer, change approved PR31 SHA/seal or owner/native approval. Distinguish `validate_shape` (insufficient alone) from `assert_exact_source_bound` (full original source-binding); neither authenticates an external native run.
+5. Independently download exact HEAD artifact #14333659957, recompute full ZIP SHA and 47 CRCs, check full **389** hosted OFFLINE tests and frozen source/reference pins, and *personally executed* probes versus CI inspected evidence. Give SCOPED PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE **only for accurate nonrendering original source topology and expected/uncomputed public overlays**.
+
+**HARD STOP:** no native OMC version query, install, build, launch, MAT numeric/physical qualification, new reference.prepare or substituted PR32 alternate, original physical source/threshold edits, real owner/CAS release/one-shot token, historic source PR merge or signed owner launch permission. All **11** actual pre-native owner-authenticated protected scientific source/reference release + backup, fresh source ref, nonregenerating executable adapter/plan, observed host/OMC/MSL toolchain, owner-controlled globally shared durable atomic CAS/no-retry, independent pre-native R2, and **separate explicit owner approval for a named version-query/build/single-model-launch budget** remain MISSING. [PROTOCOL](../../../PROTOCOL.md), [RISK POLICY](../../../REVIEW-RISK-POLICY.md), [TEMPLATE](../../../REVIEW-TEMPLATE.md) govern this review.
