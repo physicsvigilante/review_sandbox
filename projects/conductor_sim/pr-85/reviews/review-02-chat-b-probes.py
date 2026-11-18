@@ -274,7 +274,7 @@ def novel_dipole():
                 analytic_torque_z_n_m=analytic_torque_z,not_rotational_dynamics=True)
 
 
-def novel_3d_electric_gravity():
+def novel_in_plane_electric_gravity():
     from examples.electric_gravity_motion import build_case
     from conductor_sim import PrescribedField, UniformElectricField
     from conductor_sim.conservative_forces import UniformGravity
@@ -286,13 +286,23 @@ def novel_3d_electric_gravity():
     field=2.7e-7
     gravity=12.4
     until=.0135
-    v0=(.015,.04,.065)
+    v0=(.015,.04,0.0)
     scenario=replace(source.spec,mass_kg=mass,
         particle=replace(source.spec.particle,charge_c=charge),
         field=PrescribedField((UniformElectricField((field,0.,0.)),)),
         gravity=UniformGravity((0.,-gravity,0.)),
         initial_velocity_m_s=v0,duration_s=until,
         sample_interval_s=.0005)
+    # A first-run out-of-plane challenge was refused by the correctly scoped
+    # engine: record that refusal, then evaluate a genuinely admitted new 2D case.
+    from conductor_sim.solver import UnsupportedProblem
+    try:
+        replace(scenario, initial_velocity_m_s=(v0[0],v0[1],.065))
+    except UnsupportedProblem as exc:
+        assert "initial velocity must lie in the physical motion plane" in str(exc)
+        out_of_plane_refusal=str(exc)
+    else:
+        raise AssertionError("Disallowed 3D initial velocity was unexpectedly accepted")
     native=integrate_test_charge(scenario)
     assert len(native.samples)>=25
     assert native.termination=="duration"
@@ -301,19 +311,20 @@ def novel_3d_electric_gravity():
         t=row.time_s
         position=tuple(v0[j]*t+.5*acceleration[j]*t*t for j in range(3))
         velocity=tuple(v0[j]+acceleration[j]*t for j in range(3))
-        vector(row.position_m,position,atol=1e-11,rtol=1e-8,label=f"native 3D position sample {i}")
-        vector(row.velocity_m_s,velocity,atol=3e-9,rtol=1e-8,label=f"native 3D velocity sample {i}")
+        vector(row.position_m,position,atol=1e-11,rtol=1e-8,label=f"native in-plane position sample {i}")
+        vector(row.velocity_m_s,velocity,atol=3e-9,rtol=1e-8,label=f"native in-plane velocity sample {i}")
     end=native.samples[-1]
-    near(end.time_s,until,atol=1e-14,rtol=0,label="3D final time")
+    near(end.time_s,until,atol=1e-14,rtol=0,label="in-plane final time")
     analytic_p=tuple(v0[j]*until+.5*acceleration[j]*until*until for j in range(3))
     analytic_v=tuple(v0[j]+acceleration[j]*until for j in range(3))
-    return dict(family="3D velocity + independent electric/gravity accelerations",
+    return dict(family="in-plane oblique initial velocity plus independent electric/gravity acceleration",
                 mass_kg=mass,charge_c=charge,field_v_m=field,gravity_m_s2=gravity,
                 initial_velocity_m_s=list(v0),time_s=until,samples=len(native.samples),
                 native_final_position_m=list(end.position_m),
                 analytic_final_position_m=list(analytic_p),
                 native_final_velocity_m_s=list(end.velocity_m_s),
-                analytic_final_velocity_m_s=list(analytic_v))
+                analytic_final_velocity_m_s=list(analytic_v),
+                out_of_plane_refusal=out_of_plane_refusal)
 
 
 def novel_non_equilibrium_spheres():
@@ -379,7 +390,7 @@ def main():
         lambda: original_and_attacks(args.output.parent))
     run("NEW reviewer-authored native one-sided sheet",novel_sheet)
     run("NEW reviewer-authored native finite dipole",novel_dipole)
-    run("NEW reviewer-authored native 3D electric plus gravity",novel_3d_electric_gravity)
+    run("NEW reviewer-authored native in-plane oblique electric plus gravity",novel_in_plane_electric_gravity)
     run("NEW reviewer-authored native far-sphere charge transfer/refusal",novel_non_equilibrium_spheres)
     report=dict(schema="independent-chat-b-m36b-pr85-review02.v1",
                 source_head="524a6e07f17cd8bf53eaeec543031f1ec7bbb9eb",
