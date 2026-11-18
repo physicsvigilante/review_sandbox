@@ -1,0 +1,2969 @@
+[
+  {
+    "id": 44304645211,
+    "name": "M35a audit and dependency-aware scientific regression",
+    "event": "pull_request",
+    "path": ".github/workflows/m35a-scientific-regression.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645211",
+    "jobs": [
+      {
+        "id": 134802915902,
+        "name": "audited-native-history-and-nonuniform-references",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Retain exact candidate and released baseline identities",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install real native package and test requirements",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Red-before released-code audit and documented open legacy findings",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Audit correction and multistage physical/integrity regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Existing M32a through M34b and new M35a independently expressed references",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Actual released legacy graph, direct fork and inquiry outputs",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Candidate legacy outputs must be byte-identical",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve exact source archive and seal all original evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645130,
+    "name": "M21c composite symmetry review",
+    "event": "pull_request",
+    "path": ".github/workflows/m21c-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645130",
+    "jobs": [
+      {
+        "id": 134802907593,
+        "name": "certified-motion-and-viewer",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Composite proof and retained fixed-source regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Four genuine offline Chromium motion exports",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645640,
+    "name": "M15c authoring and browser acceptance",
+    "event": "pull_request",
+    "path": ".github/workflows/m15c-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645640",
+    "jobs": [
+      {
+        "id": 134802909780,
+        "name": "cavity-authoring",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Reproduce review regressions and score original cavity prompts",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export inward, nested and connected-then-disconnected examples",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Chromium force, work, state and mobile checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645336,
+    "name": "M34b independent certified incremental world fork physics",
+    "event": "pull_request",
+    "path": ".github/workflows/m34b-independent-forks.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645336",
+    "jobs": [
+      {
+        "id": 134802908869,
+        "name": "source-pinned-native-and-independent-newtonian",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Record literal current source HEAD and Git tree",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install original native solver and test package",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Execute all new native incremental graph and evidence tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export actual old source graph and only freshly integrated child worlds",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Independently recompute all genuine saved three-component SI states and events",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "SHA256-seal original source, incremental child and separate physics evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645248,
+    "name": "M36e actual JEE solid-source answers and real Chromium integrity",
+    "event": "pull_request",
+    "path": ".github/workflows/m36e-original-answer-viewer.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645248",
+    "jobs": [
+      {
+        "id": 134802908125,
+        "name": "original-source-answer-viewer",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install existing qualified engine and actual offline Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Assert actual source and true original PDF bytes",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Execute real source-native physics, readout integrity and legacy M36d regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export actual source and teacher solver observations and 65x65 static field viewer",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Independently recompute all native solid sphere physical observations",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Real Chromium verify visibly synchronized p26 original and teacher SI answers",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Real Chromium reject tampered visible answers and source/teacher attribution",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve actual original source, screenshots, native values and first failures",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304644971,
+    "name": "M19e source identity and world-oriented ring viewer",
+    "event": "pull_request",
+    "path": ".github/workflows/m19e-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304644971",
+    "jobs": [
+      {
+        "id": 134802907259,
+        "name": "world-oriented-prescribed-viewer",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "New identity/orientation and original fixed-field/motion regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Independent actual Chromium scene geometry and retained M19b playback",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645296,
+    "name": "M21e composed electric and gravity review",
+    "event": "pull_request",
+    "path": ".github/workflows/m21e-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645296",
+    "jobs": [
+      {
+        "id": 134802908868,
+        "name": "conservative-composition-and-browser",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" 'playwright==1.57.0'",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Composable force physics and retained source, revision and symmetry tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Seven actual offline Chromium source and composition exports",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645188,
+    "name": "M21d distant connected spheres",
+    "event": "pull_request",
+    "path": ".github/workflows/m21d-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645188",
+    "jobs": [
+      {
+        "id": 134802908727,
+        "name": "source-physics-and-offline-states",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" 'playwright==1.57.0'",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Independent JEE and retained connection/observer checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Five real Chromium source-anchored and hypothetical exports",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645136,
+    "name": "M36b real source-JEE replays, independent physics and Chromium",
+    "event": "pull_request",
+    "path": ".github/workflows/m36b-jee-source-replays.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645136",
+    "jobs": [
+      {
+        "id": 134802907610,
+        "name": "jee-source-replays",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install actual engine and offline Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Record literal execution source",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run all real source-anchored native tests and adversarial counterexamples",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export seven actual source cases with genuine native physics and views",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check independently expressed analytical references (NO engine imports)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run three true teacher-hypothetical native transfer worlds (not extra JEE cases)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Independently check teacher native variants without production imports",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Open all seven actual source-anchored views in real offline Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Retain full run evidence and images, including original failures",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645355,
+    "name": "M36d true solid conductor source JEE physics and Chromium",
+    "event": "pull_request",
+    "path": ".github/workflows/m36d-true-solid-source.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645355",
+    "jobs": [
+      {
+        "id": 134802908114,
+        "name": "true-solid-original-source",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install real qualified physical engine and offline Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Record true source HEAD TREE and original PDF source hashes",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Test genuinely standalone solid sphere, old M14b and M6 compatibility, hostility",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export TRUE solid-sphere original and two teacher-native worlds",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Independently derive Gauss potential E and outer sigma without engine",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Real Chromium source-authentic SOLID original and changed world inspections",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Retain source identity physical observations visual results and first failures",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645780,
+    "name": "M20a paired prescribed-field exploration",
+    "event": "pull_request",
+    "path": ".github/workflows/m20a-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645780",
+    "jobs": [
+      {
+        "id": 134802910445,
+        "name": "verified-paired-offline-viewers",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Focused M20c, M20b, M20a, M19e, M19b and M19a correctness",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Four independent real Chromium paired-scene exports",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Six identity-addressed M20b revisions in real Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Twelve preregistered M20c cards and independent checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Six fresh non-Ring scenarios in actual Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645279,
+    "name": "M18c held-source authoring and independent physics",
+    "event": "pull_request",
+    "path": ".github/workflows/m18c-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645279",
+    "jobs": [
+      {
+        "id": 134802908550,
+        "name": "held-source-authoring",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Independent Green-function references and authoring mutations",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Existing production exporter and offline Chromium acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645051,
+    "name": "M18b held-source viewer and correctness",
+    "event": "pull_request",
+    "path": ".github/workflows/m18b-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645051",
+    "jobs": [
+      {
+        "id": 134802907230,
+        "name": "held-source-viewer",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Time-grid, saved-data and full-inventory regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Offline multi-charge frames, marker roles, arrows and playback",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645818,
+    "name": "M36c real conductor-JEE source physics and Chromium",
+    "event": "pull_request",
+    "path": ".github/workflows/m36c-jee-conductor-source-replays.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645818",
+    "jobs": [
+      {
+        "id": 134802910089,
+        "name": "conductor-source-replays",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install qualified source engine, pytest and offline Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Record true source provenance and literal original PDF hashes",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Execute genuine original conductor source models and tamper-negative regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export seven authentic independent conductor apparatus (one linked Q13-Q14)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check independently expressed static Gauss Kelvin and conductor energy formulas",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Inspect seven actual original source static viewers in offline Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve source truth, native results, independent SI, viewer HTML and screenshots",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645388,
+    "name": "M17c motion authoring and review",
+    "event": "pull_request",
+    "path": ".github/workflows/m17c-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645388",
+    "jobs": [
+      {
+        "id": 134802910148,
+        "name": "motion-authoring",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Regressions and independent original-prompt grading",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Reuse existing exporter and Chromium playback checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify actual vector directions and omitted metal-crossing chord",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645351,
+    "name": "Python checks",
+    "event": "pull_request",
+    "path": ".github/workflows/tests.yml",
+    "status": "in_progress",
+    "conclusion": null,
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645351",
+    "jobs": [
+      {
+        "id": 134802910604,
+        "name": "python (3.10)",
+        "status": "in_progress",
+        "conclusion": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pytest",
+            "status": "in_progress",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/concentric_shell.py",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python -m conductor_sim.pdf_benchmark check",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/force_energy.py --output output/force_energy.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_1d.py --case cavity --duration-s .06 --sample-interval-s .01 --output output/m16a-cavity.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_viewer.py --case plane --duration-s .025 --sample-interval-s .005 --resolution 9 --line-steps 10 --output output/m16b-plane.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case plates --output output/m17a-plates.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case sphere --output output/m17a-sphere.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case cavity --output output/m17a-cavity.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case plane --output output/m18a-plane.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case sphere --output output/m18a-sphere.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case guard --output output/m18a-guard.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d_viewer.py --case plates --visual-frames 5 --resolution 9 --line-steps 10 --output output/m17b-plates.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d_viewer.py --case sphere --visual-frames 5 --resolution 9 --line-steps 10 --output output/m17b-sphere.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_1d.py --case plates --charge-c=-1.602176634e-19 --mass-kg 9.1093837139e-31 --duration-s 5e-8 --sample-interval-s 5e-9 --output output/m16a-electron.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/connected_shells.py --case pdf-p14-q7 --resolution 11 --line-steps 20 --output output/m14-shells.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/solid_sphere_connected.py --case pdf-p03-q27 --resolution 11 --line-steps 20 --output output/m14b-solid.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/solid_sphere_connected.py --case pdf-p10-q13-q14 --resolution 11 --line-steps 20 --output output/m14b-shells.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python -m m13c.evaluate grade --output output/m13c-grade.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python -m m13c.pdf_cases grade --output output/m13c-pdf-audit.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --steps 3 --resolution 9 --image-order 12 --line-steps 12 --output output/m13b-explorer.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --case cavity-grounded --steps 3 --resolution 11 --line-steps 18 --output output/m15-cavity-grounded.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --case cavity-nested --steps 3 --resolution 11 --line-steps 18 --output output/m15-cavity-nested.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null
+          }
+        ]
+      },
+      {
+        "id": 134802911312,
+        "name": "python (3.12)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pytest",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/concentric_shell.py",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m conductor_sim.pdf_benchmark check",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/force_energy.py --output output/force_energy.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_1d.py --case cavity --duration-s .06 --sample-interval-s .01 --output output/m16a-cavity.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_viewer.py --case plane --duration-s .025 --sample-interval-s .005 --resolution 9 --line-steps 10 --output output/m16b-plane.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case plates --output output/m17a-plates.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case sphere --output output/m17a-sphere.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case cavity --output output/m17a-cavity.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case plane --output output/m18a-plane.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case sphere --output output/m18a-sphere.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case guard --output output/m18a-guard.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d_viewer.py --case plates --visual-frames 5 --resolution 9 --line-steps 10 --output output/m17b-plates.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d_viewer.py --case sphere --visual-frames 5 --resolution 9 --line-steps 10 --output output/m17b-sphere.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_1d.py --case plates --charge-c=-1.602176634e-19 --mass-kg 9.1093837139e-31 --duration-s 5e-8 --sample-interval-s 5e-9 --output output/m16a-electron.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/connected_shells.py --case pdf-p14-q7 --resolution 11 --line-steps 20 --output output/m14-shells.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/solid_sphere_connected.py --case pdf-p03-q27 --resolution 11 --line-steps 20 --output output/m14b-solid.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/solid_sphere_connected.py --case pdf-p10-q13-q14 --resolution 11 --line-steps 20 --output output/m14b-shells.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m m13c.evaluate grade --output output/m13c-grade.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m m13c.pdf_cases grade --output output/m13c-pdf-audit.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --steps 3 --resolution 9 --image-order 12 --line-steps 12 --output output/m13b-explorer.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --case cavity-grounded --steps 3 --resolution 11 --line-steps 18 --output output/m15-cavity-grounded.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --case cavity-nested --steps 3 --resolution 11 --line-steps 18 --output output/m15-cavity-nested.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645256,
+    "name": "M22a structural composability review",
+    "event": "pull_request",
+    "path": ".github/workflows/m22a-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645256",
+    "jobs": [
+      {
+        "id": 134802908269,
+        "name": "qualified-structural-reassembly",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "New authoring and retained parameter, comparison, symmetry and gravity contracts",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "All preselected authoring cards with distinct evaluation stages",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Four actual standalone Chromium transfer views",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304644968,
+    "name": "M19b fixed-source offline viewer and physics integrity",
+    "event": "pull_request",
+    "path": ".github/workflows/m19b-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304644968",
+    "jobs": [
+      {
+        "id": 134802907209,
+        "name": "prescribed-offline-browser",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Full M19b viewer, fixed-source physics and original mode regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Reproduce six source geometries and check genuine offline Chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645033,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "pull_request",
+    "path": ".github/workflows/m37a-grounded-sphere-wire.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645033",
+    "jobs": [
+      {
+        "id": 134802907317,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install package and source tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify actual Kelvin charge, derivative, force and motion",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Generate genuine teacher and integrated radial-motion evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Retain genuine SI evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 134802908412,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install package and source tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify actual Kelvin charge, derivative, force and motion",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Generate genuine teacher and integrated radial-motion evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Retain genuine SI evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645205,
+    "name": "M33b new native graph-world event inquiries and independent SI",
+    "event": "pull_request",
+    "path": ".github/workflows/m33b-independent-inquiry.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645205",
+    "jobs": [
+      {
+        "id": 134802908461,
+        "name": "reasked-real-m24a-and-independent-newtonian-reference",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Print actual candidate source SHA and Git tree",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install production package for real native event solves",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "New M24a signed detector event studies on existing qualified source graph",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Independent saved SI states, source hash, root times and hostile evidence controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Seal all source-head numeric evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645259,
+    "name": "M19a prescribed fields and test-charge physics",
+    "event": "pull_request",
+    "path": ".github/workflows/m19a-review.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645259",
+    "jobs": [
+      {
+        "id": 134802909775,
+        "name": "fixed-field-physics",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Fixed-source physics and shared-controller regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M27a frozen reserved independent Coulomb-line reference (first CI execution)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M27a source-faithful static two-ring HTML and JSON",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M27b predeclared noncoaxial full-ring first transfer (direct quadrature + Verlet)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M27b real curved two-ring world-xy teaching example",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M27b real driven two-ring schedule and drag example",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645456,
+    "name": "FEMM 5 real-solver validation",
+    "event": "pull_request",
+    "path": ".github/workflows/femm5-live.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645456",
+    "jobs": [
+      {
+        "id": 134802908902,
+        "name": "femm5-conductor-physics",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check out conductor_sim",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Python 3.12",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Fetch and verify pinned official FEMM 5 source",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Build headless FEMM and electrostatics solver",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install conductor_sim",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run REAL FEMM 5 electrostatics integration tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export real FEMM 5 data for authored M6b multi-source case",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Chromium review of real FEMM two-electrode export",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Python 3.12",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Check out conductor_sim",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304645374,
+    "name": "Visualization and source checks",
+    "event": "pull_request",
+    "path": ".github/workflows/visualization.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304645374",
+    "jobs": [
+      {
+        "id": 134802908793,
+        "name": "visualization",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\" \"playwright==1.57.0\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m playwright install chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Archive exact source",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M27b actual Chromium ring off-axis conservative and driven motion",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M28a real Chromium parameter sweeps and source-guard censoring",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M28b real Chromium native event sweep root and censoring acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M29a actual Chromium structural inventories, native motion and censoring",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M29b actual Chromium structural inventories and typed event observations",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pytest -m \"not femm5\" -q --junitxml=review-artifacts/python.xml",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/visualize_conductors.py --output review-artifacts/analytical.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Browser acceptance (no external requests)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M6 PDF benchmark physics and classification",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M6 PDF authoring sweep render",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Browser acceptance of PDF-authored simulation",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M6b authorability grading (new JEE tasks)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M6b grounded two-state export",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Chromium acceptance of authored M6b simulation",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M7 exterior grounded solid sphere preview",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M7 Chromium export acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M8 grounded and isolated sphere preview (analytical)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M8 offline Chromium viewer acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M9 multiple external sources analytical HTML",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M9 Chromium offline multi-source acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M10 grounded-plane analytical preview",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M10 Chromium grounded-plane geometry acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M11 analytical multi-source grounded plane export",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M11 Chromium multi-source grounded plane",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M12a analytical parallel-plate three-state preview",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M12a Chromium offline electrode and density acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post-M12 density gaps and parallel-slice browser regressions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Smooth potential and progressive density acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13a shared analytical force and energy observations",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13b grounded-plate force-energy position-sweep export",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13b Chromium synchronized force-arrow, graphs and work acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13c open problem authorability and independent SI grading",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13c grounded slab nine-position authored explorer",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13c Chromium force-energy, work and metadata viewer acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13c scanned-PDF source classification and independent Kelvin checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13c PDF p8 grounded metal sphere approach explorer",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13c PDF p8 Chromium force/energy and work acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13c PDF p9 neutral sphere tangent explorer",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M13c PDF p9 Chromium force/energy and work acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M14a analytical connected-shells two-state export",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M14a Chromium connected-shell potential and profile acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M14b PDF p3 solid-sphere plus shell force-energy static export",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M14b PDF p3 Chromium offline two-state acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M14b PDF p10 linked shell energy example",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M14b PDF p10 Chromium offline two-state acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M15a+b grounded cavity position sweep with exact Kelvin force",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M15 grounded-cavity Chromium force and energy acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M15 nested cavity with shell constraints",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M15 nested-cavity Chromium synchronized force-energy acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M15 two signed cavity charges reusable viewer",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M15 multiple-source Chromium force-energy acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M15 cavity-centre zero-force analytical equilibrium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M15 cavity-centre Chromium zero-force arrow acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M16b actual elapsed-time cavity HTML export",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M16b Chromium time controls, velocity, energy and field consistency",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M16b actual electron transit between biased plates",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M16b Chromium electron nanosecond time and energy acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M17b real curved-angle plane trajectory HTML",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M17b Chromium offline curved path, vectors and time controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M17b real central-force exterior sphere trajectory",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M17b Chromium central-force vectors, energy and path",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M26a structural driven source Chromium acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "M27a real Chromium static two-ring off-axis E/V acceptance",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304634790,
+    "name": "Python checks",
+    "event": "push",
+    "path": ".github/workflows/tests.yml",
+    "status": "in_progress",
+    "conclusion": null,
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304634790",
+    "jobs": [
+      {
+        "id": 134802873656,
+        "name": "python (3.12)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pytest",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/concentric_shell.py",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m conductor_sim.pdf_benchmark check",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/force_energy.py --output output/force_energy.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_1d.py --case cavity --duration-s .06 --sample-interval-s .01 --output output/m16a-cavity.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_viewer.py --case plane --duration-s .025 --sample-interval-s .005 --resolution 9 --line-steps 10 --output output/m16b-plane.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case plates --output output/m17a-plates.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case sphere --output output/m17a-sphere.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case cavity --output output/m17a-cavity.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case plane --output output/m18a-plane.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case sphere --output output/m18a-sphere.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case guard --output output/m18a-guard.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d_viewer.py --case plates --visual-frames 5 --resolution 9 --line-steps 10 --output output/m17b-plates.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_2d_viewer.py --case sphere --visual-frames 5 --resolution 9 --line-steps 10 --output output/m17b-sphere.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/particle_motion_1d.py --case plates --charge-c=-1.602176634e-19 --mass-kg 9.1093837139e-31 --duration-s 5e-8 --sample-interval-s 5e-9 --output output/m16a-electron.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/connected_shells.py --case pdf-p14-q7 --resolution 11 --line-steps 20 --output output/m14-shells.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/solid_sphere_connected.py --case pdf-p03-q27 --resolution 11 --line-steps 20 --output output/m14b-solid.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/solid_sphere_connected.py --case pdf-p10-q13-q14 --resolution 11 --line-steps 20 --output output/m14b-shells.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m m13c.evaluate grade --output output/m13c-grade.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m m13c.pdf_cases grade --output output/m13c-pdf-audit.json",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --steps 3 --resolution 9 --image-order 12 --line-steps 12 --output output/m13b-explorer.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --case cavity-grounded --steps 3 --resolution 11 --line-steps 18 --output output/m15-cavity-grounded.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --case cavity-nested --steps 3 --resolution 11 --line-steps 18 --output output/m15-cavity-nested.html",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 134802873851,
+        "name": "python (3.10)",
+        "status": "in_progress",
+        "conclusion": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pip install -e \".[test]\"",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m pytest",
+            "status": "in_progress",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/concentric_shell.py",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python -m conductor_sim.pdf_benchmark check",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/force_energy.py --output output/force_energy.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_1d.py --case cavity --duration-s .06 --sample-interval-s .01 --output output/m16a-cavity.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_viewer.py --case plane --duration-s .025 --sample-interval-s .005 --resolution 9 --line-steps 10 --output output/m16b-plane.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case plates --output output/m17a-plates.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case sphere --output output/m17a-sphere.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d.py --case cavity --output output/m17a-cavity.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case plane --output output/m18a-plane.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case sphere --output output/m18a-sphere.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_fixed_charges.py --case guard --output output/m18a-guard.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d_viewer.py --case plates --visual-frames 5 --resolution 9 --line-steps 10 --output output/m17b-plates.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_2d_viewer.py --case sphere --visual-frames 5 --resolution 9 --line-steps 10 --output output/m17b-sphere.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/particle_motion_1d.py --case plates --charge-c=-1.602176634e-19 --mass-kg 9.1093837139e-31 --duration-s 5e-8 --sample-interval-s 5e-9 --output output/m16a-electron.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/connected_shells.py --case pdf-p14-q7 --resolution 11 --line-steps 20 --output output/m14-shells.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/solid_sphere_connected.py --case pdf-p03-q27 --resolution 11 --line-steps 20 --output output/m14b-solid.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/solid_sphere_connected.py --case pdf-p10-q13-q14 --resolution 11 --line-steps 20 --output output/m14b-shells.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python -m m13c.evaluate grade --output output/m13c-grade.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python -m m13c.pdf_cases grade --output output/m13c-pdf-audit.json",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --steps 3 --resolution 9 --image-order 12 --line-steps 12 --output output/m13b-explorer.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --case cavity-grounded --steps 3 --resolution 11 --line-steps 18 --output output/m15-cavity-grounded.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Run python examples/force_energy_explorer.py --case cavity-nested --steps 3 --resolution 11 --line-steps 18 --output output/m15-cavity-nested.html",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "pending",
+            "conclusion": null
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44304634762,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "push",
+    "path": ".github/workflows/m37a-grounded-sphere-wire.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+    "attempt": 1,
+    "url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44304634762",
+    "jobs": [
+      {
+        "id": 134802873401,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install package and source tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify actual Kelvin charge, derivative, force and motion",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Generate genuine teacher and integrated radial-motion evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Retain genuine SI evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 134802873833,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install package and source tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify actual Kelvin charge, derivative, force and motion",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Generate genuine teacher and integrated radial-motion evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Retain genuine SI evidence",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  }
+]

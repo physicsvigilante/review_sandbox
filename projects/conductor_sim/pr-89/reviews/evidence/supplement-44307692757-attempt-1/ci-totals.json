@@ -1,0 +1,10 @@
+{
+  "exact_head_runs": 25,
+  "successful_runs": 23,
+  "pending_runs": 2,
+  "failed_or_cancelled_runs": 0,
+  "all_success": false,
+  "released_base_push_runs": 20,
+  "released_base_push_success": 20,
+  "historical_failed_runs": 7
+}
