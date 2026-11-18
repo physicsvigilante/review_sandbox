@@ -6,10 +6,10 @@
 
 | Exact source identity | Value |
 | --- | --- |
-| PR138 final-source HEAD | `26131c305d2240c394edcc672b7578e615bc4f0b` |
-| Authored Git tree | `2be218d3169fa80168e5a1e2ca09b97bb242bdcd` |
-| Proposed synthetic merge | `d6d7bcabc1693ee3988a7d1d7527db45d38182b0` |
-| Synthetic merge tree | `2be218d3169fa80168e5a1e2ca09b97bb242bdcd` — identical |
+| PR138 final-source HEAD | `936f7d8bca9af0db950ab258e6df2f0e3a37914a` |
+| Authored Git tree | `182a8c51dfcc9cd618e9d92f25ea0d5cb49edc30` |
+| Proposed synthetic merge | `7970f61daea3e13789f801a82626e95bfc8ef471` |
+| Synthetic merge tree | `182a8c51dfcc9cd618e9d92f25ea0d5cb49edc30` — identical |
 | Production base main | `d3509e82fb65d81aabe336666851f8f2962623f4` |
 | New files | Exactly 5 additions: `src/detector-pair-json.js`, `src/detector-pair-plan.js`, `scripts/detector-selected-pair.mjs`, `test/detector-selected-pair.test.mjs`, `examples/jee-detector-selected-native-pair-v1.json` |
 | Historical frozen run CLI | `scripts/run-problem.mjs` blob `2efecbf3eddcd9322782cc1667b02fe495fd4fa8`, unchanged vs production |
@@ -24,3 +24,8 @@
 [**Copy-ready Chat B source review prompt**](REVIEWER-PROMPT-01.md) · [**Full independent source/native review request**](REQUEST.md).
 
 **Final-head CI should be independently confirmed before source clearance.** No release or merge decision yet, production main unprotected (issue #123), held #129/#133/#135/#137 unchanged.
+
+
+## Final lexical-hash portability hardening — 2026-11-18
+
+Source HEAD now `936f7d8bca9af0db950ab258e6df2f0e3a37914a`, Git tree `182a8c51dfcc9cd618e9d92f25ea0d5cb49edc30` identical to tested synthetic merge `7970f61daea3e13789f801a82626e95bfc8ef471`. The new B1a plan uses fixed code-unit lexical order (instead of ICU-locale-dependent collation) for portable component-ID family canonicalization. A new source test runs genuine native rays with non-default stable IDs and reversed authored component ordering. **All modifications remain within the five newly added B1a files**, no old frozen source or native pin changed. The previous source `26131c305d2240c394edcc672b7578e615bc4f0b` passed **809/809 Node tests and 11/11 workflows**; this is separate historical evidence, not automatic final-source clearance. Verify exact-HEAD final CI before independent review.
