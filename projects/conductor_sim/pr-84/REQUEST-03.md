@@ -1,0 +1,33 @@
+# M36a PR #84 — Targeted R2 re-review request #03 (after CHANGES REQUESTED)
+
+**Only review corrected source HEAD** `527e6cee5f96a011729d2d0a668da9b688ab03d0` and native Git **TREE** `fff1c03417c857b6cce04156427e3eeaf9919a65` in [conductor_sim draft PR #84](https://github.com/physicsvigilante/conductor_sim/pull/84). Released main/base remains `73e076cf7eaf7fefbae2b24afc1f54ff8f0b6fc6`. Frozen preregistration commit remains `13eb3afde0efac049387d90a64eff44227f2acb4`.
+
+**Source is DRAFT / UNMERGED; this is a targeted repair review, not a new 30-case native physics certification.**
+
+Read [original independent Chat B review #01](reviews/review-01-chat-b.md) (verdict **CHANGES REQUESTED** on superseded source `b6d7fccad26666100b172097b01738aedc8c9cf6` / TREE `2d0e4197d8e4405ec28029bb3f124fc86fa7ec80`), the [full original review request](REQUEST.md), the [reproducible historical M36a document](https://github.com/physicsvigilante/conductor_sim/blob/527e6cee5f96a011729d2d0a668da9b688ab03d0/docs/m36a.md), [review protocol](https://github.com/physicsvigilante/review_sandbox/blob/main/PROTOCOL.md), [risk policy](https://github.com/physicsvigilante/review_sandbox/blob/main/REVIEW-RISK-POLICY.md) and [template](https://github.com/physicsvigilante/review_sandbox/blob/main/REVIEW-TEMPLATE.md).
+
+## Original findings and demanded independent corrections
+
+- **F-01 (required visualization CI cancelled)**: original [workflow #44156812874](https://github.com/physicsvigilante/conductor_sim/actions/runs/44156812874) on old head ended **CANCELLED** at 10-minute runner timeout, with source and browser steps after M15 skipped. New candidate changes **only** workflow `.github/workflows/visualization.yml` timeout to **25 minutes**, retains the complete previous step inventory and checks six later representative browser sentinels via source test. Fetch the actual new current-head FULL visualization workflow live; inspect run/job steps to confirm **all real M15/M16/M17/M26/M27 cases actually executed**, not skipped. Current reviewer PASS forbidden if cancelled again; 25-minute allowance is not itself proof.
+- **F-02 (official 2021 source identity)**: original 30th case metadata was checked only by fragments. New `tools/m36a_jee30_audit.py` compares exact literal **source, ID, page, printed `Questions 9–10` anchor, original paper, problem family, provenance and null old-tier**. `docs/m36a_jee30_coverage.json` now explicitly records one `official_apparatus = {"paper":"JEE Advanced 2021 Paper 1","question_ids":["Q9","Q10"]}`. Independently alter source to `fabricated-source.pdf`, Q9–Q11, paper 2020, and provenance year; the exact-source audit must REJECT while legitimate true 2021 original is accepted. Preserve all old 29 M21a anchors exactly.
+- **F-03 (count-preserving false 3D support)**: Three fixed source IDs **p11-linked-28, p70-cavity-offset, p70-three-cavities** require `candidate_route=unsupported` for *local nonconcentric induced field/surface density*. Swap one to `supported_scoped` and change a legitimate `supported_scoped` row to `unsupported` so 24/3/3 totals remain unchanged. The amended auditor must now **reject** the counterexample. Valid Gauss-law total induced charge is only a bounded partial observable, never a 3D image.
+- **F-04 (PDF integrity)**: both actual original repository PDFs (20,685,051 and 9,063,758 bytes at old source) must be SHA256-hashed in streaming chunks against **pinned literal M21a digest constants**, not merely metadata comparisons. Mutate a temporary copied original PDF while keeping both JSON SHA strings the same; the bytes verifier must reject. Mutate both metadata strings to a matching incorrect digest; the audit must reject collusion. Confirm original PDFs themselves remain unchanged on this source HEAD compared to released main.
+- **F-05 (stale review-hub link)**: historical [STATUS.md](STATUS.md) link for prompt #02 now points to #02, not #01. Old prompts remain as historical exact-head documents; only Prompt #03 below addresses this source revision.
+
+## First failures and corrected evidence
+
+Prior first-source `796d3f31...` Python run #44155780188 failed 8 newly-authored M36a tests because a bad original validator searched for year 2021 in the *printed question label*, not in provenance. That was fixed in superseded source `b6d7...`, which passed Python but got cancelled historical Chromium and still had review findings F-02–F-04. Do not silently relabel any failed/cancelled attempt as a PASS. The current source changes no production electrostatics, FEMM, trajectory solver or viewer; new tests check the auditor and workflow integrity, not 30 original JEE physical solves.
+
+## Required source execution and CI evidence
+
+1. Independently verify live PR HEAD/TREE before running any new test. STOP if source differs.
+2. Independently author and execute at least one original adversarial probe for each F-02, F-03 and F-04—not merely re-run the developer's existing negative tests. Prefer pinned GitHub-hosted execution with separately expressed expectations when local runtime not available. Check legitimate 2021 and all 29 old cases still accepted.
+3. Run corrected clean-checkout `python -m tools.m36a_jee30_audit` and `python -m pytest tests/test_m36a_jee30_audit.py -q` and report **actual observed outcome**, not guessed tests. Verify source binary hashes if possible.
+4. Verify **all current-head GitHub CI**: Python 3.10+3.12, full 25-minute visualization Chromium, dedicated **real FEMM 5** and all historically triggered source/fork/scientific workflows. Distinguish genuine solver tests from skipped Python FEMM tests and original cancelled attempt. Do not PASS while any check is incomplete, failed or cancelled.
+5. Audit 24/3/3 **provisional documented route hypotheses**, 3 local-3D refusals, and zero new 30-case source-specific physical/educational executions. No new original-question replay evidence is claimed by this change; do not present 24/30 as solved.
+
+## Original review deliverable
+
+Publish a **new** report `projects/conductor_sim/pr-84/reviews/review-02-chat-b.md` with verdict **PASS / CHANGES-REQUESTED / INSUFFICIENT-EVIDENCE**, exact source SHA and tree, methods, independent adverse evidence and limitations, CI/run IDs, F-01…F-05 explicit dispositions, and bounded scientific coverage. Do not overwrite review #01. An independent separate-context ChatGPT review is not human scientific certification.
+
+No source merge authority is given. After source-head no-blocker targeted PASS, explicit owner merge approval is needed, followed by expected-head merge and **all** main-push workflows with exact Git tree validation. The future 30-case JEE native/Chromium suite remains a distinct milestone.
