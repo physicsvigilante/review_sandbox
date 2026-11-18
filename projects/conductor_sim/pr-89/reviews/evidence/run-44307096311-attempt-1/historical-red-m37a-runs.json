@@ -1,0 +1,170 @@
+[
+  {
+    "id": 44303891405,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "pull_request",
+    "head_sha": "87d68ce4f27ad84a0a57571fc4c5d76ce15db246",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44303891405",
+    "run_attempt": 1,
+    "failed_jobs": [
+      {
+        "id": 134800320352,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      },
+      {
+        "id": 134800320772,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      }
+    ]
+  },
+  {
+    "id": 44303882882,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "push",
+    "head_sha": "87d68ce4f27ad84a0a57571fc4c5d76ce15db246",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44303882882",
+    "run_attempt": 1,
+    "failed_jobs": [
+      {
+        "id": 134800290898,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      },
+      {
+        "id": 134800291320,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      }
+    ]
+  },
+  {
+    "id": 44303368728,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "pull_request",
+    "head_sha": "e4823bda2d5ac270e9f7f69ba8aca92303125709",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44303368728",
+    "run_attempt": 1,
+    "failed_jobs": [
+      {
+        "id": 134798523439,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      },
+      {
+        "id": 134798523940,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      }
+    ]
+  },
+  {
+    "id": 44303360204,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "push",
+    "head_sha": "e4823bda2d5ac270e9f7f69ba8aca92303125709",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44303360204",
+    "run_attempt": 1,
+    "failed_jobs": [
+      {
+        "id": 134798493053,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      },
+      {
+        "id": 134798493089,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      }
+    ]
+  },
+  {
+    "id": 44303094358,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "pull_request",
+    "head_sha": "313103d6f18b952d5482be7660fbb88df955b585",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44303094358",
+    "run_attempt": 1,
+    "failed_jobs": [
+      {
+        "id": 134797570223,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      },
+      {
+        "id": 134797570712,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      }
+    ]
+  },
+  {
+    "id": 44303002144,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "push",
+    "head_sha": "313103d6f18b952d5482be7660fbb88df955b585",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44303002144",
+    "run_attempt": 1,
+    "failed_jobs": [
+      {
+        "id": 134797250475,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      },
+      {
+        "id": 134797250804,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      }
+    ]
+  },
+  {
+    "id": 44302874444,
+    "name": "M37a grounded-sphere wire-current science and SI export audit",
+    "event": "push",
+    "head_sha": "de3146b17e6bb69659f746ca3d140c31a488fd8a",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/physicsvigilante/conductor_sim/actions/runs/44302874444",
+    "run_attempt": 1,
+    "failed_jobs": [
+      {
+        "id": 134796824809,
+        "name": "real Kelvin current and independent SI (3.12)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      },
+      {
+        "id": 134796825332,
+        "name": "real Kelvin current and independent SI (3.10)",
+        "conclusion": "failure",
+        "log_retrieval_error": "<HTTPError 401: 'Server failed to authenticate the request. Please refer to the information in the www-authenticate header.'>"
+      }
+    ]
+  }
+]
