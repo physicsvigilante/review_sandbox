@@ -1,0 +1,205 @@
+{
+  "review": "Chat B independent R2-02",
+  "head": "69d740c82b3b79877389da1433cef2bc9a25bdb1",
+  "native_git_tree": "60b4f21aa88a2031ec50c5d1e7c15a5135a7becf",
+  "review_target": "conductor_sim PR #88",
+  "positive": {
+    "reviewer_analytic_SI": {
+      "worlds": [
+        {
+          "state": 0,
+          "radius_m": 0.1,
+          "charge_c": 1e-09,
+          "V_R_over_2": 89.87551792261172,
+          "V_3R_over_2": 59.91701194840781,
+          "E_x_3R_over_2": 399.44674632271864,
+          "outer_sigma_c_m2": 7.957747154594767e-09,
+          "grid_counts": {
+            "metal": 341,
+            "vacuum": 3884,
+            "surface": 0
+          }
+        },
+        {
+          "state": 1,
+          "radius_m": 0.12,
+          "charge_c": -2e-09,
+          "V_R_over_2": -149.79252987101955,
+          "V_3R_over_2": -99.8616865806797,
+          "E_x_3R_over_2": -554.7871476704428,
+          "outer_sigma_c_m2": -1.1052426603603845e-08,
+          "grid_counts": {
+            "metal": 480,
+            "vacuum": 3745,
+            "surface": 0
+          }
+        },
+        {
+          "state": 2,
+          "radius_m": 0.08,
+          "charge_c": 0.0,
+          "V_R_over_2": 0.0,
+          "V_3R_over_2": 0.0,
+          "E_x_3R_over_2": 0.0,
+          "outer_sigma_c_m2": 0.0,
+          "grid_counts": {
+            "metal": 221,
+            "vacuum": 4004,
+            "surface": 0
+          }
+        }
+      ],
+      "independently_checked_grid_sites": 12675
+    },
+    "real_chromium": {
+      "states": [
+        {
+          "index": 0,
+          "visible": [
+            0
+          ],
+          "caption": "TRUE SOLID Sphere A: R=0.1 m; Isolated net Q=1 nC (authored teacher value); center=(0, 0, 0) m. Only one physical OUTER charge-density face exists.",
+          "V_R_over_2": 89.87551792261172,
+          "V_3R_over_2": 59.917011948407804
+        },
+        {
+          "index": 1,
+          "visible": [
+            1
+          ],
+          "caption": "TRUE SOLID Sphere A: R=0.12 m; Isolated net Q=-2 nC (authored teacher value); center=(0.025, 0, 0) m. Only one physical OUTER charge-density face exists.",
+          "V_R_over_2": -149.79252987101955,
+          "V_3R_over_2": -99.86168658067969
+        },
+        {
+          "index": 2,
+          "visible": [
+            2
+          ],
+          "caption": "TRUE SOLID Sphere A: R=0.08 m; Grounded · actual solved Q=0 C in empty space; center=(0, 0, 0) m. Only one physical OUTER charge-density face exists.",
+          "V_R_over_2": 0.0,
+          "V_3R_over_2": 0.0
+        }
+      ],
+      "nojs_visible": [
+        0
+      ],
+      "external_http_requests": [],
+      "browser_errors": []
+    },
+    "authentic_target_browser": "ACCEPTED"
+  },
+  "hostile_first_attempts": [
+    {
+      "probe": "A3 negative teacher falsely positive Q",
+      "target_status": "REJECTED",
+      "first_reason": "visible isolated signed Q contradicts actual native physical charge",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "A4 grounded Q falsely nonzero",
+      "target_status": "REJECTED",
+      "first_reason": "visible grounded sphere charge caption contradicts source-free Q=0",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "A5 teacher sphere physical radius falsified",
+      "target_status": "REJECTED",
+      "first_reason": "visible source solid radius contradicts native geometry",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "A6 symbolic textbook falsely assigned exact numeric R/Q",
+      "target_status": "REJECTED",
+      "first_reason": "source-given symbols and teacher numbers not distinguished or falsely specified",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "A7 teacher state 1 visible without JavaScript",
+      "target_status": "REJECTED",
+      "first_reason": "no-JS source fallback must show only original, not teacher worlds: [0, 1]",
+      "intended_rejection": true,
+      "actual_nojs_visible": [
+        0,
+        1
+      ]
+    },
+    {
+      "probe": "A9 co-forged numeric visible answer and native manifest",
+      "target_status": "REJECTED",
+      "first_reason": "independent Gauss 0 half_radius_potential_v: native 106.87551792261172 differs from independent 89.87551792261172",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "A10 impossible 1-million-volt embedded sample",
+      "target_status": "REJECTED",
+      "first_reason": "embedded grid SI mismatch state=0 potential x=2 y=2: saved 1000000, expected 21.867213139176545",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "N1 changed teacher centre caption y versus native centre",
+      "target_status": "REJECTED",
+      "first_reason": "visible sphere world centre contradicts actual physical geometry axis 1",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "N2 no-JS hidden-state leak of teacher state 2",
+      "target_status": "REJECTED",
+      "first_reason": "no-JS source fallback must show only original, not teacher worlds: [0, 2]",
+      "intended_rejection": true,
+      "actual_nojs_visible": [
+        0,
+        2
+      ]
+    },
+    {
+      "probe": "N3 false nC-to-pC charge unit on negative teacher",
+      "target_status": "REJECTED",
+      "first_reason": "visible isolated net-charge caption malformed or given false charge",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "N4 reverse full signed teacher E vector",
+      "target_status": "REJECTED",
+      "first_reason": "embedded grid SI mismatch exterior signed E state=1 xy=2,2[0]: saved -71.8332805020061, expected 71.8332805020061",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "N5 forged real metal grid cell to vacuum",
+      "target_status": "REJECTED",
+      "first_reason": "embedded grid incorrectly paints solid interior state=0 xy=32,32",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "N6 falsify embedded physical plane basis",
+      "target_status": "REJECTED",
+      "first_reason": "embedded grid SI mismatch plane u unit 0: saved 1.0609, expected 1",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    },
+    {
+      "probe": "N7 append false exact source values to provenance banner",
+      "target_status": "REJECTED",
+      "first_reason": "source-authentic banner falsely changes original symbolic/teacher provenance",
+      "intended_rejection": true,
+      "actual_nojs_visible": null
+    }
+  ],
+  "pdf": {
+    "physical_page": 26,
+    "original_pdf_sha256": "8d0d9b5cf821219058cfc4b7685a39b777e460944df44c3f9cffcb68157a60e5",
+    "contains_distinct_illustrations": true,
+    "source_text_excerpt": "\n2\n2\n3\nKQ\nVin\n3R\nr\n2R\n\n\n=\n−\n\n \nAt center, r = 0 \n\ncenter\nsurface\n3 KQ\n3\nV\nV\n2 R\n2\n=\n=\n \n \nVariation of potential with r \n(\n)\n2\n2\n3 3\n2\n=\n−\nin\nkQ\nV\nR\nx\nR\n;   \n=\ns\nkQ\nV\nR ;    \n=\nout\nkQ\nV\nr  \n \n \n \nIllustration 1 : \nA conducting sphere of radius R has charge Q. Find potential at distance of (a) 2\nR (b) 3\n2\nR from centre. \nSolution: \n \n(a) r < R  i.e. inside the surface     \n=\n=\nin\nS\nkQ\nV\nV\nR\n \n \n(b) r > R  i.e. outside the surface  \n2\n3\n=\n=\nout\nkQ\nkQ\nV\nr\nR\n \n \nIllustration 2 : \nA nonconducting uniformly charged sphere of radius R has charge Q. Find potential at distance of (a)  2\nR (b) 3\n2\nR \nfrom centre. \nSolution: \n \n(a) r < R  i.e. inside the surface \n(\n)\n2\n2\n3 3\n2\n=\n−\nin\nkQ\nV\nR\nr\nR\n Put 𝑟=\n𝑅\n2  Vin \n11\n8\n=\nkQ\nR\n \n \n(b) r > R  i.e. outside the surface \n=\nout\nkQ\nV\nr\n \n \n2\n3\n=\n=\nout\nkQ\nkQ\nV\nr\nR\n \n \nIllustration 3 : \nA conducting sphere of radius R has electric field E at distance 3R from centre. Find potential difference between \ncentre of the sphere & the point where electric field is E. \nSolution: \n \n(\n)\n2\n2\n2\n9\n9\n3\nkQ\nkQ\nE\nkQ\nER\nR\nR\n=\n=\n\n=\n \n"
+  },
+  "completed": true
+}

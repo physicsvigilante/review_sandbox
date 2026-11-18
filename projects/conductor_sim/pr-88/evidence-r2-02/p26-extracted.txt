@@ -1,0 +1,167 @@
+
+2
+2
+3
+KQ
+Vin
+3R
+r
+2R
+
+
+=
+−
+
+ 
+At center, r = 0 
+
+center
+surface
+3 KQ
+3
+V
+V
+2 R
+2
+=
+=
+ 
+ 
+Variation of potential with r 
+(
+)
+2
+2
+3 3
+2
+=
+−
+in
+kQ
+V
+R
+x
+R
+;   
+=
+s
+kQ
+V
+R ;    
+=
+out
+kQ
+V
+r  
+ 
+ 
+ 
+Illustration 1 : 
+A conducting sphere of radius R has charge Q. Find potential at distance of (a) 2
+R (b) 3
+2
+R from centre. 
+Solution: 
+ 
+(a) r < R  i.e. inside the surface     
+=
+=
+in
+S
+kQ
+V
+V
+R
+ 
+ 
+(b) r > R  i.e. outside the surface  
+2
+3
+=
+=
+out
+kQ
+kQ
+V
+r
+R
+ 
+ 
+Illustration 2 : 
+A nonconducting uniformly charged sphere of radius R has charge Q. Find potential at distance of (a)  2
+R (b) 3
+2
+R 
+from centre. 
+Solution: 
+ 
+(a) r < R  i.e. inside the surface 
+(
+)
+2
+2
+3 3
+2
+=
+−
+in
+kQ
+V
+R
+r
+R
+ Put 𝑟=
+𝑅
+2  Vin 
+11
+8
+=
+kQ
+R
+ 
+ 
+(b) r > R  i.e. outside the surface 
+=
+out
+kQ
+V
+r
+ 
+ 
+2
+3
+=
+=
+out
+kQ
+kQ
+V
+r
+R
+ 
+ 
+Illustration 3 : 
+A conducting sphere of radius R has electric field E at distance 3R from centre. Find potential difference between 
+centre of the sphere & the point where electric field is E. 
+Solution: 
+ 
+(
+)
+2
+2
+2
+9
+9
+3
+kQ
+kQ
+E
+kQ
+ER
+R
+R
+=
+=
+
+=
+ 

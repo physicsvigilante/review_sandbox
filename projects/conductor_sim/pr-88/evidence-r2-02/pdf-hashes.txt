@@ -1,0 +1,2 @@
+8d0d9b5cf821219058cfc4b7685a39b777e460944df44c3f9cffcb68157a60e5  POTENTIAL_CONDUCTORS1.pdf
+9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d  02_conductors_half_size.pdf
