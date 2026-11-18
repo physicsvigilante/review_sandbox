@@ -1,3 +1,19 @@
+# SIM_HEAT PR56 — independently reviewed CI applicability correction
+
+**Current state:** `INDEPENDENT-R1-SCOPED-PASS; CHAT-A-ACCEPTED; AWAITING-OWNER-MERGE-APPROVAL-AND-REQUIRED-STATUS-CHECK; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
+
+[Source PR56](https://github.com/physicsvigilante/sim_heat/pull/56) remains **draft and unmerged**, exact HEAD `21eac064f98d76f12a31f03daf3bad3470cfbf96`, tree `0b789438b4aa1d0ecf6cbc6d38030eb540b97d48`, base main `0278b79b4da1c3196edca7903189713e0482f3f6`. Its exact two-path change narrows product-entry CI triggers and preserves protected-source refusal relative to the actual PR base. No original physics, library, references, archives or viewers changed.
+
+Independent [Chat B review-01](reviews/review-01-chat-b.md), original blob `3daf82e9743f7c4def217aee9206e2ad6aed98f8`, returned **SCOPED PASS (R1)** and **no blockers** at this exact source. Chat A [response-01](responses/response-01-chat-a.md) accepts this scoped result; no reviewer file changed. Reviewer personally ran 13 positive + 10 negative trigger probes and local Git-base/guard controls, including 4/4 protected-path refusals. Reviewed hosted [product CI 44278285853](https://github.com/physicsvigilante/sim_heat/actions/runs/44278285853) candidate + baseline success: **260 candidate unit PASS, one optional skip**, six original diagnostic bundle replays BYTE_IDENTICAL, saved comparison unchanged, explorer/product Chromium smoke PASS. [Audit-core 44278285564](https://github.com/physicsvigilante/sim_heat/actions/runs/44278285564) SUCCESS. Candidate [artifact 14416131352](https://github.com/physicsvigilante/sim_heat/actions/runs/44278285853/artifacts/14416131352): 6,455,105 bytes, SHA256 `a3a2398b8e0ea96cc243680609803e3c7f27001b1af8846347e214ef56561c7e`, 39 CRC-valid unique members. Reviewer independently downloaded/rehashed it, baseline and all five original historical ZIPs; suites/browser were hosted and inspected, not rerun by reviewer.
+
+**History not erased:** original [PR55 product-entry CI 44272592968](https://github.com/physicsvigilante/sim_heat/actions/runs/44272592968) genuinely FAILED on its old product-scope guard; the PR56 prospective improvement does not make that old run green. [PR55 corrected-head Chat B review-04](../pr-55/reviews/review-04-chat-b.md) is R2 **SCOPED PASS** for corrected source-preview F01/F02/F03 but **NOT MERGE READY**. PR55's fixed-old-main 14-additions source-preview CI allowlist may require base-relative adjustment after any main advance, with new exact-source CI and risk-proportionate review before integration. [PR54](https://github.com/physicsvigilante/sim_heat/pull/54) separately modifies the product-entry workflow for generated docs and still has broad triggers: future reconciliation must preserve both its docs parity/browser checks and PR56's trigger/protected-source gate. No future check failure or merge is asserted.
+
+**Governance:** detailed GitHub branch protection/required-status endpoint 403; empty public ruleset list does not certify that all required statuses are known. Owner/admin must confirm actual required checks and treatment of skipped path-filtered workflows. **No automatic merge** from review completion. Recommend explicit owner decision on PR56 first, then carefully scoped prospective CI updates for PR55/PR54 if main advances. All three remain draft and unmerged. Original published cases still `diagnostic_only/nativeQualified=false`, TEACH_SPLIT3 source-only outputs `not_computed`. No native/OMC, frozen-reference regeneration, historical C1 merge, deployment or qualification promotion.
+
+---
+
+## Original pre-review status (historical record, superseded above)
+
 # SIM_HEAT PR56 — CI-GATE-01 applicability correction, independent review pending
 
 **Status:** `PUBLISHED-EXACT-HEAD; PRODUCT-AND-AUDIT-CI-PASS; FOCUSED-INDEPENDENT-R1-PENDING; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
