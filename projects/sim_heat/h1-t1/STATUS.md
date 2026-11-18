@@ -1,3 +1,21 @@
+# SIM_HEAT H1-T1 — Stage 1 selector tasks sealed; Stage 2 author handoff ACTIVE
+
+**Current state:** `STAGE1-SELECTOR-TASK_SET_V1-CAPTURED-AND-HASHED; STAGE2-INDEPENDENT-AUTHOR-HANDOFF-READY; FIRST_ATTEMPT-NOT-YET-RECEIVED; KEY-WITHHELD; NO-VALIDATION-OR-NATIVE-EXECUTION`.
+
+Selector's original [GitHub Issue #58 comment 6981681502](https://github.com/physicsvigilante/sim_heat/issues/58#issuecomment-6981681502) contains all three locked tasks S/T/X. GitHub records original comment `created_at=updated_at=2026-11-18T14:36:12Z`; posting account `physicsvigilante`, selector self-reported GPT-6 separate-context and preparation time 14:34:31Z. Original complete comment body: **10,233 UTF-8 bytes**, **SHA-256 `8f45ad3d4a763952e25d60658ae4d8eeae37fd266bd372b3cd80fb19b81fa2a2`**. [Exact unedited raw body snapshot](intake/TASK_SET_V1_COMMENT_6981681502.raw.md), Git blob `33b373a4448923f1b32f9998e607828a5ef3a231`, was committed before authoring and content compared equal to the GitHub API comment; [TASK-LOCK-01](TASK-LOCK-01.md) records full attribution and checks. The original issue comment remains editable on GitHub, but the committed raw snapshot is immutable by Git identity. **Selector hidden key and salt have NOT been revealed.** Its public SHA-256 commitment is `49cc3397ae5bbbabff823e674491d9d44d8341bbd8b9556694c86f5ffffb6319`, a commitment to be verified only after original author capture.
+
+**Ready now:** [AUTHOR-PROMPT-01](AUTHOR-PROMPT-01.md), current blob **`257d6820b89fe0bfa424839a4a45600b4150af83`**, is the sole active fresh-author handoff, referencing only the exact commit-pinned [AUTHOR-PACKET](AUTHOR-PACKET.md) and the exact commit-pinned selector's raw task snapshot. A separate Chat C (not selector/evaluator) produces the original complete **S and T model.mo/study.json/AUTHOR_NOTES.md and X refusal** in ONE `H1-T1 FIRST_ATTEMPT_V1 — INDEPENDENT AUTHOR` comment in [Issue #58](https://github.com/physicsvigilante/sim_heat/issues/58). It must not read code/examples/evaluator key, run H1/OMC or seek correction feedback before capture. A standard-library hash of its own authored files is allowed with disclosure; mechanical help is recorded separately.
+
+**Latest checked intake:** original selector comment only, **no separate author's first-attempt comment yet**. Chat A has **not** assessed locked tasks, run offline admission, constructed evaluator models, computed native results or requested private key. The owner's latest `done` has been interpreted as a status check, **not** a claim that an absent author submission was received.
+
+**Next gate:** wait for original author comment, then capture its exact ID/created timestamp/complete raw body SHA-256 and save an immutable original snapshot *before* any model extraction, physical/source-fidelity analysis, key reveal or H1 admission. After that, request hidden key/salt and verify its prior SHA-256 commitment; perform evaluation and ONE consolidated independent review. Do not retrospectively replace selector task set or rewrite historical C1 F0 failures.
+
+**Frozen new trial basis:** current merged SIM_HEAT `f52613c39c539b2d4543a9838e5658d526fca10e`, tree `0c44961b473d23737b0c9f3b3f2cd3db65b9f264`. This is a distinct H1-T1 experiment, not a fresh native C1 qualification. Six original diagnostic cases retain `diagnostic_only/nativeQualified=false`; every newly admitted public source-only observation stays `not_computed`. No native OpenModelica queries/install/build/launch, frozen/adopted reference regeneration, source production merge, historical C1 integration or deployment authorized.
+
+---
+
+## Previous pre-task-capture status (retained history)
+
 # SIM_HEAT H1-T1 — blind source-transfer evaluation, selector handoff ready
 
 **Current stage:** `H1-T1-STAGE0-READY; INDEPENDENT-SELECTOR-NOT-YET-CAPTURED; AUTHOR-FIRST-ATTEMPT-NOT-YET-CAPTURED; NO-VALIDATION; NO-NATIVE-AUTHORIZATION`.
