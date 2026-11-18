@@ -1,0 +1,146 @@
+{
+  "reviewer": "Chat B independent first authored probes",
+  "pin": "75ef212d79dc26ff97621fb1f2ed4e287bbed56d",
+  "tree": "f5be8433b39cf8827c19da1cd0586869347a33f4",
+  "status": "FIRST ATTEMPT",
+  "physics": [
+    {
+      "index": 0,
+      "V_R2": 89.87551792261172,
+      "V_3R2": 59.917011948407804,
+      "sigma_outer": 7.957747154594767e-09,
+      "E_3R2_x": 399.44674632271864
+    },
+    {
+      "index": 1,
+      "V_R2": -149.79252987101955,
+      "V_3R2": -99.86168658067969,
+      "sigma_outer": -1.1052426603603845e-08,
+      "E_3R2_x": -554.7871476704428
+    },
+    {
+      "index": 2,
+      "V_R2": 0.0,
+      "V_3R2": 0.0,
+      "sigma_outer": 0.0,
+      "E_3R2_x": 0.0
+    }
+  ],
+  "pdf_p26": {
+    "page": 26,
+    "total_physical_pages": 71,
+    "extracted_characters": 1068,
+    "illustration_1_text_found": true
+  },
+  "positive_browser": {
+    "three_states": [
+      {
+        "state": 0,
+        "visible": [
+          0
+        ],
+        "shown": {
+          "V_half_R": 89.875517923,
+          "V_three_half_R": 59.917011948,
+          "E_inside": 0.0,
+          "sigma_outer": 7.9577471546e-09
+        },
+        "case": "PRINTED p26 SOLID sphere · teacher example R=0.10m, Q=+1nC"
+      },
+      {
+        "state": 1,
+        "visible": [
+          1
+        ],
+        "shown": {
+          "V_half_R": -149.79252987,
+          "V_three_half_R": -99.861686581,
+          "E_inside": 0.0,
+          "sigma_outer": -1.1052426604e-08
+        },
+        "case": "TEACHER HYPOTHETICAL · same named SOLID, R=0.12m, Q=-2nC, shifted centre"
+      },
+      {
+        "state": 2,
+        "visible": [
+          2
+        ],
+        "shown": {
+          "V_half_R": 0.0,
+          "V_three_half_R": 0.0,
+          "E_inside": 0.0,
+          "sigma_outer": 0.0
+        },
+        "case": "TEACHER HYPOTHETICAL · same named SOLID, R=0.08m, grounded in empty space"
+      }
+    ],
+    "js_errors": [],
+    "http_requests": [],
+    "no_js_visible": [
+      0
+    ]
+  },
+  "role_html_injection": {
+    "escaped_role_attribute": true,
+    "executed": false,
+    "injected_image_count": 0
+  },
+  "negative_probes": [
+    {
+      "name": "A1: negative teacher V(3R/2) display tampered",
+      "target": "REJECTED",
+      "reason": "visible original source answer is stale/forged V_three_half_R"
+    },
+    {
+      "name": "A2: negative teacher sigma visible sign inverted",
+      "target": "REJECTED",
+      "reason": "visible original source answer is stale/forged sigma_outer"
+    },
+    {
+      "name": "A3: actual negative charge labeled positive while native fields stay negative",
+      "target": "ACCEPTED",
+      "reason": "source Chromium gate did not flag tamper"
+    },
+    {
+      "name": "A4: grounded teacher claims nonzero solved Q",
+      "target": "ACCEPTED",
+      "reason": "source Chromium gate did not flag tamper"
+    },
+    {
+      "name": "A5: teacher radius in visible caption falsified only",
+      "target": "ACCEPTED",
+      "reason": "source Chromium gate did not flag tamper"
+    },
+    {
+      "name": "A6: symbolic source claims specified numerical R/Q while other disclaimers remain",
+      "target": "ACCEPTED",
+      "reason": "source Chromium gate did not flag tamper"
+    },
+    {
+      "name": "A7: no-JS teacher panel made visible; JS hides it on normal load",
+      "target": "ACCEPTED",
+      "reason": "source Chromium gate did not flag tamper",
+      "no_js_visible": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "A8: negative teacher numeric HTML attribute forged",
+      "target": "REJECTED",
+      "reason": "display-native source evidence mismatch V_half_R"
+    },
+    {
+      "name": "A9: fake native manifest and matching visible value in lockstep",
+      "target": "ACCEPTED",
+      "reason": "source Chromium gate did not flag tamper",
+      "independent_science": "REJECTED: V half 0: observed=106.87551792261172 expected=89.87551792261172"
+    },
+    {
+      "name": "A10: embedded source-sampled potential grid forged to 1e6 V",
+      "target": "ACCEPTED",
+      "reason": "source Chromium gate did not flag tamper",
+      "independent_science": "REJECTED: independent embedded Gauss grid state=0 xy=2,2: observed=1000000.0 expected=21.867213139176545"
+    }
+  ]
+}

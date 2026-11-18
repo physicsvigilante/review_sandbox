@@ -1,0 +1,12 @@
+A1: negative teacher V(3R/2) display tampered => REJECTED visible original source answer is stale/forged V_three_half_R 
+A2: negative teacher sigma visible sign inverted => REJECTED visible original source answer is stale/forged sigma_outer 
+A3: actual negative charge labeled positive while native fields stay negative => ACCEPTED source Chromium gate did not flag tamper 
+A4: grounded teacher claims nonzero solved Q => ACCEPTED source Chromium gate did not flag tamper 
+A5: teacher radius in visible caption falsified only => ACCEPTED source Chromium gate did not flag tamper 
+A6: symbolic source claims specified numerical R/Q while other disclaimers remain => ACCEPTED source Chromium gate did not flag tamper 
+A7: no-JS teacher panel made visible; JS hides it on normal load => ACCEPTED source Chromium gate did not flag tamper 
+A8: negative teacher numeric HTML attribute forged => REJECTED display-native source evidence mismatch V_half_R 
+A9: fake native manifest and matching visible value in lockstep => ACCEPTED source Chromium gate did not flag tamper REJECTED: V half 0: observed=106.87551792261172 expected=89.87551792261172
+A10: embedded source-sampled potential grid forged to 1e6 V => ACCEPTED source Chromium gate did not flag tamper REJECTED: independent embedded Gauss grid state=0 xy=2,2: observed=1000000.0 expected=21.867213139176545
+Independent source, physical, real Chromium, static/no-JS and injection probes done.
+FIRST ATTEMPT JSON: /home/runner/work/review_sandbox/review_sandbox/review-evidence/chat-b-first-attempt-results.json

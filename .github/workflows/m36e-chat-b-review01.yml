@@ -1,0 +1,85 @@
+name: M36e Chat B independent p26 source/browser/forgery review-01
+on:
+  push:
+    branches:
+      - review/chat-b-m36e-pr88
+    paths:
+      - ".github/workflows/m36e-chat-b-review01.yml"
+      - "projects/conductor_sim/pr-88/reproductions/chat-b-review01.py"
+permissions:
+  contents: write
+jobs:
+  source-pinned-first-attempt:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviews
+          persist-credentials: true
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 75ef212d79dc26ff97621fb1f2ed4e287bbed56d
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify literal production source HEAD and actual native Git TREE
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ../review-evidence
+          actual_head="$(git rev-parse HEAD)"
+          actual_tree="$(git rev-parse HEAD^{tree})"
+          echo "$actual_head" | tee ../review-evidence/verified-source-head.txt
+          echo "$actual_tree" | tee ../review-evidence/verified-source-tree.txt
+          test "$actual_head" = "75ef212d79dc26ff97621fb1f2ed4e287bbed56d"
+          test "$actual_tree" = "f5be8433b39cf8827c19da1cd0586869347a33f4"
+          sha256sum POTENTIAL_CONDUCTORS1.pdf 02_conductors_half_size.pdf | tee ../review-evidence/source-pdf-sha256.txt
+      - name: Install source and actual headless Chromium and source PDF renderer
+        working-directory: source
+        run: |
+          python -m pip install -e ".[test]" "playwright==1.57.0" "Pillow>=11.0" "PyMuPDF>=1.26"
+          python -m playwright install chromium
+      - name: Independently generate real native source/teacher states and field HTML
+        working-directory: source
+        run: python -m tools.m36d_true_solid_sphere --output-dir ../review-evidence
+      - name: Execute fresh reviewer-authored original physics, browser and hostile probes ONCE
+        working-directory: source
+        run: |
+          set -euo pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-88/reproductions/chat-b-review01.py --source-dir "$PWD" --output-dir ../review-evidence | tee ../review-evidence/chat-b-console.log
+      - name: Preserve real screenshots and first-attempt science results on review branch only
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="reviews/projects/conductor_sim/pr-88/evidence"
+          mkdir -p "$evidence"
+          if test -f review-evidence/chat-b-first-attempt-results.json; then
+            cp review-evidence/chat-b-first-attempt-results.json "$evidence/chat-b-first-attempt-results.json"
+          fi
+          if test -f review-evidence/chat-b-console.log; then
+            cp review-evidence/chat-b-console.log "$evidence/chat-b-console.log"
+          fi
+          if test -d review-evidence/reviewer-thumbs; then
+            cp review-evidence/reviewer-thumbs/*.jpg "$evidence/"
+          fi
+          git -C reviews config user.name "github-actions[bot]"
+          git -C reviews config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C reviews add projects/conductor_sim/pr-88/evidence/
+          if ! git -C reviews diff --cached --quiet; then
+            git -C reviews commit -m "review evidence: first source-pinned Chromium and hostile M36e observations"
+            git -C reviews push origin HEAD:review/chat-b-m36e-pr88
+          fi
+      - name: Retain complete original evidence/screenshot artifact even if probes fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m36e-chat-b-original-independent-first-attempt
+          path: review-evidence/
+          retention-days: 30
+          if-no-files-found: warn
