@@ -1,3 +1,19 @@
+# SIM_HEAT PR55 — owner-approved integration completed; postmerge checks passed
+
+**Current status:** `INDEPENDENT-R2-REVIEW04-SCOPED-PASS; INDEPENDENT-R1-REVIEW05-SCOPED-PASS; OWNER-APPROVED-MERGED-TO-MAIN; REVIEWED-SYNTHETIC-TREE-PRESERVED; POSTMERGE-H1-AND-VIEWER-CI-PASS; NO-NATIVE-EXECUTION`.
+
+[Source PR55](https://github.com/physicsvigilante/sim_heat/pull/55) **merged** at main commit **`13260a62eb36d58802878c4d3dfb534ad1621f91`**, Git tree **`2f1da9c596cf44af963dbcefc3ab78d3d780ef3c`**, identical to premerge successful source-preview PR synthetic merge. Parents: prior merged main PR56 `7a80bd9c...` and exact independently reviewed source HEAD `47edc006c459d403a16c54ffd63a33f6a6956999`. Owner replied **“approved. continue”** to the specific PR55 merge/post-merge proposal; [bounded owner authorization recorded](https://github.com/physicsvigilante/sim_heat/pull/55#issuecomment-6977220256). No PR54 or native authorization inferred.
+
+Independent [Chat B review-04](reviews/review-04-chat-b.md) R2 SCOPED PASS for corrected source-preview semantics, and [review-05](reviews/review-05-chat-b.md) R1 SCOPED PASS for current-base CI, retain original blob identities. Old review-01/02/03 **CHANGES REQUESTED** remain bound to original old source head and unchanged; historic failed CI runs are preserved.
+
+**Postmerge verification:** automatic exact-main [viewer/browser 44294862793](https://github.com/physicsvigilante/sim_heat/actions/runs/44294862793) and [H1 offline 44294862823](https://github.com/physicsvigilante/sim_heat/actions/runs/44294862823) both **SUCCESS**, downloaded and rehashed artifacts `14423167474` and `14421239672` with 11/9 unique CRC-valid files and exact-main HEAD receipts. Each includes H1 152 PASS + analytical four PASS; viewer run includes seven JS tests PASS and existing Chromium desktop/mobile smoke PASS. Earlier full-source [PR CI 44287695317](https://github.com/physicsvigilante/sim_heat/actions/runs/44287695317) on the **identical main Git tree** had 284 PASS / one optional skip, six original native diagnostic archives byte-identical on read-only replay, unchanged comparison and complete source-preview desktop/mobile refusal/provenance/race browser smoke PASS. No unsupported claim of second archive/native execution at main.
+
+[Integration receipt](INTEGRATION-01.md) contains merge identity, source review attribution, artifacts, remaining scientific limits and future PR54 CI reconciliation. **PR54 remains draft/unmerged**. Six original cases stay `diagnostic_only/nativeQualified=false`; TEACH_SPLIT3 four requests stay `not_computed`; C1 failures remain. No OMC, native runner, frozen reference regeneration or historical C1 merge.
+
+---
+
+## Previous pre-integration status (historical)
+
 # SIM_HEAT PR55 — independent source R2 and current-base CI R1 both passed
 
 **Current status:** `SOURCE-R2-REVIEW04-SCOPED-PASS; CI-R1-REVIEW05-SCOPED-PASS; CHAT-A-ACCEPTED; AWAITING-SEPARATE-OWNER-PR55-MERGE-APPROVAL; DRAFT-UNMERGED; NATIVE-HOLD`.
