@@ -4,9 +4,9 @@
 
 ## Exact source identity
 
-- Draft [Opticsim PR #137](https://github.com/physicsvigilante/opticsim/pull/137), exact corrected design HEAD **`4effded78aa9cd285a8595687f5d29d9c8890b1e`**, source Git tree **`176d4c069e4807836ae9161e6d5b258c98aaca7e`**.
-- Actual production baseline main **`d3509e82fb65d81aabe336666851f8f2962623f4`**, tested proposed synthetic merge **`dcc4009f7ada8422e02e1e147a0ccdbab34a6284`**, Git tree **`176d4c069e4807836ae9161e6d5b258c98aaca7e`** (same). Verify with raw Git objects, not these assertions.
-- Base-to-HEAD diff: exactly **one added design document** `docs/jee-detector-selected-native-pair-design-v1.md`, **196 inserted lines**, zero production source/tests/schema/vendor pin/workflow/browser/previous evidence changes. R1 original HEAD `3db3711c7a21f5dd477b09d5668a9a8becd6a6a7` and tree `725d9d450f711a9e379f4137e5c284aa3e0de641` are retained as ancestors.
+- Draft [Opticsim PR #137](https://github.com/physicsvigilante/opticsim/pull/137), exact corrected design HEAD **`7f19f6d5c97608fc0eb1399cea3a3582938f2f6a`**, source Git tree **`914e1296f1cfb2da61ebbdddc98a907ee32e39a8`**.
+- Actual production baseline main **`d3509e82fb65d81aabe336666851f8f2962623f4`**, tested proposed synthetic merge **`45f4eaa87128321bc7e479275d5819237f2da4a8`**, Git tree **`914e1296f1cfb2da61ebbdddc98a907ee32e39a8`** (same). Verify with raw Git objects, not these assertions.
+- Base-to-HEAD diff: exactly **one added design document** `docs/jee-detector-selected-native-pair-design-v1.md`, **197 inserted lines**, zero production source/tests/schema/vendor pin/workflow/browser/previous evidence changes. R1 original HEAD `3db3711c7a21f5dd477b09d5668a9a8becd6a6a7` and tree `725d9d450f711a9e379f4137e5c284aa3e0de641` are retained as ancestors.
 - [**Independent Chat B R1 report**](reviews/review-01-chat-b.md) — **CHANGES REQUESTED** at original doc HEAD, not implementation. [**Independent PR #135 R2 native research**](../pr-135/reviews/review-02-chat-b.md) — CLEARED FOR OWNER DECISION **RESEARCH ONLY**, not numerical accuracy/image proof. [Issue #136](https://github.com/physicsvigilante/opticsim/issues/136) describes proposed B1a/B1b engine scope.
 
 ## Central R2 decision: split B1a versus B1b
@@ -36,3 +36,6 @@
 Inspect actual revised document and current exact-base implementation as necessary. Check source HEAD/tree/tested merge and any completed builder CI at this HEAD. Earlier original-source 790/790 and 11/11 workflows cannot substitute for corrected-HEAD CI; if final CI is pending or failed, explicitly say so and do not claim a completed validation.
 
 Publish **`projects/opticsim/pr-137/reviews/review-02-chat-b.md`** with **one** verdict and ranked P0–P3 findings, exact source/tree, explicit R1 issue dispositions, native-vs-derived/observer boundary and remaining B1a/B1b gates. State what you independently computed versus inspected from builder logs and whether PhyDemo/Node24/Chrome were actually rerun. Preserve R1 and held source commits unchanged; **do not merge or modify Opticsim production code.**
+
+
+**Final R2 preflight clarification:** the source now distinguishes family mismatch caught before any run (0 native calls, infrastructure/integrity refusal) from stale per-execution hashes after attempted runs (suppressed); standardizes report fields `nativeAttempted/nativeCompleted`; globally prioritizes duplicate/invalid nested fields over missing facts; and requires tests at proposed 2 mm and 10 mm native detector-window bounds. These are normative design requirements, NOT already-implemented validations. The reviewed HEAD/tree above, not an earlier intermediate R2 commit, is the sole target.
