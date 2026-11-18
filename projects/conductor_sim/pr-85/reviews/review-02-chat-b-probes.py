@@ -82,7 +82,7 @@ def original_and_attacks(folder):
     early = sheet["early_surface_variant"]
     actual_root = 2*.0002/(
         math.sqrt(2*100*ELEMENTARY_CHARGE/M_E) +
-        math.sqrt(2*100*ELEMENTARY_CHARGE/M_E * (2*100*ELEMENTARY_CHARGE/M_E) -
+        math.sqrt((2*100*ELEMENTARY_CHARGE/M_E) -
                   2*(ELEMENTARY_CHARGE*2e-6/EPS0/M_E)*.0002)
     )
     near(early["event_time_s"], actual_root, atol=2e-14, rtol=0, label="first physical contact root")
