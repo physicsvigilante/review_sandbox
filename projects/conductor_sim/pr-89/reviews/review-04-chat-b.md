@@ -1,83 +1,72 @@
-# Conductor_sim PR #89 — independent Chat B targeted R4 review #04
+# Conductor_sim PR #89 — independent Chat B final targeted R4 review #04
 
-**Verdict: CHANGES REQUESTED (P2, locally decidable scientific-export integrity defect).** The specific R3 invented `t=0` turning-point acceptance is fixed, but a **new counterexample** at a coincident saved timestamp remains accepted by the standalone M37a JSON validator. The candidate is **not ready for an owner merge decision** despite terminal green production CI. This is a bounded export-validation finding, **not** a renewed Kelvin/M16a/FEMM scientific audit or a finding against the unchanged public typed observer.
+**Verdict: PASS — corrected exact source HEAD only.** This is the narrow continuation of the same independent R4 review, **not** a fifth broad Kelvin/M16a/FEMM scientific review. The previous R4 source and both failed reviewer attempts remain genuinely **FAILED**; the verdict here applies solely to the new exact commit and native Git tree below.
 
-**Reviewer:** independent Chat B, 18 November 2026. Actual source-pinned GitHub Actions execution, not a static reading of developer tests. The R2/R3 reviewer-authored harnesses were reused with source pins and the standard-library `bisect` import allowance updated; new R4 adversarial cases were independently authored. Production was never modified, merged or marked ready.
+**Reviewer:** independent Chat B, 18 November 2026. This continuation used a new, first-attempt, source-pinned GitHub Actions execution of the previously reviewer-authored R4 turning-event suite and the inherited R2 suite, plus two unfamiliar exact-time falsifications. No production files, branches, merge state or ready-for-review state were modified.
 
-## 1. Source gate verified
+## 1. Exact source-integrity gate — independently verified
 
-| Gate | Actual observed |
+| Gate | Verified |
 | --- | --- |
-| [Production PR #89](https://github.com/physicsvigilante/conductor_sim/pull/89) | Live **OPEN / DRAFT / UNMERGED**; head remained unchanged during review |
-| Exact production HEAD | `d843a981a2b5ba4591f1c1afd169fd49bca7083f` |
-| Native Git TREE | `77afef9445a3ac65d228dfe029bb7c0d5b67ba10` |
-| Prior independently reviewed R3 | `630f6d320a1b4cb00bf7bb0780cd3deca4ec0f7e` / tree `796f319edf5829455e842d9bad63b770d17ff9fa` |
-| Exact R3→R4 changed files | `tools/m37a_ground_wire_reference.py`; `tests/test_m37a_grounded_wire_current.py`; `docs/m37a.md` **only** |
-| Original PDF blob | `90d8869b0f01cc2ea13f83721985a5d8419f1d0e`, unchanged |
-| Original PDF SHA-256 | `9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d`, unchanged |
-| Source worktree after test | Clean: no tracked production changes |
+| [Production PR #89](https://github.com/physicsvigilante/conductor_sim/pull/89) | **OPEN / DRAFT / UNMERGED** |
+| **Corrected HEAD** | `73d7daee9f31f6feee3e6305205aa28abc3e48af` |
+| **Actual native Git TREE** | `c728041ca5118013c6979d120c8805f31ee09fa0` |
+| Prior R4 failed HEAD / TREE | `d843a981a2b5ba4591f1c1afd169fd49bca7083f` / `77afef9445a3ac65d228dfe029bb7c0d5b67ba10` |
+| Verified diff from prior R4 HEAD | Only `tools/m37a_ground_wire_reference.py`, `tests/test_m37a_grounded_wire_current.py`, `docs/m37a.md` |
+| Original source PDF blob | `90d8869b0f01cc2ea13f83721985a5d8419f1d0e`, unchanged |
+| Original source PDF SHA-256 | `9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d`, unchanged |
+| Tracked source tree after execution | **CLEAN** |
 
-The independent Ubuntu runner asserted actual `git rev-parse HEAD`, `HEAD^{tree}`, the exact diff, workbook blob/hash, live PR state and source-clean status, using `set -euo pipefail`. No production physics, public M37a observer, M16a integrator, Kelvin solver, FEMM, renderer or original workbook changed in the R3→R4 delta. The historical source interpretation and physics evidence can therefore be retained without another broad scientific audit.
+The [source-pinned first-attempt execution #44332628456](https://github.com/physicsvigilante/review_sandbox/actions/runs/44332628456) checked `git rev-parse HEAD`, `HEAD^{tree}`, the 3-file delta, original PDF blob and hash, GitHub's live PR state/head, and source worktree cleanliness with `set -euo pipefail`. The independent reviewer used Python 3.12.16. The Kelvin solver, public M37a native observer, M16a ODE integrator, FEMM, visualizer, frozen charter and original workbook were not changed by this correction. The already inspected source p8 Multiple Correct Q21 and p17 key (1),(3) therefore did not require reinspection or a broader physics audit.
 
-## 2. Genuine independent executions, including first red evidence
+## 2. Newly executed independent evidence
 
-- [First R4 run #44325743876 — FAILURE](https://github.com/physicsvigilante/review_sandbox/actions/runs/44325743876): source gate passed; the unchanged reviewer-owned R2 replay passed **99/99**; 54 R4 observations produced 2 red entries. One was a **reviewer matcher error**: a fabricated terminal turning event was correctly rejected as `turning-point event has no later velocity witness`, while its expected regex did not yet accept that valid, specific scientific reason. The other was a **genuine unexpected acceptance** of the coincident-time position forgery below. The full first-attempt run and data are retained, never reclassified as green.
-- [Corrected reviewer matcher run #44326169759 — FAILURE](https://github.com/physicsvigilante/review_sandbox/actions/runs/44326169759): only the reviewer regex and discrepancy assertion were tightened; **the production source remained identical**. R2 replay **99/99**. R4: **54 observations**, including 3 genuine accepted histories, 1 native-turning-bracket positive, 1 separately documented proof-ceiling probe and **49 hostile cases**; **48 hostile cases rejected as intended**, **1 hostile case unexpectedly accepted**, **zero reviewer matcher/setup failures**. The failure is the same physical defect isolated in the first run.
-- The reviewer source checker import AST contains only `__future__`, `argparse`, `bisect`, `json`, `math`, `pathlib`, all Python standard library. There is **no imported production physics**. The real native histories were newly generated and serialized/deserialized before hostile verification.
-
-Immutable R4 evidence, including both first attempts, is preserved in [reviewer branch `4c04f3ba`](https://github.com/physicsvigilante/review_sandbox/tree/4c04f3baed3c78d9961ab46bc780b521cfea8969/projects/conductor_sim/pr-89/reviews). See [reviewer-owned R4 suite](https://github.com/physicsvigilante/review_sandbox/blob/4c04f3baed3c78d9961ab46bc780b521cfea8969/projects/conductor_sim/pr-89/reviews/challenge_r4_turning.py), [final R4 results](https://github.com/physicsvigilante/review_sandbox/blob/4c04f3baed3c78d9961ab46bc780b521cfea8969/projects/conductor_sim/pr-89/reviews/evidence/r4-run-44326169759-attempt-1/f4/r3-f4-results.json) (legacy R3-style results filename), and [inherited R2 result file](https://github.com/physicsvigilante/review_sandbox/blob/4c04f3baed3c78d9961ab46bc780b521cfea8969/projects/conductor_sim/pr-89/reviews/evidence/r4-run-44326169759-attempt-1/r2-replay/independent-results.json).
-
-### What passed
-
-| Challenge | Actual R4 result |
+| First-attempt check on corrected HEAD | Actual outcome |
 | --- | --- |
-| **Original R3 invented first-sample turn:** `t=0`, saved `v=-0.05 m/s` | **REJECTED AS INTENDED:** `turning-point event cannot occur outside the sampled interior` |
-| False interior coincident turn with nonzero saved velocity | **REJECTED:** `contradicts nonzero velocity at same saved timestamp` |
-| False off-grid turn without velocity sign reversal | **REJECTED:** missing physical outward→inward reversal |
-| Physically forbidden inward→outward reversal | **REJECTED:** missing outward→inward reversal |
-| Duplicate genuine turns | **REJECTED:** one attractive sphere cannot produce multiple turns |
-| False local radial maximum | **REJECTED:** not a radial-distance maximum |
-| False non-axial exact-sample event, bad time types, bool time | **REJECTED** for intended geometry/finite-SI-time reasons |
-| Original F4 trio: fabricated energy maximum, negative guard, spurious guard event | **REJECTED**, including via inherited R2 replay |
-| Sampled F1/F2/F3 SI units, state, identity and provenance attacks | **REJECTED**, inherited R2 replay 99/99 |
-| Authentic duration example | **ACCEPTED**, 6 samples |
-| Authentic M16a off-grid turning history | **ACCEPTED**, 71 samples |
-| Authentic real near-surface guard termination | **ACCEPTED**, 9 samples |
+| [R4b reviewer workflow #44332628456](https://github.com/physicsvigilante/review_sandbox/actions/runs/44332628456) | **SUCCESS**, first execution/attempt, completed |
+| Replayed independent R2 suite | **99/99 PASS**, 0 failures |
+| Targeted R4b records | **56 observations**, 0 failures |
+| Hostile local/scientific JSON cases | **51/51 REJECTED AS INTENDED** |
+| Genuine controls | **4 PASS**: duration, native off-grid turn, surface guard, true outward→inward turning bracket |
+| Documented proof-ceiling probe | **1 ACCEPTED_DOCUMENTED_LIMITATION**; not mislabeled proof of authenticity |
+| Source free of production physics imports in stdlib export checker | **Verified**: `__future__`, `argparse`, `bisect`, `json`, `math`, `pathlib` |
 
-The independently regenerated authentic turning event was at `t=0.1316369937419222 s`, between sampled times `0.130 s` and `0.135 s`; its **outward then inward** signed radial velocities were respectively `+0.00012393782249118274` and `−0.0002546157385619742 m/s`. Its event radius `0.23065707446869868 m` exceeded both bracketing sampled radii. This genuine off-grid history passed.
+These were actual new native trace generation, JSON serialization/deserialization and execution, not a reading of the developer's 123 focused tests. The inherited tests independently cover SI sign/current/energy and original R2 F1–F3 attacks. R4b replayed malformed guard/event/energy metadata, inappropriate velocity brackets, duplicate turns, missing radial maximum and historical R3/R4 turning forgeries. Each hostile case had to raise an expected **physical ValueError**, not merely return a success object or fail in setup.
 
-## 3. New blocker — event and sample disagree on position at *exactly the same time*
+Evidence was committed without overwriting earlier attempts to [reviewer R4b evidence at commit `6405ba1c`](https://github.com/physicsvigilante/review_sandbox/tree/6405ba1c70fbfcc1ce49e8a2f6f20c99c77efc66/projects/conductor_sim/pr-89/reviews/evidence/r4b-run-44332628456-attempt-1). Key records:
 
-**Case:** `novel/exact-sample-zero-velocity-but-different-event-position`. This is an independently generated, locally checkable contradiction, not an assertion that exported JSON proves exact ODE integration.
+- [R4b result JSON](https://github.com/physicsvigilante/review_sandbox/blob/6405ba1c70fbfcc1ce49e8a2f6f20c99c77efc66/projects/conductor_sim/pr-89/reviews/evidence/r4b-run-44332628456-attempt-1/f4/r3-f4-results.json) and [first-attempt log](https://github.com/physicsvigilante/review_sandbox/blob/6405ba1c70fbfcc1ce49e8a2f6f20c99c77efc66/projects/conductor_sim/pr-89/reviews/evidence/r4b-run-44332628456-attempt-1/f4-first-attempt.log).
+- [Replayed R2 99/99 result JSON](https://github.com/physicsvigilante/review_sandbox/blob/6405ba1c70fbfcc1ce49e8a2f6f20c99c77efc66/projects/conductor_sim/pr-89/reviews/evidence/r4b-run-44332628456-attempt-1/r2-replay/independent-results.json).
+- [Reviewer-authored new harness](https://github.com/physicsvigilante/review_sandbox/blob/6405ba1c70fbfcc1ce49e8a2f6f20c99c77efc66/projects/conductor_sim/pr-89/reviews/challenge_r4b_continuation.py) and [exact-source workflow](https://github.com/physicsvigilante/review_sandbox/blob/6405ba1c70fbfcc1ce49e8a2f6f20c99c77efc66/.github/workflows/conductor-pr89-chat-b-04b.yml).
 
-Start with the **real** 71-sample native turning history just described. Copy the document, retaining its actual saved positions, charges, forces and conductor geometry. Replace the event's time with the *existing* next saved sample's time `t=0.135 s`. Set that saved sample's signed velocity to exactly zero, and consistently recompute its SI velocity vector, Kelvin current/rate, kinetic energy, total mechanical energy, energy drift and overall maximum drift. **Keep the event's physically axial position at the originally reported maximum**. The event is still inside the history, has outward→inward witnesses on its adjacent rows, lies outside the guard and passes the radial-maximum check.
+### Specific previous blocker and two new independent attacks
 
-Yet the two simultaneously saved positions are different:
+**Previously unexpectedly accepted:** `novel/exact-sample-zero-velocity-but-different-event-position`. From a genuine off-grid turn, the reviewer made a saved sample's reported velocity/current/kinetic and total energy internally consistent with zero at `t=0.135 s`, then falsely assigned the real off-grid event's different position to that exact timestamp. Before the correction this was accepted; **now it raises** `turning-point event displacement contradicts saved particle at same timestamp`. At the matching time, the event used a radial displacement of `0.0006570744686986793 m` while the saved sample has `0.0006566463320073812 m`.
 
-| Field at `t=0.135 s` | Saved JSON |
-| --- | --- |
-| Sample signed velocity | `0.0 m/s` |
-| **Turning event** `position_m` | `[0, 0, 0.23065707446869868]` m |
-| **Same-time sample** `position_m` | `[0, 0, 0.2306566463320074]` m |
-| Event minus sample displacement | `+4.2813669129805436e-7 m` |
-| Euclidean same-time position discrepancy | `4.281366912939344e-7 m` |
+**New attack A:** `r4b/exact-time-axial-displacement-forgery`. A different displaced event was kept perfectly consistent with the authored world axis while its displacement exceeded the saved sample by `3e-6 m`. **REJECTED**, specifically on the new same-timestamp displacement-binding assertion, not a generic position/axis setup error.
 
-The standalone `validate_examples()` **returned normally (unexpected acceptance)**. The two positions differ by ~0.428 micrometres. Both event and sample independently satisfy the authored axis relation, but no single particle can occupy two different positions at the **same exact saved time**. This is locally decidable from one JSON record: it needs **no ODE propagation, source authenticity trust or off-grid root inference**.
+**New attack B:** `r4b/exact-time-same-displacement-divergent-vector`. The event and saved sample shared the **same displacement** and saved zero speed. By moving the authored origin and event position in opposite tolerated directions, both independently satisfied the existing authored-axis tolerance, but the same-time event's Z position (`0.2306566473920074 m`) differed from the saved Z position (`0.2306566463320074 m`). **REJECTED**, specifically with `turning-point event position contradicts saved particle at same timestamp`. This independently exercises the new vector comparison rather than the displacement comparison.
 
-[Exact hostile JSON from the second independent run](https://github.com/physicsvigilante/review_sandbox/blob/4c04f3baed3c78d9961ab46bc780b521cfea8969/projects/conductor_sim/pr-89/reviews/evidence/r4-run-44326169759-attempt-1/f4/hostile/novel--exact-sample-zero-velocity-but-different-event-position.json).
+The earlier invented `t=0, v=-0.05 m/s` turning event remains **REJECTED** as outside the sampled interior. The true native off-grid turning event remains **ACCEPTED** at `0.1316369937419222 s` between saved `0.130` and `0.135 s`, with outward `+0.00012393782249118274 m/s` then inward `-0.0002546157385619742 m/s`. Genuine duration and surface-guard terminations are accepted.
 
-**Required bounded correction:** when a saved `turning-point` event has **exactly the timestamp of an interior saved sample**, require its signed displacement and physical position to agree with that **same** row to a documented, tight floating-point tolerance. Enforce alongside the existing near-zero same-time velocity, allowed outward→inward bracketing and radial-max checks. Preserve authentic **off-grid** M16a turning events and the existing F1–F4 and guard positives. Add this exact hostile mutation as a production regression test; a corrected source requires a new exact-HEAD/TREE and focused independent replay. **Do not expand the task to a fourth broad Kelvin/induction review.**
+## 3. Previous negative evidence preserved verbatim and still negative
 
-## 4. Proven limits and exact-HEAD CI
+The original R4 tested old HEAD `d843a981a2b5ba4591f1c1afd169fd49bca7083f` and **did not PASS**.
 
-A separate JSON-consistent **retiming** of a physical trace and an elided guard event with a duration label remain document-only proof limits: the checker does not export the original requested duration and does **not** independently re-integrate M16a. The R4 `proof-limit/stripped-guard-claimed-duration` was accepted and **explicitly counted as a documented limitation**, not hidden as a pass or treated as the new blocker. The unchanged public typed observer's genuine M16a reintegration is a separate stronger evidence boundary.
+1. [R4 original first execution #44325743876 — FAILURE](https://github.com/physicsvigilante/review_sandbox/actions/runs/44325743876): R2 replay 99/99, but the R4 suite reported one reviewer regex expectation error and the genuine newly accepted exact-sample position falsification.
+2. [R4 corrected matcher execution #44326169759 — FAILURE](https://github.com/physicsvigilante/review_sandbox/actions/runs/44326169759): reviewer matcher corrected; 48 hostile refusals, **one unexpected hostile acceptance**, zero matcher/setup errors. Source remained the old HEAD.
+3. [Original R4 independent negative report at original main commit](https://github.com/physicsvigilante/review_sandbox/blob/9a525f734790b2179f2ab77e9b55cc402d382537/projects/conductor_sim/pr-89/reviews/review-04-chat-b.md) and [unchanged original R4 reviewer evidence](https://github.com/physicsvigilante/review_sandbox/tree/4c04f3baed3c78d9961ab46bc780b521cfea8969/projects/conductor_sim/pr-89/reviews).
 
-**Terminal production CI on the exact reviewed HEAD: 25/25 SUCCESS**, 23 pull-request workflows + 2 branch-push workflows, none pending, failing or cancelled. Checks included Python, both dedicated M37a Python 3.10/3.12, historical Chromium/source integrity, and actual FEMM 5. Independently captured [exact SHA CI inventory](https://github.com/physicsvigilante/review_sandbox/blob/4c04f3baed3c78d9961ab46bc780b521cfea8969/projects/conductor_sim/pr-89/reviews/evidence/r4-run-44326169759-attempt-1/ci-live-summary.txt). CI green does **not** override a demonstrated export-validity failure.
+Earlier [R1 review PR #6](https://github.com/physicsvigilante/review_sandbox/pull/6), [R2 review PR #7](https://github.com/physicsvigilante/review_sandbox/pull/7), and [R3 review PR #8](https://github.com/physicsvigilante/review_sandbox/pull/8) retain their individual decisions and historic failed evidence, including [R3 first failed run #44320918820](https://github.com/physicsvigilante/review_sandbox/actions/runs/44320918820). **None of these failures has been relabeled PASS.** They are historical findings against earlier code revisions.
 
-Historical red R1/R2/R3 reports and R3 [first failed reviewer run #44320918820](https://github.com/physicsvigilante/review_sandbox/actions/runs/44320918820) remain unchanged. The new R4 first failed run also remains explicitly red.
+## 4. Current exact-head production CI and proof limits
 
-## 5. Disposition
+[Independent inventory on R4b execution](https://github.com/physicsvigilante/review_sandbox/blob/6405ba1c70fbfcc1ce49e8a2f6f20c99c77efc66/projects/conductor_sim/pr-89/reviews/evidence/r4b-run-44332628456-attempt-1/ci-live-summary.txt): **25/25 SUCCESS**, on exact `73d7daee9f31f6feee3e6305205aa28abc3e48af` — 23 PR workflows and 2 branch-push workflows, all completed, no failures/cancellations/pending. This includes both M37a Python versions, full Python, real FEMM5, historical Chromium and M36 source replays. Older-head green runs are not counted.
 
-**CHANGES REQUESTED**, for precisely the same-timestamp position mismatch accepted by the standalone exported-JSON checker. The earlier R3 t=0 blocker is corrected; genuine M16a duration/turning/guard and the inherited independent SI battery pass; no broader physical-system defect has been shown in the unchanged production code.
+The self-contained exported-JSON SI validator checks **internal numerical and metadata consistency**, including the corrected physically unique position/displacement at a coincident timestamp. It does **not** cryptographically authenticate JSON, certify original ODE provenance, or re-integrate an arbitrary saved M16a history. The separately reviewed **native typed observer** performs actual M16a re-integration and is unchanged in this patch. A retimed internally consistent fabricated trace or a stripped guard event retitled as a duration trace remains a documented, schema-limited proof ceiling, not a discovered regression against this exact local consistency contract. The reviewer explicitly recorded `proof-limit/stripped-guard-claimed-duration` as `ACCEPTED_DOCUMENTED_LIMITATION`, rather than hiding it or calling it a stronger physical proof.
 
-**Leave production PR #89 DRAFT and UNMERGED.** No production edits, GitHub review approval, mark-ready, merge, historical evidence rewrite or postmerge claims were performed. A later independent targeted PASS on corrected exact HEAD/TREE with all exact-source production CI green would permit **asking the owner** for a separate explicit merge decision; it is not itself merge authorization.
+## 5. Final disposition
+
+**PASS on exact corrected HEAD and TREE**, for this bounded independent R4 continuation. The prior blocker is independently closed, both additional exact-time tests refuse for the intended separate displacement and vector reasons, genuine histories survive, inherited 99-case SI replay succeeds, and exact-source full production CI is terminal green.
+
+**PR #89 must remain DRAFT / UNMERGED until one separate explicit owner merge authorization.** This PASS is enough to *request that decision*, **not** permission to merge. Upon distinct owner approval, Chat A must use `expected_head_sha`, verify identical reviewed TREE on main, and check actual postmerge main-push CI. No production edits, mark-ready, merge, or postmerge claims are part of this review.
