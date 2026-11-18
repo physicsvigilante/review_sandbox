@@ -35,3 +35,15 @@ The protocol requires a new separate-context R2 reviewer to invent original unfa
 ## Release gate (CLOSED)
 
 Only a no-blocker independent report for unchanged exact HEAD/TREE, full source-head Python+real FEMM+complete Chromium CI, and separate explicit owner approval permit marking PR ready and expected-head merge. Verify actual merged Git tree matches the reviewed candidate and all triggered *main-push* workflows PASS before calling M36b released. All original JEE-30 pilot limitations persist.
+
+## Exact current-source full CI complete — 2026-11-18
+
+Live source HEAD `5cfa02c2b22ad1d488778653d63f54b4f9a06d1d` / native Git tree `3db298498bdd30b701ced59d3952eb529e835add` remained unchanged. A fresh GitHub Actions query returned **18/18 actually triggered PR and branch-push workflow runs COMPLETED/SUCCESS**, zero failures or cancellations, including:
+
+- [PR Python matrix #44243206739](https://github.com/physicsvigilante/conductor_sim/actions/runs/44243206739), Python 3.10 job `134595788548` **2,090 passed / 97 skipped / 17 warnings**, Python 3.12 job `134595788210` **2,090 passed / 97 skipped / 17 warnings**. Skips are real-FEMM-only tests in general Python, not additional solver passes.
+- [Dedicated real FEMM5 #44243206749](https://github.com/physicsvigilante/conductor_sim/actions/runs/44243206749), job `134595778768`, actual solver **97 tests passed in 22.42s**. This is distinct from generic Python skips.
+- [Historical full visualization #44243206809](https://github.com/physicsvigilante/conductor_sim/actions/runs/44243206809), job `134595779848`, **all 73 job steps SUCCESS**, none skipped/cancelled/failed; late M15/M16/M17/M26/M27 physics/browser acceptance actually executed.
+- [New source-replay/reference/Chromium PR #44243206721](https://github.com/physicsvigilante/conductor_sim/actions/runs/44243206721) and [source-branch push #44243111752](https://github.com/physicsvigilante/conductor_sim/actions/runs/44243111752), both SUCCESS; 14 new focused tests, 7 actual source apparatus native observations, seven physically separate formula checks and seven actual offline Chromium viewer checks with screenshot artifacts. Its output is developer evidence; no source-model physics proof for every possible arrangement or independent Chat B signoff.
+- Other 12 inherited scientific/source workflows all SUCCESS on exact current source. The 18-run denominator counts two specific branch push checks and 16 PR-triggered checks; it is not a future postmerge main-push count.
+
+**Now ready to request independent R2 review using [REVIEWER-PROMPT-01.md](REVIEWER-PROMPT-01.md)**, but source PR #85 remains **DRAFT / UNMERGED** and no reviewer PASS or owner merge authorization exists. Live source pin is immutable unless a corrective commit changes it. Seven selected source apparatus comprise three real elapsed-time dynamic and four static scientific observations; one unsupported nonconcentric cavity local-3D field is a justified refusal, not a solved eighth case. No `7/30` or `24/30` JEE solved percentage is established.
