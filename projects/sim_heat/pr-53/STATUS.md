@@ -1,44 +1,34 @@
-# SIM_HEAT PR53 — independent focused R1 SCOPED PASS accepted
+# SIM_HEAT PR53 — integrated and post-merge verified
 
-**Current status: `INDEPENDENT-R1-SCOPED-PASS; CHAT-A-ACCEPTED; TWO-NONBLOCKING-FOLLOWUPS; AWAITING-OWNER-MERGE-APPROVAL; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.**
+**Current status: `INDEPENDENT-R1-SCOPED-PASS; OWNER-CONTINUED-INTEGRATION; MERGED; POST-MERGE-VERIFIED; FOLLOWUPS-IN-DRAFT-PR54; NO-NATIVE-AUTHORIZATION`.**
 
-Independent [Chat B review-01](reviews/review-01-chat-b.md), reviewer-authored Git blob **`95c6a05f7c66dbefaf57f3d3a8b7f8d59c759226`**, returned **SCOPED PASS (R1)** for the six-file start-page/navigation/evidence-presentation increment. No blocker, major defect or demonstrated physical/provenance-semantics change was found. [Chat A response-01](responses/response-01-chat-a.md) accepts the outcome and tracks two minor follow-ups. The reviewer report remains unchanged.
+The owner replied **“continue”** to the specific proposal to merge PR53 with post-merge verification and continue authoring-workflow work, with no native execution. [Integration receipt](INTEGRATION-01.md) records the permission context, expected-head merge, exact tree preservation and fresh evidence. This does not authorize later source merges or deployment.
 
-## Source-specific acceptance
+## Immutable review and completed integration
 
-[Source PR53](https://github.com/physicsvigilante/sim_heat/pull/53): head **`86c8c146ec025ca62a4484a7e20eb76b5530f29d`**, tree **`c73f86e58be8b9eb55756432aae064f00719487f`**, base main **`4162c3d47016150076b226ebe2585073a785547a`**. Current head, tree and parent were rechecked during disposition and match the review. Source remains draft/unmerged and was not changed during disposition.
+Independent [Chat B review-01](reviews/review-01-chat-b.md), unchanged Git blob **`95c6a05f7c66dbefaf57f3d3a8b7f8d59c759226`**, remains **SCOPED PASS (R1)** at head **`86c8c146ec025ca62a4484a7e20eb76b5530f29d`**, tree **`c73f86e58be8b9eb55756432aae064f00719487f`**. [Chat A response-01](responses/response-01-chat-a.md) preserves the original disposition and two minor follow-ups.
 
-The existing thermal engine, original evidence and every viewer file are unchanged by the six-path increment; the independent review checked the protected subtree identities. Archived native diagnostics, analytical checking data and C1 expected-only/uncomputed views remain distinct. This is product navigation, not completion of the author-to-native workflow.
+[Source PR53](https://github.com/physicsvigilante/sim_heat/pull/53) merged into main at **`0278b79b4da1c3196edca7903189713e0482f3f6`**. Its complete Git tree equals the independently reviewed tree exactly. Prior main was `4162c3d47016150076b226ebe2585073a785547a`. No source change was folded into the reviewed candidate; the historical C1 branch stack was excluded.
 
-## Nonblocking findings retained, not silently marked fixed
+## Fresh post-merge verification
 
-| Finding | Disposition | Follow-up acceptance |
+Automatic H1 main [run 44243975688](https://github.com/physicsvigilante/sim_heat/actions/runs/44243975688) succeeded. Full exact-main verification is baseline job **134603246932** in [run 44245470832](https://github.com/physicsvigilante/sim_heat/actions/runs/44245470832): actual checkout **0278b79b...**, **257 passed / one optional unittest skipped**, all six original bundles **BYTE_IDENTICAL**, saved comparison unchanged, full explorer and entry HTTP/browser smoke passed.
+
+Baseline [artifact **14401083576**](https://github.com/physicsvigilante/sim_heat/actions/runs/44245470832/artifacts/14401083576): **7,815,278 bytes**, **38 distinct CRC-valid members**, SHA-256 **`c4ffaf855f28dad9535cae2a0036d24027035cecc70bc2ef043b8714556cddfb`**. Chat A downloaded/rehashed/CRC-checked it, inspected logs and actual head/tree/empty-diff receipts, and reconstructed the retained complete source tree locally to exactly `c73f86e...`. Hosted execution is not presented as a local full-suite rerun.
+
+The artifact's event/name uses successor `8f6ef1d0...`; the baseline's actual checkout is merged main0278. Baseline skips the successor-only generated-document step, distinct from the existing optional unittest skip. Baseline and successor results overlap and are not added.
+
+## Two nonblocking follow-ups — separate successor, not a rewritten review
+
+| Finding | Original disposition | Current successor status |
 |---|---|---|
-| F-01: registry navigation/readability coverage | ACCEPT minor UX/test gap. No confirmed broken route. The test fetches Markdown over HTTP rather than visibly navigating a rendered registry. | Browser-readable static registry with preserved claims/source links and content parity, plus actual click/readability/link smoke at desktop/mobile sizes. |
-| F-02: historical H1 contract label | ACCEPT minor lifecycle-label ambiguity. New navigation recommends a document whose historical header says proposed/not implemented. | Label that link historical/foundation design and provide current source-backed authoring guidance. Preserve the old contract's original record. |
+| F-01: registry browser rendering/navigation coverage | Accepted minor gap; no confirmed broken route. PR53 tested Markdown HTTP availability, not rendered tables. | Implemented in draft PR54: canonical Markdown to static HTML, drift checks, visible browser clicks/table focus/source-link navigation. Pending focused independent acceptance. |
+| F-02: historical-contract label | Accepted minor ambiguity; historical original must not be rewritten. | Implemented in draft PR54: explicitly historical label plus current source-backed admission guide and tested scratch-only walkthrough. Pending focused independent acceptance. |
 
-Both remain open, nonblocking follow-ups for one later teacher-facing increment. **No mandatory source fix or repeated independent review is requested on the unchanged reviewed head.** Future changes require their own exact-head checks and proportionate review; escalation is needed only for actual changed physical/evidence semantics.
+[PR54](https://github.com/physicsvigilante/sim_heat/pull/54), head `8f6ef1d0f8d0ebd938620c5694bc11856a5c9e7e`, is a new candidate based on merged PR53. Its independent handoff is [here](../pr-54/REQUEST.md). PR53's original findings and scoped verdict remain unchanged; the new source is not covered automatically by the old review. No repeated review is requested for unchanged PR53.
 
-## Evidence and limits
+## Historical evidence and preserved boundaries
 
-[Push CI 44238734097](https://github.com/physicsvigilante/sim_heat/actions/runs/44238734097): candidate job `134581099995` and baseline job `134581100335` completed successfully; job/step outcomes rechecked during disposition.
+Earlier candidate [run 44238734097](https://github.com/physicsvigilante/sim_heat/actions/runs/44238734097) remains historical: candidate86c8 had 257 passes/one optional skip and old main4162 baseline had 249 passes/one optional skip. Reviewer exact-HTML local checks, 18 resolved links and ZIP inspections remain personally executed reviewer evidence; complete source suites/HTTP routes/archive replay were inspected hosted results. The old Markdown coverage limitation, environment-blocked navigation and favicon 404 distinctions are retained in the original report/disposition rather than retrospectively reclassified.
 
-- Candidate actual checkout `86c8c146...`: **257 passed, one optional unittest skip**; six original bundles BYTE_IDENTICAL; comparison unchanged; existing explorer and new desktop/mobile keyboard/HTTP-navigation smoke passed. The registry part proves HTTP availability/content only, not rendered browser navigation.
-- Baseline actual checkout merged main `4162c3d...`: **249 passed, one optional unittest skip**; six original bundles BYTE_IDENTICAL; comparison unchanged; existing explorer smoke passed. The new entry step was intentionally skipped because those files are not on that baseline.
-
-Totals overlap and must not be added. Artifact event names use the candidate SHA; internal checkout receipts establish the different baseline source. The optional unittest skip is separate from the baseline workflow-step skip.
-
-| Artifact | Size / distinct CRC-valid members | SHA-256 |
-|---|---|---|
-| Candidate `14398477224` | 6,454,848 bytes / 38 | `6e8ce7d23eda335e12083d60098974953d3f212a38a746897a2e5e023f573347` |
-| Baseline `14398721933` | 5,873,775 bytes / 33 | `27fc39b8971cc7525ae5cf2e97750c68a37d468435d91291cfd2738f0c15b0cd` |
-
-Chat B personally downloaded/rehashed/inspected both ZIPs, checked 18 distinct pinned local link targets and diagnostic labels, and ran exact-HTML Chromium `page.set_content` at 320, 390, 768 and 1440 pixel widths. Reviewer localhost navigation was blocked; complete suites, actual HTTP routes, full explorer and archive replay were inspected hosted evidence, not personal reviewer executions. No accessibility certification or teacher study is claimed. The favicon 404 is not a JavaScript page error; zero page errors does not mean zero HTTP errors.
-
-Chat A's disposition re-read the implicated exact source sections and confirmed head/tree/CI metadata, but did not run new tests or rehash artifacts again. Earlier developer evidence and the independent report retain their original attribution.
-
-## Next gate and preserved boundaries
-
-The [REQUEST](REQUEST.md) and [reviewer prompt](REVIEWER-PROMPT-01.md) are retained historical handoff records; this review is complete. **Recommend integrating the exact reviewed candidate after separate owner approval and post-merge verification.** Current "review done" is not treated as merge permission. The previous owner-approved PR51+52 integration remains complete; see its [integration receipt](../pr-52/INTEGRATION-01.md).
-
-After integration, batch F-01/F-02 with current authoring guidance and return to one unfamiliar supported composition end-to-end, not another broad audit or safeguard demonstration. No merge, deployment, OpenModelica query/build/launch, native runner, frozen-reference regeneration or historical C1-stack integration was performed during this disposition. Six archived cases remain `diagnostic_only/nativeQualified=false`; C1 historical failures and uncomputed native requests, and all old independent review verdicts, are preserved.
+All six published outputs remain `diagnostic_only/nativeQualified=false`; old reviews, original physical data, C1 failures, frozen references and uncomputed C1 native requests are preserved. No deployment, OpenModelica query/build/launch, native runner, frozen-reference regeneration or historical C1-stack integration occurred. The unfamiliar supported composition's complete author-to-native workflow remains the forward milestone, not a completed claim of this navigation work.
