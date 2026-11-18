@@ -1,3 +1,27 @@
+# SIM_HEAT PR57 — source-only workbench R1 scoped pass; minor findings corrected, targeted review 02 pending
+
+**Current status:** `REVIEW01-INDEPENDENT-R1-SCOPED-PASS-OLD-HEAD; F01-F02-CORRECTED-NEW-HEAD; NEW-EXACT-HEAD-CI-PASS; AWAITING-FOCUSED-INDEPENDENT-R1-REVIEW02; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
+
+[Source PR57](https://github.com/physicsvigilante/sim_heat/pull/57) remains **open/draft/unmerged**. Base unchanged merged main `20f5605d28f22d4a7dc86ad478a4cf44347157d4`. Original first source HEAD `e8a9696c8f14bc59c2d3918e65c987a8c4230bf0`, original tree `b59f6aabec9c3cca5c0c2fd52d429a0df04b208f`. [Independent Chat B review-01](reviews/review-01-chat-b.md), immutable Git blob `790f60343603c6840c6b9302d19b802d432e21ef`, **SCOPED PASS (R1)** for that old source with two **minor** follow-ups: duplicated Host allowed if the first was valid; local workbench privacy limits should be made explicit. Chat A [response-01](responses/response-01-chat-a.md) accepts and records actual first-failure reproduction/correction without modifying original review.
+
+**New corrected source HEAD `a663c4c8c37494c1db6ef5fcaf32da0d4ba4fcba`**, exact Git tree **`0c44961b473d23737b0c9f3b3f2cd3db65b9f264`**, direct parent old reviewed head. **Only THREE changed files** since reviewer-approved source: `tools/authoring_workbench.py`, `tests/test_authoring_workbench.py`, `docs/LOCAL_AUTHORING_WORKBENCH.md`; against current main still exactly FIVE additive workbench paths, zero original science/archived files changed.
+
+- **F-01 fixed:** require exactly one `self.headers.get_all('Host', [])` matching live `127.0.0.1:port`. Added actual raw-socket HTTP regression for singular Host 200, valid+evil/evil+valid/valid+valid duplicate Host GET 421, duplicate Host HEAD 421, missing Host 421 and no source JSON on refusal. The new test intentionally first **FAILED three cases** against the old source (old implementation returned 200), then PASS after the production fix; do not erase this record.
+- **F-02 fixed:** documentation and local help page warn that other processes on the same machine can access in-memory admitted source if they learn the port, no local-process authentication, no secrets/sensitive provenance, avoid shared/untrusted machines and stop with Ctrl+C. The help-page test checks the warning.
+
+**Exact new-head CI SUCCESS**:
+- [Push 44312686935](https://github.com/physicsvigilante/sim_heat/actions/runs/44312686935), artifact **14431216832**, 13,841,352 bytes, SHA256 `53a201c4561bbca3668409fddbf850381ff5ad4551c91622653678651238d0c5`, **56 distinct CRC-valid members**; actual HEAD/tree/source-base exact.
+- [PR 44312700673](https://github.com/physicsvigilante/sim_heat/actions/runs/44312700673), synthetic merge **`d99773ed095a1b2809be60992eecd619109d7ffb`**, tree **identical to new source** with parents prior main+corrected HEAD, artifact **14431251686**, 13,841,327 bytes, SHA256 `0be4a67e13d723a153f1aabfff9c7d83a94f527c7c43f9285c233869d397f6c1`, **56 unique CRC-valid entries**.
+- [Audit-core 44312700604](https://github.com/physicsvigilante/sim_heat/actions/runs/44312700604) SUCCESS; artifact **14431975359**, 5,874,260 bytes SHA256 `6404d2e6dd46d9ecbe28ca12f39f78c3524baa00befc902929fa2f6ea078bd0a`, 33 distinct CRC-valid entries.
+- Both workbench full CI suites: H1 152 + analytical 4 + adapters 62 + product **40** + Node 42 = **300 unique unit PASSES, one existing optional skip**, zero failures. Six original historic native diagnostic bundles replay **BYTE_IDENTICAL**, `nativeExecutedByReplay=false`; original conductivity comparison and TEACH_SPLIT3 source-only payload byte-identical. Real-HTTP Chromium inherited explorer/source-preview/docs and workbench D1 desktop/S1 mobile/TEACH_SPLIT3 desktop, refused/denied routes PASS. Test counts overlap, not additive.
+- Chat A independently downloaded, hashed and CRC-checked all three current CI artifacts, **reconstructed both full source.tar Git trees to `0c44961...`**, checked exact five-additions source diff/checkout receipts and original archive and browser logs. Full offline native ZIP replays and Chrome routes are **hosted CI** inspected, not personally executed. Chat A locally ran all **300 tests + one optional skip**, verified current canonical HTML parity and original comparison/TEACH_SPLIT3 byte replay. The original reviewer reported blocked local Chromium navigation; do not reclassify as a local browser PASS.
+
+**Review gate:** New focused [CORRECTION-REQUEST-02](CORRECTION-REQUEST-02.md), [REVIEWER-PROMPT-02](REVIEWER-PROMPT-02.md) for current source. Independent **Chat B must author NEW `reviews/review-02-chat-b.md`**, not edit original review. No need for another broad R2 physics review since only HTTP Host and privacy text changed. PR57 remains **draft/unmerged pending independent correction verdict and separate explicit owner merge approval**. Current main and all historic original six catalog cases remain `diagnostic_only/nativeQualified=false`; TEACH_SPLIT3/new authored-only results remain `not_computed`; historical C1 failures/seal and nine original native public requests unchanged. No OpenModelica operations, runner/solver, original reference regeneration, deployment or C1 stack integration.
+
+---
+
+## Prior pre-review status (historical, superseded for current head)
+
 # SIM_HEAT PR57 — one-command local authored-source workbench, independent R1 pending
 
 **Status:** `IMPLEMENTED; BYTE-VERIFIED-EXACT-HEAD; PUSH-AND-PR-AND-AUDIT-CI-PASS; AWAITING-INDEPENDENT-R1; DRAFT-UNMERGED; NATIVE-HOLD`.
