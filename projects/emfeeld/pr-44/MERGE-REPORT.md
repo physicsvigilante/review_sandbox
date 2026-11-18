@@ -48,6 +48,16 @@ Independently opened and verified all **173 original integrity inventories / 1,7
 
 ---
 
+## Actual-main Windows first attempt cancelled — retained negative evidence
+
+[Actual merged main-push OS run #44263814010 attempt 1](https://github.com/physicsvigilante/emfeeld/actions/runs/44263814010) reached **Ubuntu completed SUCCESS** and **Windows CANCELLED** during the scenario-ensemble stages; the overall first run was **CANCELLED**, not a release PASS. Original Windows job `134663363310`, event `push`, source `57d09f...`. Its original log records the 1,709 headless, 18 historical and 37 PyVista steps passed, then `##[error]The operation was canceled.` at 2026-11-18 08:22:20 UTC before completing the remaining ensemble-view/archival steps. No assertion failure was reported before interruption. The original cancellation's triggering cause is **not established**, so this cannot be called only a transient platform failure without evidence.
+
+GitHub preserved original partial Windows ZIP **artifact 14409659788**, original whole ZIP SHA256 **`5d99db545f1db17d1c590eb1b595efa6e7632da1dfa3400312167beb61892f3a`**, **2,184 original entries**, versus 2,186 expected from the qualified completed pre-merge Windows run. Its original ZIP is missing `ensemble-view-G1-member/frame.png` and `ensemble-view-G1-member/presentation.json`. This is **incomplete archive evidence**, not a completed Windows release or a demonstrated physics regression. The incomplete first artifact, job log and failure remain preserved and must never be relabeled complete.
+
+Under owner's bounded autonomous correction/testing instruction, an **exact-job Windows-only re-run** was requested with GitHub `rerun_workflow_job(job_id=134663363310)` on the **unchanged merged actual main SHA** `57d09f...`. GitHub returned success; original run #44263814010 entered **attempt 2**, retaining qualified Ubuntu. Fresh Windows attempt 2 job `134673082198` was queued at this addendum. Qualification requires the full new attempt to complete success and the complete original new Windows release ZIP to be downloaded, source/native/CRC audited. Until then, **Issue #43 stays OPEN**. Upload-artifact naming may conflict with retained original same-run artifact; any such failure must be recorded rather than suppressed.
+
+---
+
 ## Actual new main-push release — PENDING at first report
 
 Three fresh workflows triggered by `event=push` on **actual merged main** SHA `57d09f...`:
