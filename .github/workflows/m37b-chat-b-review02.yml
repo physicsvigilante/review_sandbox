@@ -1,0 +1,116 @@
+name: M37b Chat B targeted R2 real Chromium original-first-frame re-review
+
+on:
+  push:
+    branches: [review/conductor-m37b-chat-b-02]
+    paths:
+      - '.github/workflows/m37b-chat-b-review02.yml'
+      - 'projects/conductor_sim/pr-90/reviews/independent-browser-probes-chat-b-02.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reviewer-owned-exact-source-chromium:
+    name: independent 12 HTML forgeries against actual release checker
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Fresh checkout of independently authored review code
+        uses: actions/checkout@v4
+      - name: Fresh exact-SHA checkout of candidate production source
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: c8333b61dd5a147086842ab9162a3ed0ef495373
+          fetch-depth: 4
+          path: conductor
+          persist-credentials: false
+      - name: Verify native HEAD/TREE, original PDF bytes and precisely four changed source files
+        shell: bash
+        working-directory: conductor
+        run: |
+          set -euo pipefail
+          mkdir -p review-outputs/m37b-source
+          git rev-parse HEAD | tee review-outputs/source-head.txt
+          git rev-parse 'HEAD^{tree}' | tee review-outputs/source-git-tree.txt
+          test "$(git rev-parse HEAD)" = c8333b61dd5a147086842ab9162a3ed0ef495373
+          test "$(git rev-parse 'HEAD^{tree}')" = 44b754e005c3d720cb3e59c1debd363ca2d8d639
+          sha256sum 02_conductors_half_size.pdf | tee review-outputs/source-original-pdf-sha256.txt
+          test "$(sha256sum 02_conductors_half_size.pdf | cut -d' ' -f1)" = 9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d
+          git diff --name-status 155b0544684d3d880a83a661cc8e14a0ce22f26b HEAD | tee review-outputs/changed-files.txt
+          python - <<'PY'
+          from pathlib import Path
+          rows=[r.split("\t") for r in Path("review-outputs/changed-files.txt").read_text().splitlines()]
+          expected={
+              ".github/workflows/m37b-source-current.yml": "M",
+              "docs/m37b.md": "M",
+              "tools/check_m37b_nojs_hostility.py": "A",
+              "tools/check_m37b_prescribed_browser.py": "M",
+          }
+          assert {path: status for status,path in rows} == expected, rows
+          print("EXACT_4_PATH_R1_TO_R2_SCOPE PASS",flush=True)
+          PY
+          git diff --quiet 155b0544684d3d880a83a661cc8e14a0ce22f26b HEAD -- \
+            02_conductors_half_size.pdf src/conductor_sim/grounded_sphere_wire.py \
+            src/conductor_sim/prescribed_ground_wire.py src/conductor_sim/prescribed_wire_viewer.py
+          echo "UNCHANGED_PRODUCTION_PHYSICS_AND_VIEWER PASS"
+      - name: Prepare reviewer Python and actual offline Playwright Chromium
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the production source and real browser, no web-service simulation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e "./conductor[test]" "playwright==1.57.0"
+          python -m playwright install --with-deps chromium
+      - name: Generate original physical 31-state HTML and JSON in fresh source checkout
+        shell: bash
+        working-directory: conductor
+        run: |
+          set -euo pipefail
+          python -m tools.m37b_source_approach --output-dir review-outputs/m37b-source 2>&1 | tee review-outputs/first-generation.log
+          python -m tools.m37b_source_reference \
+            --input review-outputs/m37b-source/p8-ground-current.json \
+            --output review-outputs/m37b-source/independent-source-reference.json \
+            2>&1 | tee review-outputs/first-SI-reference.log
+      - name: Mandatory first-attempt independently authored actual Chrome baseline and 12 forgeries
+        shell: bash
+        working-directory: conductor
+        env:
+          PYTHONPATH: '.'
+        run: |
+          set -euo pipefail
+          python ../projects/conductor_sim/pr-90/reviews/independent-browser-probes-chat-b-02.py \
+            2>&1 | tee review-outputs/first-independent-browser-attempt.log
+      - name: Separately execute actual developer hostility runner, then attest ten refusals and original bytes
+        shell: bash
+        working-directory: conductor
+        run: |
+          set -euo pipefail
+          python -m tools.check_m37b_nojs_hostility --output-dir review-outputs/m37b-source \
+            2>&1 | tee review-outputs/first-developer-runner-attempt.log
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          root=Path("review-outputs")
+          r=json.loads((root/"independent-review-result.json").read_text())
+          h=json.loads((root/"m37b-source/nojs-adversarial-browser.json").read_text())
+          assert h["attacks"] == h["refused"] == 10 and h["unexpected_acceptances"] == 0
+          assert h["genuine_html_restored"] and h["science_json_unchanged"]
+          assert hashlib.sha256((root/"m37b-source/p8-ground-current.json").read_bytes()).hexdigest() == r["original_science_json_sha256"]
+          assert hashlib.sha256((root/"m37b-source/p8-ground-current.html").read_bytes()).hexdigest() == r["original_html_sha256"]
+          print("ACTUAL_DEVELOPER_HOSTILITY_RUNNER 10/10 REFUSED; unchanged original SI/HTML PASS",flush=True)
+          PY
+          python -m tools.check_m37b_prescribed_browser --output-dir review-outputs/m37b-source \
+            2>&1 | tee review-outputs/final-original-chromium.log
+      - name: Retain first attempt, genuine+forged no-JS screenshots, source identity and original data even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m37b-chat-b-r2-real-chromium-first-attempt
+          path: conductor/review-outputs/
+          if-no-files-found: warn
+          retention-days: 30
