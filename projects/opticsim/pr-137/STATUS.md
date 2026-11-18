@@ -22,3 +22,10 @@ The draft proposes a strict versioned request and a new CLI instead of modifying
 [**Detailed independent design review request**](REQUEST.md) · [**Copy-ready Chat B prompt**](REVIEWER-PROMPT-01.md) · [Design issue #136](https://github.com/physicsvigilante/opticsim/issues/136).
 
 **Independent review PENDING; production source/owner release decision NOT made.** #135 and #133 remain unmerged research/candidate A, as do #129 and all held v14–v19 optics branches. Production main remains unchanged and unprotected under issue #123. The independent review must explicitly challenge the output, numeric and observer inference boundaries before source implementation.
+
+
+## Builder regression CI on exact design-only source (2026-11-18)
+
+**11/11 GitHub Actions workflows SUCCESS** at HEAD `3db3711c7a21f5dd477b09d5668a9a8becd6a6a7`, source and tested merge Git tree `725d9d450f711a9e379f4137e5c284aa3e0de641`. [Planar workflow #44242161435](https://github.com/physicsvigilante/opticsim/actions/runs/44242161435) checked out synthetic merge `29dc4a4c7205597af93fe3256845bfcc93d57459`, ran Node 24.19.0 with pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`, **790/790 tests passed** and existing planar browser acceptance. [Optical composition #44242161458](https://github.com/physicsvigilante/opticsim/actions/runs/44242161458) passed existing Chrome/browser regressions. The **790** count is the actual production-main baseline; research-only #135's extra **12 native tests are not merged**, so test counts must not be compared as a regression. **Design-only CI does not exercise an unimplemented B1 request or validate candidate numerical thresholds.**
+
+**Independent exact-source design review remains PENDING; no public B1 geometry or observer feature exists.**
