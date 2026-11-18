@@ -1,0 +1,49 @@
+# M36e PR #88 — Independent source-JEE visible-answer + offline Chromium integrity review
+
+**Production target:** [draft conductor_sim PR #88](https://github.com/physicsvigilante/conductor_sim/pull/88). **OPEN/DRAFT/UNMERGED**.
+
+- **EXACT source HEAD `75ef212d79dc26ff97621fb1f2ed4e287bbed56d`**
+- **Actual native Git TREE `f5be8433b39cf8827c19da1cd0586869347a33f4`**
+- Released M36d owner-authorized `main` base: `8bca8e5d1c157e05b3f04e6185e927bd7ee79941`, native Git TREE `523d02e95dbb4791acd630f9c535eb552262c606`, **20/20 ACTUAL main-push workflows PASSED**.
+- Frozen preregistered M36e charter-only commit `77957e7509280e891197789be143784bae692a7b`.
+- Risk **R2**, narrow scope: native-source observable display-integrity, correct original-vs-teacher interpretation and actual browser readability. **No production solver/field law changes in this PR.**
+
+## Objective — reviewer-identified display gap, not a new JEE question
+
+Earlier independent [M36d Chat B R2 report in review_sandbox PR #3](https://github.com/physicsvigilante/review_sandbox/pull/3) verified a genuine SOLID conducting sphere reproducing notes `POTENTIAL_CONDUCTORS1.pdf` p26 Illustration 1. It raised three nonblocking usability observations:
+1. The original asked `V(R/2)` and `V(3R/2)` are physically correct in native output, but not prominently visible together for teachers.
+2. Generic legacy heading “Induced surface-charge profile” is scientifically misleading for an isolated fixed-net-Q solid in a source-free vacuum: there is **one physical outer** charge-density face, not a displaced-induced inner face.
+3. Circular metal edges have visible rectangular-grid colour artifacts. M36e uses more real samples, **not** unverified physics interpolation or pixel-perfect edge certainty.
+
+M36e is a **source-specific presentation refinement** to the existing M36d `SolidSphere` apparatus, not a new Gauss solver, automatic PDF parser, 3D irregular conductor or conductor current-time simulation. Original radius `R` and net `Q` are SYMBOLIC. Numerical parameters are teacher choices: source-shaped geometry `R=.1m,Q=+1nC`, teacher `R=.12m,Q=-2nC` moved centre `(.025,0,0)m`, teacher grounded `R=.08m` empty source-free environment. Three genuine *static worlds*, ONE original problem.
+
+Read exact-source files:
+- [Frozen acceptance charter](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/docs/m36e_charter.md), [source/physical limitations](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/docs/m36e.md)
+- [Native solver-backed source runner + real HTML answer cards](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/tools/m36d_true_solid_sphere.py)
+- [No-engine-import independent Gauss physical reference](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/tools/m36d_solid_reference.py), [original full solid-domain physics regressions](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/tests/test_m36d_true_solid_sphere.py)
+- [New no-browser visible numeric/provenance integrity tests](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/tests/test_m36e_solid_answers.py)
+- [Actual Chromium source-state, real DOM and 65×65 grid inspector](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/tools/check_m36d_solid_browser.py)
+- [Seven real Chromium hostile mutations and reason-specific refusals](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/tools/check_m36e_answer_integrity.py)
+- [Complete source CI workflow](https://github.com/physicsvigilante/conductor_sim/blob/75ef212d79dc26ff97621fb1f2ed4e287bbed56d/.github/workflows/m36e-original-answer-viewer.yml).
+
+## Reviewer must independently establish source truth and display integrity
+
+1. Confirm literal PR source HEAD and actual Git-tree object match exact pin; stop **STALE REVIEW** if changed. Confirm no source law, FEMM, original PDFs or generic M5 viewer changed; earlier M36d original solid physics must remain unmodified. Verify actual main base and postmerge M36d status.
+2. Recheck *all actually triggered* source-head PR and branch-push CI **LIVE** to completed SUCCESS before a source-scoped PASS: Python 3.10/3.12, real FEMM5, full historical Chromium, inherited M36b/c/d physical/source suites, new M36e real readout/Chromium and hostile controls. The new PR full matrix was **queued/in progress** when the packet was authored; no preemptive 21/21 green claim. Preserve first M36e failed source-run [#44281302235](https://github.com/physicsvigilante/conductor_sim/actions/runs/44281302235), where **40 passed/1 failed** from a mistaken test assumption that `hidden` HTML attribute must immediately follow `data-state`, ignoring a valid intermediate `data-m36e-role`. The only corrective code commit changed **that test**, not source physics or UI. Verify current source was rerun.
+3. On real freshly generated source HTML, open all 3 real states in offline Chromium; compare visibly displayed **both** native `V(R/2)`, `V(3R/2)` values to independently calculated Gauss SI and actual `native-solid-sphere.json`, plus `|E(R/2)|` and `σ_outer` with units/sign. Source original numeric R/Q must be called **TEACHER examples**; later negative/grounded states must be labelled teacher hypotheticals; actual slider must show ONE active source answer card and update. Default no-JS original state remains visible. Do not infer real charge-moving dynamics from the precomputed state selector.
+4. Verify the physical viewer/scene still draws genuinely filled SOLID disk, `inner_radius=0`, exactly one physical outer density series, stable `Sphere A` identity, zero source masks, accurate signed field across source/teacher models and **65×65 actual source-solved potential/E grid**, not display interpolation passed off as a solver. Only this p26 viewer should change its heading to **“Surface-charge density (one real outer face)”**; generic legacy-induced scenes must retain their accurate inherited labeling. Inspect actual first/last screenshots if possible and describe whether dense grid really improves edge artifacts without making false pixel-perfect claims.
+5. Independently design and execute fresh hostile edits on true native HTML and/or manifest, NOT just copy the seven developer cases: replace visible original value while keeping embedded numeric attr, alter data attr alone, swap original vs teacher role or first-frame answer, delete answer card, restore misleading induced heading, fake grounded net Q, tamper source-given numeric attribution, insert unescaped source metadata to attempt HTML/JS injection, freeze answer panel across slider state. Demand specific rejection by actual real browser/source-free reference. Preserve original unedited positive control and precise failure reasons.
+6. Ensure actual public `MixedRadialBackend` still accepts a real charged/grounded standalone sphere, refuses point sources and fake inner sigma, and independently recompute Gauss original/teacher V/E/σ to reject a visually convincing but unphysical source-data change. Do not require a new unrelated 3D field solver for this *presentation* milestone.
+7. Report separated axes: genuine p26 source observables mathematically correct, visible on screen, source/teacher provenance truthful, viewer legible for JEE study, qualified physical regime, tests/provenance honesty. **ONE previously evaluated original p26 apparatus; ZERO new solved original questions**, teacher hypotheticals do not increase JEE30 success rate.
+
+## Actual developer evidence (not an independent Chat B review)
+
+First source-only [run #44281302235](https://github.com/physicsvigilante/conductor_sim/actions/runs/44281302235) **FAILED** 1 of 41 for the obsolete assumed adjacent `data-m36e-state` and `hidden` attributes; 40 passed. This was test-only; it is preserved and **not** relabelled success.
+
+[Corrected source-head branch workflow #44281477440](https://github.com/physicsvigilante/conductor_sim/actions/runs/44281477440) **COMPLETED/SUCCESS on literal `75ef212d79dc26ff97621fb1f2ed4e287bbed56d`**: **41 focused real source/unit integrity tests passed**, native original + two real teacher physical worlds re-solved, **three separate stdlib-only Gauss SI source checks passed**, **three real offline Chromium source/teacher viewer states inspected**, **seven intentional visible/native HTML forged data variants each rejected** with expected reason. Full Git head/tree/PDF SHA, native values, real HTML/screenshots and hostile refusal descriptions retained in artifact **14416662754**, GitHub-provider ZIP SHA256 `55596b28a0b2491b1d1d2fd9f67c78578c7eddf4a5e77ccdcb227fff39296c66`; not independently downloaded/rehashed by implementer. This remains **developer-controlled test evidence**, NOT newly authored Chat B science.
+
+## Independent verdict and source release authority
+
+Publish original source-scoped review `projects/conductor_sim/pr-88/reviews/review-01-chat-b.md` in `physicsvigilante/review_sandbox` (on main or a separate review PR). Report exact source HEAD and Git tree, newly authored hostile and positive numeric/visual experiments, actual offline screenshots, full current-source CI, first failed source runs and source/teacher/physical limitations, with **PASS / CHANGES-REQUESTED / INSUFFICIENT-EVIDENCE**. Do **not** falsely claim to have inspected image or run a probe if tools prevented it.
+
+**NO PRODUCTION MERGE AUTHORITY:** Do not edit source PR, mark ready, merge, or imply owner approval. Even an exact-head no-blocker independent R2 PASS requires **separate owner approval**, guarded expected-head merge, identical reviewed Git TREE on `main` and all *actual main-push* CI SUCCESS before release.
