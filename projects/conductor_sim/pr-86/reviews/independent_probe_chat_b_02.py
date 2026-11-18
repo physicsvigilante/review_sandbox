@@ -148,8 +148,8 @@ def neutral_external_kelvin():
     center=-image
     image_x=a*a/d
     expected_V=K*q/d
-    check("new external neutral metal net",s.conductor_by_name("neutral").net_charge_c,0.)
-    check("new external neutral metal V",s.conductor_by_name("neutral").potential_v,
+    check("new external neutral metal net",s.conductor_results[0].net_charge_c,0.)
+    check("new external neutral metal V",s.conductor_results[0].potential_v,
           expected_V,atol=1e-8)
     for pos in [(a,0.,0.),(0.,a,0.),(-a,0.,0.)]:
         check("new external equipotential "+str(pos),s.potential_at(pos),expected_V,atol=1e-8)
