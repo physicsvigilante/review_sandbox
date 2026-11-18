@@ -1,0 +1,84 @@
+name: M38a PR91 Chat B independent native SI review 01
+on:
+  push:
+    branches: [review/conductor-sim-pr91-chat-b-01]
+    paths:
+      - ".github/workflows/m38a-pr91-chat-b-review01.yml"
+      - "projects/conductor_sim/pr-91/reviews/review-01-chat-b-probes.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-head-independent-physics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: b482aaab716bbfb5a06984d4e8678707c5235d15
+          fetch-depth: 0
+          persist-credentials: false
+          path: source
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: f187dede846d441dd5928ccb6521d67443ead72b
+          persist-credentials: false
+          path: released
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Native literal Git SHA and TREE; exact released base and strictly seven new files
+        run: |
+          set -euo pipefail
+          mkdir -p review-evidence
+          test "$(git -C source rev-parse HEAD)" = "b482aaab716bbfb5a06984d4e8678707c5235d15"
+          test "$(git -C source rev-parse HEAD^{tree})" = "7873a982c19f597bde4cad205d4f39ba199d5038"
+          test "$(git -C released rev-parse HEAD)" = "f187dede846d441dd5928ccb6521d67443ead72b"
+          git -C source rev-parse HEAD HEAD^{tree} | tee review-evidence/pinned-source-head-tree.txt
+          git -C source diff --name-only f187dede846d441dd5928ccb6521d67443ead72b HEAD | tee review-evidence/actual-changed-files.txt
+          test "$(wc -l < review-evidence/actual-changed-files.txt)" -eq 7
+          for name in 02_conductors_half_size.pdf src/conductor_sim/grounded_sphere_wire.py src/conductor_sim/prescribed_ground_wire.py src/conductor_sim/model.py; do
+            cmp "released/$name" "source/$name"
+          done
+          sha256sum source/02_conductors_half_size.pdf released/02_conductors_half_size.pdf | tee review-evidence/workbook-unchanged-sha256.txt
+      - name: Install unmodified candidate on fresh independent runner
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python -m pip install -e ".[test]" > ../review-evidence/reviewer-install.log 2>&1 || { cat ../review-evidence/reviewer-install.log; exit 1; }
+      - name: Real pinned native focused developer-facing tests
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python -m pytest tests/test_m38a_prescribed_line.py -q --junitxml=../review-evidence/native-focused.xml 2>&1 | tee ../review-evidence/native-focused.log
+      - name: Actually run real example and standalone Kelvin reference
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python examples/m38a_line_approach.py --output ../review-evidence/real-41-samples.json 2>&1 | tee ../review-evidence/real-example.log
+          python -m tools.m38a_line_reference --input ../review-evidence/real-41-samples.json --output ../review-evidence/production-stdlib-reference.json 2>&1 | tee ../review-evidence/production-stdlib.log
+      - name: Run original reviewer-authored independent SI, 3-axis negative q, hidden crossing and hostile evidence
+        working-directory: source
+        run: |
+          set -euo pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-91/reviews/review-01-chat-b-probes.py ../review-evidence/reviewer-independent-results.json 2>&1 | tee ../review-evidence/reviewer-first-attempt.log
+      - name: Keep original logs and hashes on any failure
+        if: always()
+        run: |
+          mkdir -p review-evidence
+          sha256sum reviewer/projects/conductor_sim/pr-91/reviews/review-01-chat-b-probes.py > review-evidence/reviewer-probe-sha256.txt
+          find review-evidence -maxdepth 1 -type f -print | sort
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m38a-chat-b-pr91-first-attempt-independent-evidence
+          path: review-evidence/
+          if-no-files-found: warn
+          retention-days: 30
