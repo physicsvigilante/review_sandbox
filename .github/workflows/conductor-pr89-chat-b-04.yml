@@ -4,7 +4,7 @@ on:
   push:
     branches: [review/conductor-pr89-r4-20261118]
     paths:
-      - '.github/workflows/conductor-pr89-chat-b-03.yml'
+      - '.github/workflows/conductor-pr89-chat-b-04.yml'
       - 'projects/conductor_sim/pr-89/reviews/challenge_r4_turning.py'
   workflow_dispatch:
 
@@ -52,9 +52,9 @@ jobs:
           git -C source rev-parse 'HEAD^{tree}' | tee "$EVIDENCE/tree.txt"
           test "$(cat "$EVIDENCE/head.txt")" = "d843a981a2b5ba4591f1c1afd169fd49bca7083f"
           test "$(cat "$EVIDENCE/tree.txt")" = "77afef9445a3ac65d228dfe029bb7c0d5b67ba10"
-          git -C source diff --name-only 630f6d320a1b4cb00bf7bb0780cd3deca4ec0f7e HEAD | sort > "$EVIDENCE/changed-since-reviewed-r2.txt"
+          git -C source diff --name-only 630f6d320a1b4cb00bf7bb0780cd3deca4ec0f7e HEAD | sort > "$EVIDENCE/changed-since-reviewed-r3.txt"
           printf '%s\n' docs/m37a.md tests/test_m37a_grounded_wire_current.py tools/m37a_ground_wire_reference.py | sort > "$EVIDENCE/allowed-diff.txt"
-          diff -u "$EVIDENCE/allowed-diff.txt" "$EVIDENCE/changed-since-reviewed-r2.txt"
+          diff -u "$EVIDENCE/allowed-diff.txt" "$EVIDENCE/changed-since-reviewed-r3.txt"
           git -C source diff --quiet 630f6d320a1b4cb00bf7bb0780cd3deca4ec0f7e HEAD -- src/conductor_sim/ src/conductor_sim/motion_1d.py 02_conductors_half_size.pdf
           git -C source ls-files -s 02_conductors_half_size.pdf > "$EVIDENCE/original-pdf-blob.txt"
           test "$(git -C source hash-object 02_conductors_half_size.pdf)" = "90d8869b0f01cc2ea13f83721985a5d8419f1d0e"
@@ -89,7 +89,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$EVIDENCE/f4"
-          python review/projects/conductor_sim/pr-89/reviews/challenge_r4_f4.py source "$EVIDENCE/f4" 2>&1 | tee "$EVIDENCE/f4-first-attempt.log"
+          python review/projects/conductor_sim/pr-89/reviews/challenge_r4_turning.py source "$EVIDENCE/f4" 2>&1 | tee "$EVIDENCE/f4-first-attempt.log"
       - name: Independently verify all 25 exact HEAD workflow runs actually completed SUCCESS
         if: always() && steps.identity.outcome == 'success'
         id: ci
