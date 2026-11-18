@@ -1,0 +1,67 @@
+name: M36a PR84 reviewer-authored hostile controls (literal source)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/m36a-pr84-reviewer-controls.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m36a-independent-execution:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Check out review sandbox
+        uses: actions/checkout@v4
+        with:
+          path: reviewer
+          persist-credentials: false
+
+      - name: Check out EXACT production candidate (never floating main)
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 527e6cee5f96a011729d2d0a668da9b688ab03d0
+          path: source
+          persist-credentials: false
+
+      - name: Assert immutable candidate commit and native Git tree
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "527e6cee5f96a011729d2d0a668da9b688ab03d0"
+          test "$(git rev-parse HEAD^{tree})" = "fff1c03417c857b6cce04156427e3eeaf9919a65"
+          mkdir -p ../evidence
+          git rev-parse HEAD > ../evidence/source-commit.txt
+          git rev-parse HEAD^{tree} > ../evidence/source-tree.txt
+          sha256sum 02_conductors_half_size.pdf POTENTIAL_CONDUCTORS1.pdf | tee ../evidence/source-pdf-sha256.txt
+          python3 --version | tee ../evidence/python-version.txt
+
+      - name: Run current pinned M36a standard-library audit CLI
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python3 -m tools.m36a_jee30_audit --output ../evidence/m36a-audit.json | tee ../evidence/m36a-audit-stdout.txt
+
+      - name: Execute reviewer #02's exact originally authored hostile Python controls
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          PYTHONPATH="$PWD" python3 ../reviewer/projects/conductor_sim/pr-84/probes/review-02-original-hostile-controls.py | tee ../evidence/reviewer-original-controls.txt
+          grep -Fx "ALL NOVEL PYTHON CONTROLS PASSED" ../evidence/reviewer-original-controls.txt
+          test "$(grep -c '^EXPECTED REJECT:' ../evidence/reviewer-original-controls.txt)" -eq 9
+
+      - name: Retain source-pinned original review controls and output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m36a-pr84-original-chat-b-controls
+          path: evidence/
+          retention-days: 21
+          if-no-files-found: warn
