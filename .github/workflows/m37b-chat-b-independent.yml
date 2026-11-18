@@ -1,0 +1,65 @@
+name: M37b Chat B independent source/physics/no-JS browser review
+
+on:
+  push:
+    branches: [review/conductor-m37b-chat-b-01]
+    paths:
+      - ".github/workflows/m37b-chat-b-independent.yml"
+      - "projects/conductor_sim/pr-90/reviews/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-independent-reproduction:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout reviewer-owned source
+        uses: actions/checkout@v4
+      - name: Checkout literal exact production candidate, never a synthetic merge
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 155b0544684d3d880a83a661cc8e14a0ce22f26b
+          path: conductor
+          persist-credentials: false
+      - name: Pin exact source HEAD, native Git TREE and original PDF bytes
+        shell: bash
+        working-directory: conductor
+        run: |
+          set -euo pipefail
+          mkdir -p review-outputs
+          git rev-parse HEAD | tee review-outputs/native-git-head.txt
+          git rev-parse 'HEAD^{tree}' | tee review-outputs/native-git-tree.txt
+          test "$(git rev-parse HEAD)" = "155b0544684d3d880a83a661cc8e14a0ce22f26b"
+          test "$(git rev-parse 'HEAD^{tree}')" = "f48f54b8c49217b7c66179fe014b6fab1ea4dc4d"
+          sha256sum 02_conductors_half_size.pdf | tee review-outputs/actual-original-pdf-sha256.txt
+          test "$(sha256sum 02_conductors_half_size.pdf | cut -d' ' -f1)" = "9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d"
+      - name: Set up independent runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install current source engine, native test requirements and Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e "./conductor[test]" "playwright==1.57.0"
+          python -m playwright install --with-deps chromium
+      - name: Execute reviewer-owned unfamiliar native/source/browser adversarial probes
+        shell: bash
+        working-directory: conductor
+        env:
+          PYTHONPATH: "."
+        run: |
+          set -euo pipefail
+          python "../projects/conductor_sim/pr-90/reviews/independent-native-probes-chat-b.py" 2>&1 | tee review-outputs/reviewer-first-attempt.log
+      - name: Retain every actual first-run result including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m37b-chat-b-independent-first-run
+          path: conductor/review-outputs/
+          if-no-files-found: warn
+          retention-days: 30
