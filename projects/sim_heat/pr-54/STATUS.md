@@ -1,3 +1,19 @@
+# SIM_HEAT PR54 — independent current-head R1 review accepted; awaiting owner merge approval
+
+**Current status:** `CURRENT-HEAD-INDEPENDENT-R1-REVIEW02-SCOPED-PASS; CHAT-A-ACCEPTED; EXACT-HEAD-CI-PASS; DRAFT-UNMERGED; AWAITING-SEPARATE-OWNER-PR54-MERGE-APPROVAL; NO-NATIVE-AUTHORIZATION`.
+
+Independent [Chat B review-02](reviews/review-02-chat-b.md), reviewer-authored Git blob **`60be108e0c5543ed9b9e66b2f317150871fd0688`**, returned **SCOPED PASS with no blocking defect** for current [PR54](https://github.com/physicsvigilante/sim_heat/pull/54) exact HEAD **`6cc3637a8f4009bfb37cafa8ed27edbd049d2d9e`**, tree **`e354dcf1f64e3e552850422336db237a7e3de556`**. Current main base **`13260a62eb36d58802878c4d3dfb534ad1621f91`**, synthetic merge checkout `d838e8d0293f895377b0babecc5d20404fbbba05` and its complete tree **identical** to current candidate. Exactly **11 product/documentation/CI paths** changed versus merged main, with unchanged `h1`, `experiments`, `qualification`, `viewer` and old scientific references/cases. Original [Chat B review-01](reviews/review-01-chat-b.md) remains SCOPED PASS pinned to its **older** head `8f6ef1d...`, not retroactively extended or edited.
+
+[Chat A developer response-02](responses/response-02-chat-a.md) **accepts** the new scoped verdict, its source/evidence/status distinctions and remaining limits. The reviewer personally reconstructed all source/merge trees and compared 140 protected files; reran **33/33 product tests**, exact published four-call read-only scratch admission block, generated static HTML parity, all six original archive ZIP read-only replays and original saved comparison/source-only preview byte checks; independent Git protected-source guard negative probe and local static Chromium/HTTP GET checks passed. Reviewer's local live-browser HTTP attempt was **blocked by administrator**; **hosted** Chromium navigation passed and should not be claimed as a personal HTTP-click pass.
+
+[Push 44296676358](https://github.com/physicsvigilante/sim_heat/actions/runs/44296676358), [PR 44296685585](https://github.com/physicsvigilante/sim_heat/actions/runs/44296685585) and [audit-core 44296685871](https://github.com/physicsvigilante/sim_heat/actions/runs/44296685871) all completed **SUCCESS**, candidate **293 unique unit passes, one optional skipped**, baseline **284 passes, one optional skipped** (overlap; do not add). Six original archived native diagnostic bundles remain **BYTE_IDENTICAL**, `nativeExecutedByReplay=false`; original D2/D2_K2 comparison unchanged; TEACH_SPLIT3 source-only preview remains `not_computed`, no native values. Root/registry/guide/source-viewer and original JSON browser tests passed hosted. PR54's narrowed product CI triggers and strict current-base protected-source guard passed. Only genuine historical reports and failures retained; no new numerical qualification implied.
+
+**Merge gate:** PR54 is still **open/draft/unmerged**. The user's latest `done` signifies review completion, **not owner permission to merge**. Before any PR54 integration, obtain new explicit owner approval, recheck exact live main/head and applicable CI, merge only using normal expected-head GitHub gate, verify exact main tree and postmerge CI, and write integration receipt. PR55/PR56 were previously approved/merged and remain intact. No OpenModelica install/version query/build/launch, native runner, frozen/adopted reference regeneration, historical C1 stack integration, deployment or evidence-status promotion occurred.
+
+---
+
+## Previous status (pre-current-review disposition; retained as history)
+
 # SIM_HEAT PR54 — merged-main documentation/source-view integration, R1 review 02 pending
 
 **Current status:** `MAIN-PR55-AND-PR56-INTEGRATED; PR54-RECONCILED-SOURCE-ON-DRAFT-BRANCH; EXACT-HEAD-AND-SYNTHETIC-MERGE-CI-PASS; AWAITING-INDEPENDENT-FOCUSED-R1-REVIEW02; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
