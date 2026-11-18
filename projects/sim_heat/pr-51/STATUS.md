@@ -1,3 +1,11 @@
+## Independent R2 review-01 COMPLETE — CHANGES REQUESTED (MAJOR F-01 strict-type gap)
+
+Independent [Chat B review-01](reviews/review-01-chat-b.md), reviewer-authored blob `0765d1226a74b2b5f181e3ccddd0bc2bc00c8768`, returned **CHANGES REQUESTED** on exact reviewed PR51 HEAD `52d693a748ad3709c99215bac0a5840a236937a6` (tree `7dcbb52c40f5b431ccdfe5dd4d2329fa21463829`). [Chat A response](responses/response-01-chat-a.md) **ACCEPTS** independent F-01: the original steady and campaign archived-result adapters fail to enforce literal `int` on three separate JSON metadata fields: case `canonicalSamples`, MAT/CSV provenance `samples`, and `duplicateRowsCollapsed`. `True`/floating-point equal counts can pass otherwise unchanged checks. This is a bounded internal schema-integrity defect **NOT** evidence of corrupted actual original GitHub archives or native scientific qualification. The reviewer reproduced 8 incorrect-type acceptances with repacked synthetic/test-only copies and explicitly verified original authentic archive replays remain unchanged.
+
+The originally reviewed source/CI result remains 240 HOSTED OFFLINE unit passes, one optional skipped; six original diagnostic bundles byte-identical; hosted browser PASS — all **historical**, not a complete cross-adapter R2 PASS. **No new original F0 physical law, runner, checking reference, native output, externally authenticated owner release or production merge is authorized.** Fix in a **NEW exact-head scoped successor PR52**, with typed `type(x) is int` checks on both adapters and negative tests plus unchanged original archive replay, then targeted independent R2. PR51 remains draft/unmerged. All 11 genuinely missing C1 native gates and F0/PR32 historical FAILs persist.
+
+---
+
 # SIM_HEAT PR51 — active-main audit corrections, independent R2 pending
 
 **Status: IMPLEMENTED + EXACT-HEAD CI PASSED; awaiting independent R2. Draft/unmerged; no native execution authorization.**
