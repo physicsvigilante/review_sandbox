@@ -39,3 +39,9 @@ Publish **`projects/opticsim/pr-137/reviews/review-02-chat-b.md`** with **one** 
 
 
 **Final R2 preflight clarification:** the source now distinguishes family mismatch caught before any run (0 native calls, infrastructure/integrity refusal) from stale per-execution hashes after attempted runs (suppressed); standardizes report fields `nativeAttempted/nativeCompleted`; globally prioritizes duplicate/invalid nested fields over missing facts; and requires tests at proposed 2 mm and 10 mm native detector-window bounds. These are normative design requirements, NOT already-implemented validations. The reviewed HEAD/tree above, not an earlier intermediate R2 commit, is the sole target.
+
+## Exact-final-HEAD builder regression CI now complete — verify independently
+
+**11/11 GitHub Actions workflows completed SUCCESS** at design HEAD `7f19f6d5c97608fc0eb1399cea3a3582938f2f6a`, no failed run. [Planar refraction run #44247326360](https://github.com/physicsvigilante/opticsim/actions/runs/44247326360) checked out synthetic PR merge `45f4eaa87128321bc7e479275d5819237f2da4a8`, whose source tree matches authored HEAD; recorded **Node 24.19.0**, pinned PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`, **790 tests / 790 passed / 0 failed**. [Optical composition/Chrome run #44247326431](https://github.com/physicsvigilante/opticsim/actions/runs/44247326431) completed existing native, preinstalled-Chrome and hosted-path browser checks. The baseline 790 count is expected: held research PR #135's 12 extra tests are **not merged**, and this proposal adds **no tests or executable code**.
+
+**This is builder regression evidence for unchanged production source only**, not independent PhyDemo reproduction, an executed B1a CLI, a B1b numerical stress campaign or numerical-accuracy certification. Verify actual jobs, raw logs and Git objects rather than treating this status paragraph as primary evidence. Independent design R2 verdict remains pending.
