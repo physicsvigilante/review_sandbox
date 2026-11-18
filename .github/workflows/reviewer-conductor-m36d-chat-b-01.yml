@@ -1,0 +1,71 @@
+name: Chat B R2-01 independent M36d solid-source scientific tests
+on:
+  push:
+    branches: [review/conductor-m36d-chatb-r2-01]
+    paths:
+      - 'projects/conductor_sim/pr-87/reviews/independent_probe_chat_b_01.py'
+      - '.github/workflows/reviewer-conductor-m36d-chat-b-01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reviewer-original-sphere-physics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout separate reviewer-owned review_sandbox branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Checkout exact IMMUTABLE PRODUCTION candidate, not moving PR HEAD
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: e5fa85abe990abe8fdedc555e9313ac0420a56a7
+          path: source
+          persist-credentials: false
+      - name: Assert real native Git TREE, full original PDF byte hashes, and exact correction footprint
+        shell: bash
+        run: |
+          set -euo pipefail
+          folder=review-artifacts/conductor-m36d-chat-b-01
+          mkdir -p "$folder"
+          cd source
+          test "$(git rev-parse HEAD)" = "e5fa85abe990abe8fdedc555e9313ac0420a56a7"
+          test "$(git rev-parse HEAD^{tree})" = "523d02e95dbb4791acd630f9c535eb552262c606"
+          git rev-parse HEAD | tee ../"$folder"/source-head.txt
+          git rev-parse HEAD^{tree} | tee ../"$folder"/source-tree.txt
+          sha256sum 02_conductors_half_size.pdf POTENTIAL_CONDUCTORS1.pdf | tee ../"$folder"/original-pdf-sha256.txt
+          printf '%s\n' \
+            '9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d  02_conductors_half_size.pdf' \
+            '8d0d9b5cf821219058cfc4b7685a39b777e460944df44c3f9cffcb68157a60e5  POTENTIAL_CONDUCTORS1.pdf' | sha256sum --check
+          git diff --name-only d607d1b9564c5b45e99a19cac3b33adcb33852f9 HEAD | tee ../"$folder"/corrective-file-list.txt
+          test "$(git diff --name-only d607d1b9564c5b45e99a19cac3b33adcb33852f9 HEAD)" = "tests/test_m14b_mixed_radial.py"
+          git diff d607d1b9564c5b45e99a19cac3b33adcb33852f9 HEAD -- tests/test_m14b_mixed_radial.py > ../"$folder"/corrective-test.diff
+      - name: Install Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install physical source backend, PDF rasterizer and REAL offline Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e ./source "pymupdf>=1.24,<2" "playwright==1.57.0"
+          python -m playwright install chromium
+      - name: Independently execute new native Gauss-law, denied-domain and forged-manifest tests
+        shell: bash
+        env:
+          PYTHONPATH: source:source/src
+        run: |
+          set -euo pipefail
+          python projects/conductor_sim/pr-87/reviews/independent_probe_chat_b_01.py 2>&1 | tee review-artifacts/conductor-m36d-chat-b-01/reviewer-stdout.txt
+      - name: Retain first failure, printed PDF raster, genuine screenshots and original numeric results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m36d-chat-b-r2-01-original-probes
+          path: review-artifacts/conductor-m36d-chat-b-01/
+          retention-days: 21
+          if-no-files-found: warn
