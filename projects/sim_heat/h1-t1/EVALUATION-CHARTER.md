@@ -1,0 +1,46 @@
+# H1-T1 — first-attempt source transfer: evaluation and evidence charter
+
+**Status at creation:** Protocol prepared, no independent tasks selected, no model first-attempt captured, no validation or native execution performed. This is a **new** H1-T1 source-only evaluation, separate from the frozen and historically unsuccessful H1-C1-F0. Do not inherit C1 first-attempt claims, uncomputed results, reference fixes or seal records.
+
+**Fixed implementation basis:** SIM_HEAT main commit f52613c39c539b2d4543a9838e5658d526fca10e, Git tree 0c44961b473d23737b0c9f3b3f2cd3db65b9f264. No changes to H1 source, grammar, checker, viewer or historical evidence are part of T1. Any main movement is irrelevant to T1 admission: use the pinned source or label an exercise on another commit as a different baseline. **No OpenModelica operation whatsoever.**
+
+## Roles and information isolation
+
+- **Chat A, evaluator/coordinator:** defines the public H1 contract and acceptance classes, never chooses/edits the independently selected physical task or pre-solves it. Locks raw issue comments and preserves SHA, evaluates first-attempt source/task fidelity before running a parser, and records assistance/unknowns.
+- **Independent selector, Chat B:** privately defines and seals an original **three-task set** (steady conduction, transient conduction, unsupported heat law) and hidden evaluator key/digest before authoring. Submits only public task statements and key hash on intake issue. Does NOT submit a Modelica model.
+- **Independent author, Chat C:** only sees the [public author packet](AUTHOR-PACKET.md) and *sealed public task statements*, not H1 implementation/existing cases/tests/review summaries/private key or evaluator feedback. Produces all first-attempt files/refusal together and stops. Discloses prior exposure. A different conversation is a procedural separation, not proof of different LLM weights, human expertise or impenetrable tool sandboxing.
+- **Final source-fidelity reviewer:** after first attempts are preserved and the hidden key is revealed/verified, perform **one consolidated evidence review of all three tasks**. Re-review only specific blocking corrections if scientifically material; no individual per-model production PR and no reflexive repeated review.
+
+## Stages and exact capture requirements
+
+**Stage 0 (prepared):** Pin author packet Git blob SHA and main; create a new source-repository neutral H1-T1 intake **GitHub issue**. Keep its body task-neutral. Nothing should be submitted to historical C1 issue #26.
+
+**Stage 1 — selector's original tasks ONLY:** Chat B posts ONE comment labeled `H1-T1 TASK_SET_V1` with task S/T/X, exact inputs/topology in ordinary text, author-readable request set, role/exposure statement, created timestamp and **SHA-256 digest of hidden salted evaluator key**, but not the key itself. Chat A reads the actual GitHub comment with its ID, creation timestamp and complete raw body. Capture the original raw text in an evaluation-only Git record or retained snapshot with exact SHA-256, leaving original comment unchanged; record any manual relay separately. If task S/T turns out unsupportable or task set resembles exposed cases, record that after lock rather than quietly replace the task. Selector stops and does not author models.
+
+**Stage 2 — independent author's ORIGINAL FIRST ATTEMPT:** Only after Chat A confirms task lock, Chat C receives the public packet and locked task comment URL. Submit complete *original* `S/model.mo`, `S/study.json`, `S/AUTHOR_NOTES.md`, corresponding T files, plus `X/REFUSAL.md` (or honestly disclosed alternative), **in one source issue comment** labeled `H1-T1 FIRST_ATTEMPT_V1`. Do not run H1 admissions, preview, native solver or get evaluator feedback first. If author provides file attachments or a branch commit, preserve their original bytes/commit IDs. If a fenced issue comment is used, preserve its complete original comment body as the authoritative first-attempt text; any later decoded file bytes, newline normalization, packaging or mechanically filled SHA must be **separate derived artifacts**, not asserted byte-identical to a nonexistent original file upload. Capture comment ID, UTC time, complete raw body SHA-256, tool/assistance exposure before evaluation.
+
+**Stage 3 — key reveal and evaluation:** Only after Stage 2 first-comment capture, selector reveals EXACT previously committed private evaluator key and salt. Independently recompute SHA-256 of revealed UTF-8 key and compare with Stage 1 key commitment; if unequal/missing mark scoring key unsealed and stop any blind-success claim. Score source interpretation **before** parser execution, comparing task-given physical facts, topology/ownership, assumptions, quantities and request fidelity, using the locked key and source statement. Do NOT pre-change author files to make them pass. Then run the **pinned offline H1 admission** and generic source-only preview on the raw/normalization-disclosed first attempts. Record exit code, any refusal stages, original source/model hashes, requested-unit/status results, viewer topology facts and all public requests `not_computed`. Negative X should clearly refuse the unsupported law; do not reward an invented conduction surrogate.
+
+**Stage 4 — report and one independent review:** Retain original source task and first attempt, any normalized successors and assistance ledger, first-admission raw outputs, key reveal/hash, evaluator's interpretation, self-checks and reviewer verdict in attributable evidence references. Do not add a new arrangement-specific H1 implementation or change source/ref baselines to obtain a passing result.
+
+## Score dimensions — report independently; do not hide failed first attempts
+
+| Measure | Primary first-attempt evidence | Interpretation |
+|---|---|---|
+| **Task-source fidelity** | Exact givens, units, topology/port incidence, mode and physical assumptions matched to locked task/key | First gate; parser PASS cannot override an incorrect physical model |
+| **Strict first-attempt admission** | Unedited/faithfully extracted author model+descriptor, actual H1 CLI return/refusal | Count PASS only if original first authoring is admitted without physical/semantic correction; unresolved digest is separately flagged incomplete |
+| **Provenance and unknowns** | Authentic source locations vs explicitly illustrative choices; disclosed missing inputs and ambiguity | No fabricated textbook/given facts or arbitrary physical constants |
+| **Generic visualization fidelity** | Existing source-only inspector loads admitted source; component/rod/node counts and status | All public requests still `not_computed`, never new native results; graph layout not physical geometry |
+| **Unsupported-law refusal** | Task X's original `REFUSAL.md` | Refusal with correct physical reason is successful boundary behavior; spurious conduction substitution fails this gate |
+| **Degree of assistance** | Chronological record of hashing, formatting, analysis-grid adjustment, source correction and refusal recovery | Mechanical packaging, analysis-only and physical edits reported as distinct successor outcomes, NEVER first-attempt success |
+| **Novelty / education** | Structural comparison against previously exposed D1/D2/Bridge/S1/Ring4/Split3/CHATB_BRANCH2 examples, source clarity | Discuss JEE/teacher relevance; not blind human classroom evidence |
+
+Do not average unrelated dimensions into a misleading score. Report each task **FIRST_ATTEMPT_PASS / FIRST_ATTEMPT_FAIL / INDETERMINATE**, with specific reasons and separately any assisted successors. Overall trial outcome can be `SUPPORTED-SOURCE-TRANSFER-DEMONSTRATED-IN-BOUNDED-T1` **only** if both positive models are faithful and admitted on first attempt, the unsupported task is honestly refused, the key commitment matches and the source-only view works. That is still **not** native simulation qualification or general LLM reliability.
+
+## Explicit scientific and safety stops
+
+T1 evaluates **authored source fidelity and offline admission only**, never time histories, heat-flow values or native/symbolic answers. All six original archived native diagnostics remain `diagnostic_only/nativeQualified=false`; admitted T1 observations must remain `not_computed`. The original C1 F0 precision shortfall (80× vs required 100×), cross-host saved-reference seal failure and nine uncomputed native requests remain unchanged. No source PR merge, new physical law, native query/install/build/launch, frozen-reference regeneration or deployment follows from this trial. Any **later** native transfer requires a separate reviewed one-case execution plan and explicit owner authorization.
+
+## Review economy
+
+No production implementation is being changed here, so trial setup is **R0 process**, with deterministic source/commit and capture checks rather than repeated Chat B code reviews. Task selection and authoring are **experimental roles, not multiple reviews**. After first-attempt evaluation, request **one** consolidated independent evidence/source-fidelity review at the risk warranted by any claims; new physics/native/evidence semantics, if introduced later, trigger R2 independently. Never waive a real refusal/safety finding to reduce review overhead.
