@@ -1,0 +1,139 @@
+name: Conductor PR89 Chat B R4 independent targeted F4 re-review
+
+on:
+  push:
+    branches: [review/conductor-pr89-r4-20261118]
+    paths:
+      - '.github/workflows/conductor-pr89-chat-b-03.yml'
+      - 'projects/conductor_sim/pr-89/reviews/challenge_r4_turning.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  independent-f4-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONPATH: /dev/null
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout independently owned reviewer branch
+        uses: actions/checkout@v4
+        with:
+          path: review
+      - name: Checkout the exact unchanged physics and corrected JSON candidate
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: d843a981a2b5ba4591f1c1afd169fd49bca7083f
+          fetch-depth: 0
+          persist-credentials: false
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Initialize immutable first-attempt evidence location
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "EVIDENCE=$GITHUB_WORKSPACE/review/projects/conductor_sim/pr-89/reviews/evidence/r4-run-$GITHUB_RUN_ID-attempt-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_ENV"
+          echo "PYTHONPATH=$GITHUB_WORKSPACE/source/src:$GITHUB_WORKSPACE/source" >> "$GITHUB_ENV"
+      - name: Independently verify HEAD TREE three-file diff live draft PR and unchanged original sources
+        id: identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$EVIDENCE"
+          git -C source rev-parse HEAD | tee "$EVIDENCE/head.txt"
+          git -C source rev-parse 'HEAD^{tree}' | tee "$EVIDENCE/tree.txt"
+          test "$(cat "$EVIDENCE/head.txt")" = "d843a981a2b5ba4591f1c1afd169fd49bca7083f"
+          test "$(cat "$EVIDENCE/tree.txt")" = "77afef9445a3ac65d228dfe029bb7c0d5b67ba10"
+          git -C source diff --name-only 630f6d320a1b4cb00bf7bb0780cd3deca4ec0f7e HEAD | sort > "$EVIDENCE/changed-since-reviewed-r2.txt"
+          printf '%s\n' docs/m37a.md tests/test_m37a_grounded_wire_current.py tools/m37a_ground_wire_reference.py | sort > "$EVIDENCE/allowed-diff.txt"
+          diff -u "$EVIDENCE/allowed-diff.txt" "$EVIDENCE/changed-since-reviewed-r2.txt"
+          git -C source diff --quiet 630f6d320a1b4cb00bf7bb0780cd3deca4ec0f7e HEAD -- src/conductor_sim/ src/conductor_sim/motion_1d.py 02_conductors_half_size.pdf
+          git -C source ls-files -s 02_conductors_half_size.pdf > "$EVIDENCE/original-pdf-blob.txt"
+          test "$(git -C source hash-object 02_conductors_half_size.pdf)" = "90d8869b0f01cc2ea13f83721985a5d8419f1d0e"
+          sha256sum source/02_conductors_half_size.pdf > "$EVIDENCE/original-pdf-sha256.txt"
+          gh api repos/physicsvigilante/conductor_sim/pulls/89 > "$EVIDENCE/pr-live.json"
+          python - "$EVIDENCE/pr-live.json" <<'PY'
+          import json,sys
+          p=json.load(open(sys.argv[1]))
+          assert p['head']['sha']=='d843a981a2b5ba4591f1c1afd169fd49bca7083f', 'STALE PR HEAD'
+          assert p['state']=='open' and p['draft'] and not p['merged'], 'PR RELEASE BOUNDARY MOVED'
+          print('IDENTITY SOURCE TREE AND DRAFT/UNMERGED VERIFIED')
+          PY
+          git -C source status --porcelain --untracked-files=no > "$EVIDENCE/source-before.txt"
+          test ! -s "$EVIDENCE/source-before.txt"
+      - name: Replay full original reviewer-owned R2 matrix with newly pinned HEAD and TREE
+        if: steps.identity.outcome == 'success'
+        id: r2replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed -e 's/adfe9098742c663e9f4132c3e29e86dddf7ecc1e/d843a981a2b5ba4591f1c1afd169fd49bca7083f/g' \
+              -e 's/43f8ebae4937eacc25143fdace324115edcfb2d0/77afef9445a3ac65d228dfe029bb7c0d5b67ba10/g' \
+              review/projects/conductor_sim/pr-89/reviews/challenge_r2.py > review/projects/conductor_sim/pr-89/reviews/challenge_r4_r2replay.py
+          # The new checker uses standard-library bisect (never production physics).
+          sed -i "s/'pathlib'}/'pathlib','bisect'}/g" review/projects/conductor_sim/pr-89/reviews/challenge_r4_r2replay.py
+          mkdir -p "$EVIDENCE/r2-replay"
+          python review/projects/conductor_sim/pr-89/reviews/challenge_r4_r2replay.py source "$EVIDENCE/r2-replay" 2>&1 | tee "$EVIDENCE/r2-replay-first-attempt.log"
+      - name: Execute novel reviewer-authored F4 probes and genuine native duration turning guard JSON
+        if: always() && steps.identity.outcome == 'success'
+        id: f4
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$EVIDENCE/f4"
+          python review/projects/conductor_sim/pr-89/reviews/challenge_r4_f4.py source "$EVIDENCE/f4" 2>&1 | tee "$EVIDENCE/f4-first-attempt.log"
+      - name: Independently verify all 25 exact HEAD workflow runs actually completed SUCCESS
+        if: always() && steps.identity.outcome == 'success'
+        id: ci
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/physicsvigilante/conductor_sim/actions/runs?head_sha=d843a981a2b5ba4591f1c1afd169fd49bca7083f&per_page=100" > "$EVIDENCE/ci-live.json"
+          python - "$EVIDENCE/ci-live.json" <<'PY' | tee "$EVIDENCE/ci-live-summary.txt"
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          runs=d['workflow_runs']
+          print('RUN_COUNT',len(runs),'REPORTED_TOTAL',d['total_count'])
+          for r in runs:
+              print(r['id'],r['event'],r['name'],r['status'],r['conclusion'],r['head_sha'])
+          assert d['total_count']==len(runs)==25, 'exact source workflows incomplete'
+          assert all(r['head_sha']=='d843a981a2b5ba4591f1c1afd169fd49bca7083f' and
+                     r['status']=='completed' and r['conclusion']=='success' for r in runs), 'not all CI successful'
+          assert sum(r['event']=='push' for r in runs)==2
+          assert sum(r['event']=='pull_request' for r in runs)==23
+          required=('M37a grounded-sphere wire-current science and SI export audit',
+                    'Python checks', 'FEMM 5 real-solver validation',
+                    'M36e actual JEE solid-source answers and real Chromium integrity')
+          assert all(any(r['name']==name for r in runs) for name in required)
+          print('ALL 25 EXACT HEAD CI SUCCESS, SEPARATE FROM INDEPENDENT REVIEW VERDICT')
+          PY
+      - name: Retain unchanged source and reviewer first attempt
+        if: always() && steps.identity.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -C source status --porcelain --untracked-files=no > "$EVIDENCE/source-after.txt"
+          test ! -s "$EVIDENCE/source-after.txt"
+          cd review
+          git config user.name 'Chat B independent R4 evidence'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add projects/conductor_sim/pr-89/reviews/evidence/r4-run-"$GITHUB_RUN_ID"-attempt-"$GITHUB_RUN_ATTEMPT"/
+          if ! git diff --cached --quiet; then
+            git commit -m "review(conductor-pr89): preserve R4 first run $GITHUB_RUN_ID attempt $GITHUB_RUN_ATTEMPT"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+      - name: Upload independent reviewer first-attempt evidence even if red
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr89-chat-b-r4-independent-first-attempt
+          path: ${{ env.EVIDENCE }}
+          if-no-files-found: warn
