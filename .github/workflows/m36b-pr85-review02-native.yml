@@ -1,0 +1,58 @@
+name: M36b PR85 Chat B review02 truly independent physical probes
+on:
+  push:
+    branches: [review/m36b-pr85-chatb02]
+    paths:
+      - .github/workflows/m36b-pr85-review02-native.yml
+      - projects/conductor_sim/pr-85/reviews/review-02-chat-b-probes.py
+permissions:
+  contents: read
+
+jobs:
+  independent-native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout reviewer-authored code (separate repository)
+        uses: actions/checkout@v4
+        with:
+          path: reviewer
+          persist-credentials: false
+      - name: Checkout exact corrected PR85 source (not floating main)
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 524a6e07f17cd8bf53eaeec543031f1ec7bbb9eb
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify actual source HEAD and native TREE, install qualified package
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "524a6e07f17cd8bf53eaeec543031f1ec7bbb9eb"
+          test "$(git rev-parse HEAD^{tree})" = "c7c411d5602ada9db0f3b867c19ec4da6d317f6b"
+          mkdir -p ../evidence
+          git rev-parse HEAD > ../evidence/pinned-source-head.txt
+          git rev-parse HEAD^{tree} > ../evidence/pinned-source-tree.txt
+          python -m pip install -e ".[test]"
+      - name: Run genuinely novel reviewer input worlds and saved-record hostile mutations
+        shell: bash
+        working-directory: source
+        env:
+          PYTHONPATH: .
+        run: |
+          set -euo pipefail
+          python -m py_compile ../reviewer/projects/conductor_sim/pr-85/reviews/review-02-chat-b-probes.py
+          python ../reviewer/projects/conductor_sim/pr-85/reviews/review-02-chat-b-probes.py --output ../evidence/reviewer02-native-and-hostile-probes.json 2>&1 | tee ../evidence/reviewer02-native-and-hostile-stdout.txt
+      - name: Preserve full first attempted evidence, including failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: independent-chat-b-review02-pr85-evidence
+          path: evidence/
+          if-no-files-found: warn
+          retention-days: 21
