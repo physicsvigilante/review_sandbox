@@ -1,0 +1,73 @@
+name: Conductor PR89 Chat B source and CI evidence supplement (not acceptance)
+
+on:
+  push:
+    branches: [review/conductor-pr89-chat-b-20261118]
+    paths: ['.github/workflows/conductor-pr89-chat-b-evidence.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  collect-evidence-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONPATH: ${{ github.workspace }}/source/src:${{ github.workspace }}/source
+      EVIDENCE: ${{ github.workspace }}/review/projects/conductor_sim/pr-89/reviews/evidence/supplement-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: review
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 75c984aaae18e44997332e330ed3a519a7b6a8da
+          fetch-depth: 0
+          persist-credentials: false
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Source identity and live CI refresh only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$EVIDENCE"
+          python review/projects/conductor_sim/pr-89/reviews/audit_chat_b.py evidence source "$EVIDENCE" 2>&1 | tee "$EVIDENCE/ci-refresh.log"
+      - name: Preserve original PDF and source heading / answer-key candidate pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pdftoppm >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y poppler-utils
+          fi
+          mkdir -p original-workbook-artifact
+          cp source/02_conductors_half_size.pdf original-workbook-artifact/
+          sha256sum original-workbook-artifact/02_conductors_half_size.pdf | tee "$EVIDENCE/original-local-copy-sha256.txt"
+          for page in 7 16 17; do
+            pdftoppm -f "$page" -l "$page" -scale-to 2200 -singlefile -png source/02_conductors_half_size.pdf "$EVIDENCE/source-p$page"
+          done
+      - name: Keep supplemental evidence distinct from the failed independent test run
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd review
+          git config user.name 'Chat B independent review evidence'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add projects/conductor_sim/pr-89/reviews/evidence/
+          git commit -m "review(conductor-pr89): source and CI supplement $GITHUB_RUN_ID; no acceptance rerun"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr89-chat-b-original-workbook
+          path: original-workbook-artifact/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr89-chat-b-source-ci-supplement
+          path: ${{ env.EVIDENCE }}
+          if-no-files-found: error
