@@ -258,7 +258,7 @@ for label, bad in (
     ('extra-metal',replace(p,conductors=(*p.conductors,SolidSphere(.04,Grounded(),(2.,0.,0.),'Second')))),
     ('zero-charge',problem(q=0.)), ('inside',problem(d=.07)), ('touching',problem(d=.083))):
     run('domain/'+label,lambda bad=bad:observe_grounded_sphere_wire(bad,(0.,0.,-.06)).as_dict(),
-        'reject','one point charge|grounded solid sphere|strictly outside')
+        'reject','one point charge|grounded solid sphere|strictly outside|nonzero')
 run('domain/boolean-prescribed-velocity',lambda:observe_grounded_sphere_wire(p,(True,0.,0.)).as_dict(),'reject','boolean|number')
 run('domain/boolean-source-charge',lambda:observe_grounded_sphere_wire(problem(q=True),(0.,0.,-.06)).as_dict(),'reject','boolean|number|charge')
 run('domain/boolean-permittivity',lambda:observe_grounded_sphere_wire(problem(eps=True),(0.,0.,-.06)).as_dict(),'reject','boolean|number|permittivity')
