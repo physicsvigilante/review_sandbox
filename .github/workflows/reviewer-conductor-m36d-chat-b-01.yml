@@ -25,6 +25,7 @@ jobs:
           repository: physicsvigilante/conductor_sim
           ref: e5fa85abe990abe8fdedc555e9313ac0420a56a7
           path: source
+          fetch-depth: 2
           persist-credentials: false
       - name: Assert real native Git TREE, full original PDF byte hashes, and exact correction footprint
         shell: bash
