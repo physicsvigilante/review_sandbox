@@ -1,0 +1,1016 @@
+{
+  "source_head": "75c984aaae18e44997332e330ed3a519a7b6a8da",
+  "source_tree": "e1dbb9bb673f4efc2950939d0c1e021697393d59",
+  "python": "3.12.16 (main, Oct 26 2026, 02:48:44) [GCC 15.2.0]",
+  "total": 73,
+  "passed": 62,
+  "failures": 11,
+  "outcomes": [
+    {
+      "name": "physics/-1/axis/inward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.247,
+          "radial_speed": -0.073,
+          "metal_charge": 8.064777327935223e-10,
+          "charge_rate": 2.3835171859889524e-10,
+          "current": -2.3835171859889524e-10,
+          "force_scalar": -3.623459064471587e-07,
+          "force": [
+            -0.0,
+            -0.0,
+            -3.623459064471587e-07
+          ],
+          "energy": -3.969668108688305e-08,
+          "reaction_potential": 33.08056757240254
+        },
+        "native_charge_fd_current_a": -2.383517185918369e-10,
+        "observed_current_a": -2.3835171859889524e-10
+      }
+    },
+    {
+      "name": "physics/-1/axis/outward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.247,
+          "radial_speed": 0.049,
+          "metal_charge": 8.064777327935223e-10,
+          "charge_rate": -1.5998950974446395e-10,
+          "current": 1.5998950974446395e-10,
+          "force_scalar": -3.623459064471587e-07,
+          "force": [
+            -0.0,
+            -0.0,
+            -3.623459064471587e-07
+          ],
+          "energy": -3.969668108688305e-08,
+          "reaction_potential": 33.08056757240254
+        },
+        "native_charge_fd_current_a": 1.599895097380914e-10,
+        "observed_current_a": 1.5998950974446395e-10
+      }
+    },
+    {
+      "name": "physics/-1/axis/tangent",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.247,
+          "radial_speed": 0.0,
+          "metal_charge": 8.064777327935223e-10,
+          "charge_rate": -0.0,
+          "current": 0.0,
+          "force_scalar": -3.623459064471587e-07,
+          "force": [
+            -0.0,
+            -0.0,
+            -3.623459064471587e-07
+          ],
+          "energy": -3.969668108688305e-08,
+          "reaction_potential": 33.08056757240254
+        },
+        "native_charge_fd_current_a": -0.0,
+        "observed_current_a": 0.0
+      }
+    },
+    {
+      "name": "physics/-1/translated-oblique/inward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.24700000000000003,
+          "radial_speed": -0.073,
+          "metal_charge": 8.064777327935222e-10,
+          "charge_rate": 2.383517185988952e-10,
+          "current": -2.383517185988952e-10,
+          "force_scalar": -1.3420218757302167e-07,
+          "force": [
+            -3.8343482163720467e-08,
+            -5.75152232455807e-08,
+            -1.1503044649116145e-07
+          ],
+          "energy": -1.4702474476623349e-08,
+          "reaction_potential": 12.25206206385279
+        },
+        "native_charge_fd_current_a": -2.383517186001603e-10,
+        "observed_current_a": -2.3835171859889524e-10
+      }
+    },
+    {
+      "name": "physics/-1/translated-oblique/outward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.24700000000000003,
+          "radial_speed": 0.049,
+          "metal_charge": 8.064777327935222e-10,
+          "charge_rate": -1.5998950974446392e-10,
+          "current": 1.5998950974446392e-10,
+          "force_scalar": -1.3420218757302167e-07,
+          "force": [
+            -3.8343482163720467e-08,
+            -5.75152232455807e-08,
+            -1.1503044649116145e-07
+          ],
+          "energy": -1.4702474476623349e-08,
+          "reaction_potential": 12.25206206385279
+        },
+        "native_charge_fd_current_a": 1.5998950974347852e-10,
+        "observed_current_a": 1.5998950974446392e-10
+      }
+    },
+    {
+      "name": "physics/-1/translated-oblique/tangent",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.24700000000000003,
+          "radial_speed": 3.469446951953614e-18,
+          "metal_charge": 8.064777327935222e-10,
+          "charge_rate": -1.1328063610764967e-26,
+          "current": 1.1328063610764967e-26,
+          "force_scalar": -1.3420218757302167e-07,
+          "force": [
+            -3.8343482163720467e-08,
+            -5.75152232455807e-08,
+            -1.1503044649116145e-07
+          ],
+          "energy": -1.4702474476623349e-08,
+          "reaction_potential": 12.25206206385279
+        },
+        "native_charge_fd_current_a": -0.0,
+        "observed_current_a": 1.1328063610764969e-26
+      }
+    },
+    {
+      "name": "physics/-1/near-surface/inward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.0830166,
+          "radial_speed": -0.073,
+          "metal_charge": 2.3995200959808043e-09,
+          "charge_rate": 2.1099992893782533e-09,
+          "current": -2.1099992893782533e-09,
+          "force_scalar": -46.96644814733404,
+          "force": [
+            -13.418985184952582,
+            -20.128477777428873,
+            -40.25695555485775
+          ],
+          "energy": -0.0007795650905310167,
+          "reaction_potential": 649637.5754425139
+        },
+        "native_charge_fd_current_a": -2.1099992245006812e-09,
+        "observed_current_a": -2.1099992893782533e-09
+      }
+    },
+    {
+      "name": "physics/-1/near-surface/outward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.0830166,
+          "radial_speed": 0.048999999999999995,
+          "metal_charge": 2.3995200959808043e-09,
+          "charge_rate": -1.4163008928703345e-09,
+          "current": 1.4163008928703345e-09,
+          "force_scalar": -46.96644814733404,
+          "force": [
+            -13.418985184952582,
+            -20.128477777428873,
+            -40.25695555485775
+          ],
+          "energy": -0.0007795650905310167,
+          "reaction_potential": 649637.5754425139
+        },
+        "native_charge_fd_current_a": 1.4163008712939883e-09,
+        "observed_current_a": 1.4163008928703347e-09
+      }
+    },
+    {
+      "name": "physics/-1/near-surface/tangent",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.0830166,
+          "radial_speed": 0.0,
+          "metal_charge": 2.3995200959808043e-09,
+          "charge_rate": -0.0,
+          "current": 0.0,
+          "force_scalar": -46.96644814733404,
+          "force": [
+            -13.418985184952582,
+            -20.128477777428873,
+            -40.25695555485775
+          ],
+          "energy": -0.0007795650905310167,
+          "reaction_potential": 649637.5754425139
+        },
+        "native_charge_fd_current_a": -0.0,
+        "observed_current_a": 1.0028124113914621e-25
+      }
+    },
+    {
+      "name": "physics/1/axis/inward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.247,
+          "radial_speed": -0.073,
+          "metal_charge": -8.064777327935223e-10,
+          "charge_rate": -2.3835171859889524e-10,
+          "current": 2.3835171859889524e-10,
+          "force_scalar": -3.623459064471587e-07,
+          "force": [
+            -0.0,
+            -0.0,
+            -3.623459064471587e-07
+          ],
+          "energy": -3.969668108688305e-08,
+          "reaction_potential": -33.08056757240254
+        },
+        "native_charge_fd_current_a": 2.383517185918369e-10,
+        "observed_current_a": 2.3835171859889524e-10
+      }
+    },
+    {
+      "name": "physics/1/axis/outward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.247,
+          "radial_speed": 0.049,
+          "metal_charge": -8.064777327935223e-10,
+          "charge_rate": 1.5998950974446395e-10,
+          "current": -1.5998950974446395e-10,
+          "force_scalar": -3.623459064471587e-07,
+          "force": [
+            -0.0,
+            -0.0,
+            -3.623459064471587e-07
+          ],
+          "energy": -3.969668108688305e-08,
+          "reaction_potential": -33.08056757240254
+        },
+        "native_charge_fd_current_a": -1.599895097380914e-10,
+        "observed_current_a": -1.5998950974446395e-10
+      }
+    },
+    {
+      "name": "physics/1/axis/tangent",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.247,
+          "radial_speed": 0.0,
+          "metal_charge": -8.064777327935223e-10,
+          "charge_rate": 0.0,
+          "current": -0.0,
+          "force_scalar": -3.623459064471587e-07,
+          "force": [
+            -0.0,
+            -0.0,
+            -3.623459064471587e-07
+          ],
+          "energy": -3.969668108688305e-08,
+          "reaction_potential": -33.08056757240254
+        },
+        "native_charge_fd_current_a": -0.0,
+        "observed_current_a": -0.0
+      }
+    },
+    {
+      "name": "physics/1/translated-oblique/inward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.24700000000000003,
+          "radial_speed": -0.073,
+          "metal_charge": -8.064777327935222e-10,
+          "charge_rate": -2.383517185988952e-10,
+          "current": 2.383517185988952e-10,
+          "force_scalar": -1.3420218757302167e-07,
+          "force": [
+            -3.8343482163720467e-08,
+            -5.75152232455807e-08,
+            -1.1503044649116145e-07
+          ],
+          "energy": -1.4702474476623349e-08,
+          "reaction_potential": -12.25206206385279
+        },
+        "native_charge_fd_current_a": 2.383517186001603e-10,
+        "observed_current_a": 2.3835171859889524e-10
+      }
+    },
+    {
+      "name": "physics/1/translated-oblique/outward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.24700000000000003,
+          "radial_speed": 0.049,
+          "metal_charge": -8.064777327935222e-10,
+          "charge_rate": 1.5998950974446392e-10,
+          "current": -1.5998950974446392e-10,
+          "force_scalar": -1.3420218757302167e-07,
+          "force": [
+            -3.8343482163720467e-08,
+            -5.75152232455807e-08,
+            -1.1503044649116145e-07
+          ],
+          "energy": -1.4702474476623349e-08,
+          "reaction_potential": -12.25206206385279
+        },
+        "native_charge_fd_current_a": -1.5998950974347852e-10,
+        "observed_current_a": -1.5998950974446392e-10
+      }
+    },
+    {
+      "name": "physics/1/translated-oblique/tangent",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.24700000000000003,
+          "radial_speed": 3.469446951953614e-18,
+          "metal_charge": -8.064777327935222e-10,
+          "charge_rate": 1.1328063610764967e-26,
+          "current": -1.1328063610764967e-26,
+          "force_scalar": -1.3420218757302167e-07,
+          "force": [
+            -3.8343482163720467e-08,
+            -5.75152232455807e-08,
+            -1.1503044649116145e-07
+          ],
+          "energy": -1.4702474476623349e-08,
+          "reaction_potential": -12.25206206385279
+        },
+        "native_charge_fd_current_a": -0.0,
+        "observed_current_a": -1.1328063610764969e-26
+      }
+    },
+    {
+      "name": "physics/1/near-surface/inward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.0830166,
+          "radial_speed": -0.073,
+          "metal_charge": -2.3995200959808043e-09,
+          "charge_rate": -2.1099992893782533e-09,
+          "current": 2.1099992893782533e-09,
+          "force_scalar": -46.96644814733404,
+          "force": [
+            -13.418985184952582,
+            -20.128477777428873,
+            -40.25695555485775
+          ],
+          "energy": -0.0007795650905310167,
+          "reaction_potential": -649637.5754425139
+        },
+        "native_charge_fd_current_a": 2.1099992245006812e-09,
+        "observed_current_a": 2.1099992893782533e-09
+      }
+    },
+    {
+      "name": "physics/1/near-surface/outward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.0830166,
+          "radial_speed": 0.048999999999999995,
+          "metal_charge": -2.3995200959808043e-09,
+          "charge_rate": 1.4163008928703345e-09,
+          "current": -1.4163008928703345e-09,
+          "force_scalar": -46.96644814733404,
+          "force": [
+            -13.418985184952582,
+            -20.128477777428873,
+            -40.25695555485775
+          ],
+          "energy": -0.0007795650905310167,
+          "reaction_potential": -649637.5754425139
+        },
+        "native_charge_fd_current_a": -1.4163008712939883e-09,
+        "observed_current_a": -1.4163008928703347e-09
+      }
+    },
+    {
+      "name": "physics/1/near-surface/tangent",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "reference": {
+          "distance": 0.0830166,
+          "radial_speed": 0.0,
+          "metal_charge": -2.3995200959808043e-09,
+          "charge_rate": 0.0,
+          "current": -0.0,
+          "force_scalar": -46.96644814733404,
+          "force": [
+            -13.418985184952582,
+            -20.128477777428873,
+            -40.25695555485775
+          ],
+          "energy": -0.0007795650905310167,
+          "reaction_potential": -649637.5754425139
+        },
+        "native_charge_fd_current_a": -0.0,
+        "observed_current_a": -1.0028124113914621e-25
+      }
+    },
+    {
+      "name": "motion/inward",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "samples": 17,
+        "final_time_s": 0.08,
+        "termination": "duration",
+        "events": [],
+        "native_time_difference_checks": 15,
+        "max_energy_drift_j": 1.5948042210022374e-21
+      }
+    },
+    {
+      "name": "motion/outward-negative",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "samples": 13,
+        "final_time_s": 0.12,
+        "termination": "duration",
+        "events": [],
+        "native_time_difference_checks": 11,
+        "max_energy_drift_j": 2.6297726034285856e-20
+      }
+    },
+    {
+      "name": "motion/guard-negative",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "samples": 10,
+        "final_time_s": 0.08524769628379199,
+        "termination": "surface-guard",
+        "events": [
+          "surface-guard"
+        ],
+        "native_time_difference_checks": 0,
+        "max_energy_drift_j": 4.5853143032731705e-11
+      }
+    },
+    {
+      "name": "motion/turning",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "samples": 71,
+        "final_time_s": 0.35,
+        "termination": "duration",
+        "events": [
+          "turning-point"
+        ],
+        "native_time_difference_checks": 69,
+        "max_energy_drift_j": 8.176163367203833e-23
+      }
+    },
+    {
+      "name": "native/locally-correct-monotonic-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved elapsed-time motion differs from independently rerun M16a integration"
+    },
+    {
+      "name": "native/locally-correct-velocity-sign",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved elapsed-time motion differs from independently rerun M16a integration"
+    },
+    {
+      "name": "native/method",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved motion method misattributes the integration protocol"
+    },
+    {
+      "name": "native/made-up-turning",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved elapsed-time motion differs from independently rerun M16a integration"
+    },
+    {
+      "name": "native/made-up-surface",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "duration-complete history contains an impossible surface guard"
+    },
+    {
+      "name": "native/unknown-event",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "motion has an invalid event"
+    },
+    {
+      "name": "native/force-sign",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved motion force contradicts physical Kelvin state"
+    },
+    {
+      "name": "native/energy-no-half",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved motion interaction energy contradicts physical Kelvin state"
+    },
+    {
+      "name": "native/boolean-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "motion sample has nonfinite or Boolean numerical data"
+    },
+    {
+      "name": "native/boolean-velocity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "motion sample has nonfinite or Boolean numerical data"
+    },
+    {
+      "name": "native/changed-source-magnitude",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved motion force contradicts physical Kelvin state"
+    },
+    {
+      "name": "native/changed-permittivity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved motion force contradicts physical Kelvin state"
+    },
+    {
+      "name": "native/fake-maximum-drift",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "motion maximum energy drift contradicts saved actual states"
+    },
+    {
+      "name": "native/false-position",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "saved motion position contradicts its authored axis and displacement"
+    },
+    {
+      "name": "domain/isolated",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "UnsupportedProblem",
+      "reason": "wire current requires a nonzero point charge outside a grounded solid sphere"
+    },
+    {
+      "name": "domain/shell",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "UnsupportedProblem",
+      "reason": "wire current requires a nonzero point charge outside a grounded solid sphere"
+    },
+    {
+      "name": "domain/extra-source",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "UnsupportedProblem",
+      "reason": "wire current requires one point charge and one grounded solid sphere"
+    },
+    {
+      "name": "domain/extra-metal",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "UnsupportedProblem",
+      "reason": "wire current requires one point charge and one grounded solid sphere"
+    },
+    {
+      "name": "domain/zero-charge",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "UnsupportedProblem",
+      "reason": "wire current requires a nonzero point charge outside a grounded solid sphere"
+    },
+    {
+      "name": "domain/inside",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "UnsupportedProblem",
+      "reason": "source must be strictly outside the grounded solid sphere"
+    },
+    {
+      "name": "domain/touching",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "UnsupportedProblem",
+      "reason": "source must be strictly outside the grounded solid sphere"
+    },
+    {
+      "name": "domain/boolean-prescribed-velocity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "source velocity must be a finite real number, not a boolean"
+    },
+    {
+      "name": "domain/boolean-source-charge",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Reviewer sphere R",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.083,
+        "point_charge_c": true,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          0.247
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          -0.06
+        ],
+        "distance_from_center_m": 0.247,
+        "radial_velocity_m_s": -0.06,
+        "induced_sphere_net_charge_c": -0.3360323886639676,
+        "induced_net_charge_rate_c_per_s": -0.08162730089003262,
+        "wire_current_sphere_to_ground_a": 0.08162730089003262,
+        "wire_current_ground_to_sphere_a": -0.08162730089003262,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          -62907275424.85393
+        ],
+        "induced_mechanical_energy_j": -6891784910.917195
+      }
+    },
+    {
+      "name": "domain/boolean-permittivity",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Reviewer sphere R",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.083,
+        "point_charge_c": 2.4e-09,
+        "permittivity_f_per_m": true,
+        "source_position_m": [
+          0.0,
+          0.0,
+          0.247
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          -0.06
+        ],
+        "distance_from_center_m": 0.247,
+        "radial_velocity_m_s": -0.06,
+        "induced_sphere_net_charge_c": -8.064777327935223e-10,
+        "induced_net_charge_rate_c_per_s": -1.9590552213607828e-10,
+        "wire_current_sphere_to_ground_a": 1.9590552213607828e-10,
+        "wire_current_ground_to_sphere_a": -1.9590552213607828e-10,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          -3.208278708882402e-18
+        ],
+        "induced_mechanical_energy_j": -3.5148186988808817e-19
+      }
+    },
+    {
+      "name": "domain/boolean-radius",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Reviewer sphere R",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": true,
+        "point_charge_c": 2.4e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          2.0
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          -0.06
+        ],
+        "distance_from_center_m": 2.0,
+        "radial_velocity_m_s": -0.06,
+        "induced_sphere_net_charge_c": -1.2e-09,
+        "induced_net_charge_rate_c_per_s": -3.6e-11,
+        "wire_current_sphere_to_ground_a": 3.6e-11,
+        "wire_current_ground_to_sphere_a": -3.6e-11,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          -1.15040662940943e-08
+        ],
+        "induced_mechanical_energy_j": -8.628049720570725e-09
+      }
+    },
+    {
+      "name": "checker/genuine-file",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "checker/standalone-cli",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": "{\"actual_time_samples\": 6, \"motion_termination\": \"duration\", \"prescribed_states\": 3}\n"
+    },
+    {
+      "name": "checker/no-production-imports",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "details": [
+        "__future__",
+        "argparse",
+        "json",
+        "math",
+        "pathlib"
+      ]
+    },
+    {
+      "name": "json/current-sign",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "wire_current_sphere_to_ground_a: saved -2.5000000000000007e-10 differs from independent SI 2.5000000000000007e-10"
+    },
+    {
+      "name": "json/opposite-terminal",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "wire_current_ground_to_sphere_a: saved 2.5000000000000007e-10 differs from independent SI -2.5000000000000007e-10"
+    },
+    {
+      "name": "json/charge-with-current-intact",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "induced_sphere_net_charge_c: saved 5e-10 differs from independent SI -5e-10"
+    },
+    {
+      "name": "json/negative-source-wrong-signs",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "induced_sphere_net_charge_c: saved -5e-10 differs from independent SI 5e-10"
+    },
+    {
+      "name": "json/boolean-charge",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "source charge: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "json/boolean-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "elapsed time: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "json/boolean-velocity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "source velocity: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "json/false-center",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "distance_from_center_m: saved 0.2 differs from independent SI 0.17146428199482247"
+    },
+    {
+      "name": "json/false-source-position",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "distance_from_center_m: saved 0.2 differs from independent SI 0.30083217912982646"
+    },
+    {
+      "name": "json/force",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "physical induced force axis 2: saved 1.0 differs from independent SI -1.9972337316135932e-07"
+    },
+    {
+      "name": "json/energy-no-half",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "induced_mechanical_energy_j: saved -2.99585059742039e-08 differs from independent SI -1.4979252987101954e-08"
+    },
+    {
+      "name": "json/permittivity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "induced_mechanical_energy_j: saved -1.497925298710195e-08 differs from independent SI -7.489626493550977e-09"
+    },
+    {
+      "name": "json/original-givens-attribution",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "original JEE question provenance must not be fabricated"
+    },
+    {
+      "name": "json/instant-mode",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "exception": "ValueError",
+      "reason": "prescribed instant falsely claims time evolution"
+    },
+    {
+      "name": "json/units-current",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "json/units-energy",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "json/units-time",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "json/missing-units",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "json/sphere-identity-midtrace",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "json/motion-method",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "json/motion-mode",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "json/trace-current-sign-label",
+      "expectation": "reject",
+      "outcome": "UNEXPECTED_ACCEPTANCE",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "json/monotonic-time-static-checker-limit",
+      "expectation": "limitation",
+      "outcome": "ACCEPTED_DOCUMENTED_LIMITATION",
+      "details": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    }
+  ],
+  "source_worktree_status": ""
+}

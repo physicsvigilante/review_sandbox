@@ -1,0 +1,203 @@
+{
+  "schema": "conductor_sim.motion_1d.v1",
+  "mode": "elapsed-time classical dynamics",
+  "units": {
+    "time": "s",
+    "displacement": "m",
+    "velocity": "m/s",
+    "acceleration": "m/s^2",
+    "force": "N",
+    "energy": "J"
+  },
+  "mass_kg": 2e-06,
+  "charge_c": -1.7e-09,
+  "initial_position_m": [
+    -0.131,
+    0.0,
+    0.0
+  ],
+  "axis": [
+    -1.0,
+    0.0,
+    0.0
+  ],
+  "termination": "surface-guard",
+  "method": "Adaptive RK4 step doubling; existing analytical force_energy at each RHS evaluation",
+  "guard_m": 0.0003,
+  "max_abs_energy_drift_j": 4.5853143032731705e-11,
+  "samples": [
+    {
+      "time_s": 0.0,
+      "displacement_m": 0.0,
+      "position_m": [
+        -0.131,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.27,
+      "acceleration_m_s2": -1.8649654796693849,
+      "force_n": -3.7299309593387694e-06,
+      "kinetic_energy_j": 7.290000000000001e-08,
+      "interaction_energy_j": -1.2899581840675036e-07,
+      "total_energy_j": -5.6095818406750346e-08,
+      "energy_drift_j": 0.0
+    },
+    {
+      "time_s": 0.01,
+      "displacement_m": -0.0027977664752611474,
+      "position_m": [
+        -0.12820223352473886,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.2900382690992303,
+      "acceleration_m_s2": -2.1565099216204864,
+      "force_n": -4.3130198432409725e-06,
+      "kinetic_energy_j": 8.412219754207752e-08,
+      "interaction_energy_j": -1.4021801536943498e-07,
+      "total_energy_j": -5.6095817827357457e-08,
+      "energy_drift_j": 5.793928896508151e-16
+    },
+    {
+      "time_s": 0.02,
+      "displacement_m": -0.005812039728303745,
+      "position_m": [
+        -0.12518796027169626,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.31347398120551434,
+      "acceleration_m_s2": -2.5520560129899863,
+      "force_n": -5.104112025979972e-06,
+      "kinetic_energy_j": 9.826593689283516e-08,
+      "interaction_energy_j": -1.5436175254358407e-07,
+      "total_energy_j": -5.609581565074891e-08,
+      "energy_drift_j": 2.7560014369302515e-15
+    },
+    {
+      "time_s": 0.03,
+      "displacement_m": -0.009082887941453009,
+      "position_m": [
+        -0.121917112058547,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.34163070599602496,
+      "acceleration_m_s2": -3.114850439514836,
+      "force_n": -6.229700879029672e-06,
+      "kinetic_energy_j": 1.1671153927934245e-07,
+      "interaction_energy_j": -1.7280732492976348e-07,
+      "total_energy_j": -5.6095785650421025e-08,
+      "energy_drift_j": 3.275632932103587e-14
+    },
+    {
+      "time_s": 0.04,
+      "displacement_m": -0.01266759831991601,
+      "position_m": [
+        -0.11833240168008399,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.3767299262819017,
+      "acceleration_m_s2": -3.969858434341528,
+      "force_n": -7.939716868683055e-06,
+      "kinetic_energy_j": 1.4192543735636708e-07,
+      "interaction_energy_j": -1.9802113790292835e-07,
+      "total_energy_j": -5.609570054656127e-08,
+      "energy_drift_j": 1.1786018907712624e-13
+    },
+    {
+      "time_s": 0.05,
+      "displacement_m": -0.016653919947559416,
+      "position_m": [
+        -0.1143460800524406,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.4228996128055792,
+      "acceleration_m_s2": -5.399857883856494,
+      "force_n": -1.0799715767712988e-05,
+      "kinetic_energy_j": 1.788440825111088e-07,
+      "interaction_energy_j": -2.349396978217948e-07,
+      "total_energy_j": -5.6095615310686e-08,
+      "energy_drift_j": 2.03096064344351e-13
+    },
+    {
+      "time_s": 0.06,
+      "displacement_m": -0.021190923222259288,
+      "position_m": [
+        -0.10980907677774071,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.4890915246467418,
+      "acceleration_m_s2": -8.19277647358387,
+      "force_n": -1.638555294716774e-05,
+      "kinetic_energy_j": 2.3921051948127445e-07,
+      "interaction_energy_j": -2.953060293733369e-07,
+      "total_energy_j": -5.609550989206243e-08,
+      "energy_drift_j": 3.085146879027636e-13
+    },
+    {
+      "time_s": 0.07,
+      "displacement_m": -0.02658065745545211,
+      "position_m": [
+        -0.10441934254454789,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.6006981996693894,
+      "acceleration_m_s2": -15.529692580450995,
+      "force_n": -3.105938516090199e-05,
+      "kinetic_energy_j": 3.6083832708604564e-07,
+      "interaction_energy_j": -4.169335403056729e-07,
+      "total_energy_j": -5.609521321962726e-08,
+      "energy_drift_j": 6.051871230488083e-13
+    },
+    {
+      "time_s": 0.08,
+      "displacement_m": -0.03373243764515155,
+      "position_m": [
+        -0.09726756235484846,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -0.895947767420096,
+      "acceleration_m_s2": -61.37862379840171,
+      "force_n": -0.00012275724759680342,
+      "kinetic_energy_j": 8.027224019450544e-07,
+      "interaction_energy_j": -8.588166164663779e-07,
+      "total_energy_j": -5.6094214521323535e-08,
+      "energy_drift_j": 1.603885426824692e-12
+    },
+    {
+      "time_s": 0.08524769628379199,
+      "displacement_m": -0.04069535243113002,
+      "position_m": [
+        -0.09030464756887,
+        0.0,
+        0.0
+      ],
+      "velocity_m_s": -4.606815563741735,
+      "acceleration_m_s2": -34982.64061852171,
+      "force_n": -0.06996528123704342,
+      "kinetic_energy_j": 2.1222749638333082e-05,
+      "interaction_energy_j": -2.12787996035968e-05,
+      "total_energy_j": -5.6049965263718475e-08,
+      "energy_drift_j": 4.5853143032731705e-11
+    }
+  ],
+  "events": [
+    {
+      "kind": "surface-guard",
+      "time_s": 0.08524769628379199,
+      "displacement_m": -0.04069535243113002,
+      "position_m": [
+        -0.09030464756887,
+        0.0,
+        0.0
+      ],
+      "description": "Reached the numerical approach cutoff; ideal conductor contact is not resolved"
+    }
+  ]
+}
