@@ -1,0 +1,239 @@
+{
+  "schema": "conductor_sim.motion_1d.v1",
+  "mode": "elapsed-time classical dynamics",
+  "units": {
+    "time": "s",
+    "displacement": "m",
+    "velocity": "m/s",
+    "acceleration": "m/s^2",
+    "force": "N",
+    "energy": "J"
+  },
+  "mass_kg": 0.001,
+  "charge_c": -3.1e-09,
+  "initial_position_m": [
+    -0.4342857142857143,
+    0.3485714285714286,
+    0.3221428571428572
+  ],
+  "axis": [
+    0.2857142857142857,
+    0.42857142857142855,
+    0.8571428571428571
+  ],
+  "termination": "duration",
+  "method": "Adaptive RK4 step doubling; existing analytical force_energy at each RHS evaluation",
+  "guard_m": 8.3e-08,
+  "max_abs_energy_drift_j": 2.6297726034285856e-20,
+  "samples": [
+    {
+      "time_s": 0.0,
+      "displacement_m": 0.0,
+      "position_m": [
+        -0.4342857142857143,
+        0.3485714285714286,
+        0.3221428571428572
+      ],
+      "velocity_m_s": 0.09,
+      "acceleration_m_s2": -0.000778838438825402,
+      "force_n": -7.78838438825402e-07,
+      "kinetic_energy_j": 4.049999999999999e-06,
+      "interaction_energy_j": -7.79024682799904e-08,
+      "total_energy_j": 3.972097531720009e-06,
+      "energy_drift_j": 0.0
+    },
+    {
+      "time_s": 0.01,
+      "displacement_m": 0.000899961239989634,
+      "position_m": [
+        -0.4340285825028601,
+        0.34895712624570985,
+        0.3229142524914197
+      ],
+      "velocity_m_s": 0.08999226610050684,
+      "acceleration_m_s2": -0.0007679768019791162,
+      "force_n": -7.679768019791162e-07,
+      "kinetic_energy_j": 4.049303978952216e-06,
+      "interaction_energy_j": -7.720644723220777e-08,
+      "total_energy_j": 3.972097531720009e-06,
+      "energy_drift_j": -7.411538288475128e-22
+    },
+    {
+      "time_s": 0.02,
+      "displacement_m": 0.0017998456805541174,
+      "position_m": [
+        -0.43377147266269883,
+        0.3493427910059518,
+        0.32368558201190356
+      ],
+      "velocity_m_s": 0.08998463976597114,
+      "acceleration_m_s2": -0.0007573245673969433,
+      "force_n": -7.573245673969434e-07,
+      "kinetic_energy_j": 4.048617696905797e-06,
+      "interaction_energy_j": -7.652016518578873e-08,
+      "total_energy_j": 3.972097531720009e-06,
+      "energy_drift_j": -6.352747104407253e-22
+    },
+    {
+      "time_s": 0.03,
+      "displacement_m": 0.0026996543869601914,
+      "position_m": [
+        -0.4335143844608685,
+        0.34972842330869724,
+        0.3244568466173945
+      ],
+      "velocity_m_s": 0.0899771189284972,
+      "acceleration_m_s2": -0.0007468765365993156,
+      "force_n": -7.468765365993156e-07,
+      "kinetic_energy_j": 4.0479409653364644e-06,
+      "interaction_energy_j": -7.584343361645905e-08,
+      "total_energy_j": 3.972097531720005e-06,
+      "energy_drift_j": -3.546950466627383e-21
+    },
+    {
+      "time_s": 0.04,
+      "displacement_m": 0.003599388404052971,
+      "position_m": [
+        -0.433257317598842,
+        0.350114023601737,
+        0.325228047203474
+      ],
+      "velocity_m_s": 0.08996970157137653,
+      "acceleration_m_s2": -0.0007366276696633832,
+      "force_n": -7.366276696633832e-07,
+      "kinetic_energy_j": 4.047273600421276e-06,
+      "interaction_energy_j": -7.517606870127317e-08,
+      "total_energy_j": 3.972097531720003e-06,
+      "energy_drift_j": -5.889525961377557e-21
+    },
+    {
+      "time_s": 0.05,
+      "displacement_m": 0.004499048756759874,
+      "position_m": [
+        -0.43300027178378286,
+        0.3504995923243257,
+        0.32599918464865135
+      ],
+      "velocity_m_s": 0.08996238572753107,
+      "acceleration_m_s2": -0.0007265730794773152,
+      "force_n": -7.265730794773153e-07,
+      "kinetic_energy_j": 4.046615422894543e-06,
+      "interaction_energy_j": -7.451789117454299e-08,
+      "total_energy_j": 3.97209753172e-06,
+      "energy_drift_j": -9.145308852386274e-21
+    },
+    {
+      "time_s": 0.06,
+      "displacement_m": 0.005398636450579414,
+      "position_m": [
+        -0.43274324672840586,
+        0.3508851299073912,
+        0.32677025981478236
+      ],
+      "velocity_m_s": 0.08995516947801288,
+      "acceleration_m_s2": -0.000716708026235862,
+      "force_n": -7.167080262358621e-07,
+      "kinetic_energy_j": 4.04596625790901e-06,
+      "interaction_energy_j": -7.386872618901302e-08,
+      "total_energy_j": 3.972097531719997e-06,
+      "energy_drift_j": -1.1831991481958508e-20
+    },
+    {
+      "time_s": 0.07,
+      "displacement_m": 0.00629815247205523,
+      "position_m": [
+        -0.43248624215084136,
+        0.351270636773738,
+        0.3275412735474759
+      ],
+      "velocity_m_s": 0.0899480509505576,
+      "acceleration_m_s2": -0.0007070279121656407,
+      "force_n": -7.070279121656407e-07,
+      "kinetic_energy_j": 4.045325934902053e-06,
+      "interaction_energy_j": -7.322840318205896e-08,
+      "total_energy_j": 3.972097531719994e-06,
+      "energy_drift_j": -1.4770137017746862e-20
+    },
+    {
+      "time_s": 0.08,
+      "displacement_m": 0.007197597789235899,
+      "position_m": [
+        -0.432229257774504,
+        0.351656113338244,
+        0.32831222667648796
+      ],
+      "velocity_m_s": 0.08994102831818962,
+      "acceleration_m_s2": -0.0006975282764692734,
+      "force_n": -6.975282764692734e-07,
+      "kinetic_energy_j": 4.044694287466694e-06,
+      "interaction_energy_j": -7.259675574670071e-08,
+      "total_energy_j": 3.972097531719993e-06,
+      "energy_drift_j": -1.5961277099823222e-20
+    },
+    {
+      "time_s": 0.09,
+      "displacement_m": 0.00809697335212106,
+      "position_m": [
+        -0.4319722933279654,
+        0.3520415600080519,
+        0.3290831200161038
+      ],
+      "velocity_m_s": 0.08993409979787664,
+      "acceleration_m_s2": -0.0006882047904780438,
+      "force_n": -6.882047904780438e-07,
+      "kinetic_energy_j": 4.044071153227218e-06,
+      "interaction_energy_j": -7.19736215072283e-08,
+      "total_energy_j": 3.97209753171999e-06,
+      "energy_drift_j": -1.9137650652026848e-20
+    },
+    {
+      "time_s": 0.1,
+      "displacement_m": 0.008996280093094321,
+      "position_m": [
+        -0.4317153485448302,
+        0.35242697718275473,
+        0.32985395436550946
+      ],
+      "velocity_m_s": 0.08992726364923194,
+      "acceleration_m_s2": -0.0006790532530032919,
+      "force_n": -6.790532530032919e-07,
+      "kinetic_energy_j": 4.043456373719236e-06,
+      "interaction_energy_j": -7.135884199924911e-08,
+      "total_energy_j": 3.972097531719987e-06,
+      "energy_drift_j": -2.167874949378975e-20
+    },
+    {
+      "time_s": 0.11,
+      "displacement_m": 0.009895518927343411,
+      "position_m": [
+        -0.43145842316361616,
+        0.35281236525457577,
+        0.33062473050915153
+      ],
+      "velocity_m_s": 0.08992051817326188,
+      "acceleration_m_s2": -0.0006700695858773078,
+      "force_n": -6.700695858773079e-07,
+      "kinetic_energy_j": 4.042849794273961e-06,
+      "interaction_energy_j": -7.075226255397585e-08,
+      "total_energy_j": 3.972097531719985e-06,
+      "energy_drift_j": -2.4193378555950953e-20
+    },
+    {
+      "time_s": 0.12,
+      "displacement_m": 0.010794690753268039,
+      "position_m": [
+        -0.4312015169276377,
+        0.3531977246085435,
+        0.3313954492170869
+      ],
+      "velocity_m_s": 0.08991386171115734,
+      "acceleration_m_s2": -0.0006612498296749207,
+      "force_n": -6.612498296749208e-07,
+      "kinetic_energy_j": 4.042251263906563e-06,
+      "interaction_energy_j": -7.015373218657995e-08,
+      "total_energy_j": 3.972097531719982e-06,
+      "energy_drift_j": -2.6297726034285856e-20
+    }
+  ],
+  "events": []
+}

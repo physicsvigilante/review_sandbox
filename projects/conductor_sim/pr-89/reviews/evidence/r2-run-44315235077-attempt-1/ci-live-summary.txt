@@ -1,0 +1,27 @@
+RUN_COUNT 25
+44311288422 pull_request Python checks completed success
+44311288429 pull_request M22a structural composability review completed success
+44311288399 pull_request M36e actual JEE solid-source answers and real Chromium integrity completed success
+44311288433 pull_request M20a paired prescribed-field exploration completed success
+44311288336 pull_request M35a audit and dependency-aware scientific regression completed success
+44311288419 pull_request M21d distant connected spheres completed success
+44311288448 pull_request M34b independent certified incremental world fork physics completed success
+44311288317 pull_request M37a grounded-sphere wire-current science and SI export audit completed success
+44311288216 pull_request Visualization and source checks completed success
+44311288273 pull_request M21e composed electric and gravity review completed success
+44311288165 pull_request M15c authoring and browser acceptance completed success
+44311288084 pull_request M21c composite symmetry review completed success
+44311288129 pull_request M19e source identity and world-oriented ring viewer completed success
+44311288127 pull_request M18c held-source authoring and independent physics completed success
+44311288278 pull_request FEMM 5 real-solver validation completed success
+44311288241 pull_request M33b new native graph-world event inquiries and independent SI completed success
+44311288062 pull_request M19a prescribed fields and test-charge physics completed success
+44311288199 pull_request M36b real source-JEE replays, independent physics and Chromium completed success
+44311288250 pull_request M19b fixed-source offline viewer and physics integrity completed success
+44311288268 pull_request M17c motion authoring and review completed success
+44311288168 pull_request M36d true solid conductor source JEE physics and Chromium completed success
+44311288309 pull_request M18b held-source viewer and correctness completed success
+44311288155 pull_request M36c real conductor-JEE source physics and Chromium completed success
+44311275432 push Python checks completed success
+44311275436 push M37a grounded-sphere wire-current science and SI export audit completed success
+EXACT-HEAD LIVE CI ALL SUCCESS; INDEPENDENT SCIENCE RESULT SEPARATE
