@@ -1,0 +1,27 @@
+RUN_COUNT 25 REPORTED_TOTAL 25
+44329074216 pull_request M19a prescribed fields and test-charge physics completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074535 pull_request M33b new native graph-world event inquiries and independent SI completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074553 pull_request M37a grounded-sphere wire-current science and SI export audit completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074480 pull_request M36d true solid conductor source JEE physics and Chromium completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074772 pull_request M20a paired prescribed-field exploration completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074463 pull_request M36e actual JEE solid-source answers and real Chromium integrity completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074280 pull_request M36b real source-JEE replays, independent physics and Chromium completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074197 pull_request M22a structural composability review completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074645 pull_request M36c real conductor-JEE source physics and Chromium completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074430 pull_request M21d distant connected spheres completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074929 pull_request M34b independent certified incremental world fork physics completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074339 pull_request M21c composite symmetry review completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074438 pull_request M18b held-source viewer and correctness completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074528 pull_request M17c motion authoring and review completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074359 pull_request M19e source identity and world-oriented ring viewer completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074153 pull_request M18c held-source authoring and independent physics completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074790 pull_request M19b fixed-source offline viewer and physics integrity completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074550 pull_request M15c authoring and browser acceptance completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074511 pull_request M21e composed electric and gravity review completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074270 pull_request M35a audit and dependency-aware scientific regression completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074748 pull_request FEMM 5 real-solver validation completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074541 pull_request Visualization and source checks completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329074513 pull_request Python checks completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329053568 push M37a grounded-sphere wire-current science and SI export audit completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+44329053511 push Python checks completed success 73d7daee9f31f6feee3e6305205aa28abc3e48af
+ALL 25 EXACT HEAD CI SUCCESS, SEPARATE FROM INDEPENDENT REVIEW VERDICT

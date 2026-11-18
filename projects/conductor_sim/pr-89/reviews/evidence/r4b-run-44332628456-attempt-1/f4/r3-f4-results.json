@@ -1,0 +1,386 @@
+{
+  "source_head": "73d7daee9f31f6feee3e6305205aa28abc3e48af",
+  "source_tree": "c728041ca5118013c6979d120c8805f31ee09fa0",
+  "python": "3.12.16 (main, Oct 26 2026, 02:48:44) [GCC 15.2.0]",
+  "num_attacks": 51,
+  "num_genuine": 3,
+  "num_records": 56,
+  "num_failures": 0,
+  "offline_checker_imports": [
+    "__future__",
+    "argparse",
+    "bisect",
+    "json",
+    "math",
+    "pathlib"
+  ],
+  "actual_outcomes": [
+    {
+      "name": "genuine/duration",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "reason": "",
+      "additional": {
+        "prescribed_states": 3,
+        "actual_time_samples": 6,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "genuine/turning",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "reason": "",
+      "additional": {
+        "prescribed_states": 3,
+        "actual_time_samples": 71,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "genuine/guarded",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "reason": "",
+      "additional": {
+        "prescribed_states": 3,
+        "actual_time_samples": 9,
+        "motion_termination": "surface-guard"
+      }
+    },
+    {
+      "name": "genuine/native-off-grid-signed-reversal",
+      "expectation": "accept",
+      "outcome": "PASS",
+      "reason": "",
+      "additional": {
+        "event_time_s": 0.1316369937419222,
+        "bracket_times": [
+          0.13,
+          0.135
+        ],
+        "outward_before_m_s": 0.00012393782249118274,
+        "inward_after_m_s": -0.0002546157385619742,
+        "radial_max_m": 0.23065707446869868
+      }
+    },
+    {
+      "name": "f4/false-max-1e9",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "maximum absolute energy drift contradicts saved actual samples"
+    },
+    {
+      "name": "max/negative",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "maximum absolute energy drift contradicts saved actual samples"
+    },
+    {
+      "name": "max/boolean",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "maximum absolute energy drift: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "max/NaN",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "maximum absolute energy drift: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "max/Infinity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "maximum absolute energy drift: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "max/false-zero",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "maximum absolute energy drift contradicts saved actual samples"
+    },
+    {
+      "name": "f4/negative-guard",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "numerical conductor approach guard must be strictly positive"
+    },
+    {
+      "name": "guard/zero",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "numerical conductor approach guard must be strictly positive"
+    },
+    {
+      "name": "guard/boolean",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "numerical conductor approach guard: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "guard/NaN",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "numerical conductor approach guard: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "guard/Infinity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "numerical conductor approach guard: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "guard/too-large-clearance",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion sample crosses numerical sphere surface-approach guard"
+    },
+    {
+      "name": "events/not-list",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event history must be a list"
+    },
+    {
+      "name": "events/null",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event history must be a list"
+    },
+    {
+      "name": "events/non-record",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event must be a finite physical record"
+    },
+    {
+      "name": "events/bad-kind",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event has an unsupported physical kind"
+    },
+    {
+      "name": "events/boolean-kind",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event has an unsupported physical kind"
+    },
+    {
+      "name": "events/negative-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event time is unordered or beyond saved elapsed-time history"
+    },
+    {
+      "name": "events/future-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event time is unordered or beyond saved elapsed-time history"
+    },
+    {
+      "name": "events/boolean-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event time: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "events/NaN-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event time: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "events/out-of-order",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event time is unordered or beyond saved elapsed-time history"
+    },
+    {
+      "name": "events/boolean-displacement",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event displacement: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "events/wrong-displacement",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event position contradicts physical authored axis: saved 0.19799983787720152 differs from independent SI 0.22799983787720152"
+    },
+    {
+      "name": "events/NaN-displacement",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event displacement: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "events/nonaxial-position",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event position contradicts physical authored axis: saved 0.01 differs from independent SI 0.0"
+    },
+    {
+      "name": "events/boolean-position",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event position: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "events/NaN-position",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event position: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "events/blank-description",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event description must remain nonempty authored text"
+    },
+    {
+      "name": "events/guard-crossing",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event crosses numerical sphere surface-approach guard"
+    },
+    {
+      "name": "f4/spurious-guard-on-duration",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "duration-complete history contains an impossible surface-guard event"
+    },
+    {
+      "name": "termination/false-surface-label-no-event",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "surface-guard termination requires exactly one final approach event"
+    },
+    {
+      "name": "termination/guard-claimed-duration-with-event",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "duration-complete history contains an impossible surface-guard event"
+    },
+    {
+      "name": "guarded/missing-terminal-event",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "surface-guard termination requires exactly one final approach event"
+    },
+    {
+      "name": "guarded/duplicate-terminal-event",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "surface-guard termination requires exactly one final approach event"
+    },
+    {
+      "name": "guarded/terminal-event-not-last",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event has no later velocity witness"
+    },
+    {
+      "name": "guarded/wrong-terminal-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "terminal surface-guard event time: saved 0.07765348105466968 differs from independent SI 0.07766348105466968"
+    },
+    {
+      "name": "guarded/geometry-consistent-wrong-terminal-location",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "terminal surface-guard displacement: saved 0.03879649667444946 differs from independent SI 0.03979649667444946"
+    },
+    {
+      "name": "novel/interior-nonzero-velocity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event contradicts nonzero velocity at same saved timestamp"
+    },
+    {
+      "name": "novel/offgrid-no-sign-reversal",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event lacks a physical outward-to-inward saved velocity reversal"
+    },
+    {
+      "name": "novel/forbidden-inward-to-outward",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event lacks a physical outward-to-inward saved velocity reversal"
+    },
+    {
+      "name": "novel/duplicate-true-turn",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "one attractive grounded sphere cannot yield multiple turning points"
+    },
+    {
+      "name": "novel/not-radial-maximum",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event is not a radial-distance maximum"
+    },
+    {
+      "name": "novel/same-sample-false-position",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event position contradicts physical authored axis: saved 0.001 differs from independent SI 0.0"
+    },
+    {
+      "name": "novel/same-sample-false-velocity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event contradicts nonzero velocity at same saved timestamp"
+    },
+    {
+      "name": "novel/malformed-string-event-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event time: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "novel/bool-event-time",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "motion event time: expected finite SI number, not Boolean"
+    },
+    {
+      "name": "novel/exact-sample-zero-velocity-but-different-event-position",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event displacement contradicts saved particle at same timestamp: saved 0.0006570744686986793 differs from independent SI 0.0006566463320073812"
+    },
+    {
+      "name": "r4b/exact-time-axial-displacement-forgery",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event displacement contradicts saved particle at same timestamp: saved 0.0006596463320073812 differs from independent SI 0.0006566463320073812"
+    },
+    {
+      "name": "r4b/exact-time-same-displacement-divergent-vector",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event position contradicts saved particle at same timestamp: saved 0.2306566473920074 differs from independent SI 0.2306566463320074"
+    },
+    {
+      "name": "proof-limit/stripped-guard-claimed-duration",
+      "expectation": "document-only",
+      "outcome": "ACCEPTED_DOCUMENTED_LIMITATION",
+      "reason": "no authored requested duration or original event provenance in schema",
+      "additional": {
+        "prescribed_states": 3,
+        "actual_time_samples": 9,
+        "motion_termination": "duration"
+      }
+    },
+    {
+      "name": "novel/false-initial-turn-with-nonzero-saved-velocity",
+      "expectation": "reject",
+      "outcome": "REJECTED_AS_INTENDED",
+      "reason": "turning-point event cannot occur outside the sampled interior"
+    }
+  ],
+  "source_tracked_status": ""
+}

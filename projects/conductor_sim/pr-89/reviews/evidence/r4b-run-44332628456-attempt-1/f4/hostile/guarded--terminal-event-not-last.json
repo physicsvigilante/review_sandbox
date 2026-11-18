@@ -1,0 +1,749 @@
+{
+  "schema": "conductor_sim.m37a_teacher_wire_exploration.v1",
+  "source_role": "teacher-authored numerical models; original workbook source p8 Q21 not yet individually revalidated",
+  "instantaneous_prescribed": [
+    {
+      "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+      "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+      "units": {
+        "length": "m",
+        "velocity": "m/s",
+        "charge": "C",
+        "current": "A",
+        "force": "N",
+        "energy": "J"
+      },
+      "current_sign": "positive sphere_to_ground is conventional +charge flux",
+      "sphere_name": "Sphere A",
+      "sphere_center_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sphere_radius_m": 0.1,
+      "point_charge_c": 1e-09,
+      "permittivity_f_per_m": 8.8541878128e-12,
+      "source_position_m": [
+        0.0,
+        0.0,
+        0.2
+      ],
+      "source_velocity_m_s": [
+        0.0,
+        0.0,
+        -0.1
+      ],
+      "distance_from_center_m": 0.2,
+      "radial_velocity_m_s": -0.10000000000000002,
+      "induced_sphere_net_charge_c": -5e-10,
+      "induced_net_charge_rate_c_per_s": -2.5000000000000007e-10,
+      "wire_current_sphere_to_ground_a": 2.5000000000000007e-10,
+      "wire_current_ground_to_sphere_a": -2.5000000000000007e-10,
+      "induced_force_on_source_n": [
+        0.0,
+        0.0,
+        -1.9972337316135935e-07
+      ],
+      "induced_mechanical_energy_j": -1.497925298710195e-08
+    },
+    {
+      "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+      "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+      "units": {
+        "length": "m",
+        "velocity": "m/s",
+        "charge": "C",
+        "current": "A",
+        "force": "N",
+        "energy": "J"
+      },
+      "current_sign": "positive sphere_to_ground is conventional +charge flux",
+      "sphere_name": "Sphere A",
+      "sphere_center_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sphere_radius_m": 0.1,
+      "point_charge_c": 1e-09,
+      "permittivity_f_per_m": 8.8541878128e-12,
+      "source_position_m": [
+        0.0,
+        0.0,
+        0.2
+      ],
+      "source_velocity_m_s": [
+        0.0,
+        0.0,
+        0.1
+      ],
+      "distance_from_center_m": 0.2,
+      "radial_velocity_m_s": 0.10000000000000002,
+      "induced_sphere_net_charge_c": -5e-10,
+      "induced_net_charge_rate_c_per_s": 2.5000000000000007e-10,
+      "wire_current_sphere_to_ground_a": -2.5000000000000007e-10,
+      "wire_current_ground_to_sphere_a": 2.5000000000000007e-10,
+      "induced_force_on_source_n": [
+        0.0,
+        0.0,
+        -1.9972337316135935e-07
+      ],
+      "induced_mechanical_energy_j": -1.497925298710195e-08
+    },
+    {
+      "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+      "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+      "units": {
+        "length": "m",
+        "velocity": "m/s",
+        "charge": "C",
+        "current": "A",
+        "force": "N",
+        "energy": "J"
+      },
+      "current_sign": "positive sphere_to_ground is conventional +charge flux",
+      "sphere_name": "Sphere A",
+      "sphere_center_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sphere_radius_m": 0.1,
+      "point_charge_c": 1e-09,
+      "permittivity_f_per_m": 8.8541878128e-12,
+      "source_position_m": [
+        0.0,
+        0.0,
+        0.2
+      ],
+      "source_velocity_m_s": [
+        0.0,
+        0.1,
+        0.0
+      ],
+      "distance_from_center_m": 0.2,
+      "radial_velocity_m_s": 0.0,
+      "induced_sphere_net_charge_c": -5e-10,
+      "induced_net_charge_rate_c_per_s": 0.0,
+      "wire_current_sphere_to_ground_a": -0.0,
+      "wire_current_ground_to_sphere_a": 0.0,
+      "induced_force_on_source_n": [
+        0.0,
+        0.0,
+        -1.9972337316135935e-07
+      ],
+      "induced_mechanical_energy_j": -1.497925298710195e-08
+    }
+  ],
+  "actual_elapsed_time": {
+    "schema": "conductor_sim.grounded_sphere_wire_motion.v1",
+    "mode": "actual elapsed-time M16a motion; instant Kelvin response",
+    "current_sign": "sphere_to_ground positive for conventional +charge flux",
+    "physics_regime": "ideal quasistatic, classical point charge; no wire impedance or impact",
+    "motion": {
+      "schema": "conductor_sim.motion_1d.v1",
+      "mode": "elapsed-time classical dynamics",
+      "units": {
+        "time": "s",
+        "displacement": "m",
+        "velocity": "m/s",
+        "acceleration": "m/s^2",
+        "force": "N",
+        "energy": "J"
+      },
+      "mass_kg": 1e-06,
+      "charge_c": -1e-09,
+      "initial_position_m": [
+        0.0,
+        0.0,
+        -0.14
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "termination": "surface-guard",
+      "method": "Adaptive RK4 step doubling; existing analytical force_energy at each RHS evaluation",
+      "guard_m": 0.0002,
+      "max_abs_energy_drift_j": 2.5760177763687123e-11,
+      "samples": [
+        {
+          "time_s": 0.0,
+          "displacement_m": 0.0,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.14
+          ],
+          "velocity_m_s": 0.35,
+          "acceleration_m_s2": 1.36529649622023,
+          "force_n": 1.3652964962202301e-06,
+          "kinetic_energy_j": 6.125e-08,
+          "interaction_energy_j": -4.6810165584693605e-08,
+          "total_energy_j": 1.443983441530639e-08,
+          "energy_drift_j": 0.0
+        },
+        {
+          "time_s": 0.01,
+          "displacement_m": 0.003572679315260822,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.1364273206847392
+          ],
+          "velocity_m_s": 0.3650143168798059,
+          "acceleration_m_s2": 1.6530765944832986,
+          "force_n": 1.6530765944832985e-06,
+          "kinetic_energy_j": 6.661772576361568e-08,
+          "interaction_energy_j": -5.217789095184843e-08,
+          "total_energy_j": 1.4439834811767249e-08,
+          "energy_drift_j": 3.9646085824586363e-16
+        },
+        {
+          "time_s": 0.02,
+          "displacement_m": 0.007311653841867062,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.13268834615813296
+          ],
+          "velocity_m_s": 0.3834587100871747,
+          "acceleration_m_s2": 2.061289660063492,
+          "force_n": 2.0612896600634917e-06,
+          "kinetic_energy_j": 7.352029117085994e-08,
+          "interaction_energy_j": -5.9080454717623e-08,
+          "total_energy_j": 1.4439836453236937e-08,
+          "energy_drift_j": 2.037930546297174e-15
+        },
+        {
+          "time_s": 0.03,
+          "displacement_m": 0.01125844705210398,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.12874155294789602
+          ],
+          "velocity_m_s": 0.4069216904579225,
+          "acceleration_m_s2": 2.677007322441425,
+          "force_n": 2.6770073224414245e-06,
+          "kinetic_energy_j": 8.279263108256663e-08,
+          "interaction_energy_j": -6.835276938865217e-08,
+          "total_energy_j": 1.4439861693914458e-08,
+          "energy_drift_j": 2.7278608067542457e-14
+        },
+        {
+          "time_s": 0.04,
+          "displacement_m": 0.015476154301191338,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.12452384569880867
+          ],
+          "velocity_m_s": 0.4382993012790181,
+          "acceleration_m_s2": 3.6914061908265983,
+          "force_n": 3.691406190826598e-06,
+          "kinetic_energy_j": 9.605313875083775e-08,
+          "interaction_energy_j": -8.161319184257084e-08,
+          "total_energy_j": 1.443994690826691e-08,
+          "energy_drift_j": 1.1249296051874507e-13
+        },
+        {
+          "time_s": 0.05,
+          "displacement_m": 0.02007015293316889,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.11992984706683113
+          ],
+          "velocity_m_s": 0.4836599403260009,
+          "acceleration_m_s2": 5.610381699431511,
+          "force_n": 5.610381699431511e-06,
+          "kinetic_energy_j": 1.1696346893807539e-07,
+          "interaction_energy_j": -1.0252346415125359e-07,
+          "total_energy_j": 1.4440004786821799e-08,
+          "energy_drift_j": 1.7037151540832854e-13
+        },
+        {
+          "time_s": 0.06,
+          "displacement_m": 0.025245818370732157,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.11475418162926786
+          ],
+          "velocity_m_s": 0.5590451182837415,
+          "acceleration_m_s2": 10.272979399090284,
+          "force_n": 1.0272979399090284e-05,
+          "kinetic_energy_j": 1.5626572213844124e-07,
+          "interaction_energy_j": -1.418256086115092e-07,
+          "total_energy_j": 1.4440113526932025e-08,
+          "energy_drift_j": 2.791116256343681e-13
+        },
+        {
+          "time_s": 0.07,
+          "displacement_m": 0.0315513840443126,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.10844861595568742
+          ],
+          "velocity_m_s": 0.7343142925268552,
+          "acceleration_m_s2": 31.42651694305151,
+          "force_n": 3.142651694305151e-05,
+          "kinetic_energy_j": 2.6960874010460796e-07,
+          "interaction_energy_j": -2.551683618396488e-07,
+          "total_energy_j": 1.4440378264959169e-08,
+          "energy_drift_j": 5.43849652778186e-13
+        },
+        {
+          "time_s": 0.07766348105466968,
+          "displacement_m": 0.03979649667444946,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.10020350332555056
+          ],
+          "velocity_m_s": 4.699846925666999,
+          "acceleration_m_s2": 54254.77225011669,
+          "force_n": 0.05425477225011669,
+          "kinetic_energy_j": 1.104428056235077e-05,
+          "interaction_energy_j": -1.10298149677577e-05,
+          "total_energy_j": 1.4465594593070395e-08,
+          "energy_drift_j": 2.5760177763687123e-11
+        }
+      ],
+      "events": [
+        {
+          "kind": "surface-guard",
+          "time_s": 0.07766348105466968,
+          "displacement_m": 0.03979649667444946,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.10020350332555056
+          ],
+          "description": "Reached the numerical approach cutoff; ideal conductor contact is not resolved"
+        },
+        {
+          "kind": "turning-point",
+          "time_s": 0.07766348105466968,
+          "displacement_m": 0.03979649667444946,
+          "position_m": [
+            0.0,
+            0.0,
+            -0.10020350332555056
+          ],
+          "description": "Fabricated event after physical guard termination"
+        }
+      ]
+    },
+    "observations": [
+      {
+        "time_s": 0.0,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.14
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          0.35
+        ],
+        "distance_from_center_m": 0.14,
+        "radial_velocity_m_s": -0.35,
+        "induced_sphere_net_charge_c": 7.142857142857143e-10,
+        "induced_net_charge_rate_c_per_s": 1.7857142857142853e-09,
+        "wire_current_sphere_to_ground_a": -1.7857142857142853e-09,
+        "wire_current_ground_to_sphere_a": 1.7857142857142853e-09,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          1.3652964962202301e-06
+        ],
+        "induced_mechanical_energy_j": -4.6810165584693605e-08
+      },
+      {
+        "time_s": 0.01,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.1364273206847392
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          0.3650143168798059
+        ],
+        "distance_from_center_m": 0.1364273206847392,
+        "radial_velocity_m_s": -0.3650143168798059,
+        "induced_sphere_net_charge_c": 7.32991013076357e-10,
+        "induced_net_charge_rate_c_per_s": 1.9611336832991967e-09,
+        "wire_current_sphere_to_ground_a": -1.9611336832991967e-09,
+        "wire_current_ground_to_sphere_a": 1.9611336832991967e-09,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          1.6530765944832985e-06
+        ],
+        "induced_mechanical_energy_j": -5.217789095184843e-08
+      },
+      {
+        "time_s": 0.02,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.13268834615813296
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          0.3834587100871747
+        ],
+        "distance_from_center_m": 0.13268834615813296,
+        "radial_velocity_m_s": -0.3834587100871747,
+        "induced_sphere_net_charge_c": 7.536456885280927e-10,
+        "induced_net_charge_rate_c_per_s": 2.177975775214903e-09,
+        "wire_current_sphere_to_ground_a": -2.177975775214903e-09,
+        "wire_current_ground_to_sphere_a": 2.177975775214903e-09,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          2.0612896600634917e-06
+        ],
+        "induced_mechanical_energy_j": -5.9080454717623e-08
+      },
+      {
+        "time_s": 0.03,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.12874155294789602
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          0.4069216904579225
+        ],
+        "distance_from_center_m": 0.12874155294789602,
+        "radial_velocity_m_s": -0.4069216904579225,
+        "induced_sphere_net_charge_c": 7.767499902729291e-10,
+        "induced_net_charge_rate_c_per_s": 2.4551235546533827e-09,
+        "wire_current_sphere_to_ground_a": -2.4551235546533827e-09,
+        "wire_current_ground_to_sphere_a": 2.4551235546533827e-09,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          2.6770073224414245e-06
+        ],
+        "induced_mechanical_energy_j": -6.835276938865217e-08
+      },
+      {
+        "time_s": 0.04,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.12452384569880867
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          0.4382993012790181
+        ],
+        "distance_from_center_m": 0.12452384569880867,
+        "radial_velocity_m_s": -0.4382993012790181,
+        "induced_sphere_net_charge_c": 8.030590401285424e-10,
+        "induced_net_charge_rate_c_per_s": 2.8266089454504095e-09,
+        "wire_current_sphere_to_ground_a": -2.8266089454504095e-09,
+        "wire_current_ground_to_sphere_a": 2.8266089454504095e-09,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          3.691406190826598e-06
+        ],
+        "induced_mechanical_energy_j": -8.161319184257084e-08
+      },
+      {
+        "time_s": 0.05,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.11992984706683113
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          0.4836599403260009
+        ],
+        "distance_from_center_m": 0.11992984706683113,
+        "radial_velocity_m_s": -0.4836599403260009,
+        "induced_sphere_net_charge_c": 8.338207914521464e-10,
+        "induced_net_charge_rate_c_per_s": 3.3626801342587578e-09,
+        "wire_current_sphere_to_ground_a": -3.3626801342587578e-09,
+        "wire_current_ground_to_sphere_a": 3.3626801342587578e-09,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          5.610381699431511e-06
+        ],
+        "induced_mechanical_energy_j": -1.0252346415125359e-07
+      },
+      {
+        "time_s": 0.06,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.11475418162926786
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          0.5590451182837415
+        ],
+        "distance_from_center_m": 0.11475418162926786,
+        "radial_velocity_m_s": -0.5590451182837415,
+        "induced_sphere_net_charge_c": 8.714279390973861e-10,
+        "induced_net_charge_rate_c_per_s": 4.245314012715717e-09,
+        "wire_current_sphere_to_ground_a": -4.245314012715717e-09,
+        "wire_current_ground_to_sphere_a": 4.245314012715717e-09,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          1.0272979399090284e-05
+        ],
+        "induced_mechanical_energy_j": -1.418256086115092e-07
+      },
+      {
+        "time_s": 0.07,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.10844861595568742
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          0.7343142925268552
+        ],
+        "distance_from_center_m": 0.10844861595568742,
+        "radial_velocity_m_s": -0.7343142925268552,
+        "induced_sphere_net_charge_c": 9.220956774668333e-10,
+        "induced_net_charge_rate_c_per_s": 6.24358392289486e-09,
+        "wire_current_sphere_to_ground_a": -6.24358392289486e-09,
+        "wire_current_ground_to_sphere_a": 6.24358392289486e-09,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          3.142651694305151e-05
+        ],
+        "induced_mechanical_energy_j": -2.551683618396488e-07
+      },
+      {
+        "time_s": 0.07766348105466968,
+        "schema": "conductor_sim.grounded_sphere_wire_instant.v1",
+        "mode": "instantaneous Kelvin observation; supplied velocity does not define a trajectory",
+        "units": {
+          "length": "m",
+          "velocity": "m/s",
+          "charge": "C",
+          "current": "A",
+          "force": "N",
+          "energy": "J"
+        },
+        "current_sign": "positive sphere_to_ground is conventional +charge flux",
+        "sphere_name": "Sphere A",
+        "sphere_center_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sphere_radius_m": 0.1,
+        "point_charge_c": -1e-09,
+        "permittivity_f_per_m": 8.8541878128e-12,
+        "source_position_m": [
+          0.0,
+          0.0,
+          -0.10020350332555056
+        ],
+        "source_velocity_m_s": [
+          0.0,
+          0.0,
+          4.699846925666999
+        ],
+        "distance_from_center_m": 0.10020350332555056,
+        "radial_velocity_m_s": -4.699846925666999,
+        "induced_sphere_net_charge_c": 9.979690996941557e-10,
+        "induced_net_charge_rate_c_per_s": 4.680776469331562e-08,
+        "wire_current_sphere_to_ground_a": -4.680776469331562e-08,
+        "wire_current_ground_to_sphere_a": 4.680776469331562e-08,
+        "induced_force_on_source_n": [
+          0.0,
+          0.0,
+          0.05425477225011669
+        ],
+        "induced_mechanical_energy_j": -1.10298149677577e-05
+      }
+    ]
+  }
+}
