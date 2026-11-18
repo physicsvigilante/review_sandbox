@@ -1,3 +1,23 @@
+# SIM_HEAT H1-T1 — evaluator-key UNAVAILABLE; original task and author preserved
+
+**Current status:** `TASK_SET_V1-SEALED; ORIGINAL_FIRST_ATTEMPT_V1-SEALED; SELECTOR_KEY_REVEAL_FAILED-ORIGINAL-BYTES-UNAVAILABLE; PRECOMMITTED_SCORER-UNVERIFIED; H1_VALIDATION-NOT-RUN; NATIVE-HOLD; OWNER-FALLBACK-DECISION-PENDING`.
+
+The selector has reported **[H1-T1 EVALUATOR_KEY_V1_UNAVAILABLE — Issue #58 comment 6982883843](https://github.com/physicsvigilante/sim_heat/issues/58#issuecomment-6982883843)**. GitHub posting time: **2026-11-18T15:21:27Z**; comment created_at=updated_at at capture. The **original 1,303-byte UTF-8 body** is preserved without modification in [raw issue report snapshot](intake/KEY_UNAVAILABLE_COMMENT_6982883843.raw.md), blob `c801f8bc53f16f900a24bffd25e36403dbcc7dd2`, complete body SHA-256 **`2123c5e51db849c1189df3b6f31551c5453c1bb8736a970b5724d505750df340`**. Original report says its private evaluator key/salt is unavailable from the selector's accessible context/session; **no raw key, salt or reconstructed matching precommit was received**, no replacement fabricated, and no model scored.
+
+**The original pre-author salted evaluator-key commitment `49cc3397ae5bbbabff823e674491d9d44d8341bbd8b9556694c86f5ffffb6319` remains UNVERIFIABLE.** Do not claim it was opened/matched or score the already-submitted author model with a freshly created scorer labeled precommitted. [KEY-UNAVAILABLE-01](KEY-UNAVAILABLE-01.md) records this evidentiary/process failure and the safe recovery and fallback paths.
+
+**Preserved original sequence, valid independent of key failure:** selector task [comment 6981681502](https://github.com/physicsvigilante/sim_heat/issues/58#issuecomment-6981681502), original body SHA256 `8f45ad3d4a763952e25d60658ae4d8eeae37fd266bd372b3cd80fb19b81fa2a2`, [task lock](TASK-LOCK-01.md), then author FIRST_ATTEMPT_V1 [comment 6982616288](https://github.com/physicsvigilante/sim_heat/issues/58#issuecomment-6982616288), original SHA256 `fa96e40b24fe3b039e823a78f54546bdf0ed2400e0f3b1b9519bbeb764e3c893`, [author lock](FIRST-ATTEMPT-LOCK-01.md). These two original raw snapshots and their timestamps remain sealed, with no corrections, analysis, H1 admission, or native work performed on the T1 models.
+
+**Safe choices:**
+- **A — recovery:** the original selector produces the **exact original key bytes/salt** from genuine preserved storage, SHA-256 checked against pre-author public commitment **before evaluation**. A missing/unavailable key is NOT reconstructed by guessing.
+- **B — explicit downgraded diagnostic:** if no original key exists, owner may authorize **H1-T1-UNSEALED** source-fidelity evaluation against the separately locked public problem texts and first-attempt files, with pinned *offline-only* H1 admission and generic source-preview. This can still measure useful first-attempt authoring results but **cannot establish original sealed-scorer success**. Distinguish retrospective interpretation, mechanical file extraction/hashing and any assisted successor. Plan **one consolidated evidence review**, not many corrective reviews. This fallback is **not yet activated** by the prior protocol; transparent owner choice required.
+
+**Next:** no further source or native tooling until genuine key recovery or an explicit decision to downgrade the scoring claim. This is process/custody evidence, not a demonstrated flaw in authored physics. No new code PR, native OpenModelica install/query/build/launch, original C1 historical changes or frozen-reference regeneration. Six original diagnostic cases still `diagnostic_only/nativeQualified=false`, all T1 source request values remain uncomputed.
+
+---
+
+## Prior status — before key-reveal failure (historical)
+
 # SIM_HEAT H1-T1 — author first attempt sealed; selector key reveal pending
 
 **Current status:** `STAGE1-ORIGINAL-TASK-LOCKED; STAGE2-SEVEN-AUTHOR-ARTIFACTS-CAPTURED-BEFORE-VALIDATION; STAGE3-PRECOMMITTED-SELECTOR-KEY-REVEAL-REQUESTED; NO-SOURCE-FIDELITY-SCORING; NO-H1-EXECUTION; NO-NATIVE-AUTHORIZATION`.
