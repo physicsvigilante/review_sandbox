@@ -5,6 +5,7 @@ on:
     paths:
       - .github/workflows/m36b-pr85-review02-native.yml
       - projects/conductor_sim/pr-85/reviews/review-02-chat-b-probes.py
+      - projects/conductor_sim/pr-85/reviews/review-02-chat-b-browser.py
 permissions:
   contents: read
 
@@ -48,6 +49,21 @@ jobs:
           set -euo pipefail
           python -m py_compile ../reviewer/projects/conductor_sim/pr-85/reviews/review-02-chat-b-probes.py
           python ../reviewer/projects/conductor_sim/pr-85/reviews/review-02-chat-b-probes.py --output ../evidence/reviewer02-native-and-hostile-probes.json 2>&1 | tee ../evidence/reviewer02-native-and-hostile-stdout.txt
+      - name: Install Chromium for independent reviewer browser screenshots
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python -m pip install "playwright==1.57.0"
+          python -m playwright install chromium
+      - name: Independently open and inspect all seven offline actual source HTML views
+        shell: bash
+        working-directory: source
+        env:
+          PYTHONPATH: .
+        run: |
+          set -euo pipefail
+          python ../reviewer/projects/conductor_sim/pr-85/reviews/review-02-chat-b-browser.py --native-dir ../evidence/original-native --out ../evidence/browser-screenshots 2>&1 | tee ../evidence/reviewer02-browser-stdout.txt
       - name: Preserve full first attempted evidence, including failure
         if: always()
         uses: actions/upload-artifact@v4
