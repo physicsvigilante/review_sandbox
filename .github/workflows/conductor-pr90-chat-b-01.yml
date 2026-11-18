@@ -1,0 +1,63 @@
+name: conductor PR90 independent Chat B review 01
+on:
+  push:
+    branches: ['review/conductor-pr90-chat-b-01']
+    paths:
+      - '.github/workflows/conductor-pr90-chat-b-01.yml'
+      - 'projects/conductor_sim/pr-90/reviews/chat_b_*.py'
+permissions:
+  contents: read
+jobs:
+  independent-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - name: Checkout reviewer-owned scripts
+        uses: actions/checkout@v4
+        with:
+          path: reviewer
+          persist-credentials: false
+      - name: Fresh exact production source checkout (read only)
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 155b0544684d3d880a83a661cc8e14a0ce22f26b
+          path: source
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install runtime and real Chromium
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python -m pip install -e '.[test]' 'playwright==1.57.0' PyMuPDF
+          python -m playwright install chromium
+      - name: Preserve execution identity and failed local clone attempt
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          git -C reviewer rev-parse HEAD | tee evidence/reviewer-head.txt
+          git -C source rev-parse HEAD 'HEAD^{tree}' | tee evidence/production-head-tree.txt
+          cp reviewer/projects/conductor_sim/pr-90/reviews/chat_b_*.py evidence/
+          printf '%s\n' 'First local infrastructure attempt, 2026-11-18T16:46:25Z: git clone failed before checkout: Could not resolve host: github.com (exit 128). No local production test execution occurred. This isolated GitHub runner is the first scientific/browser execution.' > evidence/first-local-attempt.txt
+          python --version | tee evidence/python-version.txt
+          python -m pip freeze > evidence/dependencies.txt
+      - name: Reviewer-owned actual physics and hostile real-browser execution
+        working-directory: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVIEW_OUTPUT: ${{ github.workspace }}/evidence
+          PYTHONPATH: ${{ github.workspace }}/source:${{ github.workspace }}/source/src:${{ github.workspace }}/reviewer/projects/conductor_sim/pr-90/reviews
+        run: |
+          set -euo pipefail
+          python -u ../reviewer/projects/conductor_sim/pr-90/reviews/chat_b_review_01.py 2>&1 | tee ../evidence/first-execution.log
+      - name: Retain actual outcomes including every first-attempt failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr90-chat-b-review-01-first-execution
+          path: evidence/
+          if-no-files-found: error
+          retention-days: 30
