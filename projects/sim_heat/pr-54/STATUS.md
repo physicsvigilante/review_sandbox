@@ -1,3 +1,17 @@
+# SIM_HEAT PR54 — owner-approved integration and full postmerge CI complete
+
+**Current state:** `INDEPENDENT-R1-REVIEW02-SCOPED-PASS; OWNER-APPROVED-PR54-INTEGRATED; EXACT-REVIEWED-TREE-ON-MAIN; POSTMERGE-PRODUCT-ARCHIVE-BROWSER-CI-PASS; NO-NATIVE-EXECUTION`.
+
+[PR54](https://github.com/physicsvigilante/sim_heat/pull/54) was merged, after bounded owner instruction, to [main commit `20f5605d28f22d4a7dc86ad478a4cf44347157d4`](https://github.com/physicsvigilante/sim_heat/commit/20f5605d28f22d4a7dc86ad478a4cf44347157d4), tree **`e354dcf1f64e3e552850422336db237a7e3de556`**, exactly matching Chat B's independently reviewed candidate tree at source HEAD `6cc3637a8f4009bfb37cafa8ed27edbd049d2d9e`. Parent commits are prior main `13260a62...` and reviewed head `6cc3637...`. Independent [Chat B review-02](reviews/review-02-chat-b.md), blob `60be108e0c5543ed9b9e66b2f317150871fd0688`, remains SCOPED PASS at the same reviewed source; historical review-01 pinned to old head is untouched. Chat A accepted this in [response-02](responses/response-02-chat-a.md).
+
+Automatic **postmerge exact-main** product [CI 44303088073](https://github.com/physicsvigilante/sim_heat/actions/runs/44303088073) candidate + prior-baseline jobs **SUCCESS**: current main candidate **293 unique unit PASS, 1 optional SKIP**, six original archived diagnostic bundles read-only replay **BYTE_IDENTICAL**, `nativeExecutedByReplay=false`, original comparison and source-only TEACH_SPLIT3 JSON unchanged, real HTTP explorer/source-inspector/generated-docs desktop/mobile Chromium PASS. Baseline current former main **284 PASS / one optional SKIP**; overlapping counts not additive. Automatic exact-main H1 [CI 44303087072](https://github.com/physicsvigilante/sim_heat/actions/runs/44303087072) **SUCCESS**. Candidate artifact `14426842783` whole SHA256 `8f2405431a5d5b52a2852707ee12d4e52d61884b8a24a83cc7efa706f76b344c` (13,043,647 bytes, 54 unique CRC-valid ZIP files); baseline artifact `14426943418` SHA256 `174c737f6c315987341990d87eade50464ad93d91c01eaa838d16f4359675e67` (9,726,202 bytes, 47 members); H1 artifact `14425649344` SHA256 `8c524cfe04bb2a4713b7f84d7dc7ab75e1184e2241fea061e2ecbfe17133b8f9` (652,158 bytes, 9 members). Chat A downloaded/rehashed/CRC-checked each and inspected source head/tree receipts.
+
+The complete [INTEGRATION-01 receipt](INTEGRATION-01.md) documents authorization, source/tree/CI attribution and preserved boundaries. PR55/PR56 already integrated; PR54 is no longer a pending review/merge. No OpenModelica version query/build/launch, native runner, frozen reference regeneration, historical C1 stack merge, deployment or qualification status promotion. All six published cases remain `diagnostic_only/nativeQualified=false`, and TEACH_SPLIT3's four admitted source-only requests remain `not_computed`. Historical C1 F0 precision and cross-host seal failures remain unchanged.
+
+---
+
+## Earlier pre-merge status (retained historical record)
+
 # SIM_HEAT PR54 — independent current-head R1 review accepted; awaiting owner merge approval
 
 **Current status:** `CURRENT-HEAD-INDEPENDENT-R1-REVIEW02-SCOPED-PASS; CHAT-A-ACCEPTED; EXACT-HEAD-CI-PASS; DRAFT-UNMERGED; AWAITING-SEPARATE-OWNER-PR54-MERGE-APPROVAL; NO-NATIVE-AUTHORIZATION`.
