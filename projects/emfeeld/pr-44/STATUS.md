@@ -1,5 +1,19 @@
 # PR #44 — JEE 3D conductor cavity status
 
+## CURRENT — independent review-01 INSUFFICIENT EVIDENCE; offline PyVista continuation ready
+
+**18 November 2026: DRAFT / UNMERGED.** Exact candidate remains **`e253d0acf15e7505f1da8ab95cb519b59b0d720b`**, tree **`8a4a14d70ba824e8a338add08356003e79a248bc`**, main/base **`60b6e751363d0b922a02c3a259110547b79cf25c`**. No candidate or main source change was made after the review.
+
+[Chat B original independent review-01](reviews/review-01-chat-b.md) reports **42 reviewer-owned physics/state cases passed** and **15 independently reconstructed native-VTK glyph cases passed**, original theory/source/archive inspections, and no demonstrated physics or source-preservation defect in the tested cases. Its source-authored 67 focused passes are separate; its full-headless rerun timed out and is not a pass. **R2-B01 remains blocking:** no real PyVista in the reviewer environment, so the actual production controller/widgets/keyboard/live snapshot path was not independently executed. The original verdict remains INSUFFICIENT EVIDENCE, not PASS; the author's prior CI cannot close it.
+
+[Author response](responses/response-01-chat-a.md) accepts that evidence gap. A separate unmerged support branch provisions five original pure-Python wheels, not new product code or a reviewer verdict. Original provisioning workflow **44256323755 SUCCESS**, runtime artifact **14406007331**, SHA256 **`2f51d4a7aa4ef2a5d722627a6b3707c6e8efaef3bc486ab47675574df3d01295`**. The author independently checked the ZIP and all wheel hashes, installed them offline into an isolated container target, imported actual PyVista0.48.4/VTK9.6.2, opened the production lesson, exercised an actual slider event and saved a fresh state/PNG. A separate full four-test local attempt timed out and is preserved as incomplete. This is only AUTHOR runtime availability proof, not independent review or a general graphics qualification.
+
+**Next:** same independent Chat B context follows [targeted R2-B01 continuation prompt-02](REVIEWER-PROMPT-02.md), using [verified offline runtime/commands](REVIEW-RUNTIME-01.md), then appends `reviews/review-02-chat-b.md` with its own exact-source verdict and retained actual PyVista graphics outputs. No need to redo the whole previously reviewed implementation just because a dependency was unavailable. **DO NOT MERGE** until a supported independent PASS and source/integration checks. Actual-main release audits and human Windows/JEE teaching acceptance remain separate.
+
+---
+
+## Historical author-qualified checkpoint (superseded by CURRENT above)
+
 **18 November 2026: AUTHOR QUALIFIED, INDEPENDENT R2 PENDING. DRAFT / UNMERGED.**
 
 Exact candidate `e253d0acf15e7505f1da8ab95cb519b59b0d720b`; Git tree `8a4a14d70ba824e8a338add08356003e79a248bc`; main/base `60b6e751363d0b922a02c3a259110547b79cf25c`; source-equivalent preview `04f8926ff15697ecccd9d89f71e837f2eb45bf56`. Nine new files, no changed/deleted baseline paths;382 tracked files and32 package modules.
