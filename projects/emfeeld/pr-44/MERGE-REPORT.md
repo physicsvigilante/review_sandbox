@@ -24,6 +24,18 @@ Fresh actual [main-push real-PyVista #44263814058](https://github.com/physicsvig
 
 ---
 
+## Actual main-push dedicated JEE 3D lesson — completed original archive PASS
+
+Fresh [dedicated main-push lesson #44263814017](https://github.com/physicsvigilante/emfeeld/actions/runs/44263814017), `event=push`, `head_sha=57d09f...`, **COMPLETED SUCCESS**; original ZIP **artifact 14408958051**, independently recomputed whole ZIP SHA256 **`3a27d78bc95176ad5f0edc7bd1f4fec90798aa7caf964d950bd0068276856b88`**, matching GitHub original digest. All **49 original ZIP entries** CRC-clean/path-safe/unique; archived `tests.log` **71 focused tests passed**. Original `identities.txt` holds exact actual-main SHA **`57d09f2384754e0a03280af3e09295ea30dcd3a4`** and exact independently reviewed Git tree **`8a4a14d70ba824e8a338add08356003e79a248bc`**. Embedded original `tested-source.tar` SHA256 **`b4690bad1c51d854341f4d08f5eb078a9519a1642799a6c1fb3dc53717268f25`**, **byte-identical** to original new post-merge viewer source TAR; safely extracted/reindexed all **382 tracked source files**, reconstructing the exact merged source Git tree.
+
+Opened original six scene sets: **off-centre, centred, grounded, negative grounded, isolated charged and rotated full-shell**. For each: original successful outcome/started files, current `lesson.json`, `report.json`, `field_lines.npz`, original actual PNG and full `integrity.json`; every listed file SHA256 recomputed, exact six image SHA receipts verified against valid PNG signatures; all **32 source-module receipts** matched original reconstructed source. Recorded physical bounds: inner total **-q**, isolated outer total **Q+q**, grounded outer total 0 and zero metal field, independently recomputed across actual saved scene inputs. All **120 original cavity curves** parsed from original NPZ bytes, confirmed finite and confined strictly inside cavity `r<R`, terminated `inner_surface_approached` (not particle motion or calibrated flux). Exact surface-charge integral is *not renormalized*; original 32-node errors around `1.1e-11` relative in the displaced case, while 64-node errors around `7e-15` relative. Original six labels and scene-specific `human_visual_acceptance=not_evaluated` and `independent_physics_review=not_evaluated` were preserved; earlier independent review passes scoped technical cases without claiming human teaching approval.
+
+**Preserved author audit-harness correction:** first newly written post-merge audit imposed an arbitrary `1e-12` relative threshold on *all* quadrature orders and failed the original 32-node case, whose actual measured error was `1.1265e-11`. The physics implementation and original ZIP were unchanged. After distinguishing the lower-resolution reported approximation (bound `2e-10`) from the higher-resolution reported approximation (`1e-12`), the original archive validated. This is an **audit-only expectation correction**, not a changed product tolerance, fabricated exact integral or a first-pass whole-audit success.
+
+**Actual Linux/Windows release ZIPs remain pending at this checkpoint.**
+
+---
+
 ## Actual new main-push release — PENDING at first report
 
 Three fresh workflows triggered by `event=push` on **actual merged main** SHA `57d09f...`:
