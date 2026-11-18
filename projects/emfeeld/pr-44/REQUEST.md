@@ -1,0 +1,47 @@
+# EM Fields PR #44 — independent R2 request: JEE 3D conductor cavity
+
+**Author request only; no independent verdict. PR is DRAFT / UNMERGED.** The user approved a JEE-first, 3D-first lesson, not a general numerical conductor solver. Review [PR #44](https://github.com/physicsvigilante/emfeeld/pull/44), Issue #43, under the JEE scope in Issue #42. Do not merge. Final cross-platform/source/lesson archives must be available and inspected before an archive-qualified PASS; this request was prepared while fresh CI was running.
+
+## Exact source
+
+Candidate HEAD **`5d67b7765f3b1d928d538959c9589d9495ebdaac`**, Git tree **`0a9eb205ee53238c51c40f787fa71ea47b2d2046`**. Base/main **`60b6e751363d0b922a02c3a259110547b79cf25c`**, the owner's single PDF-only commit atop released PR40 `883242106e127c7b8f976660377b07a49aeded88`. Current source-equivalent CI preview **`d4ae248b637db00614735ed6db2896f4cfb1a52d`** must have the same candidate tree and ordered [base, head] parents. **Nine added files; zero modified/deleted baseline files; 382 tracked files.** Two new engine-package modules bring implementation inventories to32 modules; old source-locked studies can legitimately refuse a changed implementation inventory. Preserve old receipts/environments, or replay unchanged inputs into new outputs.
+
+New paths: `src/emfeeld/{conductor_cavity,cavity_lesson}.py`, `tests/{test_conductor_cavity,test_cavity_lesson_io}.py`, `viewer_tests/test_cavity_runtime.py`, `tools/qualify_cavity_lesson.py`, `examples/lessons/conductor_cavity.json`, `docs/CONDUCTOR_CAVITY_LESSON_V1.md`, `.github/workflows/cavity-lesson.yml`. The new lesson adapter is not a general `Source`, scene-v1 dispatch extension or participant in particle integration. Existing field laws, event semantics, tolerances, old workflows, source PDFs and recorded evidence are unchanged.
+
+## Requested source actually inspected, and adaptation boundary
+
+Original `01_theory_elec.pdf`: SHA256 **`dfed5a5cf241a365a2d94ebfeb73a9473aad66184d73af38be7fbfd81e6876ab`**, blob **`e8bf45cb2bc8206be0681d5c5367d0943e8b6c95`**, 140 pages. The author recovered the exact bytes from original source artifact14398012911, extracted text and inspected rendered relevant pages, not just the filename. Printed **1.115** discusses conductor cavity charge balance; **1.117 Q5** concerns a central point charge/thick conducting shell, while **Q7** asks for field sketches with a point charge offsetR/2 in a neutral **thin** shell. Printed **1.123–1.124** explains images for simpler grounded-plane cases.
+
+The default thick shell (R1m, B1.25m, q1nC) is an **author-chosen numerical adaptation**, not an exact reproduction of Q7's thin shell. The spherical image-charge formula/density are separately derived implementation machinery, not attributed to those pages. No whole-PDF correctness, solved corpus or independent unseen teacher task is claimed. Reopen exact PDF and check this boundary independently.
+
+## Analytic and display contract to challenge
+
+One held point charge q at vector a in a spherical cavity R, concentric spherical outer radius B, vacuum/ideal conductor/no external charges. Isolated prescribed conductor charge Q OR grounded, not both. Inside only: exact spherical image solution; in metal E=0; exterior independently uses central equivalent Q+q or zero if grounded. Isolated cavity potential adds constant k(Q+q)/B. Do not continue the virtual image field outside the cavity. The a=0 limit is evaluated without an image at infinity. Surface fields have distinct one-sided limits; potential is continuous. Actual q is singular, not softened.
+
+Explicit V1 bounds: R[1e-6,1e3]m, B/R[1.01,5], |a|/R<=.9, nonzero prescribed charges[1e-18,1e-3]C, zero allowed, finite numeric probes within1e6R coordinate magnitude. Tiny unresolved neighbourhood of real q and charged interfaces are refused. These are lesson admission/resolution limits, not claims about failure of electrostatics outside that domain.
+
+Inner density is an exact analytical surface density sampled on a mesh. Its exact total is -q; the separately reported quadrature integral is **unrenormalized** and may differ. Outer density is uniform only under the stated spherical/no-external-source assumptions. Curve stepping traces E direction; it is not physical time/particle motion or quantitative flux seeding. Negative q reverses stored curve direction. Curves stop before the wall/source; step-limit failures remain explicit. The cutaway changes rendering only: it is not a physical hole. No image charge is shown as a real charge.
+
+Four actual sliders set offset, polar angle, azimuth and stored isolated-Q preset. G toggles grounded/prescribed-isolated equilibria, not charging/earthing history. N reverses q; C toggles cutaway; L toggles curves. Camera rotation and controls must preserve physical/display state correctly. Snapshot captures CURRENT state, source input separately, actual slider/camera values, sampled arrays, PNG receipt, full implementation map and explicit not_evaluated science/teacher labels. Shared output preflight must refuse nested saved evidence before writes/rendering.
+
+## Genuine author failures to retain and retest
+
+1. Surface quadrature at a/R=.9 failed an overly ambitious accuracy assertion with96 nodes. Refining to256 meets the unchanged2e-13relative target; no density rescaling or relaxed tolerance. Original logs retained.
+2. First real lesson CI on `3c8c0ff...`: **68 passed /2 failed**. Actual eager widget-installation callbacks slightly changed authored charge position; ignore setup callbacks so opening the viewer preserves exact state. The camera comparison failure was a test-harness object-to-array error, fixed by explicit numeric coordinates.
+3. `9a87b2e...` passed70 tests and six renders, but direct screenshot inspection showed **invisible sliders**. Plotter-wide clearing removed their renderer props despite callback objects surviving. Corrected to left-renderer-only clear; test enabled widgets and actual right-renderer membership, not callbacks alone.
+4. Programmatic setters initially left stale visible control values. They now update actual widgets; saved slider values must agree with current physical state.
+5. `d1a84cd...` passed70 tests yet screenshots showed clipped labels. Corrected panel-relative layout. The subsequent new layout assertion on `669d9d6...` failed because its test compared stored normalized-display coordinates to unconverted panel-relative limits. Final commit changes only that test conversion, preserving margins. Original **69 passed /1 test-harness failure** is retained. Product layout and physics were not altered by that final test correction.
+
+Source and original prior failure artifacts remain in GitHub. Do not erase or relabel a limited earlier green suite as visual acceptance.
+
+## Author execution and fresh CI
+
+Original local full suite reached **1,709 passes**, including67 new headless cases, with warnings as errors;18 historical passed/one obsolete snapshot guard deselected; original V6 ten cases, discovery two cases and Physics Demonstration17 native observations/64 checks passed. A final exact-head rerun is being retained separately. Local real PyVista was unavailable; isolated install failed network/DNS. No local real-viewer or user Conda change is claimed.
+
+Exact head's fresh workflows: **44245214801** (Linux/Windows full release), **44245214763** (existing real-viewer regression), **44245214802** (source snapshot), **44245214821** (new lesson). Read their actual conclusions and original artifact bytes; a prior staging-only or earlier-head green run is not candidate qualification. New lesson workflow should retain70 focused tests (67 product plus3 graphics) and six state-bound PNGs; full headless and viewer counts must be read from final logs, not assumed. Existing release workflow executes the new real graphics tests on both OSs; dedicated new scene PNG archive is Linux, not an asserted Windows screenshot collection.
+
+## Independent reviewer work
+
+Derive fresh cases, not copies of author tests. Challenge arbitrary off-axis positions/signs, q=0/a=0, Q cancellation/grounding, independent field and potential references, gradient and equipotential boundaries, density/charge convergence without rescaling, field-line direction/termination/region limits, actual image-position exterior regularity, malformed admission and no unsupported source semantics. Compare source claims to actual supplied PDF. Test sealed-root/symlink output protection, interruption, original/current snapshot identity, and invalid controls without false completed results. Check real VTK controls remain visible and consistent, camera/cutaway leave fields unchanged, and screenshots actually communicate the intended state rather than merely having valid hashes.
+
+Inspect original fresh source/OS/viewer/lesson ZIPs, reconstruct the exact tree, verify old source preservation, new32-module receipts and deliberately invalid old negative fixture remains rejected, not falsely intact. Preserve fresh reviewer first failures separately. Publish **PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE** at `projects/emfeeld/pr-44/reviews/review-01-chat-b.md`, pinned to exact source/tree, commands/environment and limits. **Do not merge.** Subsequent guarded integration and actual-main release archives are separate gates. Human teacher/student usability and Issue36's unseen task remain unperformed.
