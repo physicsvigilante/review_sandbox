@@ -87,7 +87,14 @@ def main():
                     # Permit separate-context visual inspection, not a claim of
                     # independent screenshot hashing or human learning research.
                     if case_id in EXPORT_PIXELS:
-                        print("REVIEW02_PNG_B64 "+case_id+" "+base64.b64encode(screenshot).decode("ascii"),flush=True)
+                        # Short JPEG chunks avoid GitHub log pipe nonblocking
+                        # failure on a >140kB single-line PNG/base64 write.
+                        photo=page.screenshot(type="jpeg",quality=60,full_page=False,animations="disabled")
+                        b64=base64.b64encode(photo).decode("ascii")
+                        print("REVIEW02_JPEG_BEGIN",case_id,len(b64),flush=True)
+                        for k in range(0,len(b64),512):
+                            print("REVIEW02_JPEG_PART",case_id,k//512,b64[k:k+512],flush=True)
+                        print("REVIEW02_JPEG_END",case_id,flush=True)
                 finally:
                     page.close()
         finally:
