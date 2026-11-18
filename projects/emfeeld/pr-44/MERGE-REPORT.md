@@ -16,6 +16,14 @@
 - PR description updated with the independent result, marked READY, then GitHub `merge_pull_request` called with **`merge_method=merge`** and exact **`expected_head_sha=e253d0acf15e7505f1da8ab95cb519b59b0d720b`**. GitHub returned merged true, actual merge commit **`57d09f2384754e0a03280af3e09295ea30dcd3a4`**.
 - Separate live GitHub reads verified PR CLOSED/MERGED and actual `main` ref **`57d09f2384754e0a03280af3e09295ea30dcd3a4`**, canonical tree **`8a4a14d70ba824e8a338add08356003e79a248bc`** (identical to independently reviewed feature and CI preview), ordered actual merge parents **[`60b6e751363d0b922a02c3a259110547b79cf25c`, `e253d0acf15e7505f1da8ab95cb519b59b0d720b`]**. No source content changed by integration.
 
+## Actual main-push separate viewer ZIP — completed audited PASS
+
+Fresh actual [main-push real-PyVista #44263814058](https://github.com/physicsvigilante/emfeeld/actions/runs/44263814058) `event=push`, exact merged `main` HEAD `57d09f2384754e0a03280af3e09295ea30dcd3a4`, **COMPLETED SUCCESS**. Downloaded original new GitHub viewer artifact **14408234578**, whole original ZIP SHA256 **`3b58304e692be373cf34dca57cccf4ef4f1f2ae4204cf3e0cf9a93a856086627`**, independently recomputed and matching GitHub digest. All **22 ZIP members** CRC-read/path-safe/unique and casefold-safe. Original `report.json`: **nine actual offscreen scene/slider cases PASS** with **17 valid original PNG files**, each SHA256 independently recomputed and matched original per-frame receipt. Original `tests.log` recorded **1,709 headless tests passed**. New original embedded `tested-source.tar` SHA256 **`b4690bad1c51d854341f4d08f5eb078a9519a1642799a6c1fb3dc53717268f25`** safely extracted and all **382 tracked source files** indexed with Git, reproducing exact independently reviewed/merged canonical Git tree **`8a4a14d70ba824e8a338add08356003e79a248bc`**. Source raw TAR bytes need not match pre-merge TAR; canonical source Git tree does. Original viewer `visual_inspection=PENDING`; programmatic offscreen PASS is not human Windows mouse/teacher visual acceptance.
+
+**Dedicated new lesson and both OS release originals still pending at this checkpoint.**
+
+---
+
 ## Actual new main-push release — PENDING at first report
 
 Three fresh workflows triggered by `event=push` on **actual merged main** SHA `57d09f...`:
