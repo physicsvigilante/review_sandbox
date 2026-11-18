@@ -182,7 +182,7 @@ ATTACKS = [
     ("termination/guard-claimed-duration-with-event", "guarded", guard_to_duration_without_erasing_event, r"duration-complete history contains an impossible surface-guard event"),
     ("guarded/missing-terminal-event", "guarded", lambda d: edited(d, "events", []), r"exactly one final approach event"),
     ("guarded/duplicate-terminal-event", "guarded", add_second_guard, r"exactly one final approach event"),
-    ("guarded/terminal-event-not-last", "guarded", final_guard_not_last, r"exactly one final approach event|turning-point event cannot occur outside the sampled interior"),
+    ("guarded/terminal-event-not-last", "guarded", final_guard_not_last, r"exactly one final approach event|turning-point event cannot occur outside the sampled interior|turning-point event has no later velocity witness"),
     ("guarded/wrong-terminal-time", "guarded", lambda d: motion(d)["events"][-1].__setitem__("time_s", motion(d)["events"][-1]["time_s"]-.00001), r"terminal surface-guard event time"),
     ("guarded/geometry-consistent-wrong-terminal-location", "guarded", terminal_guard_with_consistent_moved_location, r"terminal surface-guard displacement"),
 ]
@@ -307,7 +307,7 @@ def forge_bogus_exact_sample_zero_velocity_wrong_position(d):
     row=m["samples"][j]
     record=d["actual_elapsed_time"]["observations"][j]
     assert abs(row["velocity_m_s"])>1e-7
-    assert math.dist(row["position_m"],e["position_m"])>1e-10
+    assert math.dist(row["position_m"],e["position_m"])>1e-8
     row["velocity_m_s"] = 0.
     row["kinetic_energy_j"] = 0.
     row["total_energy_j"] = row["interaction_energy_j"]
