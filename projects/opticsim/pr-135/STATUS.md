@@ -52,3 +52,10 @@ Full Fresnel gives native/derived `available` **geometric** readings (never an o
 [**Copy-ready independent R2 Chat B prompt**](REVIEWER-PROMPT-02.md) · [**Full R2 request**](REQUEST-02.md).
 
 **Independent R2 review PENDING.** No merge, release, public observer-geometry API, single eye/pupil inference, reconstructed image or certified numerical budget. Production main still `d3509e82fb65d81aabe336666851f8f2962623f4` and unprotected #123; held #129/#131/#132/#133 and v14–v19 stay distinct.
+
+
+## Independent Chat B R2 report PUBLISHED — 18 November 2026
+
+[**Exact source independent R2 review**](reviews/review-02-chat-b.md) verified final HEAD `d6aff4e388aef982c3fc1b88039d4ac6951b4fca`, source/tested tree `afc157ed2976e937dbe9de942b05ffd205e6a083` and returned **CLEARED FOR OWNER DECISION — RESEARCH ONLY**. The original [R1 CHANGES REQUESTED](reviews/review-01-chat-b.md) remains unchanged. All three R1 findings were resolved in the bounded research: real equal-index 1→1 and 1.5→1.5 PhyDemo runs and measured detector hits (120 mm undeviated backprojection), mixed component ordering between *different* runs, and per-invocation native/warning persistence for in-scope incomplete or missed pairs. The injected suppressed-warning test is **metadata synthetic**, not a PhyDemo warning.
+
+The reviewer independently extracted recorded native positions and directions, solved line intersections, compared Git objects, inspected full test source and CI logs. **It did not independently execute Node24, PhyDemo or Chrome.** Final builder CI 802/802 tests and 11/11 workflows succeeded. Research conditioning thresholds remain **noncertifying**; early invalid-pair refusals may have an empty evidence list by design, and the second incomplete test label `complete-other` is inaccurate. No production B observable, physical eye/pupil, image, general ray pairing, owner release decision or PR merge exists. All held PRs remain unchanged.
