@@ -1,0 +1,86 @@
+name: Chat B R2-02 independent corrected conductor source science
+on:
+  push:
+    branches: [review/conductor-m36c-chatb-r2-02]
+    paths:
+      - 'projects/conductor_sim/pr-86/reviews/independent_probe_chat_b_02.py'
+      - '.github/workflows/reviewer-conductor-m36c-chat-b-02.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  novel-conductor-source-verification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout REVIEWER-owned separate branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Checkout literal immutable PRODUCTION source (never moving PR)
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 82de04484006d61f691e1e3a1344f5707729a821
+          path: source
+          persist-credentials: false
+      - name: Assert native git SHA and tree, and ORIGINAL PDF content
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p review-artifacts/conductor-m36c-chat-b-02
+          cd source
+          test "$(git rev-parse HEAD)" = "82de04484006d61f691e1e3a1344f5707729a821"
+          test "$(git rev-parse HEAD^{tree})" = "c43134db1726dc2f1ff48b0b9a560dff090bf56d"
+          git rev-parse HEAD | tee ../review-artifacts/conductor-m36c-chat-b-02/source-head.txt
+          git rev-parse HEAD^{tree} | tee ../review-artifacts/conductor-m36c-chat-b-02/source-tree.txt
+          sha256sum 02_conductors_half_size.pdf POTENTIAL_CONDUCTORS1.pdf | tee ../review-artifacts/conductor-m36c-chat-b-02/original-pdf-sha256.txt
+          printf '%s\n' '9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d  02_conductors_half_size.pdf' '8d0d9b5cf821219058cfc4b7685a39b777e460944df44c3f9cffcb68157a60e5  POTENTIAL_CONDUCTORS1.pdf' | sha256sum --check
+      - name: Install Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install genuine source backend, Chromium and page renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e ./source "playwright==1.57.0" "pymupdf>=1.24,<2"
+          python -m playwright install chromium
+      - name: Extract exact pinned original question PAGE RASTERS
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import fitz
+          folder=Path("review-artifacts/conductor-m36c-chat-b-02/source-pdf-pages")
+          folder.mkdir(parents=True,exist_ok=True)
+          for pdf,pages,name in (
+              ("source/POTENTIAL_CONDUCTORS1.pdf",[26,27,69],"notes"),
+              ("source/02_conductors_half_size.pdf",[3,9,10,14],"workbook"),
+          ):
+              doc=fitz.open(pdf)
+              for n in pages:
+                  assert 1 <= n <= len(doc), (pdf,n,len(doc))
+                  pix=doc[n-1].get_pixmap(matrix=fitz.Matrix(2,2),alpha=False)
+                  pix.save(str(folder/f"{name}-page-{n:02d}.png"))
+              doc.close()
+          print("Physical original pages rendered: 26,27,69,3,9,10,14")
+          PY
+      - name: Independent native variations, fresh Gauss/Kelvin SI, false attributions, real browser
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/source:${{ github.workspace }}/source/src
+        run: |
+          set -euo pipefail
+          python projects/conductor_sim/pr-86/reviews/independent_probe_chat_b_02.py 2>&1 | tee review-artifacts/conductor-m36c-chat-b-02/reviewer-stdout.txt
+      - name: Preserve even FIRST FAILED attempt, including source and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chat-b-r2-02-corrected-conductor-independent-science
+          path: review-artifacts/conductor-m36c-chat-b-02/
+          retention-days: 21
+          if-no-files-found: warn
