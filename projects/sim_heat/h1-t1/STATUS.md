@@ -1,3 +1,19 @@
+# SIM_HEAT H1-T1 — author first attempt sealed; selector key reveal pending
+
+**Current status:** `STAGE1-ORIGINAL-TASK-LOCKED; STAGE2-SEVEN-AUTHOR-ARTIFACTS-CAPTURED-BEFORE-VALIDATION; STAGE3-PRECOMMITTED-SELECTOR-KEY-REVEAL-REQUESTED; NO-SOURCE-FIDELITY-SCORING; NO-H1-EXECUTION; NO-NATIVE-AUTHORIZATION`.
+
+[Original independent author comment `6982616288`](https://github.com/physicsvigilante/sim_heat/issues/58#issuecomment-6982616288) was posted to Issue #58 on **2026-11-18 at 15:11:39 UTC** (`created_at=updated_at` at capture) under the `physicsvigilante` account and self-identifies as GPT-6 separate-context Chat C. Its entire original raw body is **31,793 UTF-8 bytes**, SHA-256 **`fa96e40b24fe3b039e823a78f54546bdf0ed2400e0f3b1b9519bbeb764e3c893`**, exact committed raw snapshot [`intake/FIRST_ATTEMPT_V1_COMMENT_6982616288.raw.md`](intake/FIRST_ATTEMPT_V1_COMMENT_6982616288.raw.md), blob **`9755126a25a256d8c615d0798d10868c6b1d15f2`**, creation commit `2451994acf94fa5fe4cc90af98d78fc8537e0e15`. Re-fetched GitHub original comment and snapshot text matched **exactly**. Seven labeled code blocks `S/model.mo`, `S/study.json`, `S/AUTHOR_NOTES.md`, `T/model.mo`, `T/study.json`, `T/AUTHOR_NOTES.md`, `X/REFUSAL.md` are present as a **mechanical inventory only**, with no validation or certification. At capture the issue had exactly selector comment `6981681502` then author comment `6982616288`.
+
+[TASK-LOCK-01](TASK-LOCK-01.md) remains preserved for the original selector task comment `6981681502` (full body SHA-256 `8f45ad3d4a763952e25d60658ae4d8eeae37fd266bd372b3cd80fb19b81fa2a2`), frozen **before** authoring. The original selector's **hidden, salted evaluator-key SHA256 precommit** remains **`49cc3397ae5bbbabff823e674491d9d44d8341bbd8b9556694c86f5ffffb6319`**, but the private key and salt have **not been received**.
+
+[Stage-2 author capture record](FIRST-ATTEMPT-LOCK-01.md) is complete. **Stage-3 key reveal is now authorized and the [same-selector Chat B key-reveal prompt](KEY-REVEAL-PROMPT-01.md) is published**. The selector should publish the **exact original EVALUATOR_KEY_V1 raw UTF-8 bytes as base64** in a new issue #58 comment, with original byte count and recomputed SHA256; never reconstruct a replacement post-hoc scoring key. Chat A will preserve the original reveal and verify decoded bytes against the already-published hash **before** evaluating physical source fidelity or running pinned H1 offline admission. If key unavailable or mismatch, record `UNSEALED_KEY`; do not call a newly generated key a precommitment.
+
+**Scientific and review boundaries:** no task source-fidelity assessment, original author file correction, Modelica compilation or H1 admission on T1 models has yet run. No new model result, temperatures, flows, native data, original C1 frozen evidence change, deployment or source code PR. Existing original six diagnostic records remain `diagnostic_only/nativeQualified=false`; any new source-only public observations stay `not_computed`. Plan **one consolidated independent evidence review after the evaluation**, not another code review of R0 capture or each model file. Fresh native execution remains prohibited absent a separate explicit owner authorization.
+
+---
+
+## Previous pre-first-attempt status (historical)
+
 # SIM_HEAT H1-T1 — Stage 1 selector tasks sealed; Stage 2 author handoff ACTIVE
 
 **Current state:** `STAGE1-SELECTOR-TASK_SET_V1-CAPTURED-AND-HASHED; STAGE2-INDEPENDENT-AUTHOR-HANDOFF-READY; FIRST_ATTEMPT-NOT-YET-RECEIVED; KEY-WITHHELD; NO-VALIDATION-OR-NATIVE-EXECUTION`.
