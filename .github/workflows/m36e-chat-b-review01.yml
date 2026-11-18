@@ -50,6 +50,7 @@ jobs:
       - name: Execute fresh reviewer-authored original physics, browser and hostile probes ONCE
         working-directory: source
         run: |
+          set -euo pipefail
           PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-88/reproductions/chat-b-review01.py --source-dir "$PWD" --output-dir ../review-evidence | tee ../review-evidence/chat-b-console.log
       - name: Preserve real screenshots and first-attempt science results on review branch only
         if: always()

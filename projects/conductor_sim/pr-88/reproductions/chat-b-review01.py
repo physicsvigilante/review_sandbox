@@ -191,6 +191,7 @@ def physical_pdf_page(source_root, output):
         text = page.get_text()
         pix = page.get_pixmap(matrix=fitz.Matrix(1.0, 1.0), alpha=False)
         from PIL import Image
+        (output/"reviewer-thumbs").mkdir(parents=True, exist_ok=True)
         with Image.open(io.BytesIO(pix.tobytes("png"))) as im:
             im.thumbnail((1000, 1500))
             im.convert("RGB").save(output/"reviewer-thumbs"/"original-pdf-page26.jpg",
