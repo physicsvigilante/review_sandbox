@@ -1,0 +1,91 @@
+name: M36e Chat B independent exact-head R2-02 browser physics and forgery review
+on:
+  push:
+    branches:
+      - review/chat-b-m36e-pr88-r2-02
+    paths:
+      - ".github/workflows/m36e-chat-b-r2-review02.yml"
+      - "projects/conductor_sim/pr-88/reproductions/chat-b-r2-review02.py"
+permissions:
+  contents: write
+jobs:
+  truly-independent-source-pinned:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout reviewer-owned review_sandbox code
+        uses: actions/checkout@v4
+        with:
+          path: reviews
+          persist-credentials: true
+      - name: Checkout production exact source HEAD; do not follow branch
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 69d740c82b3b79877389da1433cef2bc9a25bdb1
+          path: source
+          persist-credentials: false
+      - name: Python 3.12 for reproducible source exercise
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify literal HEAD and native Git tree BEFORE any physics work
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          mkdir -p ../review-evidence
+          git rev-parse HEAD | tee ../review-evidence/verified-head.txt
+          git rev-parse HEAD^{tree} | tee ../review-evidence/verified-tree.txt
+          test "$(git rev-parse HEAD)" = "69d740c82b3b79877389da1433cef2bc9a25bdb1"
+          test "$(git rev-parse HEAD^{tree})" = "60b4f21aa88a2031ec50c5d1e7c15a5135a7becf"
+          sha256sum POTENTIAL_CONDUCTORS1.pdf 02_conductors_half_size.pdf | tee ../review-evidence/pdf-hashes.txt
+      - name: Install source solver and real browser/PDF rendering dependencies
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e ".[test]" "playwright==1.57.0" "Pillow>=11.0" "PyMuPDF>=1.26"
+          python -m playwright install chromium
+      - name: Generate fresh physical SOLID source and teacher JSON and HTML
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python -m tools.m36d_true_solid_sphere --output-dir ../review-evidence
+      - name: Run original reviewer-owned independent SI, browser and FIRST hostile tests
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-88/reproductions/chat-b-r2-review02.py \
+            --source-dir "$PWD" --output-dir ../review-evidence \
+            2>&1 | tee ../review-evidence/reviewer-console.log
+      - name: Preserve first attempt results and reviewer screenshot thumbnails in review_sandbox
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="reviews/projects/conductor_sim/pr-88/evidence-r2-02"
+          mkdir -p "$target"
+          for f in review-evidence/verified-head.txt review-evidence/verified-tree.txt \
+            review-evidence/pdf-hashes.txt review-evidence/review-02-first-attempt.json \
+            review-evidence/reviewer-console.log review-evidence/p26-extracted.txt; do
+            if test -f "$f"; then cp "$f" "$target/"; fi
+          done
+          find review-evidence -maxdepth 1 -type f -name "*.jpg" -exec cp {} "$target/" \;
+          git -C reviews config user.name "github-actions[bot]"
+          git -C reviews config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C reviews add projects/conductor_sim/pr-88/evidence-r2-02/
+          if ! git -C reviews diff --cached --quiet; then
+            git -C reviews commit -m "review R2-02: retain source-pinned original first-attempt browser and SI evidence"
+            git -C reviews push origin HEAD:review/chat-b-m36e-pr88-r2-02
+          fi
+      - name: Always retain full unmodified evidence/screenshots as downloadable artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m36e-chat-b-independent-r2-review02-first-attempt
+          path: review-evidence/
+          retention-days: 30
+          if-no-files-found: warn
