@@ -1,0 +1,45 @@
+# Opticsim PR #164 — one independent JEE planar + native v19 integration review
+
+**REVIEW ONLY. DO NOT MERGE.** This is one cross-feature integration safety gate after both constituent source branches were independently reviewed and the combined exact tree passed all builder checks. Please concentrate on potential new interactions, not re-reviewing unchanged optical code from scratch.
+
+## 1. Exact frozen identity and source provenance
+
+- [Draft PR #164](https://github.com/physicsvigilante/opticsim/pull/164), **HEAD 58ec0c237950d71e7b93b9b1639a52ada243e262**, Git tree **f371366765c8aa96029a0b29d6ae3f770e9b0eb2**.
+- Main-based single-parent commit from **d3509e82fb65d81aabe336666851f8f2962623f4**. No held source PR was merged or rewritten.
+- GitHub Actions synthetic merge **fae01061165da6f9c1113caeff0d9404595da1df**, identical Git tree **f371366765c8aa96029a0b29d6ae3f770e9b0eb2**, ordered parents [main, exact PR #164 HEAD]. Check the raw Git objects.
+- Main-to-HEAD diff: **33 changed paths, 25 added, 8 existing modified, no deletions**.
+- Of those, exactly **13 unchanged Git blobs** come from reviewed PR #161, tree **1b2caf6186c8eaf678963238d2292001b2fa9667**, and **18 unchanged Git blobs** from reviewed PR #141, tree **39884a78ec265a77dc18877a838b937103998160**. The builder compared actual blob IDs: **31/31 identical** to their respective source trees. There is **no overlapping changed path** between PR #161 and PR #141. Reviewer should independently verify.
+- Two rehearsal-only files: test/jee-planar-parallel-v19-integration-rehearsal.test.mjs and docs/JEE-PLANAR-PARALLEL-V19-REHEARSAL.md. Their contents are new and need review. The eight existing source/workflow modifications originate byte-for-byte from PR #141: .github/workflows/opticsim-ci.yml, src/adapter.js, src/app.js, src/authoring.js, src/composition-profiles.js, src/contract.js, src/observables.js, test/composition-profiles.test.mjs.
+
+## 2. Original independently cleared (but UNMERGED) scopes
+
+[PR #161 — planar JEE core](https://github.com/physicsvigilante/opticsim/pull/161), exact HEAD **09ad081a34ced0fa969affc1bf54766cabffb04a**, [independent Chat B review](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-161/reviews/review-01-chat-b.md) **CLEARED FOR OWNER DECISION, no P0/P1**. It adds (A) explicit finite-angle one-plane apparent-depth analysis, (B) source+observer-position one-plane conditional analytical Snell ray, and (C) separately fully authored opt-in *real native* SingleRay/PlaneGlass/passive detector sampled-arrival witness. A/B always label native 'not-run'. C reports genuine finite-detector hits or qualified measured zeros, or refuses stale/incomplete/contradictory native evidence; it never reconstructs a perceived image, eye or arbitrary ray history.
+
+[PR #141 — JEE v19 native parallel Beam](https://github.com/physicsvigilante/opticsim/pull/141), HEAD **6d6d6b213fedb6f028cd1ffef241aef239d37c62**, [independent targeted Chat B R3](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-141/reviews/review-01-chat-b.md) **CLEARED FOR OWNER DECISION, no P0/P1 in the corrected topology policy**, with [original independently reviewed v19 PR #127](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-127/reviews/review-01-chat-b.md). It registers explicit finite-width native Beam sampling for bounded ideal thin lens/pre-lens aperture and supported planar slab apparatus. Post-lens finite aperture remains conservatively refused when refracted-corner clearance cannot be certified; reverse ±180-degree and inside/reversed slab controls retain native evidence. This is sampled native light, NOT continuous irradiance, physical image or general source ancestry.
+
+Older adverse verdicts on earlier, different source SHAs remain historically accurate. No source review permits merging PR #141, #161 or #164.
+
+## 3. Focused cross-feature physics and integrity checklist
+
+1. **Canonical version isolation:** Inspect how PR #141 changes adapter, contract, authoring, observables, composition profiles and app. Does schema v19 Beam registration leave the independently qualified v5 SingleRay one-plane native witness and analytic-only entry points correct, without silently admitting Beam as point-source or changing older native detectors?
+2. **Actual native evidence:** Verify v19 Beam uses genuine pinned PhyDemo output and an actual finite aperture absorbs native rays before the ideal lens and passive Detector records real callback positions. Confirm counts/complete event lists, genuine measured zeros vs missing evidence, Fresnel warnings and incomplete/stale native runs still fail closed. A measured finite Detector sample is NOT a perceived image or continuous power/PSF.
+3. **Post-lens ambiguity and negative controls:** Recompute a post-lens aperture/corner example and check the refusal remains unconditional and sign-correct at the admitted source/lens 0.01-mm boundary and reverse ±180-degree ordering. No unsupported Beam + arbitrary mixed system is released.
+4. **New cross-contract analytical test:** A new test passes B's computed signed incident angle into A's explicitly finite-angle query and compares conditional first interface crossing and mathematical virtual-axis point/depth in **30 cases**: oriented normals 0, +90, −90, 180, 37 degrees × two signed tangential displacements × mm/cm/m. Both independent analytical results must keep native 'not-run' and image false. Independently recompute a representative rotated/signed result.
+5. **New combined genuine native test:** Actual pinned v19 Beam + pre-lens aperture + ideal lens + finite detector yields **8 emitted, 6 absorbed, 2 actual detector crossing/hit events**. The separate observer-side analytical query stays native 'not-run'. The test does NOT claim Beam and v5 SingleRay were in one optical scene, nor transfer Beam's detector samples into an analytical virtual image.
+6. **Workflow/scope:** PR141 changes only the optical-composition workflow's v19 native/browser acceptance steps; ensure all existing required Node/real-Chrome/native checks remain. PR #162 CI-trigger improvement is EXCLUDED. Production main protection remains separate under issue #123.
+7. **Exact test provenance:** Verify raw Git commit/tree/checkout identities and decoded CI logs rather than trusting green badges. Distinguish builder native/Chrome executions from independent reviewer math/source analysis. Synthetic mutation controls are NOT optical events produced by PhyDemo.
+
+## 4. Combined exact-head builder evidence
+
+At exact PR #164 HEAD/tree, **860/860 Node tests passed and 11/11 standard GitHub Actions workflows completed SUCCESS** on the COMBINED source tree.
+
+- [Optical composition run #44344350702](https://github.com/physicsvigilante/opticsim/actions/runs/44344350702), job **134942601780**: 860/860 Node, JEE_PARALLEL_BEAM_PUBLIC_ACCEPTANCE **7 total cases** (4 native complete, 1 incomplete, 2 refused), JEE_PARALLEL_BEAM_CHROME **11 checks/6 screenshots**. Ordinary Chrome acceptance **27 checks/15 screenshots** and hosted smoke **5 checks/1 screenshot**, Chrome 157.0.8103.50. The actual v19 extra native/browser steps run successfully, not silently skipped.
+- [Plane-mirror workflow #44344351018](https://github.com/physicsvigilante/opticsim/actions/runs/44344351018), job **134942602796**: 860/860 Node, markers JEE_PLANAR_V19_ANALYTIC_CROSS_CONTRACT (**30 cases**), JEE_PLANAR_V19_NATIVE_COEXISTENCE (**8/6/2 native ray counts; two genuine hit events**) and passing explicit post-lens aperture refusal.
+- [Planar refraction run #44344350795](https://github.com/physicsvigilante/opticsim/actions/runs/44344350795) also completed SUCCESS, including native/browser composition. Other eight workflows were successful. This is **builder CI**, not independently rerun pinned PhyDemo/Chrome.
+- Separate frozen PR #161 CI passed 832/832 and 11/11; frozen PR #141 CI passed 815/815 and 11/11. Do not substitute their separate status for the new combined CI.
+
+## 5. Independent verdict and release limits
+
+Publish exactly ONE report at **projects/opticsim/pr-164/reviews/review-01-chat-b.md**, including reviewed exact HEAD/tree, source blob provenance, new integration physics/safety analysis, any P0/P1/nonblocking issues, evidence boundary and verdict **CLEARED FOR OWNER DECISION / CHANGES REQUESTED / INSUFFICIENT EVIDENCE**. If blocking, give a reproducible defect; if clear, this is still only a **review-only integration rehearsal**, not automatic release authorization.
+
+Original PR #161 and PR #141 must remain draft/unmerged. Branch-protection [issue #123](https://github.com/physicsvigilante/opticsim/issues/123) is OPEN and main is not yet confirmed protected. An explicit **separate owner merge decision** and effective main protection are required for ANY production integration. This rehearsal does NOT certify excluded thick-lens v14–v18, detector footprint, perceived images or arbitrary mixed optical routes. Do not edit Opticsim source, merge, deploy or rewrite older reviews.
