@@ -29,3 +29,16 @@
 ## Final lexical-hash portability hardening — 2026-11-18
 
 Source HEAD now `936f7d8bca9af0db950ab258e6df2f0e3a37914a`, Git tree `182a8c51dfcc9cd618e9d92f25ea0d5cb49edc30` identical to tested synthetic merge `7970f61daea3e13789f801a82626e95bfc8ef471`. The new B1a plan uses fixed code-unit lexical order (instead of ICU-locale-dependent collation) for portable component-ID family canonicalization. A new source test runs genuine native rays with non-default stable IDs and reversed authored component ordering. **All modifications remain within the five newly added B1a files**, no old frozen source or native pin changed. The previous source `26131c305d2240c394edcc672b7578e615bc4f0b` passed **809/809 Node tests and 11/11 workflows**; this is separate historical evidence, not automatic final-source clearance. Verify exact-HEAD final CI before independent review.
+
+
+## Final exact-source builder CI verified — 18 November 2026
+
+**Source HEAD `936f7d8bca9af0db950ab258e6df2f0e3a37914a`, tree `182a8c51dfcc9cd618e9d92f25ea0d5cb49edc30`** matches synthetic CI merge `7970f61daea3e13789f801a82626e95bfc8ef471` tree with production main `d3509e82fb65d81aabe336666851f8f2962623f4` as first parent. Final diff is **exactly five newly added files**, no `src/` existing files modified and historical frozen CLI remains original blob `2efecbf3eddcd9322782cc1667b02fe495fd4fa8`.
+
+**810/810 Node24.19.0 tests PASS and 11/11 workflows SUCCESS**, pinned native PhyDemo `811f508d2b070898c241a568b0c167dcb8645251`, recorded in [raw native run #44254113527](https://github.com/physicsvigilante/opticsim/actions/runs/44254113527) and existing [native/Chrome regression #44254113567](https://github.com/physicsvigilante/opticsim/actions/runs/44254113567). Exactly 20 new B1a tests include real native CLI two-run positive, finite 2/5/10 mm, equal indices, reversed/rotated/unit/ordering, Fresnel qualified, TIR/aimed-away/shifted misses, duplicate nested JSON, wrong/extra/missing facts, old CLI immutability, stale/forged-native/uncaptured suppression, async input snapshot, 0/1/2 executor failure counters and SHA manifest tamper checks. Passing existing Chrome checks demonstrate **legacy compatibility only**, not a new B1a browser interface.
+
+**Real emitted evidence** is logged in the tagged `[b1a-native-hit-evidence]` record: full Fresnel 1.5→1, two separate headings ±0.5°, actual finite native detector hits y≈±1.5708611274685678 mm at x=40; incoming unit vectors match actual PhyDemo transmitted first branches, one emitted and one crossing each, distinct scene SHA values. The public result is `native-hits-reported` while `geometry.value:null` and image/observer **not assessed**. No B1b mathematical image position is released. The first real cm/m length-validation test failure (803/804) and subsequent fixed 804/804 and 809/809 milestones are retained, not retroactively erased.
+
+[**Detailed independent review with final raw CI pointers**](REQUEST.md) · [**copy-ready Chat B prompt**](REVIEWER-PROMPT-01.md).
+
+**Independent source/physics review PENDING.** This is builder CI, not independent PhyDemo execution. Draft PR #138 remains unmerged; production `main` unchanged and unprotected (#123). Held #129/#133/#135/#137 stay independent; no eye/image or B1b numerical location claim.
