@@ -1,5 +1,13 @@
 # PR #44 — JEE 3D conductor cavity status
 
+## NEW-CONTEXT HANDOFF — original Chat B conversation unavailable (2026-11-18)
+
+The owner reports that the previous Chat B conversation has disappeared and cannot receive follow-up messages. The original [Chat B review-01](reviews/review-01-chat-b.md) remains published, immutable and **INSUFFICIENT EVIDENCE**; its original **42 physics/state +15 native-VTK tests** remain attributed ONLY to that old conversation. The original graphics blocker R2-B01 is not closed. Current PR #44 source is unchanged at `e253d0acf15e7505f1da8ab95cb519b59b0d720b`, tree `8a4a14d70ba824e8a338add08356003e79a248bc`, prior main `60b6e751363d0b922a02c3a259110547b79cf25c`, and **DRAFT / UNMERGED**.
+
+**A NEW fresh independent Chat B context may take over the missing real-PyVista review gate**, not impersonate the original Chat B or claim to have executed prior tests. [New-context independent reviewer handoff](REVIEWER-HANDOFF-NEW-CHAT.md) gathers the original review, full focused requirements, pinned original source artifact **14401692570** SHA256 `33059d044eb2b8ce824ecd6c7b65e3e05033b2fd30ca1f77676cd2f8e0437367`, and the original author-provisioned isolated PyVista runtime artifact **14406007331** SHA256 `2f51d4a7aa4ef2a5d722627a6b3707c6e8efaef3bc486ab47675574df3d01295`. These two original artifacts are also supplied byte-unchanged inside a user handoff ZIP; new reviewer MUST independently hash original bytes and run its own production live controls/screenshot/source tests. A **new attributed independent verdict** in `reviews/review-02-chat-b.md` is still mandatory and has **not** occurred. No merge, release or teacher/human Windows acceptance is implied.
+
+---
+
 ## CURRENT — independent review-01 INSUFFICIENT EVIDENCE; offline PyVista continuation ready
 
 **18 November 2026: DRAFT / UNMERGED.** Exact candidate remains **`e253d0acf15e7505f1da8ab95cb519b59b0d720b`**, tree **`8a4a14d70ba824e8a338add08356003e79a248bc`**, main/base **`60b6e751363d0b922a02c3a259110547b79cf25c`**. No candidate or main source change was made after the review.
