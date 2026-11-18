@@ -1,0 +1,64 @@
+name: M36b PR85 reviewer-correction source-pinned smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/m36b-pr85-correction-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-correction:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 524a6e07f17cd8bf53eaeec543031f1ec7bbb9eb
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert literal source HEAD and TREE and install library
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "524a6e07f17cd8bf53eaeec543031f1ec7bbb9eb"
+          test "$(git rev-parse HEAD^{tree})" = "c7c411d5602ada9db0f3b867c19ec4da6d317f6b"
+          mkdir -p ../evidence
+          git rev-parse HEAD > ../evidence/source-commit.txt
+          git rev-parse HEAD^{tree} > ../evidence/source-tree.txt
+          python -m pip install -e ".[test]"
+      - name: Run new source-case and teacher-transfer actual physics regressions
+        working-directory: source
+        run: |
+          python -m pytest tests/test_m36b_jee_replays.py tests/test_m36b_transfer.py -q --junitxml=../evidence/m36b-correction-pytest.xml | tee ../evidence/test-stdout.txt
+      - name: Export all seven source-anchored native and static cases
+        working-directory: source
+        run: python -m tools.m36b_jee_replay --output-dir ../evidence/replays
+      - name: Verify source outputs with independent-form source-free reference
+        working-directory: source
+        run: python -m tools.m36b_jee_reference --input ../evidence/replays/native-replays.json --output ../evidence/independent-source-reference.json
+      - name: Execute three reviewer-proposed actual new teacher physical variations
+        working-directory: source
+        run: python -m tools.m36b_transfer --output ../evidence/actual-teacher-transfers.json
+      - name: Verify teacher variations with no-production-import reference
+        working-directory: source
+        run: python -m tools.m36b_transfer_reference --input ../evidence/actual-teacher-transfers.json --output ../evidence/independent-teacher-reference.json
+      - name: Retain true original failed or successful outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m36b-pr85-correction-evidence
+          path: evidence/
+          retention-days: 21
+          if-no-files-found: warn
