@@ -36,6 +36,18 @@ Opened original six scene sets: **off-centre, centred, grounded, negative ground
 
 ---
 
+## Actual-main Ubuntu clean-install original ZIP — completed source/native audit PASS
+
+Fresh actual [main-push Linux/Windows run #44263814010](https://github.com/physicsvigilante/emfeeld/actions/runs/44263814010), Ubuntu 24.04 job **COMPLETED SUCCESS** on actual merged commit `57d09f2384754e0a03280af3e09295ea30dcd3a4`. Original **Ubuntu artifact 14410350170**, whole original ZIP SHA256 **`a62b320f053d73724c06737ad453b1e0fea83ebfe37d7d5807f38c9f11e7234b`**, independently rehashed and matched GitHub original artifact digest. All **2,186 original ZIP members** path-safe, casefold unique and CRC-clean; original `head-sha.txt` equals actual main merge, not old PR preview. Direct original logs record **1,709 headless +18 historical (one obsolete guard deselected) +37 real-PyVista passed**.
+
+Independently opened and verified all **173 original integrity inventories / 1,750 referenced file hashes**: **1,749 match**, and the one deliberate corrupted `derived-001/G1/review-challenge-resealed-native/native/integrity.json` result is **correctly rejected / EXPECTED NEGATIVE — NOT VALIDATED EVIDENCE**, not silently repaired or counted as an intact sealed root. Original Physics Demonstration **17/17 actual named native observations and 64/64 analytic checks** pass; **all 32 engine Python source SHA256 receipts** independently recomputed from the new actual-main viewer source Git tree. Original developer gravity source/packet raw SHA256 `36f56dcc.../` `6fe25bf6...`, **five actual named native `ok`** results, and non-blind NASA source/packet hashes `cd797751.../` `f8621106...`, one saved physical speed `ok` were independently linked to original frozen question/packet/native JSON/assessment receipts (exact hashes in the final machine audit). Separate interpretation/independent physics/teacher `not_verified/not_evaluated` statuses remained honest. Signed **E1 complete 10 ok** and **G1 partial 7 ok +1 unavailable/unknown_operand/null** preserved.
+
+**Original first author OS auditor's mistaken assumptions are retained**: it initially required `integrity.json` to have no metadata besides `files`, but genuine nested native manifests include `scene_sha256`; its initial gravity request-ID expectation omitted the actual `total_energy_` prefix. The audit-only script was corrected to match the untouched original documented bytes, and the complete archive/source/native check then PASSED. No source, original ZIP, field law, tolerance or evidence was altered to fit an incorrect audit. This is author qualification, not independent reviewer execution.
+
+**Windows original actual-main job/ZIP is still pending.**
+
+---
+
 ## Actual new main-push release — PENDING at first report
 
 Three fresh workflows triggered by `event=push` on **actual merged main** SHA `57d09f...`:
