@@ -1,3 +1,21 @@
+# SIM_HEAT PR55 — independent source R2 and current-base CI R1 both passed
+
+**Current status:** `SOURCE-R2-REVIEW04-SCOPED-PASS; CI-R1-REVIEW05-SCOPED-PASS; CHAT-A-ACCEPTED; AWAITING-SEPARATE-OWNER-PR55-MERGE-APPROVAL; DRAFT-UNMERGED; NATIVE-HOLD`.
+
+Independent [Chat B review-05](reviews/review-05-chat-b.md), original Git blob **`53aa37edb02a273a88255d802e8c007ca563ca4a`**, completed **SCOPED PASS** for the **current CI-only workflow correction**, pinned to exact source PR55 HEAD `47edc006c459d403a16c54ffd63a33f6a6956999`, tree `da5b2ed60dacc2ee2e01d14baf366a3eb89f610e`. [Chat A response-03](responses/response-03-chat-a.md) accepts that bounded verdict; no independent report file was edited. Source production behavior remains covered by [review-04](reviews/review-04-chat-b.md) R2 **SCOPED PASS** at earlier source HEAD `1383a06...`: between that source review and current head **only the source-preview CI workflow file changed**, not physics/provenance/viewer production code. Review-01/02/03 remain historical **CHANGES REQUESTED** for OLD original SHA. No repeated identical review requested on unchanged current head.
+
+**Actual checkout and tests:** Current main `7a80bd9c85d67b3a2e353d2a0702c8c5594c20dc` (PR56 owner-approved integrated). Actual PR55 synthetic merge SHA `ff3b421d60642427432e7477153263940f6b1729`: ordered parents `HEAD^1 = 7a80bd9...`, `HEAD^2 = 47edc006...`, strict current-base diff **exactly the original 14 source-preview additions** and protected physics/reference paths unchanged. [Push CI 44287688196](https://github.com/physicsvigilante/sim_heat/actions/runs/44287688196) SUCCESS, **281 PASS / one optional SKIP**. [PR CI 44287695317](https://github.com/physicsvigilante/sim_heat/actions/runs/44287695317) SUCCESS, **284 PASS / one optional SKIP**, plus three PR56 tests already on main; overlapping totals, not additive. [Audit-core CI 44287695288](https://github.com/physicsvigilante/sim_heat/actions/runs/44287695288) SUCCESS. Six original native diagnostic archive outputs `BYTE_IDENTICAL` on replay, `nativeExecutedByReplay=false`, comparison unchanged; source-only preview `not_computed`; hosted real Chromium original explorer/source inspector, forged import refusals, component/provenance and race checks PASS. Reviewer personally checked Git negative probes and archive/historical hashes; full hosted tests and browser were **inspected** rather than independently rerun.
+
+**Original failed first attempts preserved:** CI-only initial [44287156069](https://github.com/physicsvigilante/sim_heat/actions/runs/44287156069) FAILED due stale PR-event base despite new synthetic merge first parent; original unrelated product-entry [44272592968](https://github.com/physicsvigilante/sim_heat/actions/runs/44272592968) FAILED and remains failed. Current CI does not retroactively turn either into PASS.
+
+**Merge boundary:** [PR55](https://github.com/physicsvigilante/sim_heat/pull/55) is still **draft/unmerged**. Its source-specific R2 and current-head CI R1 are accepted, but **an independent review is NOT an owner merge approval**; user's "review done" only triggered retrieval. Before any production integration: explicit owner permission, live main/PR55 source/current checks, GitHub normal merge gate and post-merge evidence receipt. Main GitHub branch metadata publicly says unprotected/required-status enforcement off; detailed endpoint remains forbidden to integration, so no exhaustive policy guarantee. [PR54](https://github.com/physicsvigilante/sim_heat/pull/54) remains separately draft/unmerged; reconcile its docs-CI workflow with merged PR56 in a new exact-head reviewed candidate before any PR54 approval.
+
+No OpenModelica query/install/build/launch, new native runtime, frozen/adopted reference regeneration, C1 historical branch integration, deployment, original archive mutation or promotion of `diagnostic_only/nativeQualified=false` readings. C1 historical F0 fails and nine uncomputed public native requests remain unchanged. TEACH_SPLIT3's four source-only requests remain `not_computed`.
+
+---
+
+## Previous status (historical at pending review05)
+
 # SIM_HEAT PR55 — corrected source-preview R2 passed; current-base CI R1 pending
 
 **Current status:** `SOURCE-R2-REVIEW04-SCOPED-PASS; PR56-MERGED; PR55-CI-ONLY-FIX-VERIFIED; AWAITING-CI-R1-REVIEW05; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
