@@ -1,0 +1,126 @@
+name: Conductor PR89 Chat B R2 corrected-source independent science
+
+on:
+  push:
+    branches: [review/conductor-pr89-r2-20261118]
+    paths:
+      - '.github/workflows/conductor-pr89-chat-b-02.yml'
+      - 'projects/conductor_sim/pr-89/reviews/challenge_r2.py'
+      - 'projects/conductor_sim/pr-89/reviews/r2_kelvin_oracle.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  independently-retest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONPATH: ${{ github.workspace }}/source/src:${{ github.workspace }}/source
+      EVIDENCE: ${{ github.workspace }}/review/projects/conductor_sim/pr-89/reviews/evidence/r2-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout fresh independent reviewer branch
+        uses: actions/checkout@v4
+        with:
+          path: review
+      - name: Independently checkout exact corrected production commit (read-only)
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: adfe9098742c663e9f4132c3e29e86dddf7ecc1e
+          fetch-depth: 0
+          persist-credentials: false
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert native Git TREE, live PR HEAD, and draft release boundary
+        id: identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$EVIDENCE"
+          {
+            echo "native head: $(git -C source rev-parse HEAD)"
+            echo "native tree: $(git -C source rev-parse 'HEAD^{tree}')"
+          } | tee "$EVIDENCE/native-identity.txt"
+          test "$(git -C source rev-parse HEAD)" = "adfe9098742c663e9f4132c3e29e86dddf7ecc1e"
+          test "$(git -C source rev-parse 'HEAD^{tree}')" = "43f8ebae4937eacc25143fdace324115edcfb2d0"
+          gh api repos/physicsvigilante/conductor_sim/pulls/89 > "$EVIDENCE/pr-live.json"
+          python - "$EVIDENCE/pr-live.json" <<'PY'
+          import json,sys
+          p=json.load(open(sys.argv[1]))
+          assert p['head']['sha']=='adfe9098742c663e9f4132c3e29e86dddf7ecc1e', 'STALE HEAD: ABORT'
+          assert p['draft'] and p['state']=='open' and not p['merged'], 'PR release boundary moved'
+          print('LIVE PR IS EXACT CORRECTED SHA, DRAFT AND UNMERGED')
+          PY
+          git -C source status --porcelain --untracked-files=no > "$EVIDENCE/source-worktree.txt"
+          test ! -s "$EVIDENCE/source-worktree.txt"
+      - name: Execute independent Kelvin oracle and hostile replay + novel challenges
+        id: science
+        shell: bash
+        run: |
+          set -euo pipefail
+          python review/projects/conductor_sim/pr-89/reviews/challenge_r2.py source "$EVIDENCE" 2>&1 | tee "$EVIDENCE/science-first-attempt.log"
+      - name: Live exact-head CI inventory (distinct from scientific approval)
+        if: always() && steps.identity.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/physicsvigilante/conductor_sim/actions/runs?head_sha=adfe9098742c663e9f4132c3e29e86dddf7ecc1e&per_page=100" > "$EVIDENCE/ci-live.json"
+          python - "$EVIDENCE/ci-live.json" <<'PY' | tee "$EVIDENCE/ci-live-summary.txt"
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          runs=d['workflow_runs']
+          assert len(runs)==d['total_count'], 'CI pagination incomplete'
+          print('RUN_COUNT',len(runs))
+          for r in runs:
+              print(r['id'],r['event'],r['name'],r['status'],r['conclusion'])
+          assert len(runs)>=25,'fewer than released required workflows'
+          assert all(r['head_sha']=='adfe9098742c663e9f4132c3e29e86dddf7ecc1e' and
+                     r['status']=='completed' and r['conclusion']=='success' for r in runs)
+          required=['FEMM 5 real-solver validation','M37a grounded-sphere wire-current science and SI export audit',
+                    'M36e actual JEE solid-source answers and real Chromium integrity','Python checks']
+          assert all(any(r['name']==n for r in runs) for n in required)
+          assert sum(r['event']=='push' for r in runs)>=2
+          print('EXACT-HEAD LIVE CI ALL SUCCESS; INDEPENDENT SCIENCE RESULT SEPARATE')
+          PY
+      - name: Original workbook native PDF identity and p8/p17 rasters
+        if: always() && steps.identity.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pdftoppm >/dev/null; then
+            sudo apt-get update && sudo apt-get install -y poppler-utils
+          fi
+          git -C source ls-files -s 02_conductors_half_size.pdf > "$EVIDENCE/original-pdf-blob.txt"
+          sha256sum source/02_conductors_half_size.pdf > "$EVIDENCE/original-pdf-sha256.txt"
+          pdfinfo source/02_conductors_half_size.pdf > "$EVIDENCE/original-pdf-info.txt"
+          pdftoppm -f 8 -l 8 -scale-to 2200 -singlefile -png source/02_conductors_half_size.pdf "$EVIDENCE/source-p08"
+          pdftoppm -f 17 -l 17 -scale-to 2200 -singlefile -png source/02_conductors_half_size.pdf "$EVIDENCE/source-p17"
+          git -C source status --porcelain --untracked-files=no > "$EVIDENCE/source-worktree-after.txt"
+          test ! -s "$EVIDENCE/source-worktree-after.txt"
+      - name: Keep independent first-attempt evidence on review branch even if red
+        if: always() && steps.identity.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd review
+          git config user.name 'Chat B independent R2 evidence'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add projects/conductor_sim/pr-89/reviews/evidence/
+          if ! git diff --cached --quiet; then
+            git commit -m "review(conductor-pr89): keep independent R2 run $GITHUB_RUN_ID attempt $GITHUB_RUN_ATTEMPT even if failed"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+      - name: Upload full reviewer results and PDF source evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr89-chat-b-r2-independent-first-attempt
+          path: ${{ env.EVIDENCE }}
+          if-no-files-found: error
