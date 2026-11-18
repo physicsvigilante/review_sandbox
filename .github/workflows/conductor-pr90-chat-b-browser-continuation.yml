@@ -1,0 +1,57 @@
+name: conductor PR90 Chat B scoped browser continuation
+on:
+  push:
+    branches: ['review/conductor-pr90-chat-b-01']
+    paths:
+      - '.github/workflows/conductor-pr90-chat-b-browser-continuation.yml'
+      - 'projects/conductor_sim/pr-90/reviews/browser_continuation_01.py'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  corrected-browser-observer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 155b0544684d3d880a83a661cc8e14a0ce22f26b
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: conductor-pr90-chat-b-review-01-first-execution
+          run-id: 44352091700
+          github-token: ${{ github.token }}
+          path: first
+      - name: Install same browser runtime
+        run: |
+          set -euo pipefail
+          python -m pip install 'playwright==1.57.0'
+          python -m playwright install chromium
+      - name: Scoped continuation without production changes
+        working-directory: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p ../continuation
+          git -C ../reviewer rev-parse HEAD > ../continuation/reviewer-head.txt
+          cp ../reviewer/projects/conductor_sim/pr-90/reviews/browser_continuation_01.py ../continuation/
+          python -u ../reviewer/projects/conductor_sim/pr-90/reviews/browser_continuation_01.py ../first ../continuation 2>&1 | tee ../continuation/execution.log
+      - name: Preserve supplemental evidence separately from first failed execution
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr90-chat-b-scoped-browser-continuation
+          path: continuation/
+          if-no-files-found: error
+          retention-days: 30
