@@ -60,3 +60,12 @@ P2: per-readout warnings/reasonCode absent in some negative baseline observable 
 - [**Copy-ready Chat B R2 prompt**](REVIEWER-PROMPT-02.md) · [**Detailed R2 review with exact tested source, native evidence and P1 counterexample**](REQUEST-02.md).
 
 **Independent Chat B R2 source/physics review PENDING.** No PR merged or released, main unchanged/unprotected issue #123. Held #129/#133/#135/#137 and future B1b numerical-stress gating remain separate.
+
+
+## Independent R2 source clearance published — 18 November 2026
+
+[**Chat B PR138 second-pass review**](reviews/review-02-chat-b.md) examined **exact source HEAD `98c410692d9478068d26591304d8a4b4ab00a817`**, tree `fdbc02adff1dc539ebda2fd72027a65d32a54e21`, same tested CI merge tree, and returned **CLEARED FOR OWNER DECISION — B1a SOURCE ONLY**. P1 swapped/rehash native/readout association gap fixed. Reviewer independently inspected source/raw Git/native/Chrome logs and recomputed Snell scalar optics but **did not independently rerun native, Node24 or Chrome**. Builder evidence 817/817 tests, 11/11 workflows at final unchanged source.
+
+**Nonblocking P2:** semantic verification binds full selection-bearing native summary/readouts/scenes and report but does not exhaustively reconcile ancillary `native-[A/B].report` diagnostic redundancy. **Do not claim** digital signatures or independently authenticated native origin. Test-injected execution is explicitly non-authoritative. R1 CHANGES REQUESTED at original source remains a correct preserved separate review. B1a draft #138 still **UNMERGED/NOT RELEASED**; source head unchanged, main still unprotected #123.
+
+Next proposed work is a **separate, preregistered B1b numerical stress feasibility**; no public backintersections or eye/image claims were released by this review.
