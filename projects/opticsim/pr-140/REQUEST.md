@@ -1,0 +1,41 @@
+# Opticsim PR #140 — independent test-only B1b native/numerical stress review (PREPARED; CI IN PROGRESS)
+
+**Expected review verdict:** CLEARED FOR OWNER DECISION — RESEARCH ONLY / CHANGES REQUESTED / INSUFFICIENT EVIDENCE. No public B1b coordinates, eye/pupil/image, merge or release authorization.
+
+## Exact source and provenance
+
+- [Draft PR #140](https://github.com/physicsvigilante/opticsim/pull/140) authored **HEAD `4742462e17db672d02e25dcf9e38ea0ff3cb54ad`**, Git tree **`2e900baea1ec850e3ce76d2f97af97af9e3671f3`**; proposed synthetic CI merge **`08458c194eab1f3d5d8c1a361b6c54c5ac123f80`** has the **same tree** (recheck raw Git objects).
+- Actual production main baseline **`d3509e82fb65d81aabe336666851f8f2962623f4`**; one added file `test/jee-b1b-native-numerical-stress.test.mjs` (**798 lines**). No `src/`, native pin, PhyDemo solver/callbacks, existing CLI/old frozen tests, saved scene schema, browser UI or GitHub workflow modification.
+- **Pre-registered BEFORE new native CI:** [issue #139](https://github.com/physicsvigilante/opticsim/issues/139) freezes a positive/negative native physics matrix, numeric diagnostic methods and noncertifying engineering sanity alarms.
+- The single new file explicitly **copies the independently reviewed test-only native apparatus and refusal harness** from [#135 R2 exact source](https://github.com/physicsvigilante/opticsim/blob/d6aff4e388aef982c3fc1b88039d4ac6951b4fca/test/jee-finite-detector-window-feasibility.test.mjs), blob `1a57c562bdf8eb00ebbc5e21569cc2cd179f9876` (because #135 remains unmerged), and appends a **separate** oriented plane-centred local 2D supporting-line algorithm, native stress and perturbation diagnostics. No feature code is copied/promoted into production.
+- [PR #138 B1a source independent R2 review](https://github.com/physicsvigilante/review_sandbox/blob/main/projects/opticsim/pr-138/reviews/review-02-chat-b.md) **CLEARED FOR OWNER DECISION — B1a SOURCE ONLY**, not B1b position/numeric certification. B1a draft remains **public geometry:null/withheld**, not part of this test-only branch.
+
+## Native evidence checks (must inspect actual raw logs, not only authored predictions)
+
+All positive cases use two **different** real pinned-native v5 `single-ray` source directions ±theta through one `PlaneGlass` and the **same finite detector**, full Fresnel primary case. Read actual `detector-hit-events`, `detector-crossings`, `interface-first-event`, source emissions and per-run scene hashes/qualification (native side only). Geometry is **post-native** reconstruction using recorded hit points/directions, not a PhyDemo ray or observer.
+
+[Preregistration A–J](https://github.com/physicsvigilante/opticsim/issues/139) requires the following representative **positive** native cases:
+- 1.5→1, source depth 120mm, receiving detector offset 40mm, ±0.5°, width 5mm: actual finite hits `y≈±1.57086112747 mm`, test-only 2D normal depth `≈79.996192 mm`.
+- Equal indices 1→1 / 1.5→1.5, same optical dimensions: native undeviated hits `y≈±1.39629884652 mm`, derived line normal depth `120 mm`. This does NOT mean a unique image exists.
+- 1→1.5 at ±0.5°, width 5: Snell conditional finite-angle line-pair depth `≈180.003807871 mm`, native detector y magnitude `≈1.279935686 mm`.
+- 1→4 at ±0.5°, width 5: conditional line-pair depth `≈480.017135294 mm`, high extrapolation ratio; no public coordinate admission.
+- 4→1 at ±0.2°, width 5: conditional line depth `≈29.997258296 mm`, native hit y magnitude `≈0.977439398 mm`.
+- width 2mm at ±0.2°: native y magnitude ≈0.628322678 mm; width 10mm at ±1°: native y magnitude ≈3.142111176 mm; both should be genuinely within their finite endpoints.
+- Long source depth 1000mm / detector 500mm offset at ±0.05°, width 5: y magnitude ≈1.527163795 mm; native sampled line-pair diagnostic depth ≈666.666349357 mm and smaller line-direction sine.
+- Reverse source/receiving side, plane normals 0/±90/±180/±37°, cm/m unit conversion and component reordering, translation by (6500,−5200) mm with +37° normal (all within existing physical coordinate envelope). Compare normal-oriented **local depth** rather than global x-only images.
+
+Negative controls: actual 1mm/2mm width misses for ±0.5°; shifted one-hit detector; TIR ±50°, just-below-critical detector miss; near-parallel ±1e−6° line-conditioning alarm; earlier #135 source-family mismatch, stale/missing opt-in capture, ray depth budget zero, Fresnel-off qualified warnings. A synthetic antiparallel algebra test does not claim an actual native antiparallel transmitted pair. Every native zero is retained as measured zero/empty list; no fictitious image/continuous-darkness inference.
+
+## Independent numerical assessment and caveats
+
+- Inspect `localFrameIntersection()` closely: translate detector hit points to the actual authored plane centre, project to oriented normal/tangent, solve **two mathematically extended supporting lines** using actual incoming native unit vectors and 2D determinant. Require strict negative backward parameters, a source-side intersection, native finite endpoint margins, finite and near-unit vectors. Measure (and label) *noncertifying* algebraic residual, `|u1×u2|`, source+detector-normal-distance scene scale `L`, signed/absolute depths, extension/L and world/local invariance.
+- Independent oracle `reference()` uses analytic Snell only **after** actual PhyDemo outputs exist. Engineering matrix sanity alarms were fixed before CI: depth difference <=0.02 mm for moderate/rotated/translated cases, <=0.1 mm for long-range case. They are **NOT native physical error bounds, precision certification, 3D imaging error, pupil uncertainty, or validity of all nearby scenes**.
+- Hypothetically perturb **post-native** measured coordinates ±1e−4 mm and directions ±1e−6 rad (single-ray and correlated two-ray examples) to measure sensitivity. These perturbation magnitudes are **chosen thought-experiment inputs**, not proven native errors, never probability/confidence intervals. The old `MIN_LINE_SINE=1e-4`, original 0.05mm endpoint clearance and 10× extrapolation are **research-only** and NOT the (withdrawn) unvalidated B1b display `0.01 / 0.5mm / 2×` policy.
+- Challenge whether both line algorithms share the same finite precision/path assumptions, whether translations far from the origin expose native upstream hit-coordinate cancellation, whether near-equal indices/near critical tests need additional distinct fixtures, and whether data justify a **narrower B1b admitted domain** or *no public coordinate at all*.
+- Distinguish **true measured native detector hit coordinates/directions** from **derived pairwise 2D support-line geometry** and from a real human image or eye: two rays are emitted in separate native simulations, not simultaneous eye rays; pairwise intersections can change with angle. No physical image, wave/intensity, 3D or whole-scene observer claim is authorized.
+
+## Test/CI/independence gate
+
+**Current review packet is PRELIMINARY until exact-head CI completes**; do not mark research cleared if CI is queued, failed or head moved. Check all 11 final-source workflow conclusions, checkout Git tree identity, supported Node24 and pinned PhyDemo, raw sampled positions and orientations, test-only warnings and actual Chrome regression steps. Existing Chrome checks are unchanged app compatibility, **not a B1b geometry/observer UI**. If any source correction is necessary, preserve original failed CI and re-pin review to new HEAD/tree.
+
+**Deliverable:** publish `projects/opticsim/pr-140/reviews/review-01-chat-b.md`, exact verified HEAD/tree, independent numerical calculations from *logged* native hits and directions, preregistration adherence, ranked P0–P3 findings, evidence limitations and a single verdict **CLEARED FOR OWNER DECISION — RESEARCH ONLY / CHANGES REQUESTED / INSUFFICIENT EVIDENCE**. Explicitly identify which tests were builder native CI versus independently executed by reviewer. No merges, public B1b results, image/eye claims or main branch protection bypass.
