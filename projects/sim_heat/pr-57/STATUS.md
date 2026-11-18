@@ -1,3 +1,23 @@
+# SIM_HEAT PR57 — owner-approved integration complete and exact-main H1 CI passed
+
+**Current status:** `INDEPENDENT-R1-REVIEW01-AND-REVIEW02-SCOPED-PASS; OWNER-APPROVED-MERGED-TO-MAIN; EXACT-REVIEWED-TREE-PRESERVED; POSTMERGE-H1-CI-SUCCESS; NO-NATIVE-EXECUTION`.
+
+[Source PR57](https://github.com/physicsvigilante/sim_heat/pull/57) was **merged** after explicit owner **“merge approved”** with normal GitHub expected-head guard. Merge commit `f52613c39c539b2d4543a9838e5658d526fca10e`, exact Git tree **`0c44961b473d23737b0c9f3b3f2cd3db65b9f264`**, identical to independently corrected-source R1-passed HEAD `a663c4c8c37494c1db6ef5fcaf32da0d4ba4fcba` and successful PR synthetic merge. Parent commits: former main `20f5605d28f22d4a7dc86ad478a4cf44347157d4` and reviewed candidate. Only five new local authoring workbench/docs/tests/CI files landed; original H1 physics, native archives, reference/verification, historic C1 and existing viewer source are unchanged.
+
+Independent [Chat B review-01](reviews/review-01-chat-b.md) scoped PASS at first old HEAD with two MINOR findings, [review-02](reviews/review-02-chat-b.md) scoped PASS at final corrected HEAD resolving strict duplicate Host and local-machine privacy guidance, and Chat A [response-01](responses/response-01-chat-a.md) / [response-02](responses/response-02-chat-a.md) remain immutable context/evidence. No new review needed for already merged unchanged source.
+
+**Premerge exact-tree full checks:** [push 44312686935](https://github.com/physicsvigilante/sim_heat/actions/runs/44312686935), [PR 44312700673](https://github.com/physicsvigilante/sim_heat/actions/runs/44312700673), [audit 44312700604](https://github.com/physicsvigilante/sim_heat/actions/runs/44312700604): ALL SUCCESS; 300 unique unit PASS + one existing optional SKIP, six published archived diagnostic bundle replays BYTE_IDENTICAL `nativeExecutedByReplay=false`, saved comparison and TEACH_SPLIT3 source-only preview byte-identical, hosted browser source/teacher/explorer and new workbench route/refusal smoke PASS. Full-check Git tree exactly equals merged main tree; no new native execution.
+
+**Postmerge exact-main H1 verification:** [run 44318890060](https://github.com/physicsvigilante/sim_heat/actions/runs/44318890060) **SUCCESS**. Downloaded and independently verified artifact `14435055048`, **652,538 bytes**, SHA256 `1d4c1ea9fb03fa6a5f9ba2fba09c12aa374b1292afd0f40effc5c82fa61d6964`, **9 unique CRC-valid ZIP entries** and exact-main head receipt. H1 **152 PASS** + analytical **4 PASS**, bridge read-only admission with `not_computed` public values, no native qualifier. This job is not the full source-browser/six original archive replay; those ran on the identical reviewed PR merge tree. Do not double-count.
+
+[INTEGRATION-01](INTEGRATION-01.md) records exact owner authority, source/head/main/CI/artifacts and evidence limits. **No OpenModelica query/install/build/launch**, frozen/adopted reference regeneration, C1 history merge, deployment, native qualification or original diagnostic promotion authorized/performed. Original six published cases remain `diagnostic_only/nativeQualified=false`, authored source requests `not_computed`, original C1 failures and nine uncomputed native readings retained.
+
+**Future process:** Apply the existing risk policy; batch small low-risk changes, no repetitive reviews for unchanged source, focused R1 for meaningful UI/security/evidence surfaces and independent R2 for physical/numerical/native/source-interpretation/qualification changes. Safety findings are never waived to reduce review overhead.
+
+---
+
+## Previous premerge status (retained historical record)
+
 # SIM_HEAT PR57 — independent corrected-head R1 pass accepted; owner merge gate pending
 
 **Current status:** `INDEPENDENT-R1-REVIEW01-SCOPED-PASS-OLD-HEAD; INDEPENDENT-R1-REVIEW02-SCOPED-PASS-CURRENT-HEAD; CHAT-A-ACCEPTED; EXACT-HEAD-CI-PASS; AWAITING-SEPARATE-OWNER-PR57-MERGE-APPROVAL; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
