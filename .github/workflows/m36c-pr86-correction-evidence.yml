@@ -1,0 +1,68 @@
+name: M36c PR86 corrected original source and observer metadata evidence
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/m36c-pr86-correction-evidence.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-correction-evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - name: Check out review_sandbox
+        uses: actions/checkout@v4
+        with:
+          path: review
+          persist-credentials: false
+      - name: Check out exactly the corrected production-source commit
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 82de04484006d61f691e1e3a1344f5707729a821
+          path: source
+          persist-credentials: false
+      - name: Validate source identity, native Git TREE and source PDFs
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "82de04484006d61f691e1e3a1344f5707729a821"
+          test "$(git rev-parse HEAD^{tree})" = "c43134db1726dc2f1ff48b0b9a560dff090bf56d"
+          mkdir -p ../evidence
+          git rev-parse HEAD | tee ../evidence/source-head.txt
+          git rev-parse HEAD^{tree} | tee ../evidence/source-tree.txt
+          sha256sum 02_conductors_half_size.pdf POTENTIAL_CONDUCTORS1.pdf | tee ../evidence/pdf-hashes.txt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install actual package and Chromium (no substituted mock physics)
+        working-directory: source
+        run: |
+          python -m pip install -e ".[test]" "playwright==1.57.0"
+          python -m playwright install chromium
+      - name: Execute original-source A/B and hostile conductor evidence acceptance
+        working-directory: source
+        run: |
+          python -m pytest tests/test_m36c_jee_conductors.py -q --junitxml=../evidence/focused-correction.xml | tee ../evidence/focused-stdout.txt
+      - name: Export actual 7 native conductor apparatus and visible A/B views
+        working-directory: source
+        run: python -m tools.m36c_jee_conductor_replay --output-dir ../evidence/conductors
+      - name: Independently compute all seven Gauss/Kelvin SI validations
+        working-directory: source
+        run: python -m tools.m36c_jee_conductor_reference --input ../evidence/conductors/native-conductors.json --output ../evidence/conductors/reference.json
+      - name: Inspect seven actual generated static conductor HTML views in Chromium
+        working-directory: source
+        run: python -m tools.check_m36c_conductors_browser --output-dir ../evidence/conductors
+      - name: Preserve actual first attempt and corrected source outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m36c-pr86-original-source-corrections
+          path: evidence/
+          retention-days: 21
+          if-no-files-found: warn
