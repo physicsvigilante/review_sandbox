@@ -1,3 +1,15 @@
+# SIM_HEAT PR56 — owner-approved integration completed
+
+**Current state:** `INDEPENDENT-R1-SCOPED-PASS; OWNER-BOUNDED-PR56-INTEGRATED; EXACT-REVIEWED-TREE-ON-MAIN; POSTMERGE-H1-CI-PASS; NO-NATIVE-EXECUTION`.
+
+[PR56](https://github.com/physicsvigilante/sim_heat/pull/56) **merged** at main commit `7a80bd9c85d67b3a2e353d2a0702c8c5594c20dc`, tree **`0b789438b4aa1d0ecf6cbc6d38030eb540b97d48`** exactly equal to independently reviewed PR56 head `21eac064f98d76f12a31f03daf3bad3470cfbf96`'s tree. The bounded owner “continue” authorization, expected-head GitHub merge, source parents, premerge full CI, automatic postmerge H1 CI [44283426197](https://github.com/physicsvigilante/sim_heat/actions/runs/44283426197) **SUCCESS** and preserved original failure have an attributable [INTEGRATION-01 receipt](INTEGRATION-01.md).
+
+The original independent [Chat B review-01](reviews/review-01-chat-b.md) remains immutable SCOPED PASS for CI-applicability only. Product trigger scope is narrowed and actual-PR-base protected-source guard remains; no new physical or numerical qualification. Main does **not** include PR55 or PR54. Those require their own future exact-head CI/review and explicit merge approvals. The historic PR55 old-product-workflow run 44272592968 remains **FAILED**. PR55's fixed-old-base CI allowlist is under a separate non-merging workflow-only correction after the main advance. No native OpenModelica operation, C1 merge, frozen reference regeneration, deployment or diagnostic promotion.
+
+---
+
+## Previous pre-integration status (historical)
+
 # SIM_HEAT PR56 — independently reviewed CI applicability correction
 
 **Current state:** `INDEPENDENT-R1-SCOPED-PASS; CHAT-A-ACCEPTED; AWAITING-OWNER-MERGE-APPROVAL-AND-REQUIRED-STATUS-CHECK; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
