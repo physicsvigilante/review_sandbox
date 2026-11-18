@@ -31,7 +31,7 @@ STATIC = {
     "p02-single-15":"approximate_static_before_and_after_equilibria",
     "jee2021-p1-q09-q10-equipotential":"sampled_static_two_charge_zero_potential_contour",
 }
-EXPORT_PIXELS = {"p02-single-19","p12-linked-40","jee2021-p1-q09-q10-equipotential"}
+EXPORT_PIXELS = {"jee2021-p1-q09-q10-equipotential"}  # Sheet/ring reviewed in retained previous attempt
 
 def main():
     parser=argparse.ArgumentParser()
