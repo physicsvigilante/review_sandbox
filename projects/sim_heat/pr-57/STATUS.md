@@ -1,3 +1,23 @@
+# SIM_HEAT PR57 — independent corrected-head R1 pass accepted; owner merge gate pending
+
+**Current status:** `INDEPENDENT-R1-REVIEW01-SCOPED-PASS-OLD-HEAD; INDEPENDENT-R1-REVIEW02-SCOPED-PASS-CURRENT-HEAD; CHAT-A-ACCEPTED; EXACT-HEAD-CI-PASS; AWAITING-SEPARATE-OWNER-PR57-MERGE-APPROVAL; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
+
+**Independent [Chat B review-02](reviews/review-02-chat-b.md)** is complete, reviewer-authored immutable blob `fb5ca679d489cac845b752d4034dc8f3a272b958`, **SCOPED PASS (R1) for current corrected head** `a663c4c8c37494c1db6ef5fcaf32da0d4ba4fcba`, Git tree `0c44961b473d23737b0c9f3b3f2cd3db65b9f264`, on merged main base `20f5605d28f22d4a7dc86ad478a4cf44347157d4`. Original [Chat B review-01](reviews/review-01-chat-b.md), blob `790f60343603c6840c6b9302d19b802d432e21ef`, remains SCOPED PASS on the **old source head** with its two MINOR findings. Do not change or reattribute original reviewer reports. [Chat A response-02](responses/response-02-chat-a.md) accepts the final corrected-head pass and records the test/independence limitations, exact code differences and proportionate future review policy.
+
+**F-01 RESOLVED:** require **exactly one** `Host: 127.0.0.1:<actual port>`; duplicate Host headers in any order, duplicate-valid Hosts, missing Host and duplicate-Host HEAD requests refuse HTTP **421** without serving source. The raw-wire regression genuinely **FAILED three cases against old implementation** (HTTP 200) before the source correction, then passed on the corrected implementation. Reviewer personally tested sixteen bounded raw HTTP cases in an **isolated transcribed handler harness**, and inspected actual source+hosted full-server tests; do not claim its isolated probe was a personal full H1 workbench execution.
+
+**F-02 RESOLVED:** both teacher guide and local served help explicitly disclose that other processes on the same machine can access source/provenance if they learn the port, with no local-process authentication; avoid secrets and shared/untrusted machines and stop the session after use. This is trusted-local-host source inspection, **not** a private/authenticated public web service.
+
+**Evidence:** [Push CI 44312686935](https://github.com/physicsvigilante/sim_heat/actions/runs/44312686935) SUCCESS, [PR CI 44312700673](https://github.com/physicsvigilante/sim_heat/actions/runs/44312700673) SUCCESS on identical corrected-source Git tree `0c44961...`, [audit-core 44312700604](https://github.com/physicsvigilante/sim_heat/actions/runs/44312700604) SUCCESS. Each workbench run: **300 unique unit PASS, one optional SKIP**; original six archived diagnostics replay `BYTE_IDENTICAL` without native execution; source-only TEACH_SPLIT3 and original comparison byte-identical, actual hosted Chromium original/source/docs/workbench desktop/mobile/refusals PASS. Chat A previously downloaded/rehashed/CRC-checked three artifacts and reconstructed exact source trees; Chat B independently checked source/logs and artifact metadata but could not personally download ZIP binaries, and never claimed independent ZIP hashes, native runs or local live Chromium. Hosted evidence is attributed separately.
+
+**Review budget:** The existing central [REVIEW-RISK-POLICY.md](../../../REVIEW-RISK-POLICY.md) already authorizes no separate review for routine R0 and non-semantic R1; review once per coherent semantic milestone and target changed higher-risk corrections only. For a real HTTP trust-boundary fix, a focused independent R1 re-review was appropriate. **No third review needed on unchanged corrected PR57.** Do not loosen R2 for physics, numerical, native, source interpretation or qualification changes; no cost-based waiver of unresolved safety blockers.
+
+**Owner/merge gate:** [PR57](https://github.com/physicsvigilante/sim_heat/pull/57) remains **draft, open and unmerged**. The user's latest `review done` is review-completion notification, **not owner approval for PR57 merge**. If owner explicitly approves, verify live exact main/source/CI, use normal expected-head GitHub merge without bypass, verify merged tree and postmerge CI, record immutable integration receipt. No native OpenModelica query/install/build/launch, frozen reference regeneration, original C1 stack integration, numerical qualification, diagnostic promotion, deployment or production merge was performed.
+
+---
+
+## Historical prior status (review-02 pending at that time)
+
 # SIM_HEAT PR57 — source-only workbench R1 scoped pass; minor findings corrected, targeted review 02 pending
 
 **Current status:** `REVIEW01-INDEPENDENT-R1-SCOPED-PASS-OLD-HEAD; F01-F02-CORRECTED-NEW-HEAD; NEW-EXACT-HEAD-CI-PASS; AWAITING-FOCUSED-INDEPENDENT-R1-REVIEW02; DRAFT-UNMERGED; NO-NATIVE-AUTHORIZATION`.
