@@ -1,0 +1,69 @@
+name: M40b PR102 Chat B new scientific and hostile Chromium independent review
+on:
+  push:
+    branches:
+      - review/conductor-pr102-m40b-chatb-01-20261119
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independently-recompute-and-view:
+    name: exact-production-tree + new 100-digit Kelvin + real Chromium
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout reviewer-only new experiment
+        uses: actions/checkout@v4
+        with:
+          path: reviewer
+          persist-credentials: false
+      - name: Checkout literal production source (do not run mutable PR branch)
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 0191ced5c49a1a5d02c9a897867ceca951fb9aca
+          fetch-depth: 0
+          path: source
+          persist-credentials: false
+      - name: Gate exact native commit/tree and frozen PDF/charter sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          git -C source rev-parse HEAD | tee evidence/production-head.txt
+          git -C source rev-parse HEAD^{tree} | tee evidence/production-tree.txt
+          test "$(git -C source rev-parse HEAD)" = "0191ced5c49a1a5d02c9a897867ceca951fb9aca"
+          test "$(git -C source rev-parse HEAD^{tree})" = "5ea6098d463eec12fbc184ab3a6fca2f27699e9a"
+          sha256sum source/02_conductors_half_size.pdf source/POTENTIAL_CONDUCTORS1.pdf source/docs/m40b_charter.md reviewer/projects/conductor_sim/pr-102/reviews/review-01-chat-b-probes.py | tee evidence/source-hashes.txt
+          test "$(sha256sum source/02_conductors_half_size.pdf | cut -d ' ' -f1)" = "9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d"
+          test "$(sha256sum source/POTENTIAL_CONDUCTORS1.pdf | cut -d ' ' -f1)" = "8d0d9b5cf821219058cfc4b7685a39b777e460944df44c3f9cffcb68157a60e5"
+          git -C source show e429bd422b321d5dd7c87c14fa18248eabcd57e5:docs/m40b_charter.md > evidence/frozen-charter.md
+          cmp source/docs/m40b_charter.md evidence/frozen-charter.md
+          git -C source diff --name-status 14ba75e9e8f8b5904eb774e0789b5f56a9a58223...HEAD | tee evidence/changed-files.txt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install native production package and real Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e './source[test]' 'playwright==1.57.0'
+          python -m playwright install chromium
+      - name: Run reviewer-authored unfamiliar scenario and hostile UI
+        shell: bash
+        env:
+          CONDUCTOR_SOURCE: source
+          PYTHONPATH: source:source/src
+        run: |
+          set -euo pipefail
+          python reviewer/projects/conductor_sim/pr-102/reviews/review-01-chat-b-probes.py --output-dir evidence/novel-case 2>&1 | tee evidence/experiment-stdout.log
+      - name: Preserve first attempt including screenshots/logs even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m40b-pr102-chatb-review01-science-and-browser
+          path: evidence/
+          retention-days: 30
+          if-no-files-found: warn
