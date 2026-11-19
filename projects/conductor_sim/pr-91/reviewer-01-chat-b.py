@@ -13,6 +13,10 @@ from math import hypot, isclose, isfinite, nextafter, pi, inf
 from pathlib import Path
 import sys
 
+# The separate reviewer checkout lives outside the production source tree.
+# Add that *actual* checkout to module search for the independent stdlib CLI.
+sys.path.insert(0, str(Path.cwd()))
+
 from conductor_sim.model import EPSILON_0, PointCharge
 from conductor_sim.prescribed_ground_wire import (
     PrescribedSphereRadialSpec,
