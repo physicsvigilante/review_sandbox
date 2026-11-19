@@ -350,7 +350,7 @@ def physics_and_integrity(out):
     # Static HTML tamper remains outside JSON-only stdlib verifier's input contract:
     # explicitly record and report it; do not mislabel as a refusal.
     original_number = expected_si(near["isolated_sigma_c_per_m2"],"C/m²")
-    forged_html = html.replace(escape(original_number), "9999 C/m²",1)
+    forged_html = html.replace(escape(original_number), "9999 C/m²")
     assert forged_html != html and "9999 C/m²" in forged_html
     out.joinpath("forged-visible-html.html").write_text(forged_html,encoding="utf-8")
     assert check_manifest(doc)["signed_inner_samples_verified_by_images"] == 150
