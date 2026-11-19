@@ -1,3 +1,21 @@
+# SIM_HEAT PR64 — N3 migration DESIGN independently reviewed: SCOPED PASS (still NATIVE BLOCKED)
+
+**Current result:** [Independent Chat B correction review-02](reviews/review-02-chat-b.md), reviewer-authored blob `e918df43937aab38cd2e51368be225d1271cced3`, returns **SCOPED PASS** on **all five corrected N3 DESIGN findings**, exact PR64 HEAD `0cf275241e718fbcd2b2d2c1f7761565c7c06a92`, whole tree `4f253f1959797362d68ad4e153552b776ff82f33`. Original [review-01](reviews/review-01-chat-b.md) remains historically CHANGES REQUESTED for old `f0d863e8e1dcc44e89d1ab7e1a2f377d89d9714f`; it is not modified or relabeled.
+
+**Findings accepted within scope:** F-01 protected, separately owner-signed and prospectively approved expected-reference manifest and one-use external attempt ledger; F-02 exhaustive N1-version dispatch/no legacy fallback and future full physical 100× certificate/graph-generality contract; F-03 exact receipt `DESIGN_VERIFIED_NATIVE_BLOCKED`; F-04 exponent-overflow JSON refusal; F-05 one verified plan snapshot per CLI check. Reviewer inspected pinned source and hosted CI, and ran bounded isolated parser/read-once probes; **not** a native run or exhaustive independent numerical rerun.
+
+**Exact head evidence:** [PUSH 44494218732](https://github.com/physicsvigilante/sim_heat/actions/runs/44494218732) and [PR 44494231401](https://github.com/physicsvigilante/sim_heat/actions/runs/44494231401) both SUCCESS, **12 N3 +16 N2 +17 N1 interval +34 N1 plan +152 H1 =231 unique offline checks per workflow**, docs parity. Both Git trees match reviewed head. Original tests-only red/fail-first and review-01 remain preserved. No accepted runner-consumable N3 reference, trusted approval manifest, host/OMC/MSL identity, owner signature, certificate, new versioned runner, or native outcome exists.
+
+**Nonblocking future-implementation notes from Chat B:** freeze actual semantic-seal domain bytes (rather than ambiguous written `\\0`), define numeric/JCS canonicalization precisely, distinguish preapproval offline reference candidate creation from postapproval runner re-preparation, and prove real external authority/one-use atomicity under races. These are requirements for future implementation, **not defects reopening the scoped design PASS**.
+
+**REMAINING STRICT HOLDS:** seven legacy checking-centre physical-100× refusals (`T02.G,T06.A,T06.G,T07.G,T08.G,T10.G,T_Plug.C`) and all eight original native blockers remain. Original H1-T1 hidden scorer remains UNSEALED. PRs #59, #60, #62, #63, #64 all remain DRAFT / UNMERGED; production main and historical C1 untouched. **No OMC install/version query/build/launch, no native reference promotion and no merge/deploy authority.**
+
+**Next bounded work:** use a NEW source PR stacked on accepted-in-scope PR64 to implement one general reusable **offline-only checking-reference component**, with independently tested source/physical accuracy and no native runner changes. Do not treat N3's approval policy prose as operational authority.
+
+---
+
+## Earlier PR64 status — preserved historical chronology
+
 # SIM_HEAT PR64 — review-01 CHANGES REQUESTED; five design corrections published; targeted R2 review-02 pending
 
 **CURRENT STATUS:** INDEPENDENT_REVIEW01_CHANGES_REQUESTED_OLD_HEAD; FIVE_FINDINGS_ACCEPTED; FIRST_RED_TESTS_REPRODUCED; NEW_EXACT_HEAD_0cf27524; PUSH_PR_CI_GREEN_12_PLUS_16_PLUS_17_PLUS_34_PLUS_152; FUTURE_OWNER_MANIFEST_AND_EXHAUSTIVE_VERSION_DISPATCH_SPECIFIED_NOT_IMPLEMENTED; NONFINITE_JSON_AND_DOUBLE_READ_FIXED; AWAITING_INDEPENDENT_R2_CORRECTION_REVIEW02; LEGACY_SEVEN_STATIC_100X_REFUSALS_EIGHT_NATIVE_BLOCKERS_UNCHANGED; PR64_PR63_PR62_PR60_PR59_DRAFT_UNMERGED; ZERO_NATIVE_OPERATIONS.
