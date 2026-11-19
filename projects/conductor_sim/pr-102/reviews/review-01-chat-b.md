@@ -47,7 +47,7 @@ A malicious **post-export alteration of static HTML text** can display `9999 C/m
 ## Evidence links and exact replay
 
 - Reviewer-owned experiment source: [review-01-chat-b-probes.py](review-01-chat-b-probes.py); native experiment script SHA-256 `c851df0308cb33d70fcf13f4e793135af921b65b69ee6a9694917802c4f71096`.
-- Replay workflow: [m40b-pr102-chatb-review01.yml](../../../.github/workflows/m40b-pr102-chatb-review01.yml) (path from repository root: `.github/workflows/m40b-pr102-chatb-review01.yml`).
+- Replay workflow: [m40b-pr102-chatb-review01.yml](../../../../.github/workflows/m40b-pr102-chatb-review01.yml) (path from repository root: `.github/workflows/m40b-pr102-chatb-review01.yml`).
 - Exact new full green [review Actions run #44574672629](https://github.com/physicsvigilante/review_sandbox/actions/runs/44574672629) and [18-file evidence ZIP, artifact #14555382909](https://github.com/physicsvigilante/review_sandbox/actions/runs/44574672629/artifacts/14555382909) (retained for 30 days). Archive contains SHA/TREE, changed file list, source hashes, frozen charter, original logs, complete independent density JSON, manifest, HTML, hostile refusals, relocation model, four genuine browser screenshots and summary JSON. This is first-attempt actual reviewer evidence, not a synthetic report.
 - Developer green focused [M40b push #44569718416](https://github.com/physicsvigilante/conductor_sim/actions/runs/44569718416) is corroboration only; it was **not substituted** for this review.
 
