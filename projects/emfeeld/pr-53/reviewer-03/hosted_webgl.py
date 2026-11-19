@@ -266,7 +266,7 @@ try:
                     assert t['frame']['positions_m'][0]==expected
                     assert t['frame']['index']==17
                     assert math.isclose(t['frame']['time_s'],8.5,rel_tol=1e-14)
-                    assert 'Play/Pause button' in page.locator('#notes').inner_text()
+                    assert 'Play/Pause button' in page.locator('#notes').text_content()
                     page.uncheck('#potential')
                     assert page.evaluate('window.emfeeldPreview.inspect().potential_visible') is False
                     page.check('#potential')
