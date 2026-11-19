@@ -1,0 +1,113 @@
+name: M38c PR94 reviewer-owned exact-head real Chromium first attempt
+
+on:
+  push:
+    branches:
+      - review/pr94-m38c-chat-b-01
+    paths:
+      - .github/workflows/m38c-pr94-review01-chromium.yml
+      - projects/conductor_sim/pr-94/reviews/m38c-reviewer-first-run-probes.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-source-live-science:
+    name: fresh pinned native SI, live real Play, reviewer CSS and 26 hostiles
+    runs-on: ubuntu-24.04
+    timeout-minutes: 28
+    steps:
+      - name: Check out independent review harness (not source checkout)
+        uses: actions/checkout@v4
+        with:
+          path: review
+          persist-credentials: false
+      - name: Fresh checkout of literal M38c source HEAD, no floating branch
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 3a973f1d340e060bc05d0c879113747a95111686
+          fetch-depth: 0
+          path: source
+          persist-credentials: false
+      - name: Native identity, charter order and exact 4-file source diff
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ../evidence/teacher
+          git rev-parse HEAD | tee ../evidence/source-head.txt
+          git rev-parse HEAD^{tree} | tee ../evidence/source-tree.txt
+          test "$(git rev-parse HEAD)" = "3a973f1d340e060bc05d0c879113747a95111686"
+          test "$(git rev-parse HEAD^{tree})" = "6cb46942d1aba0c1a28fc9696419c08334b441eb"
+          git merge-base --is-ancestor 216ef595025083708e9fe5abbaccdd75e67e639a HEAD
+          git diff-tree --no-commit-id --name-only -r 216ef595025083708e9fe5abbaccdd75e67e639a | tee ../evidence/charter-commit-paths.txt
+          git diff --name-status 44e0c50f3258452d112ab7a16b87759063054832 HEAD | tee ../evidence/source-four-file-diff.txt
+          python - <<'PY'
+          import subprocess
+          def git(*args):
+              return subprocess.check_output(["git", *args], text=True).strip()
+          base="44e0c50f3258452d112ab7a16b87759063054832"
+          assert git("diff-tree","--no-commit-id","--name-only","-r",
+                     "216ef595025083708e9fe5abbaccdd75e67e639a")=="docs/m38c_charter.md"
+          actual=set(git("diff","--name-only",base,"HEAD").splitlines())
+          assert actual == {"docs/m38c_charter.md","docs/m38c.md",
+                            "tools/check_m38b_line_browser.py",
+                            "tests/test_m38b_line_viewer.py"},actual
+          for f in ["src/conductor_sim/prescribed_line_viewer.py",
+                    "src/conductor_sim/prescribed_ground_line.py",
+                    "src/conductor_sim/prescribed_ground_wire.py",
+                    "tools/m38a_line_reference.py",
+                    "tools/m38b_line_view_reference.py",
+                    "tools/check_m38b_line_hostility.py",
+                    "02_conductors_half_size.pdf",
+                    "POTENTIAL_CONDUCTORS1.pdf"]:
+              assert git("rev-parse",f"{base}:{f}") == git("rev-parse",f"HEAD:{f}"),f
+          print("PASS independent charter, exact four paths, unchanged physics/reference/viewer/PDF blobs")
+          PY
+          sha256sum 02_conductors_half_size.pdf POTENTIAL_CONDUCTORS1.pdf | tee ../evidence/source-pdf-sha256.txt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original source package and actual Chromium
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e ".[test]" "playwright==1.57.0" 2>&1 | tee ../evidence/first-install.log
+          python -m playwright install chromium 2>&1 | tee ../evidence/first-browser-install.log
+      - name: Independently validate regenerated Kelvin source and viewer SI
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m tools.m38b_line_viewer_example --output-dir ../evidence/teacher 2>&1 | tee ../evidence/first-generation.log
+          python -m tools.m38a_line_reference --input ../evidence/teacher/m38b-line-physics.json --output ../evidence/teacher/kelvin-reference.json 2>&1 | tee ../evidence/first-kelvin-reference.log
+          python -m tools.m38b_line_view_reference --input ../evidence/teacher/m38b-line-viewer.json --output ../evidence/teacher/view-reference.json 2>&1 | tee ../evidence/first-view-reference.log
+      - name: Original production real Chrome JS-on, 41 SI, mobile and no-JS acceptance
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m tools.check_m38b_line_browser --output-dir ../evidence/teacher 2>&1 | tee ../evidence/first-original-chromium.log
+      - name: Reviewer first-run novel real browser Play-frozen frames and forgery refusals
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python ../review/projects/conductor_sim/pr-94/reviews/m38c-reviewer-first-run-probes.py --output-dir ../evidence/teacher 2>&1 | tee ../evidence/first-reviewer-probes.log
+      - name: Original 26 genuine JS-off CSS/SVG hostile refusals
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m tools.check_m38b_line_hostility --output-dir ../evidence/teacher 2>&1 | tee ../evidence/first-26-hostiles.log
+      - name: Preserve first attempt green or red exactly as run
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m38c-pr94-review01-independent-first-attempt
+          path: evidence/
+          retention-days: 28
+          if-no-files-found: warn
