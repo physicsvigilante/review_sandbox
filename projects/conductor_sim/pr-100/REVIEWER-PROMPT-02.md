@@ -2,6 +2,8 @@
 
 **AUTHOR REQUEST ONLY, NOT AN INDEPENDENT PASS OR MERGE AUTHORIZATION.** Review ONLY the numerical/surface-integrity blocker from independent review #01, not the full historic FEMM or Chromium stack. A fresh reviewer may differ from the original.
 
+**FINAL EXACT-HEAD PREFLIGHT VERIFIED AFTER PROMPT PUBLICATION:** The corrected PR HEAD `e4a64a580cf1a3eca93d4b7315ed1f4aa4ab585e`, Git TREE `03eee7d1f4b97d627eb8ccf1a2ff41e837e94ea6` completed **24/24 distinct production workflows SUCCESS** and **29/29 GitHub check runs SUCCESS**, including new M40a dual-Python, full Python 3.10/3.12, actual FEMM5 and inherited Chromium/source checks. This replaces the earlier publication-time pending-CI status; no production code was modified after these runs. **Reviewer must still independently verify this exact head and perform fresh focused B1 checks.**
+
 ## Immutable source and preflight gates
 
 - Production draft [PR #100](https://github.com/physicsvigilante/conductor_sim/pull/100) corrected HEAD **e4a64a580cf1a3eca93d4b7315ed1f4aa4ab585e**, native Git TREE **03eee7d1f4b97d627eb8ccf1a2ff41e837e94ea6**. Check out this LITERAL SHA and assert both Git HEAD and HEAD^{tree}. Recheck production PR head, draft and unmerged state before verdict.
