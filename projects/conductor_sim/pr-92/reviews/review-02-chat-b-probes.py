@@ -103,16 +103,16 @@ def make_example():
     # The JSON canonical comparison must be sensitive to integer vs float
     # even when ordinary Python scalar equality would treat them equal.
     wrong = deepcopy(manifest)
-    k = wrong["trace"]["sample_count"]
+    k = wrong["source"]["newly_solved_original_workbook_items"]
     assert type(k) is int
-    wrong["trace"]["sample_count"] = float(k)
-    assert wrong["trace"]["sample_count"] == k
+    wrong["source"]["newly_solved_original_workbook_items"] = float(k)
+    assert wrong["source"]["newly_solved_original_workbook_items"] == k
     try:
         _verify_canonical_html(wrong, directory / "m38b-line.html")
     except AssertionError as ex:
         assert "canonical rendered viewer source disagrees" in str(ex), repr(ex)
     else:
-        raise AssertionError("type-sensitive canonical manifest guard accepted 41.0 for integer 41")
+        raise AssertionError("type-sensitive canonical manifest guard accepted float for integer")
     b = run(sys.executable, "-m", "tools.check_m38b_line_browser",
             "--output-dir", str(directory), timeout=200)
     (WORK / "baseline-first-browser.log").write_text(b.stdout + "\n" + b.stderr,
