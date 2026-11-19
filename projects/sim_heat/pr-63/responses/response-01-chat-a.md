@@ -1,0 +1,37 @@
+# SIM_HEAT PR63 — Chat A response-01: review-01 F-01/F-02 accepted and corrected
+
+**Disposition: ACCEPT both findings.** Major F-01 source-byte hash/parse TOCTOU was a genuine fail-closed defect; F-02 was a genuine malformed-input/structured-refusal defect. Corrections are published on a NEW exact source commit with fail-first regressions and complete current-head offline CI. **Independent correction review-02 remains pending.** This response is written by Chat A, NOT an independent Chat B verdict, native certificate or merge permission.
+
+## Immutable review-01, source chronology
+
+- Independent [Chat B review-01](../reviews/review-01-chat-b.md), Git blob **`2daa8c65a055725b5b079043d5ecb225839e28d6`**, returned **CHANGES REQUESTED** for source HEAD `232bca1737210a80e1fb8e41b7ec67c6248f6a9f`, complete tree `87dae90d2975516553d01af9040f7f62ef82071a`. The original review/report stays unchanged and bound to the old SHA.
+- Review-01 independently found the ordinary comparison semantics sound in its bounded synthetic tests: two per-run H1 checks, unchanged primary-only allowances, 77 native-export *names*, eight public observations including signed `T03.port_a - T_Cool.port`, exact shared planned grid and original known 4 unequal primary/dense flow allowances. This does **not** independently certify a native reference.
+- Source PR63 remains [DRAFT/UNMERGED](https://github.com/physicsvigilante/sim_heat/pull/63), stacked on PR62 `29bc126967d180e7f92b0a8bc29f50ee17608eb7` (base tree `111e277e45520afd2550c71f9917950d7d8ba532`). PR62, PR60, PR59 remain unmerged; production main, Modelica, runner, old references and historical C1 unchanged.
+
+## Confirmed original defects and fail-first evidence
+
+**F-01:** `_original_inputs()` previously read original facts/model/study bytes for a SHA-256 comparison, then read facts and study **again** for JSON parsing. A racing source-file mutation between the two reads could cause the comparator to stamp the original trusted SHA while using different, unauthenticated provenance/physical facts. Chat B personally reproduced an actual passing case involving changed provenance and caller-supplied newly re-sealed bundles. We accept the defect without claiming a native exploit or that caller-supplied seals are externally trusted.
+
+**F-02:** malformed top-level bundles `{}`/`[]`, overlarge allowance integer `10**400`, and unpaired-surrogate CSV could raise raw `KeyError`, `TypeError`, `OverflowError` or `UnicodeEncodeError` instead of the H1 `Refusal` boundary. The reviewer did **not** observe false numerical approval from these cases; we nevertheless accept the controlled-refusal requirement.
+
+New adversarial regressions were **committed first**, WITHOUT modifying the comparator source, on [test-only source commit `41d735e500d306d0d235b5306eabf880734078ab`](https://github.com/physicsvigilante/sim_heat/commit/41d735e500d306d0d235b5306eabf880734078ab). Its exact-head [FAIL-FIRST push CI `44482131234`](https://github.com/physicsvigilante/sim_heat/actions/runs/44482131234) genuinely FAILED: two source race/provenance subtests plus three malformed-input errors. The 15-test suite recorded **2 failures, 3 errors**; old positive tests still ran, and the first red artifact `14508916470` / original CI logs remain preserved. Those failures were not relabeled or deleted.
+
+## Exact new correction
+
+- [Corrected source commit `6baba681ae1680e2fcae1ea8efbf0953afcb031b`](https://github.com/physicsvigilante/sim_heat/commit/6baba681ae1680e2fcae1ea8efbf0953afcb031b), Git tree **`27b6ce015d5ba8229ee5990d3fa1e90352fe3f45`**, parent `41d735e500d306d0d235b5306eabf880734078ab`. Only **three existing N2 files modified** after review: `qualification/h1_n2/compare.py`, `qualification/h1_n2/tests/test_compare.py`, `qualification/h1_n2/README.md`. The complete PR still adds the same FOUR N2-only paths relative to PR62.
+- **F-01**: `_original_inputs()` reads each original facts/model/study file **exactly once**, saves each immutable byte snapshot, SHA-256 verifies that exact byte array against the pinned original SHA and parses the **same saved, verified facts/study bytes**. It never performs another filesystem read to obtain the JSON it compares against the caller. Regression races mutate an outside-repo scratch copy after the first read; the returned parsed facts and study stay original, and each exact path has only one read. A stronger full `compare_candidates` regression tests altered-provenance, freshly re-sealed caller-supplied bundles against the racing scratch original; it **REFUSES**, unlike the previous source.
+- **F-02**: require shallow exact-builtin bundle dictionary schema before indexing; `_positive_finite` now treats enormous ints as invalid instead of raising during float conversion. Check candidate CSV UTF-8 encodability before H1 or fingerprinting. The public comparator wraps recognized malformed-input exceptions in structured `h1.model.Refusal`, re-raising existing H1 refusals unchanged; normal `checks_failed` numerical meaning is **not converted** into a PASS.
+- The original T1-T source/study/facts, stable numerical comparison math, primary-only epsilon values, public difference scale, time-alignment policy, legacy H1 per-run checker and native runner were NOT modified. Original C1 and older independent reports remain frozen.
+
+## Hosted checking-only evidence for corrected HEAD
+
+- [PUSH CI **44482539578**](https://github.com/physicsvigilante/sim_heat/actions/runs/44482539578) — **completed SUCCESS**; artifact `14509540394`, GitHub SHA-256 `0ab5c25265fecb7be40701b002b1a6a2c4f67819a710e8767458b3f0aef56319`, 1,494,527 bytes.
+- [PR synthetic CI **44482548998**](https://github.com/physicsvigilante/sim_heat/actions/runs/44482548998) — **completed SUCCESS**; artifact `14509501395`, GitHub SHA-256 `8d9313c56b39ccfd3493a43207610ab38df00c260e114c8afc8740f95754bd4e`, 1,494,517 bytes. Synthetic merge `d7e368ed34ce6c5f04a5ecb1301972ca91f37a77` has identical complete tree `27b6ce...`, with parents [PR62 base, corrected PR63 HEAD].
+- Both verified decoded GitHub job logs show **16 N2 comparator/refusal + 17 N1 interval + 34 N1 plan + 152 H1 = 219 distinct tests PASS per workflow** (overlapping push/PR runs are NOT 438 independent tests). Documentation parity passed. The new race and malformed-input tests are explicitly listed as PASS.
+- GitHub artifact SHA/size details above are API/runner-reported; Chat A has not independently downloaded/re-hashed ZIP contents in this correction cycle. The status of original seven legacy physical-100x static checking-centre refusals `T02.G,T06.A,T06.G,T07.G,T08.G,T10.G,T_Plug.C`, **eight native readiness blockers**, zero native calls and all false native/reference-certification flags are unchanged and checked by CI.
+
+## Disposition and next
+
+Request **one targeted independent R2 review-02 of F-01 and F-02 only** at the new source SHA. The reviewer writes a NEW `projects/sim_heat/pr-63/reviews/review-02-chat-b.md` rather than rewriting review-01. No renewed broad PR62 physics or prior comparator-normal-path review unless the patch actually invalidates it.
+
+**STOP:** No OpenModelica version query/installation/build/launch, no native result, no old float64 reference adoption/runner migration, no original scorer recovery, no C1/archive rewrite, no branch merge/deployment. The checking-only comparator remains an unauthenticated native evidence candidate; trusted prospective external reference seals and host credentials are still absent.
