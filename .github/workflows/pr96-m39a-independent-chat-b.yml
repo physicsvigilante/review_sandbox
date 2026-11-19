@@ -25,6 +25,7 @@ jobs:
           ref: 1a11bd03d51645bcc7994ab0ec50a553dd47dc7a
           path: source
           persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
