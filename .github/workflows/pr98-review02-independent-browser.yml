@@ -1,0 +1,76 @@
+name: Independent R2 M39b PR98 browser evidence (NOT merge approval)
+on:
+  push:
+    branches:
+      - review/conductor-pr98-browser-independent-02-20261119
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-r2:
+    name: Reviewer-authored Chromium 4 modes + 7 rendered hostile cases
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout reviewer-owned tests
+        uses: actions/checkout@v4
+        with:
+          path: reviewer-owned
+          persist-credentials: false
+      - name: Checkout pinned original independent six-cavity model
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/review_sandbox
+          ref: 77a8013480e8be667ea34eea3d932bf0c07f2321
+          path: reviewer-original
+          persist-credentials: false
+      - name: Checkout exact production candidate
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 965da98b5079829bd39a370cc660c97b1b9b189f
+          fetch-depth: 0
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install real Chromium and verified Python source
+        run: |
+          set -euo pipefail
+          python -m pip install -e ./source 'playwright==1.57.0'
+          python -m playwright install chromium
+      - name: Pin exact source tree and original reviewer model
+        run: |
+          set -euo pipefail
+          mkdir -p evidence-out/independent-browser
+          echo "Reviewer-owned runner SHA: $(git -C reviewer-owned rev-parse HEAD)" | tee evidence-out/independent-browser/source-identity.txt
+          echo "Original reviewer SHA: $(git -C reviewer-original rev-parse HEAD)" | tee -a evidence-out/independent-browser/source-identity.txt
+          echo "Production SHA: $(git -C source rev-parse HEAD)" | tee -a evidence-out/independent-browser/source-identity.txt
+          echo "Production TREE: $(git -C source rev-parse 'HEAD^{tree}')" | tee -a evidence-out/independent-browser/source-identity.txt
+          test "$(git -C source rev-parse HEAD)" = 965da98b5079829bd39a370cc660c97b1b9b189f
+          test "$(git -C source rev-parse 'HEAD^{tree}')" = cb9f9822252f982d5691493b7d54b0fae5917049
+          test "$(git -C reviewer-original rev-parse HEAD)" = 77a8013480e8be667ea34eea3d932bf0c07f2321
+          git -C source diff --name-status edb428ab6574d7861d28a80fcc15309883420448 HEAD | tee evidence-out/independent-browser/changed-files.txt
+          test "$(git -C source diff --name-only edb428ab6574d7861d28a80fcc15309883420448 HEAD | wc -l)" -eq 8
+          test "$(git -C source diff --name-status edb428ab6574d7861d28a80fcc15309883420448 HEAD | grep -c '^A')" -eq 8
+      - name: Generate original reviewer-authored six-cavity input and HTML
+        working-directory: source
+        run: |
+          set -euo pipefail
+          PYTHONPATH="$PWD/src:$PWD" python "$GITHUB_WORKSPACE/reviewer-original/projects/conductor_sim/pr-98/reviews/review-01-chat-b-reproducer.py" | tee "$GITHUB_WORKSPACE/evidence-out/independent-browser/original-reproducer-transcript.txt"
+          PYTHONPATH="$PWD/src:$PWD" python -m tools.m39b_topology_reference --input reviewer-six-cavity/manifest.json --output "$GITHUB_WORKSPACE/evidence-out/independent-browser/standalone-science.json"
+          cp reviewer-six-cavity/manifest.json "$GITHUB_WORKSPACE/evidence-out/independent-browser/six-cavity-manifest.json"
+          cp reviewer-six-cavity/topology.html "$GITHUB_WORKSPACE/evidence-out/independent-browser/six-cavity-topology.html"
+      - name: Independently inspect four real browser modes, reach both mobile table sides, attack rendered overlays
+        run: |
+          set -eo pipefail
+          python -u reviewer-owned/projects/conductor_sim/pr-98/reviews/review-02-chat-b-browser.py 2>&1 | tee evidence-out/independent-browser/first-run-console.log
+      - name: Upload independent first attempt and screenshots even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr98-review02-independent-browser
+          path: evidence-out/
+          retention-days: 30
+          if-no-files-found: warn
