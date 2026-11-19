@@ -4,6 +4,7 @@ on:
     paths:
       - ".github/workflows/m40a-pr100-review01-independent.yml"
       - "projects/conductor_sim/pr-100/reviews/review-01-chat-b-probes.py"
+      - "projects/conductor_sim/pr-100/reviews/review-01-chat-b-nonunit-repro.py"
   workflow_dispatch:
 permissions:
   contents: read
@@ -45,6 +46,11 @@ jobs:
         run: |
           set -o pipefail
           PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-100/reviews/review-01-chat-b-probes.py ../review100-chatb.json 2>&1 | tee ../review100-chatb-first-attempt.log
+      - name: Reviewer near-wall almost-unit-normal numerical conditioning diagnostic
+        working-directory: candidate
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-100/reviews/review-01-chat-b-nonunit-repro.py 2>&1 | tee ../review100-nonunit-normal.log
       - name: Preserve raw first-attempt science and identity evidence
         if: always()
         run: |
