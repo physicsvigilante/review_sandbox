@@ -1,0 +1,54 @@
+name: Conductor M38b PR92 independent Chat B reviewer02
+on:
+  push:
+    branches:
+      - review/m38b-pr92-chatb-02
+    paths:
+      - ".github/workflows/m38b-pr92-chatb-review02.yml"
+      - "projects/conductor_sim/pr-92/reviews/review-02-chat-b-probes.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-corrected-head-real-chromium:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Checkout own separate review
+        uses: actions/checkout@v4
+        with:
+          path: reviews
+      - name: Checkout literal M38b corrected production commit
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 424eada71313bc6da381172ec27b9be4cfc5d035
+          fetch-depth: 0
+          path: source
+      - name: Setup isolated reviewer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install physics software and actual headless Chromium
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python -m pip install -e ".[test]" "playwright==1.57.0"
+          python -m playwright install chromium
+      - name: Run reviewer-owned original, R1 bypasses, novel CSS/SVG, direct errors and 26 developer probes
+        working-directory: source
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-92/reviews/review-02-chat-b-probes.py 2>&1 | tee ../review02-first-attempt.log
+      - name: Preserve first-run logs, real Chromium screenshots, rejections and native JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr92-independent-review02-first-attempt
+          path: |
+            review02-first-attempt.log
+            review02-evidence/
+          if-no-files-found: warn
+          retention-days: 30
