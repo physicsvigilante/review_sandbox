@@ -111,7 +111,7 @@ def test_play_and_freeze(page, manifest, screenshots, minimum_index):
     page.locator("#m38b-play").click()
     page.wait_for_function(
         "(min) => window.m38bViewer?.selectedIndex >= min",
-        minimum_index,
+        arg=minimum_index,
         timeout=5000,
     )
     # This first live snapshot is our independent inspector; neither helper
