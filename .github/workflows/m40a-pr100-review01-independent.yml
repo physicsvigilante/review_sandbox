@@ -1,0 +1,61 @@
+name: M40a PR100 Chat B independent six-void Kelvin and native review
+on:
+  push:
+    paths:
+      - ".github/workflows/m40a-pr100-review01-independent.yml"
+      - "projects/conductor_sim/pr-100/reviews/review-01-chat-b-probes.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-m40a:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: f38fb82f27312f9ea1526c1a65bb93657937a0cb
+          path: candidate
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently pin exact real native Git source and scope
+        run: |
+          set -euo pipefail
+          git -C candidate rev-parse HEAD | tee review100-head.txt
+          git -C candidate rev-parse HEAD^{tree} | tee review100-tree.txt
+          test "$(cat review100-head.txt)" = "f38fb82f27312f9ea1526c1a65bb93657937a0cb"
+          test "$(cat review100-tree.txt)" = "0495115a3ad0d38c71f704ae14a8842d466afe55"
+          git -C candidate diff --name-status 6257ae9c7d7a0e7da2a12cb01a8519b0f2baa7b0 f38fb82f27312f9ea1526c1a65bb93657937a0cb | tee review100-seven-files.txt
+          test "$(wc -l < review100-seven-files.txt)" -eq 7
+          awk '$1 != "A" {exit 1}' review100-seven-files.txt
+          sha256sum candidate/02_conductors_half_size.pdf candidate/POTENTIAL_CONDUCTORS1.pdf candidate/docs/m40a_charter.md | tee review100-frozen-hashes.txt
+      - name: Install actual pinned source and precheck reviewer script
+        run: |
+          set -euo pipefail
+          python -m pip install -e candidate
+          python -m py_compile reviewer/projects/conductor_sim/pr-100/reviews/review-01-chat-b-probes.py
+      - name: FIRST independent mathematical and native six-void run
+        working-directory: candidate
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-100/reviews/review-01-chat-b-probes.py ../review100-chatb.json 2>&1 | tee ../review100-chatb-first-attempt.log
+      - name: Preserve raw first-attempt science and identity evidence
+        if: always()
+        run: |
+          sha256sum reviewer/projects/conductor_sim/pr-100/reviews/review-01-chat-b-probes.py | tee review100-reviewer-source-hash.txt
+          if [ -f review100-chatb.json ]; then sha256sum review100-chatb.json >> review100-reviewer-source-hash.txt; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m40a-pr100-chatb-native-first-attempt
+          path: |
+            review100-*.txt
+            review100-*.log
+            review100-*.json
+          if-no-files-found: warn
+          retention-days: 45
