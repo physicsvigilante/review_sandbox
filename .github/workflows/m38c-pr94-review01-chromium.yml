@@ -96,7 +96,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python ../review/projects/conductor_sim/pr-94/reviews/m38c-reviewer-first-run-probes.py --output-dir ../evidence/teacher 2>&1 | tee ../evidence/first-reviewer-probes.log
+          PYTHONPATH=. python ../review/projects/conductor_sim/pr-94/reviews/m38c-reviewer-first-run-probes.py --output-dir ../evidence/teacher 2>&1 | tee ../evidence/first-reviewer-probes.log
       - name: Original 26 genuine JS-off CSS/SVG hostile refusals
         working-directory: source
         shell: bash
