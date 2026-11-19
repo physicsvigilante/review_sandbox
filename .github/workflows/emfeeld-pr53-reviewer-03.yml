@@ -1,0 +1,56 @@
+name: EMFEELD PR53 independent Float32 review 03
+
+on:
+  push:
+    branches:
+      - review/emfeeld-pr53-chatb-03
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reviewer-owned-chromium:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout independent reviewer harness
+        uses: actions/checkout@v4
+      - name: Fetch exact PR53 synthetic source and verify head/commit/tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init -q emfeeld-pinned
+          git -C emfeeld-pinned remote add origin https://github.com/physicsvigilante/emfeeld.git
+          git -C emfeeld-pinned fetch --depth=1 origin refs/pull/53/merge
+          actual_commit=$(git -C emfeeld-pinned rev-parse FETCH_HEAD)
+          test "$actual_commit" = "5c0f5a2480510177f1f6be329936945bb9b16efc"
+          git -C emfeeld-pinned checkout --detach FETCH_HEAD
+          actual_tree=$(git -C emfeeld-pinned rev-parse HEAD^{tree})
+          test "$actual_tree" = "77c03d1092fe1c55a1c4641b82402894eb5d4155"
+          actual_head=$(git -C emfeeld-pinned cat-file -p HEAD | awk '$1=="parent" {x=$2} END {print x}')
+          test "$actual_head" = "f90d536b29d1d253966d1e53bcfe3ae22b36f4fe"
+          printf 'exact_synthetic_merge=%s\nexact_pr_head=%s\nexact_tree=%s\n' "$actual_commit" "$actual_head" "$actual_tree" | tee reviewer-source-identity.txt
+      - name: Install exact Three.js and browser test dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix emfeeld-pinned/web/three_preview --package-lock=false --ignore-scripts --no-audit --no-fund
+          python -m pip install playwright==1.57.0
+          python -m playwright install --with-deps chromium
+      - name: Run genuine independently checked Chromium WebGL2 refusal and recovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          python projects/emfeeld/pr-53/reviewer-03/hosted_webgl.py emfeeld-pinned reviewer-webgl-evidence
+      - name: Retain independent reviewer report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emfeeld-pr53-reviewer03-webgl
+          path: |
+            reviewer-source-identity.txt
+            reviewer-webgl-evidence/report.json
+            reviewer-webgl-evidence/*.png
+          if-no-files-found: warn
+          retention-days: 14
