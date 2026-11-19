@@ -1,0 +1,85 @@
+name: M40a PR100 independent raw Kelvin and evidence review03
+on:
+  push:
+    branches:
+      - review/conductor-pr100-m40a-chatb-03
+    paths:
+      - ".github/workflows/m40a-pr100-review03-independent.yml"
+      - "projects/conductor_sim/pr-100/reviews/review-03-chat-b-probes.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-raw-ray-kelvin-review03:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout reviewer-owned code
+        uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - name: Checkout exact production source, not moving branch
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: b2303a5bd424b2dff6f088c15691aa2ce2c5f3e2
+          path: candidate
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Assert literal native HEAD TREE, bounded diff, and frozen input hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -C candidate rev-parse HEAD | tee review100-03-head.txt
+          git -C candidate rev-parse 'HEAD^{tree}' | tee review100-03-tree.txt
+          test "$(cat review100-03-head.txt)" = "b2303a5bd424b2dff6f088c15691aa2ce2c5f3e2"
+          test "$(cat review100-03-tree.txt)" = "ab41e066ca6d53809b27b142ae35105eaebbf032"
+          git -C candidate diff --name-status e4a64a580cf1a3eca93d4b7315ed1f4aa4ab585e b2303a5bd424b2dff6f088c15691aa2ce2c5f3e2 | tee review100-03-diff.txt
+          test "$(wc -l < review100-03-diff.txt)" -eq 4
+          python - <<'PY'
+          from pathlib import Path
+          observed = set(Path("review100-03-diff.txt").read_text().splitlines())
+          allowed = {
+             "M\tdocs/m40a.md",
+             "M\tsrc/conductor_sim/spherical_multicavity.py",
+             "M\ttests/test_m40a_spherical_multicavity.py",
+             "M\ttools/m40a_spherical_reference.py",
+          }
+          assert observed == allowed, (observed, allowed)
+          PY
+          sha256sum candidate/02_conductors_half_size.pdf candidate/POTENTIAL_CONDUCTORS1.pdf candidate/docs/m40a_charter.md | tee review100-03-frozen.txt
+          printf '%s\n' \
+            '9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d  candidate/02_conductors_half_size.pdf' \
+            '8d0d9b5cf821219058cfc4b7685a39b777e460944df44c3f9cffcb68157a60e5  candidate/POTENTIAL_CONDUCTORS1.pdf' \
+            'b9da8056206f0c3026edee543712ff7fca070f535e11f95d89eb1beea4e7fdf3  candidate/docs/m40a_charter.md' | sha256sum -c -
+      - name: Install native code and syntax-check reviewer code
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e candidate
+          python -m py_compile reviewer/projects/conductor_sim/pr-100/reviews/review-03-chat-b-probes.py
+      - name: FIRST ATTEMPT native versus independent 110-digit Kelvin and v2 attacks
+        working-directory: candidate
+        shell: bash
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-100/reviews/review-03-chat-b-probes.py ../review100-03-numerical.json 2>&1 | tee ../review100-03-first-attempt.log
+      - name: Reviewer code, source and evidence checksums
+        if: always()
+        shell: bash
+        run: |
+          sha256sum reviewer/projects/conductor_sim/pr-100/reviews/review-03-chat-b-probes.py | tee review100-03-reviewer-hash.txt
+          if [ -f review100-03-numerical.json ]; then sha256sum review100-03-numerical.json >> review100-03-reviewer-hash.txt; fi
+      - name: Preserve immutable first-attempt logs and numerical records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m40a-pr100-review03-first-attempt-python-3.12
+          path: |
+            review100-03-*.txt
+            review100-03-*.log
+            review100-03-*.json
+          if-no-files-found: warn
+          retention-days: 60
