@@ -1,0 +1,102 @@
+{
+  "format": "opticsim-pr180-builder-verification-v1",
+  "date": "2026-11-19",
+  "repository": "physicsvigilante/opticsim",
+  "pullRequest": 180,
+  "status": "builder-verified-draft-held",
+  "source": {
+    "commit": "635fc28d48d4ebf5408ce5a45988b7831da6a81b",
+    "tree": "cca59685effa922182111b875187dcd6c999edb2"
+  },
+  "syntheticMerge": {
+    "commit": "b638b9c77e58c0fba05c3d165c8b4f4d7a0a3972",
+    "tree": "cca59685effa922182111b875187dcd6c999edb2",
+    "parents": [
+      "bbcc94a51865da8ccbf4fdfe79ecf6449b3b9d93",
+      "635fc28d48d4ebf5408ce5a45988b7831da6a81b"
+    ]
+  },
+  "main": "bbcc94a51865da8ccbf4fdfe79ecf6449b3b9d93",
+  "sourceAndSyntheticMergeTreesEqual": true,
+  "actualSourceDiff": {
+    "filesChanged": 14,
+    "added": 7,
+    "modified": 7,
+    "deleted": 0,
+    "existingBrowserWorkflowPinPreserved": true
+  },
+  "pinnedUpstream": "811f508d2b070898c241a568b0c167dcb8645251",
+  "ci": {
+    "exactSourceCommit": "635fc28d48d4ebf5408ce5a45988b7831da6a81b",
+    "total": 11,
+    "passed": 11,
+    "failed": 0,
+    "chrome": "Google Chrome for Testing 158.0.8127.36",
+    "opticalRun": 44559774415,
+    "opticalJob": 135685548055,
+    "nodeTests": 953,
+    "nodePassed": 953,
+    "nodeFailed": 0,
+    "skipped": 0
+  },
+  "publicAcceptance": {
+    "cases": 11,
+    "nativeCompleted": 4,
+    "refusedBeforeNative": 7,
+    "nativeCallsForRefusals": 0,
+    "script": "scripts/jee-curved-entry-acceptance.mjs",
+    "inputHashesChecked": 11,
+    "inputHashesMatched": 11
+  },
+  "nativeBaseline": {
+    "emitted": 1,
+    "curvedArcInteractions": 1,
+    "flatBoundaryInteractions": 0,
+    "internalDetectorCrossings": [
+      1,
+      1
+    ],
+    "blockerAbsorptions": 1,
+    "nativeImageDetected": false
+  },
+  "realChrome": {
+    "checks": 8,
+    "allPass": true,
+    "screenshots": 4,
+    "jsErrors": 0,
+    "externalHttpRequests": 0,
+    "physicalEditsVerified": true,
+    "invalidOverlapSuppressed": true,
+    "qualifiedSaveReopened": true
+  },
+  "artifact": {
+    "id": 14548376683,
+    "name": "opaque-blocker-evidence",
+    "sha256": "01edfdec4dd8849a0e17fab0ee4900ab1a01fe55dc6748200fec6c272feed6fd",
+    "zipMembers": 387,
+    "zipCrcsPassed": true,
+    "v24Members": 59
+  },
+  "scope": {
+    "newNativeTracingAlgorithm": false,
+    "nativePrimitiveReuse": [
+      "SingleRay",
+      "Glass",
+      "Detector",
+      "Blocker"
+    ],
+    "historicalSchemasWidened": false,
+    "standaloneSingleSurfaceClaim": false,
+    "physicalImageDetected": false,
+    "originalJeeQuestionSolved": false,
+    "blindEvaluationClaim": false,
+    "independentPhysicsReviewPerformed": false,
+    "productionMainModifiedByPr180": false
+  },
+  "release": {
+    "independentReviewRequired": true,
+    "reviewTarget": "projects/opticsim/pr-180/reviews/review-01-chat-b.md",
+    "reviewVerdict": "PENDING",
+    "merged": false
+  }
+}
