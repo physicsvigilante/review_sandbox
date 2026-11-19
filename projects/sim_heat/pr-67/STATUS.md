@@ -1,3 +1,23 @@
+# SIM_HEAT PR67 — N6 exact RodArea algebraic solver: INDEPENDENT R2 SCOPED PASS; NATIVE HOLD
+
+**CURRENT STATUS:** `PR67_REVIEW01_SCOPED_PASS_EXACT_4517bf8e; N6_EXACT_RODAREA_ALGEBRAIC_JUNCTION_SOLVER_ACCEPTED_IN_SCOPE; PUSH_PR_CI_GREEN_270_DISTINCT_OFFLINE_CHECKS_EACH; ORIGINAL_CIRCULAR_T1_REFUSES; NEXT_GENERAL_INTERVAL_JUNCTION_EXTENSION_SEPARATE_PR_ONLY; SEVEN_OLD_PHYSICAL_100X_REFUSALS_EIGHT_NATIVE_BLOCKERS_PRESERVED; PR67_66_65_64_63_62_60_59_DRAFT_UNMERGED; ZERO_NATIVE_EXECUTION`.
+
+[Independent Chat B review-01](reviews/review-01-chat-b.md) author blob **`1d26d4e6d81a2697c41fca88749450b67adcc013`** returns **SCOPED PASS** on exact source HEAD **`4517bf8e14f659e79255bc1d20f7fcb7b72ce695`**, full Git tree **`03f18f698252519acd2ec40ca288cd8905202018`**. This is review closure for the bounded offline exact-RodArea algebraic snapshot, NOT native qualification, full H1 dynamic accuracy, a reference bundle or source merge. Reviewer independently tested exact rational Laplacian/positive-pivot algebra with SymPy in a separate harness and authored an unfamiliar four-junction multi-island/body/parallel/cycle thermal network and 40 randomized connected graphs; **these tests were not direct executions of N6's complete public implementation**. Reviewer found no blocking source/physics defect.
+
+**Verified mathematical scope:** positive-source exact area conductance `G=kA/L`; solved storage-free junctions given authored body temperatures and physical fixed boundaries; exact original junction residual zero, passive temperature bound, graph-wide signed heat cancellation, 20-unknown and 16384-bit restrictions. A body's `dT/dt` remains conditional on assumed body temperatures, not a solved trajectory. Original T1-T has a RodCircular and the N6 solver **REFUSES** it rather than silently approximating Pi. All output native/reference/runner/owner/generality certification flags FALSE.
+
+**Current-head CI:** [PUSH 44529162842](https://github.com/physicsvigilante/sim_heat/actions/runs/44529162842) and [PR 44529604939](https://github.com/physicsvigilante/sim_heat/actions/runs/44529604939) SUCCESS, each **13 N6 +11 N5 +15 N4 +12 N3 +16 N2 +17 N1 interval +34 N1 plan +152 H1 =270 distinct OFFLINE checks per workflow**, docs parity, original model/study/facts SHA pins and preserved old seven/eight blockers. Hosted artifacts are not independent native evidence. PR67/66/65/64/63/62/60/59 remain draft/unmerged, old original H1-T1 private scorer UNSEALED.
+
+**Follow-on ideas (not review blockers):** reviewer's separate independent four-junction multi-island fixture can be adopted in the NEXT candidate's public-path tests; current N6 source need not change. Integer temporary operation growth is partly bounded after operation (16384-bit output limits), not an absolute process-memory guarantee; do not claim hard worst-case CPU limit. Future code should avoid untrusted relative sources/changed execution assumptions.
+
+**NEXT bounded development:** a new checking-only numerical candidate should address RodCircular **rigorous interval junction equilibrium** with rational two-sided Pi, without replacing the N6 exact solver, altering old reference values, assuming per-apparatus constants or invoking OMC. Include independent reviewers' unfamiliar graphs, self-contained interval/error proof and fail-closed refusal. Any genuine physical/numerical method change requires independent R2 before use.
+
+**STOP:** seven unchanged old static source-physical 100× failures (`T02.G,T06.A,T06.G,T07.G,T08.G,T10.G,T_Plug.C`), eight native blockers and original lost scorer UNSEALED. No OpenModelica version/install/build/launch, reference promotion, trust-manifest self-approval, old C1 rewrite, merge or deployment.
+
+---
+
+## Original pre-review PR67 status (historical)
+
 # SIM_HEAT PR67 — N6 exact RodArea junction equilibrium: PUSH+PR CI GREEN, independent R2 pending
 
 **CURRENT STATUS:** `NEW_N6_EXACT_RATIONAL_RODAREA_ONLY_ALGEBRAIC_SOLVER; HEAD_4517bf8e; FOUR_N6_ONLY_ADDED_PATHS; PUSH_AND_PR_CI_GREEN_13_PLUS_11_PLUS_15_PLUS_12_PLUS_16_PLUS_17_PLUS_34_PLUS_152; SOURCE_ONLY_ASSUMED_BODY_T_NOT_TIME_INTEGRATION; CIRCULAR_PI_INTERVAL_NETWORKS_EXPLICITLY_REFUSED; ORIGINAL_T1_NETWORK_N6_REFUSED; OLD_SEVEN_STATIC_PHYSICAL_100X_FAILS_AND_EIGHT_NATIVE_BLOCKERS_PRESERVED; INDEPENDENT_R2_REVIEW01_PENDING; ALL_EIGHT_STACKED_PRS_DRAFT_UNMERGED; ZERO_NATIVE_OPERATIONS`.
