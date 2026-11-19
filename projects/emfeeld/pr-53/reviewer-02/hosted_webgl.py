@@ -78,7 +78,16 @@ precision['title']='Reviewer independent Float32-collapse probe'
 precision['trajectories'][0]['positions_m']=[[(999999+.0001*i)*20.,999999*20.,999999*20.] for i in range(41)]
 point=lambda x,y:[(999999+x)*20.,(999999+y)*20.,999999*20.]
 precision['potential']['points_m']=[[point(0,0),point(0,.001)],[point(.001,0),point(.001,.001)]]
-fixtures=[('ordinary',base),('huge',huge),('wrong-role',role),('subnormal-arrow',subnormal),('float32-collapse',precision)]
+inbounds=deepcopy(base)
+inbounds['title']='Reviewer Float32 collapse inside declared bounds'
+inbounds['animation']['samples']=61
+inbounds['trajectories'][0]['positions_m']=[[20*(.25+i*1e-11),0.,.5] for i in range(61)]
+def close_point(x,y):return [20*(.25+x),20*(.25+y),0.]
+inbounds['potential']['points_m']=[
+    [close_point(0,0),close_point(0,1e-9)],
+    [close_point(1e-9,0),close_point(1e-9,1e-9)]
+]
+fixtures=[('ordinary',base),('huge',huge),('wrong-role',role),('subnormal-arrow',subnormal),('float32-collapse',precision),('float32-inbounds',inbounds)]
 entries=[]
 for name,scene in fixtures:
     blob=(json.dumps(scene,separators=(',',':'),allow_nan=False)+'\n').encode()
@@ -94,7 +103,10 @@ worker.start()
 errors=[];evidence=[]
 baseurl='http://127.0.0.1:'+str(server.server_port)+'/'
 def loaded(page,expected):
-    page.wait_for_function('window.emfeeldPreview?.inspect().available',timeout=20000)
+    # The previous scene can remain available during an asynchronous selection.
+    # Wait for the exact SHA of the requested scene, not a truthy stale group.
+    expected_hash=next(e['sha256'] for (name,scene),e in zip(fixtures,entries) if scene is expected)
+    page.wait_for_function('(sha)=>{const r=window.emfeeldPreview?.inspect();return r?.available && r?.source?.sha256===sha}',arg=expected_hash,timeout=20000)
     s=page.evaluate('window.emfeeldPreview.inspect()')
     assert s['three_revision']=='180'
     assert 'WebGL 2.0' in s['webgl_version'],s['webgl_version']
@@ -174,6 +186,19 @@ try:
         assert len(set(x))==41 and len(set(map(q,x)))==1
         evidence.append('ADMISSION DEFECT: 41 distinct saved trajectory samples collapse to 1 Float32 coordinate')
         page.screenshot(path=str(out/'reviewer-float32-loss-admitted.png'))
+        page.select_option('#scene','5')
+        loaded(page,inbounds)
+        # All positions are inside the declared bounds; strict Float64 distinctions
+        # nevertheless vanish in the Float32BufferAttribute used by THREE.
+        x=[(p[0]-0.)/20. for p in inbounds['trajectories'][0]['positions_m']]
+        assert len(set(x))==61 and len(set(map(q,x)))==1
+        points=inbounds['potential']['points_m']
+        corners=[points[0][0],points[1][0],points[1][1]]
+        display_corners=[tuple(v/20. for v in p) for p in corners]
+        assert len(set(display_corners))==3
+        assert len(set(tuple(q(v) for v in p) for p in display_corners))==1
+        evidence.append('ADMISSION DEFECT: 61/61 in-bounds physical positions and triangle collapse to Float32 point')
+        page.screenshot(path=str(out/'reviewer-float32-loss-inbounds-webgl2.png'))
         page.close()
         startup=browser.new_page(viewport={'width':1280,'height':900})
         startup.on('pageerror',lambda error:errors.append(str(error)))
