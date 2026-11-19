@@ -1,0 +1,51 @@
+name: Conductor M38b PR92 independent reviewer01 native/Chromium
+on:
+  push:
+    branches:
+      - review/m38b-pr92-chatb-01
+    paths:
+      - ".github/workflows/m38b-pr92-chatb-review01.yml"
+      - "projects/conductor_sim/pr-92/reviews/review-01-chat-b-probes.py"
+      - "projects/conductor_sim/pr-92/reviews/review-01-chat-b.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-independent-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviews
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 1ef915fdae72a032250c75fed2391ca40fab634c
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install source and real offline Chromium
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python -m pip install -e ".[test]" "playwright==1.57.0"
+          python -m playwright install chromium
+      - name: Run reviewer-owned scientific and hostile visible-DOM probes
+        working-directory: source
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviews/projects/conductor_sim/pr-92/reviews/review-01-chat-b-probes.py 2>&1 | tee ../review01-first-attempt.log
+      - name: Preserve reviewer-owned first-attempt log, numerical results and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-m38b-pr92-reviewer01-first-attempt
+          path: |
+            review01-first-attempt.log
+            review01-evidence/
+          if-no-files-found: warn
+          retention-days: 30
