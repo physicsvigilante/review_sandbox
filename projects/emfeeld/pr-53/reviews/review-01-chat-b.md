@@ -1,0 +1,69 @@
+# Independent focused R2 display-semantic review — EMFEELD PR #53
+
+**Reviewer:** Chat B (separate-context review; not a human/teacher certification)  
+**Date:** 2026-11-19  
+**Verdict: CHANGES REQUESTED (scoped)**  
+**Disposition:** Keep [EMFEELD PR #53](https://github.com/physicsvigilante/emfeeld/pull/53) draft and unmerged. This is a review of the browser presentation boundary, **not** a change request for accepted Coulomb, gravity, dipole or PyVista physics. No source PR files, branches, CI or historical artifacts were modified.
+
+## Reviewed immutable identity and boundaries
+
+- Source: `physicsvigilante/emfeeld`; PR head **`0c9afc19cc355f6e4e5cc7b67f9b5425f3abe8c2`**, head tree **`7a012b2a441dd1fc07f50bc3dc63dcce9eed98a6`**; base/qualified main **`d3de5d7165945630e1a3979afa7252132d5efe5e`**, base tree **`1ec88afdc7a3d057a21e39a52769c190fd1577f2`**.
+- Reconstructed GitHub test merge commit **`37183f0bf195c8479606097b38d11a16e46e632c`**, parents ordered `[base, head]`, tree **`b8f6fbc7dd5ff39eef9b82e98c6703bf75159627`**. All **420 file/mode/blob identities** independently matched `git ls-files -s`/`git write-tree` against the original source-snapshot `git-tree.txt`. Browser artifact's nested source TAR is byte-identical to original source-snapshot TAR.
+- `compare_commits(base, head)` reports exactly **10 added paths, +536/-0**, all under `.github/workflows/browser-preview.yml`, `tools/*browser_preview.py`, and `web/three_preview/` (seven paths). No existing Python law/dynamics/scene/visualization/PyVista/JEE viewer path was changed. Git ancestry is diverged because branch was retargeted; this does not invalidate the exact 10-file relative diff or tested merge tree.
+- This review does not grant general arbitrary-JSON security, new physics, classroom/teacher acceptance, all-browser certification, Windows manual control acceptance, or released renderer status.
+
+## Current CI and original receipts: observed, but owned by author
+
+All seven head-SHA PR workflows reported **completed SUCCESS**: browser [44464467023](https://github.com/physicsvigilante/emfeeld/actions/runs/44464467023), source [44464467025](https://github.com/physicsvigilante/emfeeld/actions/runs/44464467025), release candidate 44464467000, real PyVista 44464467216, Gauss 44464467077, cavity 44464466974, dipole 44464466981. These are **author CI**, not reviewer-executed tests.
+
+- Original browser artifact **14501073586**: SHA-256 **`69363d6ec2741be2918e61791bbeccb9be63990d73cd9089ee4ccff301ccbe20`** (verified whole ZIP, all 29 entries, CRC, safe unique paths). Its runtime evidence contains three Chromium `WebGL 2.0 (OpenGL ES 3.0 Chromium)` reports, seven original PNGs and zero recorded page errors. All 12 exported-preview `INTEGRITY.json` hashes and all eight runtime-`integrity.json` hashes verified.
+- Original source artifact **14500419818**: SHA-256 **`c0e537fbcf462c159645804105bc2ab98158943846c23ef4c278aecfe3be6f7a`** (verified ZIP CRC and four entries); nested TAR SHA-256 **`d85438bdd2d8b8324f4764a095223717801cfe41be4274ad57fa178688ac891b`**. Source TARs matched byte-for-byte, and the independently staged 420-file tree matched the pinned merge tree.
+- Python re-export independently executed from the recovered pinned source and original three `examples/*.json` files (NumPy 2.3.5 / SciPy 1.17.0, `resolution=21`). **All three input SHA-256 hashes, snapshot SHA-256 hashes, and final encoded JSON bytes matched exactly.** Snapshots: electric **`13a4efb45557322da056cf61829fdadacaedc489851c242fb564702605cde41b`**; Sun **`04f9e12624710d694120562dc49f6fc5c605434d617395bfaed92bfa4478fee4`**; line/plane **`d74602d0b77aca990ea202f26bb092652667cd261f0d4660f228a1f9d9856611`**.
+- Reviewer additionally inspected all seven original PNGs and independently projected source JSON particle positions into a pinhole camera. There were magenta pixel matches near all **nine expected particle locations** (three electric frames plus two planets at three frames); the static line/plane scene correctly had zero particle markers. The screenshots visibly show nonempty source patches, arrows and potential slices. This checks **original screenshots**, not freshly executed reviewer Chromium.
+- Runtime imports use pinned `three==0.180.0`, copied local JS + license and a local import map; inspected `app.js` contains only local GET/fetch of manifest and snapshot, no JS field solver/integrator or data-upload operation. This is not a complete hostile-input/network audit.
+- Historical failure retained: first 7e2ef664 / run [44350533820](https://github.com/physicsvigilante/emfeeld/actions/runs/44350533820) **FAILED** (`Invalid saved frame` on a negative RAF elapsed time). The later source's clamped negative display clock passes independent new Node probes. Earlier ca1e7045 / run 44353645978 with artifact 14451670545 was a distinct older source: do **not** treat it as this merged-preview qualification.
+
+## New independently authored tests (distinct from author's seven Node groups)
+
+A separately authored `reviewer_model.test.mjs`, run with Node v22.16.0 against **the exact artifact `model.js`**, yielded **13/13 PASS** as *test executions* (two pass groups deliberately reproduce defects, rather than claiming the renderer passes acceptance). The successful checks include three original scenes' every particle at sample 0/mid/last, physical time calculation, display transform, all potential corners/triangles, x-fastest Fortran flattening, 4 omitted Sun cells and 4 omitted line/plane cells, strict known role/version/unit rejects, zero-vector field-arrow rejection, negative RAF clock, intermediate replay indexing, null-hole preservation and mixed-sign scalars. Pure functions did not mutate input snapshots.
+
+A separately authored `reviewer_receipts.py` verified both original ZIPs, source TAR equality, 420 tracked blob/mode identities, manifests, hash lists, the seven original PNGs and the screenshot pixel/projection locations. **This was not a fresh Chromium run.** Independent Playwright Chromium code was also attempted against the local HTTP preview, but **navigation was prevented** with `net::ERR_BLOCKED_BY_ADMINISTRATOR` before the page loaded; the local Chromium session also did not provide a WebGL2 context. Therefore new reviewer-owned actual WebGL controls, transforms, negative-page-error and mutated-preview scenarios are **NOT RUN / NOT PASS**. Do not promote the author CI run to independent-browser evidence.
+
+## Findings requiring correction
+
+### R2-01 — Invalid/missing semantic roles and structural fields are admitted (blocker for declared snapshot boundary)
+
+**Evidence:** [`web/three_preview/model.js` lines 11–39](https://github.com/physicsvigilante/emfeeld/blob/0c9afc19cc355f6e4e5cc7b67f9b5425f3abe8c2/web/three_preview/model.js#L11-L39) checks some roles but silently accepts others that the renderer-neutral V1 exporter emits. Reviewer variants of the genuine electric snapshot **passed `validateSnapshot()`** after changing `potential.role` to `physical_material_surface`, `geometry[0].role` to `physical_impenetrable_wall`, `trajectories[0].marker_role` to `actual_radius_and_charge_sign`, `annotations[0].role` to an unknown role, or `animation.time_unit` to `years`. Deleting `moving_slice`, `potential.role`, `geometry.role`, `geometry.id`, `trajectory.marker_role` or `animation.time_unit` likewise passed. A plane with `direction:[0,0,0]` also passed. These are **observed pure-JS validation results**, not an observed screenshot failure for the three shipped examples.
+
+**Why R2:** Roles distinguish *potential samples from material surfaces*, *finite schematic patches from boundaries* and *marker legibility from real radius*. `app.js` always draws based on `shape`, uses `moving_slice` to set surface opacity and displays a fixed schematic marker legend ([app lines 43–85](https://github.com/physicsvigilante/emfeeld/blob/0c9afc19cc355f6e4e5cc7b67f9b5425f3abe8c2/web/three_preview/app.js#L43-L85)). Accepting contradictory or absent meaning metadata undermines the stated validator contract, though no source alteration is shown for the three trusted exporter examples.
+
+**Required bounded correction:** Either validate the renderer-neutral V1 roles, required IDs/time-unit/boolean fields and normalized/nonzero source directions with explicit error messages, or explicitly reduce the accepted input schema to a documented safe subset and reject out-of-subset payloads. Avoid building a universal JSON security framework. Add negative Node and browser refusal regressions. Do not modify the physics engine.
+
+### R2-02 — Finite coordinate domain can overflow or underflow into undrawable glyphs (blocker for admitted values unless explicitly bounded)
+
+**Evidence:** [`model.js` lines 6–7 and 42–47](https://github.com/physicsvigilante/emfeeld/blob/0c9afc19cc355f6e4e5cc7b67f9b5425f3abe8c2/web/three_preview/model.js#L42-L47) admits finite ordered bounds but uses `(lower+upper)/2`. A reviewer-created **all-finite** translated/scaled version of an existing snapshot uses X bounds `[1e308-3e306, 1e308+3e306]` with consistently shifted/scaled X positions. `validateSnapshot()` returns successfully; `displayTransform().origin_m[0]` becomes **Infinity** and the initial marker's X `toDisplay()` becomes **-Infinity**. This means a payload is accepted even when it cannot be drawn faithfully. A second reviewer variant sets a positive, finite, subnormal schematic `display_length_m=Number.MIN_VALUE`; validation succeeds while `display_length_m/scale_m` becomes **zero**, so direction glyph length vanishes. This is a new **numerical helper reproduction**, not a successful browser rendering of these variants.
+
+**Required bounded correction:** Calculate midpoints/spans with overflow-safe arithmetic where representable; fail visibly if any accepted scene geometry, saved-marker position, potential vertex or arrow length cannot be represented after transform, including division underflow, rather than silently constructing invalid THREE positions. Alternatively, document a smaller *enforced* renderable magnitude/range domain and reject out-of-domain inputs. Regress normal astronomical Sun coordinates plus both adversarial bounds. Do not rescale or interpolate physical JSON values to hide the problem.
+
+### R2-03 — Browser-visible keyboard help is misleading (minor presentation correction)
+
+The emitted `playback_help` annotation tells students **Space / Home / Left / Right** control playback (from the PyVista adapter). [`app.js` lines 94–96 and 129–139](https://github.com/physicsvigilante/emfeeld/blob/0c9afc19cc355f6e4e5cc7b67f9b5425f3abe8c2/web/three_preview/app.js#L94-L139) prints that text in the browser but installs no keyboard listeners for those shortcuts. The browser has functional on-screen Play/slider controls; this finding does not claim those controls fail. Filter/clarify the upstream PyVista-only help or implement the promised keys in the browser. The defect is source-inspected; reviewer-owned keyboard automation was blocked.
+
+### R2-04 — PR description's source identity is stale (minor provenance correction)
+
+The present PR body still describes prior head `ca1e7045...`, old tree `da7564f...` and a stacked PR52 state, whereas GitHub metadata and current CI are for head `0c9afc19...` retargeted to qualified main. The README was updated but the PR body was not. Correct the public description to the actual pins and source/main state; keep old run/artifact statements explicitly historical, not current acceptance.
+
+## What the evidence does and does not support
+
+**Supported for three pinned, trusted examples:** renderer-neutral Python export → exact static checksums → displayed schematic sources, direction-only arrows, physical potential samples (V or J/kg), saved trajectories (not field lines); normal scene saved positions/time and triangle/null-cell ordering are independently checked. Original author Chromium/WebGL2 captures and original PNGs exist and are integrity-consistent. There is no new JS Coulomb/gravity law, trajectory reintegration or interpolation.
+
+**Unproven in this reviewer context:** freshly executed reviewer-owned Chromium/WebGL2 controls, orbit, real actor geometry and error reporting; browser visibility/refusal for malformed/extreme inputs; manual Windows or other browsers; general untrusted JSON safety; human teacher effectiveness. Original author screenshots are **not** substitute reviewer-owned browser tests.
+
+## Re-review gate
+
+1. Patch only the two scoped data-admission/display-numerics blockers (R2-01/R2-02) with explicit bounded regressions. Address the minor misleading annotation/PR identity at the same time. Keep the source PR draft.
+2. On a **new pinned head**, rerun relevant exact-head Node, current-source export and genuine Chromium WebGL CI; preserve failed attempts and original evidence unchanged. Do not treat PR source tests as independently run tests.
+3. Obtain a *separately executed reviewer-owned* real WebGL control/geometry/refusal test in an environment that permits the local preview, or explicitly document the residual verification gap and keep the acceptance gate open. Re-review the modified browser boundary only, not accepted physics and JEE math.
+4. Do not merge or label as production release before scoped review acceptance, current-source qualification and explicit owner-approved guarded integration; independently qualify resulting actual main.
+
+**Bottom line:** Positive source fidelity/provenance is strong and normal three-example semantics pass independent math/hash/PNG receipt challenges, but R2-01 and R2-02 are actionable admission/representation defects. With reviewer-owned actual Chromium unexecuted, **PASS is not justified**.
