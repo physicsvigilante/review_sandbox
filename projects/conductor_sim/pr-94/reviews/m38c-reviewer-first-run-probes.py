@@ -201,7 +201,7 @@ def expect_live_forgery_refusal(page, manifest, screenshots, *, name,
     else:
         raise AssertionError(f"{name}: forged pre-redraw display was ACCEPTED")
     assert wanted in reason, (name, "wrong refusal", reason)
-    assert key in reason or mode == "text", (name, "wrong data key", reason)
+    assert ("chart_y_px" in reason if name == "chart-y" else mode == "text"), (name, "wrong physical data key", reason)
     _check_frame(page, manifest, i, no_js=False)
     return {
         "attack": name, "genuine_played_index": i, "forged_value": value,
