@@ -1,3 +1,23 @@
+# SIM_HEAT PR68 — N7 interval-junction proof independently R2 SCOPED PASS; DRAFT / NATIVE HOLD
+
+**CURRENT STATUS:** `INDEPENDENT_REVIEW01_SCOPED_PASS_EXACT_4f4bbabc; UNIVERSAL_M_MATRIX_INTERVAL_PROOF_ACCEPTED_IN_SCOPE; PUSH_PR_CI_GREEN_283_OFFLINE_TESTS_EACH; ORIGINAL_T1_T06_CIRCULAR_CONNECTS_KNOWN_BODIES_SO_JUNCTION_RADIUS_ZERO; FOUR_JUNCTION_NOVEL_PI_GRAPH_RECOMMENDED_NEXT_REGRESSION; ALL_SEVEN_OLD_100X_FAILURES_AND_EIGHT_NATIVE_BLOCKERS_ACTIVE; PR68_67_66_65_64_63_62_60_59_DRAFT_UNMERGED; ZERO_NATIVE_OPERATIONS`.
+
+[Independent Chat B review-01](reviews/review-01-chat-b.md), reviewer-authored Git blob **`1ef9e29989c8118790873d6e77d2ff36af51d4de`**, returns **SCOPED PASS** at exact source HEAD `4f4bbabc1083f2e1f8a6ced66c00b95fea1a5128`, full Git tree `5cf0e68e87a81ba641b4d6ef5f9f215120670dc5`. No demonstrated blocking physics or numerical error. The reviewer independently authored exact Fraction rational Dirichlet, residual and signed positive-barrier calculations in a separate offline harness; 16/16 independent conductance-interval endpoint selections fit the universal enclosure for a new four-junction/eleven-rod network, including multiple circular rods, a loop, parallel conductors, separate anchored island and isolated body. Reviewer DID NOT import/execute the actual checked-in N7 module locally or ZIP-rehash artifacts. Report preserves that distinction.
+
+**Clarification F-02:** original H1-T1's circular conductor T06 goes directly B↔P, both **known user-assumed body nodes** in N7; the two junction temperatures therefore have **zero Pi-induced radius** and are singleton rational enclosures. The same T06 still produces a genuine physical Pi-interval heat flow and can influence conditional body heating rates. The single/two-junction synthetic N7 cases exercise nonzero Pi uncertainty in unknown-node temperatures. **This is not a numerical defect or a source amendment.**
+
+**Nonblocking resource note:** some rational arithmetic temporaries are bounded after their operation, so the 16384-bit accepted-value constraint is not a hard peak-memory or CPU proof. Future bounded-work guarantees require separate preoperation checks and stress tests; do not claim them now.
+
+**Exact-head CI:** [PUSH 44535472230](https://github.com/physicsvigilante/sim_heat/actions/runs/44535472230) and [PR 44535966432](https://github.com/physicsvigilante/sim_heat/actions/runs/44535966432) SUCCESS, **13 N7 +13 N6 +11 N5 +15 N4 +12 N3 +16 N2 +17 N1 interval +34 N1 plan +152 original H1 =283 distinct offline tests per workflow**, docs parity PASS. The original test-only RED [44535203687](https://github.com/physicsvigilante/sim_heat/actions/runs/44535203687) remains preserved; the pinned source mathematical module had not changed in the corrected CI.
+
+**Scope and holds:** `sim_heat.h1_n7.verified_interval_junction_snapshot/1` only proves mathematically enclosed instantaneous algebraic junction temperatures and conditional flows from caller-supplied source facts/assumed body temperatures. NO native OpenModelica version queries/installs/builds/launches, no all-grid 77+8+5 independent certificate, source authentication, reference bundle migration, owner-approved manifest, integrated trajectory or deployment. The seven old static physical-100× checking-centre failures `T02.G,T06.A,T06.G,T07.G,T08.G,T10.G,T_Plug.C`, eight N1 native blockers and UNSEALED original author scorer remain. PRs #59, #60, #62–#68 remain DRAFT/UNMERGED; historical C1 and main unchanged.
+
+**Next bounded work:** keep PR68 source frozen; build a NEW checking-only reviewable milestone with an independent source-level corner-verification cross-check for Chat B's novel four-junction circular graph, genuine negative-gradient coverage and a clearly distinguished T1 known-known Pi edge. Future generality/availability assertions still require their own reviews.
+
+---
+
+## Previous PR68 status (historical, before independent approval)
+
 # SIM_HEAT PR68 — N7 verified circular junction enclosures, exact-head CI green; independent R2 pending
 
 **CURRENT STATUS:** `NEW_N7_RIGOROUS_SOURCE_EXACT_PI_INTERVAL_DIRICHLET_PROOF; CURRENT_HEAD_4f4bbabc; FOUR_N7_ONLY_ADDED_FILES; PUSH_PR_CI_GREEN_13_PLUS_13_PLUS_11_PLUS_15_PLUS_12_PLUS_16_PLUS_17_PLUS_34_PLUS_152; ORIGINAL_T1_CIRCULAR_JUNCTIONS_ENCLOSED_NOT_DYNAMICALLY_SOLVED; INDEPENDENT_R2_NUMERICAL_REVIEW01_PENDING; LEGACY_SEVEN_STATIC_100X_REFUSALS_EIGHT_NATIVE_BLOCKERS_PRESERVED; ALL_NINE_STACKED_PRS_DRAFT_UNMERGED; ZERO_NATIVE_OPERATIONS`.
