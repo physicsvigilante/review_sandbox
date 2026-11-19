@@ -315,6 +315,41 @@ def main():
     rejects("invented wire time",lambda:s.ground_wire_current(1.))
     rejects("point potential",lambda:s.potential_at((0,0,0)))
 
+    # Contact attack with the moved cavity AND every source translated together;
+    # this isolates genuine wall geometry instead of tripping source containment first.
+    right=m.geometry.voids[1]
+    touching_center=add(void.center_m,(void.radius_m+right.radius_m,0.,0.))
+    delta=sub(touching_center,right.center_m)
+    touching=replace(right,center_m=touching_center,
+                     positions=tuple(replace(pp,position_m=add(pp.position_m,delta))
+                                     for pp in right.positions))
+    rejects("genuine intervoid wall contact with valid sources",lambda:SphericalSigmaModel(
+        m.gauss_assembly,replace(m.geometry,voids=(void,touching)+m.geometry.voids[2:])))
+    touching_outer_center=add(CENTER,(OUTER_R-void.radius_m,0.,0.))
+    delta_outer=sub(touching_outer_center,void.center_m)
+    moved_void=replace(void,center_m=touching_outer_center,
+                 positions=tuple(replace(pp,position_m=add(pp.position_m,delta_outer))
+                                 for pp in void.positions))
+    rejects("genuine outer wall contact with valid source positions",lambda:SphericalSigmaModel(
+        m.gauss_assembly,replace(m.geometry,voids=(moved_void,)+m.geometry.voids[1:])))
+
+    # Signed near-cancellation of distinct sites is not certified physical zero.
+    cancel_gauss=GaussCavityAssembly("m",(SealedCavity("V",(
+        CavityCharge("positive",1e-9),CavityCharge("negative",-1e-9))),),Grounded())
+    cancel_geometry=SphericalMetalGeometry((0.,0.,0.),3.,(
+        SphericalVoid("V",(0.,0.,0.),.8,(
+            NamedSourcePosition("positive",(0.,0.,0.)),
+            NamedSourcePosition("negative",(1e-13,0.,0.)))),))
+    cancel_solution=solve_spherical_sigma(SphericalSigmaModel(cancel_gauss,cancel_geometry))
+    rejects("nonzero but numerically near-cancelled density",lambda:
+            cancel_solution.inner_surface_charge_density("V",(1.,0.,0.)))
+    exact_geometry=replace(cancel_geometry,voids=(
+        replace(cancel_geometry.voids[0],positions=(
+            NamedSourcePosition("positive",(0.,0.,0.)),
+            NamedSourcePosition("negative",(0.,0.,0.)))),))
+    exact_sigma=solve_spherical_sigma(SphericalSigmaModel(cancel_gauss,exact_geometry))
+    assert exact_sigma.inner_surface_charge_density("V",(1.,0.,0.))==0.
+    note("exact_same_site_cancellation",{"sigma":0.0})
     # Qualified just-above-cutoff wall position should remain finite, no sign/zero fiction.
     very_near=replace(p,position_m=add(void.center_m,(void.radius_m*(1-1.2e-8),0,0)))
     near_model=replace(m,geometry=replace(m.geometry,voids=(
