@@ -315,7 +315,7 @@ def adversarial(directory):
                     assert p.returncode != 0, f"{name}: FORGERY ACCEPTED"
                     assert reason.startswith("AssertionError:") and target_reason in reason, (
                         name, "wrong refusal", p.returncode, reason)
-                    finding = {"attack":name, "kind":mode, "actual_nojs_forgery_proved":True,
+                    finding = {"attack":name, "mode":mode, "actual_nojs_forgery_proved":True,
                                "reason":reason, "screenshot":name+".png",
                                "html_sha256":sha256(bad.encode("utf-8"))}
                     findings.append(finding)
