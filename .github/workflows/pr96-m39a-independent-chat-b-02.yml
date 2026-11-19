@@ -1,0 +1,98 @@
+name: PR96 M39a independent Chat B correction review 02
+on:
+  push:
+    branches:
+      - review/conductor-pr96-m39a-chat-b-02
+    paths:
+      - .github/workflows/pr96-m39a-independent-chat-b-02.yml
+      - projects/conductor_sim/pr-96/reviews/review-02-chat-b-probes.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-corrected-numerics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviews
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 8d235eab5bf14bebf191e15771d296878a151a23
+          path: source
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify literal production HEAD and native tree, changes and source controls
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ../evidence
+          git rev-parse HEAD | tee ../evidence/native-head.txt
+          git rev-parse HEAD^{tree} | tee ../evidence/native-tree.txt
+          test "$(git rev-parse HEAD)" = 8d235eab5bf14bebf191e15771d296878a151a23
+          test "$(git rev-parse HEAD^{tree})" = 820ab1e35aee40a30eb45e9b32157416dfd59642
+          git diff --name-only 1a11bd03d51645bcc7994ab0ec50a553dd47dc7a 8d235eab5bf14bebf191e15771d296878a151a23 > ../evidence/four-correction-files.txt
+          python - <<'PY'
+          from pathlib import Path
+          actual = set(Path("../evidence/four-correction-files.txt").read_text().splitlines())
+          expected = {
+              "src/conductor_sim/cavity_gauss.py",
+              "tools/m39a_gauss_reference.py",
+              "tests/test_m39a_cavity_gauss.py",
+              "docs/m39a.md",
+          }
+          assert actual == expected, (actual, expected)
+          print("Exactly four corrected files; original source PDF/charter/FEMM/browser unchanged")
+          PY
+          sha256sum 02_conductors_half_size.pdf POTENTIAL_CONDUCTORS1.pdf | tee ../evidence/original-pdfs-sha256.txt
+          git status --short | tee ../evidence/source-status.txt
+      - name: Install pinned production package and focused regression dependencies
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e '.[test]' > ../evidence/pip-install.log 2>&1
+          python -V | tee ../evidence/python-version.txt
+      - name: Run native focused regressions afresh
+        working-directory: source
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_m39a_cavity_gauss.py 2>&1 | tee ../evidence/review-02-native-regression.txt
+      - name: Run native teacher example and actual standalone CLI
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m tools.m39a_gauss_example --output-dir ../evidence/teacher-export 2>&1 | tee ../evidence/teacher-export.log
+          python -m tools.m39a_gauss_reference --input ../evidence/teacher-export/m39a-isolated-teacher.json --output ../evidence/teacher-isolated-oracle.json 2>&1 | tee ../evidence/teacher-isolated-cli.txt
+          python -m tools.m39a_gauss_reference --input ../evidence/teacher-export/m39a-grounded-teacher.json --output ../evidence/teacher-grounded-oracle.json 2>&1 | tee ../evidence/teacher-grounded-cli.txt
+      - name: Reviewer-owned novel adversarial corrected-boundary probes
+        working-directory: source
+        shell: bash
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD" python ../reviews/projects/conductor_sim/pr-96/reviews/review-02-chat-b-probes.py ../evidence 2>&1 | tee ../evidence/review-02-first-attempt-probes.log
+      - name: Hash first-attempt reviewer artifacts
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum reviews/projects/conductor_sim/pr-96/reviews/review-02-chat-b-probes.py > evidence/artifact-digests.txt
+          find evidence -maxdepth 2 -type f ! -name artifact-digests.txt -print0 | sort -z | xargs -0 -r sha256sum >> evidence/artifact-digests.txt
+      - name: Upload all actual passing and failing first-attempt evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr96-chat-b-independent-correction-02
+          path: evidence/
+          retention-days: 21
+          if-no-files-found: warn
