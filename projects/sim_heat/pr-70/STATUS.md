@@ -1,0 +1,17 @@
+# SIM_HEAT PR70 — whole-project audit corrections; CI GREEN; independent R2 pending
+
+**Source:** draft/unmerged https://github.com/physicsvigilante/sim_heat/pull/70 . HEAD `3f718ce0f1bb3fbc75162f99862796e32d2b0752`, tree `d9bd26ff57b22be20fce9c39ad855b0fa8fe4862`; base **main** `f52613c39c539b2d4543a9838e5658d526fca10e`. This is NOT stacked onto or a disposition of PR69. All earlier review/qualification source and history untouched.
+
+**Implemented:** four reproduced code fixes (workbench isolated-script import, Windows path normalization, detached/revalidated source previews, same-read native-plan hash/parse), plus introduction-only scope assertions corrected for recurring maintenance CI. Twelve new regression methods, offline health command, detailed JEE/composability/OpenModelica audit. Eleven paths changed; no physical laws, numerical acceptance limits, archived result data or original source facts changed.
+
+**Executed evidence:** ten original regression methods failed first on unchanged main with 7 failures/1 error; corrected ten pass. Two CI-scope tests execute actual embedded Python guards, checking strict original milestone versus allowed maintenance. Product suites: 313 collected /312 pass /1 optional skip. Frozen PR69 qualification-specific snapshot: 147 additional pass, not current-main integration or independent review. Five original archive ZIPs personally SHA256/CRC verified and six saved diagnostic payloads replay byte-identically under corrected source.
+
+**Exact-head hosted CI:** source-preview 44566839120, project-audit-core 44566839405, authoring-workbench 44566839372 ALL completed SUCCESS. Actual HTTP Chromium desktop/mobile/refusal tests pass for existing explorer, source inspector, documentation and isolated workbench. Local HTTP browser attempts remain recorded as environment-blocked, not relabeled. No native OMC calls.
+
+Synthetic PR checkout `e2646ec13347b10583110197f5b96f7f655599b2` has exact candidate tree and ordered parents [main, candidate]. New source-preview ZIP 14550034886 SHA256 `d52a71cb41fdaaac23c2ca6e5b31478992b7e8ca216ffca3fc58d4289464d6b8`, workbench ZIP 14551734124 SHA256 `d72bdafd5fdab6f0c9a5c6e3c7993e443fe62258517dead85e34875e1f4b9887`: both independently downloaded/hash/CRC checked; workbench source.tar reconstructed to exact candidate tree. Developer evidence, NOT Chat B approval.
+
+**Assessment:** true component/port composition in a narrow lumped-conduction domain; product/draft numerical/native-runner/viewer integration still incomplete. JEE relevance strong for conduction/heat capacity subset, not latent heat/radiation/gas thermodynamics. Historical OpenModelica 1.27.0/MSL4 diagnostic interoperability preserved; fresh current native execution NOT performed/qualified. Recommend product consolidation and one complete teaching workflow rather than another isolated proof milestone.
+
+[Full R2 request](REQUEST.md) and [ready reviewer prompt](REVIEWER-PROMPT-01.md) published. Chat B must independently write NEW `reviews/review-01-chat-b.md` pinned to current source. No independent PASS yet.
+
+**STOP:** no merge, native installation/version query/build/launch, reference adoption, C1 rewrite or deployment. All earlier seven strict physical-reference failures/eight native blockers and unsealed private scorer remain; source integrity fixes do not replace future external authority/host/readiness qualification.
