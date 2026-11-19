@@ -24,6 +24,7 @@ jobs:
         with:
           repository: physicsvigilante/conductor_sim
           ref: 1ef915fdae72a032250c75fed2391ca40fab634c
+          fetch-depth: 0
           path: source
       - uses: actions/setup-python@v5
         with:
