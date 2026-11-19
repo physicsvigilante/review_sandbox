@@ -1,0 +1,54 @@
+{
+  "format": "opticsim-release-record-v1",
+  "date": "2026-11-19",
+  "repository": "physicsvigilante/opticsim",
+  "pullRequest": 177,
+  "merged": true,
+  "mergeCommit": "6295695483241620e17de1fd8df5e45abb80876d",
+  "mergeTree": "df49aa4114479ac2462bfa67682b4c9b6ef3e37b",
+  "parents": ["f0235bc5dabce50df81192d4fd7807c62cab4edd", "f981be4750f60a6bd5a9f5fc0fb003e82013a5a9"],
+  "reviewedSourceCommit": "f981be4750f60a6bd5a9f5fc0fb003e82013a5a9",
+  "reviewedSourceTree": "df49aa4114479ac2462bfa67682b4c9b6ef3e37b",
+  "testedSyntheticMerge": "f39a7240bab504af348dcb0e93af946f4ea6851d",
+  "sourceSyntheticAndActualMergeTreesEqual": true,
+  "treeEvidence": "Fresh GitHub Git-commit-object reads, not a claimed CI tree-comparison step",
+  "review": {
+    "commit": "132d7d668e602360d0ea68e8a2f68b45e0cafc41",
+    "path": "projects/opticsim/pr-177/reviews/review-01-chat-b.md",
+    "recordedVerdict": "CHANGES REQUESTED",
+    "blockingFinding": "B1: incorrect builder handoff Git-tree identity",
+    "subsequentIndependentClearanceClaimed": false,
+    "reportModifiedByBuilder": false
+  },
+  "correction": {
+    "commit": "6b2e8199dcd191b1304fe3877404f39874777ce2",
+    "erratumPath": "projects/opticsim/pr-177/BUILDER-VERIFICATION-02-ERRATUM.md",
+    "machineRecordPath": "projects/opticsim/pr-177/BUILDER-CORRECTION-01.json",
+    "publishedAndReadBack": true,
+    "sourceChangesRequired": false
+  },
+  "releaseInstruction": {
+    "ownerMessage": "keep going",
+    "context": "Following the report of the published metadata correction and the remaining acceptance/release decision; treated as the instruction to proceed with the unchanged reviewed candidate.",
+    "prConversationCommentId": 7012476874,
+    "expectedHeadGuardUsed": true
+  },
+  "postMergeCi": {
+    "commit": "6295695483241620e17de1fd8df5e45abb80876d",
+    "event": "push",
+    "totalRuns": 11,
+    "successfulRuns": 11,
+    "totalQuery": "https://api.github.com/repos/physicsvigilante/opticsim/actions/runs?head_sha=6295695483241620e17de1fd8df5e45abb80876d&event=push&per_page=100",
+    "successQuery": "https://api.github.com/repos/physicsvigilante/opticsim/actions/runs?head_sha=6295695483241620e17de1fd8df5e45abb80876d&event=push&status=success&per_page=1",
+    "newLocalNativeRunClaimed": false
+  },
+  "boundaries": {
+    "analyticalQueryNativeStatus": "not-run",
+    "nativeWitnesses": "separately authored research experiments; not public single-surface admission or image detection",
+    "upstreamChanged": false,
+    "frozenTrialChanged": false,
+    "otherHeldPullRequestsMerged": false,
+    "newPublicDeployment": false
+  },
+  "followUp": {"pullRequest":178,"kind":"data/test-only coverage delta","releaseOfFollowUpClaimed":false}
+}
