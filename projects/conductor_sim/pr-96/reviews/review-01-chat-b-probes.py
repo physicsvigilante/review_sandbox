@@ -264,6 +264,30 @@ def main():
         return "unanchored self-consistent JSON permits identity re-authoring; cannot attest originals"
     check("DOCUMENT_UNANCHORED_IDENTITY_SWAP_TRUST_LIMIT",self_consistent_identity_swap)
 
+    def subnormal_outer_tamper():
+        tiny=float.fromhex("0x0.0000000000001p-1022")  # minimum positive IEEE binary64
+        m=GaussCavityAssembly("TinyMetal", (SealedCavity("EmptyVoid"),),
+                              FixedNetCharge(tiny))
+        genuine=solve_cavity_gauss(m).as_dict()
+        assert genuine["outer_face_total_charge_c"]==tiny and tiny>0
+        forged=copy.deepcopy(genuine)
+        forged["outer_face_total_charge_c"]=0.0
+        return must_refuse(lambda:check_gauss_record(forged),
+                           "forged zero in place of nonzero finite smallest subnormal Qouter")
+    check("SUBNORMAL_SAVED_OUTER_FACE_FORGED_ZERO_REJECTION",subnormal_outer_tamper)
+
+    def underflow_flux_guard():
+        m=GaussCavityAssembly("TinyMetal", (SealedCavity("Void"),),
+                              FixedNetCharge(1e-300), 1e100)
+        doc=solve_cavity_gauss(m).as_dict()
+        assert doc["outer_face_total_charge_c"]>0
+        # Mathematical flux is 1e-400 V*m and is NOT exactly zero.
+        assert Decimal("1e-300") / Decimal("1e100") > 0
+        assert doc["exterior_electric_flux_v_m"]>0, (
+            "finite admitted input silently rounded exact nonzero exterior flux to zero")
+        return check_gauss_record(doc)
+    check("SUBNORMAL_FLUX_UNDERFLOW_SHOULD_FAIL_CLOSED",underflow_flux_guard)
+
     payload={
         "production_head_expected":"1a11bd03d51645bcc7994ab0ec50a553dd47dc7a",
         "production_tree_expected":"1295380ec4b4c97cb3a8c99aeea1bdb3c8102122",
