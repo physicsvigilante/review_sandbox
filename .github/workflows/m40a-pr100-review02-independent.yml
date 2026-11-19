@@ -1,0 +1,62 @@
+name: M40a PR100 independent B1 numeric integrity review02
+on:
+  push:
+    paths:
+      - ".github/workflows/m40a-pr100-review02-independent.yml"
+      - "projects/conductor_sim/pr-100/reviews/review-02-chat-b-probes.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-b1-02:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reviewer
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: e4a64a580cf1a3eca93d4b7315ed1f4aa4ab585e
+          path: candidate
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Assert immutable production native HEAD TREE and limited correction
+        run: |
+          set -euo pipefail
+          git -C candidate rev-parse HEAD | tee review100-02-head.txt
+          git -C candidate rev-parse HEAD^{tree} | tee review100-02-tree.txt
+          test "$(cat review100-02-head.txt)" = "e4a64a580cf1a3eca93d4b7315ed1f4aa4ab585e"
+          test "$(cat review100-02-tree.txt)" = "03eee7d1f4b97d627eb8ccf1a2ff41e837e94ea6"
+          git -C candidate diff --name-status f38fb82f27312f9ea1526c1a65bb93657937a0cb e4a64a580cf1a3eca93d4b7315ed1f4aa4ab585e | tee review100-02-diff.txt
+          test "$(wc -l < review100-02-diff.txt)" -eq 4
+          awk '$1 != "M" {exit 1}' review100-02-diff.txt
+          sha256sum candidate/02_conductors_half_size.pdf candidate/POTENTIAL_CONDUCTORS1.pdf candidate/docs/m40a_charter.md | tee review100-02-frozen.txt
+      - name: Install and syntax-check the actual candidate and reviewer script
+        run: |
+          set -euo pipefail
+          python -m pip install -e candidate
+          python -m py_compile reviewer/projects/conductor_sim/pr-100/reviews/review-02-chat-b-probes.py
+      - name: FIRST independent raw-direction native and Kelvin review
+        working-directory: candidate
+        run: |
+          set -o pipefail
+          PYTHONPATH="$PWD:$PWD/src" python ../reviewer/projects/conductor_sim/pr-100/reviews/review-02-chat-b-probes.py ../review100-02-results.json 2>&1 | tee ../review100-02-first-attempt.log
+      - name: Reviewer-owned source/evidence hashes
+        if: always()
+        run: |
+          sha256sum reviewer/projects/conductor_sim/pr-100/reviews/review-02-chat-b-probes.py | tee review100-02-reviewer-hash.txt
+          if [ -f review100-02-results.json ]; then sha256sum review100-02-results.json >> review100-02-reviewer-hash.txt; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m40a-pr100-review02-original-first-attempt
+          path: |
+            review100-02-*.txt
+            review100-02-*.log
+            review100-02-*.json
+          if-no-files-found: warn
+          retention-days: 45
