@@ -78,7 +78,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          python ../reviews/projects/conductor_sim/pr-96/reviews/review-01-chat-b-probes.py ../evidence 2>&1 | tee ../evidence/first-attempt-review-probes.log
+          PYTHONPATH="$PWD" python ../reviews/projects/conductor_sim/pr-96/reviews/review-01-chat-b-probes.py ../evidence 2>&1 | tee ../evidence/first-attempt-review-probes.log
       - name: Preserve exact first-attempt artifact digests
         if: always()
         shell: bash
