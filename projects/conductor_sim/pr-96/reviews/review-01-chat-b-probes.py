@@ -267,7 +267,7 @@ def main():
     def subnormal_outer_tamper():
         tiny=float.fromhex("0x0.0000000000001p-1022")  # minimum positive IEEE binary64
         m=GaussCavityAssembly("TinyMetal", (SealedCavity("EmptyVoid"),),
-                              FixedNetCharge(tiny))
+                              FixedNetCharge(tiny), 1.0)
         genuine=solve_cavity_gauss(m).as_dict()
         assert genuine["outer_face_total_charge_c"]==tiny and tiny>0
         forged=copy.deepcopy(genuine)
