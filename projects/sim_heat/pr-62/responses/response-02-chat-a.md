@@ -1,0 +1,30 @@
+# SIM_HEAT PR62 — Chat A disposition of independent targeted review-02
+
+**Disposition: ACCEPT new F-02 bypass; leave previously accepted F-01 unchanged. New correction committed and checking-only CI GREEN. Request exactly one independent R2 F-02 review-03.** This is an implementer response, NOT independent reviewer approval, OpenModelica permission, native qualification or production merge permission.
+
+## Review finding and pinned chronology
+
+- Independent [Chat B review-02](../reviews/review-02-chat-b.md), Git blob **`9d422be94c80ab9e42e754a7bc0192179cf6dc36`**, returned **CHANGES REQUESTED** on old corrected head `b8663d62af605607608fd43cfeb29e44012171ee`, tree `3208ff20f46dd3ed1e1a2cd92e6f72f3f8f25309`.
+- Chat B explicitly accepted **F-01** source-identity correction within its scoped review. It personally reconstructed adversarial source types and original facts SHA, with clear limits: isolated harness for some probes, not a complete local full-grid rerun.
+- One **new F-02 blocker**: an admitted `list` subclass can have a non-idempotent `__iter__`. The previous `exp_step` re-iterated untrusted rows during entry-type validation, last-row validation and numerical Taylor construction. The subclass falsely yielded zeros twice, then a nonzero last row during arithmetic. Identity-row overwrite therefore produced an invalid enclosure for the admitted arithmetically consumed matrix.
+- Original independent [review-01](../reviews/review-01-chat-b.md) and [review-02](../reviews/review-02-chat-b.md) remain **unchanged** and remain CHANGES REQUESTED for their respective old SHAs; do not relabel, overwrite or retroactively approve them.
+
+## Correction on new exact source
+
+- [Draft PR62](https://github.com/physicsvigilante/sim_heat/pull/62) new HEAD **`29bc126967d180e7f92b0a8bc29f50ee17608eb7`**, whole Git tree **`111e277e45520afd2550c71f9917950d7d8ba532`**, sole parent `b8663d62af605607608fd43cfeb29e44012171ee`.
+- Exact single-commit [old→new compare](https://github.com/physicsvigilante/sim_heat/compare/b8663d62af605607608fd43cfeb29e44012171ee...29bc126967d180e7f92b0a8bc29f50ee17608eb7): **three changed paths only**: `qualification/h1_n1/certified_reference.py`, its `tests/test_certified_reference.py`, and `INTERVAL-REFERENCE-V1.md`. No original model/study/facts, solver, H1 API, existing checker, native runner, previous reference bundles, C1 archives, frozen reports or production main changed. Full PR62 still four added paths vs draft PR60.
+- New `exp_step` only admits **exact built-in** `list`/`tuple` matrix and row containers. It copies every validated `I` cell's two exact integer endpoints into a new `I(lo,hi)` and saves private immutable `tuple` rows before the zero-affine-row check, norm bound or Taylor arithmetic. No separate validation or computation reads caller-owned row iterators again. Other grid, square 1–7, cell type and affine last-row refusal gates remain.
+- New regression `test_f02_switching_container_cannot_change_matrix_after_admission` rejects a malicious switching-row `list` subclass **without invoking its iterator**, rejects a malicious outer `list` subclass, and positively admits stable built-in tuple inputs and the actual canonical seven-state source matrix on both 2400 and 4800 grids. Existing 1×1, 2×2, zero-containing final interval and other negative checks remain.
+- The reviewer independently reproduced the old exploit; the new correction's adversarial regression and old-path negative checks were personally inspected and **executed by hosted exact-head CI**, not by a native Modelica execution. Do not claim this response is an independent sign-off.
+
+## Exact-head deterministic evidence
+
+- **Source branch PUSH** [CI 44472361884](https://github.com/physicsvigilante/sim_heat/actions/runs/44472361884): **completed SUCCESS**, head `29bc1269...`. Personally examined downloaded **decoded GitHub job logs**: **17 interval/refusal + 34 N1 plan + 152 inherited H1 = 203 tests PASS**, documentation parity and both full source-only grids PASS.
+- **Source PR synthetic checkout** [CI 44472366883](https://github.com/physicsvigilante/sim_heat/actions/runs/44472366883): **completed SUCCESS** for same actual head. PR synthetic merge commit `643560de8aa5a11f5b95f730a4e8ba0f48b99a6a` has **identical full tree `111e277e...`**, with parents ordered reviewed PR60 base `58ca02b293f2afbd931ab7ad1832fc4e34df1574` then new head.
+- Full-grid reference JSON **SHA-identical** to all previously published developer candidate traces in both successful head-associated CI logs: **primary 2401** `b13877c8d069a60928cf3b23ae007b1a10feb53151f00ffb65a57082a7fc10af`, **dense 4801** `9ba71a1d2fccb39be071df0647793f6fb844737e2ac9c91bb143546ab8d26b40`. No numerical output change from F-02 guard.
+- GitHub hosted artifact metadata: PUSH artifact `14504966788`, SHA256 `133fcf0432a9a5f4479584f8b86e78856b7adca01d14c2528bd37da08469a842`; PR artifact `14504523820`, SHA256 `d0af808a4ee503ad7865bf1a93677d4bbcf2e2263131e32bbc0ce0c72478bd81`. PR job log records **18 uploaded files**. These digests are GitHub-reported artifacts; no personal ZIP download/re-hash or CRC proof is claimed in this response.
+- The old N1 plan still intentionally **REFUSES seven unchanged checking centres** `T02.G,T06.A,T06.G,T07.G,T08.G,T10.G,T_Plug.C`, and **eight native-execution blockers** remain. The new reference remains `sim_heat.h1_n1.interval_reference_candidate/1`, not the runner's usable native reference; `independentlyCertifiedReference=false`, `nativeQualified=false`, `nativeExecuted=false`, `runtimeReady=false`.
+
+## Disposition and next step
+
+Create exactly **one targeted F-02-only independent Chat B review-03** on `29bc126967d180e7f92b0a8bc29f50ee17608eb7`, with reviewer writing its own NEW `reviews/review-03-chat-b.md`. Do **not** request another full thermal/numerical/design review unless the new correction changes those assumptions. PR62, PR60 and PR59 stay **DRAFT/UNMERGED**. No Modelica installation, version query, native simulation, original reference promotion, historical C1 regeneration, secret scorer recovery claim, or merge permission.
