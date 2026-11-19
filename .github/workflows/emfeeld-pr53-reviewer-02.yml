@@ -1,0 +1,53 @@
+name: EMFEELD PR53 Chat B independent WebGL re-review 02
+on:
+  push:
+    branches:
+      - review/emfeeld-pr53-chatb-02
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reviewer-owned-chromium:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout reviewer-owned tests (not production source)
+        uses: actions/checkout@v4
+      - name: Fetch exact author-tested synthetic source and verify immutable tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init -q emfeeld-pinned
+          git -C emfeeld-pinned remote add origin https://github.com/physicsvigilante/emfeeld.git
+          git -C emfeeld-pinned fetch --depth=1 origin refs/pull/53/merge
+          actual_commit=$(git -C emfeeld-pinned rev-parse FETCH_HEAD)
+          test "$actual_commit" = "640c1d0d83981a7a39fe9bef989bab54199689a7"
+          git -C emfeeld-pinned checkout --detach FETCH_HEAD
+          actual_tree=$(git -C emfeeld-pinned rev-parse HEAD^{tree})
+          test "$actual_tree" = "84135a2482ab8d277a206120f1de90bb7ce297e7"
+          printf 'exact_source=%s\nexact_tree=%s\n' "$actual_commit" "$actual_tree" | tee reviewer-source-identity.txt
+      - name: Install pinned Three.js runtime and reviewer browser tooling
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci --prefix emfeeld-pinned/web/three_preview --ignore-scripts --no-audit --no-fund
+          python -m pip install playwright==1.57.0
+          python -m playwright install --with-deps chromium
+      - name: Run independently authored Chromium/WebGL2 scenario controls, refusal, geometry and recovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          python projects/emfeeld/pr-53/reviewer-02/hosted_webgl.py emfeeld-pinned reviewer-webgl-evidence
+      - name: Publish independent reviewer evidence, not author tests
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emfeeld-pr53-reviewer02-webgl
+          path: |
+            reviewer-source-identity.txt
+            reviewer-webgl-evidence/report.json
+            reviewer-webgl-evidence/*.png
+          if-no-files-found: warn
+          retention-days: 14
