@@ -1,0 +1,26 @@
+Reviewer-generated M39b six-cavity HTML: browser first-attempt preservation
+Date: 2026-11-19
+Pinned production HEAD: 965da98b5079829bd39a370cc660c97b1b9b189f
+Chromium: 144.0.7559.96
+Playwright: playwright.sync_api
+Source HTML: reviewer-six-cavity.html, byte-exact render from native M39a/M39b source.
+
+Attempt 1: JS enabled, viewport 1280x900:
+Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/m39b_review/evidence/reviewer-six-cavity.html
+
+Attempt 2: JS enabled, viewport 375x900:
+Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/m39b_review/evidence/reviewer-six-cavity.html
+
+Attempt 3: JS disabled, viewport 1280x900:
+Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/m39b_review/evidence/reviewer-six-cavity.html
+
+Attempt 4: JS disabled, viewport 375x900:
+Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/m39b_review/evidence/reviewer-six-cavity.html
+
+Local read-only policy inspection:
+  /etc/chromium/policies/managed/000_policy_merge.json
+  "URLBlocklist": ["*"]
+
+Chromium process launched. No actual page visit succeeded. No independent browser DOM, CSS,
+network observations, or screenshots were obtained. The managed policy was not changed.
+No production files were edited. Raw machine-readable logs are in the conversation ZIP.
