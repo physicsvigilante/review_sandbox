@@ -249,7 +249,9 @@ def advanced_real_playback(page):
 
 try:
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=True,args=[
+        installed_browser=shutil.which('chromium') or shutil.which('chromium-browser') or shutil.which('google-chrome')
+        assert installed_browser,'No GitHub hosted system Chromium browser installed'
+        browser=p.chromium.launch(headless=True,executable_path=installed_browser,args=[
             '--no-sandbox','--enable-unsafe-swiftshader','--disable-dev-shm-usage'
         ])
         for name,_ in positives:
