@@ -1,3 +1,23 @@
+# SIM_HEAT PR62 — independent review-02 CHANGES REQUESTED; F-02 switching-iterator correction, exact-head CI GREEN; focused review-03 pending
+
+**CURRENT STATUS:** `INDEPENDENT-REVIEW02-F01_PASS-F02_CHANGES_REQUESTED_ON_PREVIOUS_HEAD; F02_NONIDEMPOTENT_ITERATOR_REPRODUCED_BY_REVIEWER; NEW_HEAD_PRIVATE_IMMUTABLE_MATRIX_SNAPSHOT; 17_PLUS_34_PLUS_152_TESTS_PASS; PUSH_AND_PR_CI_GREEN; BOTH_SOURCE_ONLY_TRACES_UNCHANGED; AWAITING_TARGETED_R2_REVIEW03; SEVEN_OLD_CHECKING_CENTRE_REFUSALS_AND_EIGHT_NATIVE_BLOCKERS_PRESERVED; PR62_PR60_PR59_DRAFT_UNMERGED; ZERO_NATIVE_EXECUTION`.
+
+[Independent review-02](reviews/review-02-chat-b.md) **CHANGES REQUESTED** on old HEAD `b8663d62af605607608fd43cfeb29e44012171ee`, tree `3208ff20f46dd3ed1e1a2cd92e6f72f3f8f25309` (reviewer Git blob `9d422be94c80ab9e42e754a7bc0192179cf6dc36`). Its **F-01 PASS stands**; the single remaining F-02 blocker was a `list` subclass returning different rows on successive `__iter__` calls so final-row admission and actual Taylor arithmetic could disagree. The original review-01 and review-02 remain historical CHANGES REQUESTED, unchanged.
+
+**New corrected source PR62 DRAFT/UNMERGED:** [commit `29bc126967d180e7f92b0a8bc29f50ee17608eb7`](https://github.com/physicsvigilante/sim_heat/commit/29bc126967d180e7f92b0a8bc29f50ee17608eb7), whole Git tree **`111e277e45520afd2550c71f9917950d7d8ba532`**, parent old review-02 HEAD. Stacked PR60 base `58ca02b293f2afbd931ab7ad1832fc4e34df1574`. New PR synthetic merge `643560de8aa5a11f5b95f730a4e8ba0f48b99a6a` has exact **same tree**, correct ordered parents base then new HEAD. Only **three N1-specific paths changed** (interval code, tests, explanation). Original T1 model/study/facts, production H1 library/runner, old references and C1 history unchanged; no merge.
+
+**F-02 correction:** `exp_step` now requires exact built-in list/tuple matrix and row containers, snapshots type-checked exact integer scaled `I` endpoints into entirely new private `I` instances in immutable tuple rows, then validates affine zero last row and computes all Taylor arithmetic only from the snapshot. No repeated untrusted row iterator; switching-row or switching-matrix subclasses refuse. Regression checks rejection and canonical 2×2 tuple / actual 7-state T1-T matrix acceptance at both grids. The previously accepted F-01 source binding was not changed.
+
+**Exact-head hosted CI:** [PUSH 44472361884](https://github.com/physicsvigilante/sim_heat/actions/runs/44472361884) **SUCCESS**, [PR 44472366883](https://github.com/physicsvigilante/sim_heat/actions/runs/44472366883) **SUCCESS**. Both run **17 focused +34 plan +152 H1 = 203 distinct tests per workflow**, docs parity, preserved old-plan refusal checks and full primary/dense offline source-only grids. Uploaded candidate JSON trace SHA256 values **unchanged** in both CI logs: primary 2401 `b13877c8d069a60928cf3b23ae007b1a10feb53151f00ffb65a57082a7fc10af`, dense 4801 `9ba71a1d2fccb39be071df0647793f6fb844737e2ac9c91bb143546ab8d26b40`. API-reported artifacts: push `14504966788` SHA256 `133fcf0432a9a5f4479584f8b86e78856b7adca01d14c2528bd37da08469a842`, PR `14504523820` SHA256 `d0af808a4ee503ad7865bf1a93677d4bbcf2e2263131e32bbc0ce0c72478bd81`; no personal ZIP CRC/re-hash claimed.
+
+**Review-03 handoff:** [Chat A response-02](responses/response-02-chat-a.md), [CORRECTION-REQUEST-03](CORRECTION-REQUEST-03.md), [Ready Chat B PROMPT-03](REVIEWER-PROMPT-03.md). Independent Chat B must inspect the new exact HEAD and author a **new** `reviews/review-03-chat-b.md`, F-02 only. No independent PASS of this new correction yet; not a native certificate.
+
+**Strict hold:** 7 original old checking-centre physical 100× refusals + 8 execution blockers still active. New candidate schema stays `sim_heat.h1_n1.interval_reference_candidate/1`, `independentlyCertifiedReference=false`, `nativeQualified=false`, `nativeExecuted=false`, `runtimeReady=false`. No OpenModelica install/query/build/launch, native reference bundle, original H1-T1 scorer recovery, C1/archive regeneration, PR62/PR60/PR59 merge or deployment. Production main remains untouched.
+
+---
+
+## Previous status (retained as historical record; review-02 and new correction supersede it)
+
 # SIM_HEAT PR62 — R2 F-01/F-02 corrected; exact-head CI GREEN; targeted review02 pending
 
 **CURRENT STATUS:** `INDEPENDENT-R2-REVIEW01-CHANGES_REQUESTED-OLD_HEAD; F01_SOURCE_BINDING_AND_F02_AFFINE_ROW_BOTH_REPRODUCED_FAIL_FIRST; NEW_HEAD_CORRECTED; FULL_GRID_JSON_BYTE_IDENTICAL; EXACT_HEAD_PUSH_AND_PR_CI_SUCCESS; 16_PLUS_34_PLUS_152_TESTS_PASS; OLD_SEVEN_STATIC_REFUSALS_AND_EIGHT_NATIVE_BLOCKERS_PRESERVED; AWAITING_FOCUSED_INDEPENDENT_R2_REVIEW02; PR62_DRAFT_UNMERGED; ZERO_NATIVE_OPERATIONS`.
