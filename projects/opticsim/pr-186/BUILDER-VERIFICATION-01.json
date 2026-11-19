@@ -1,0 +1,130 @@
+{
+  "format": "opticsim-pr186-v25-grin-builder-verification-v1",
+  "verifiedLocalDate": "2026-11-20",
+  "status": "builder-verified-draft-unmerged-independent-review-pending",
+  "repository": "physicsvigilante/opticsim",
+  "pr": 186,
+  "source": {
+    "sha": "a05e4ac88afcd23e17fe07c4be8c8076b5c628c3",
+    "tree": "ad100b92d2f6a9c061a59f13311f0bb3c06b65a8"
+  },
+  "base": {
+    "sha": "dcdaf6361a1aea151b15cde925d27ea9fe39ad9e",
+    "mainUnchanged": true
+  },
+  "testedSyntheticMerge": {
+    "sha": "163b1519aeb7f31c203e0e58de440ba7bb59860e",
+    "tree": "ad100b92d2f6a9c061a59f13311f0bb3c06b65a8",
+    "sameTreeAsSource": true,
+    "orderedParents": [
+      "dcdaf6361a1aea151b15cde925d27ea9fe39ad9e",
+      "a05e4ac88afcd23e17fe07c4be8c8076b5c628c3"
+    ]
+  },
+  "originalUpstream": {
+    "commit": "811f508d2b070898c241a568b0c167dcb8645251",
+    "pinFileGitBlob": "c371abf2169bba28b1c400d022b55caf78cb647c",
+    "unmodified": true
+  },
+  "changedFiles": {
+    "total": 21,
+    "added": 9,
+    "modified": 12,
+    "deleted": 0
+  },
+  "browserSource": {
+    "newAppGitBlob": "553c71a1393be89a30f326d366a7caae388c595e",
+    "historicV24AppGitBlob": "ac8ee9e3bf448c4280342d9049052bbbce1691b0",
+    "historicV18AppGitBlob": "cfbea455df3f7ea7a30002d0139730c25b235d32",
+    "newPresentationMethod": "v25-visual-canvas-marker-scale-only-v1",
+    "changesSceneLengthScale": false,
+    "changesNativeRayCallback": false,
+    "changesNumericalPolicy": false
+  },
+  "model": {
+    "schemaVersion": 25,
+    "model": "native-bounded-grin-tracing",
+    "componentType": "graded-index-rectangle",
+    "field": "n(y)^2=1.5+(y-axisY)/(1 mm)",
+    "rawNativeType": "GrinGlass",
+    "source": "one horizontal inside SingleRay",
+    "detector": "one external passive Detector",
+    "outsideIndex": 1,
+    "physicalIndexMin": "sqrt(1.1)",
+    "partialReflect": false,
+    "userLatexAllowed": false,
+    "fixedStepMm": 0.0025,
+    "maxRayDepth": 1024,
+    "processedRayLimit": 2048,
+    "maxBoundedObservedPathErrorMm": 0.002,
+    "maxBoundedObservedDetectorErrorMm": 0.002,
+    "globalNumericalAccuracyCertified": false,
+    "originalJeeJ09Solved": false,
+    "nativeImageDetected": false
+  },
+  "evidence": {
+    "CI": {
+      "total": 11,
+      "passes": 11,
+      "failures": 0,
+      "sourceSha": "a05e4ac88afcd23e17fe07c4be8c8076b5c628c3",
+      "nodeTests": 1047,
+      "nodePassed": 1047,
+      "nodeFailed": 0,
+      "nodeSkipped": 0,
+      "opticalRun": 44614310435,
+      "opticalJob": 135878787234,
+      "chrome": "Google Chrome for Testing 158.0.8127.36"
+    },
+    "v25NativeAcceptance": {
+      "cases": 15,
+      "nativeComplete": 5,
+      "refusedBeforeNative": 10,
+      "rawCoarseStepResult": "native completed but qualified observations withheld"
+    },
+    "v25ObservedBaseline": {
+      "realNativeGRINCallbacks": 366,
+      "emittedSingleRays": 1,
+      "passiveDetectorCrossings": 1,
+      "maxPathReferenceDeviationMm": 0.0003693148996254114,
+      "detectorReferenceDeviationMm": 0.00044811550291493085
+    },
+    "v25RealChrome": {
+      "checks": 9,
+      "passed": 9,
+      "screenshots": 4,
+      "runtimeErrors": 0,
+      "offOriginHttp": 0,
+      "reportStatus": "passed",
+      "visualExam": "native GRIN rectangle, actual thin ray, small source marker, passive detector; no obscuring blown-up glyphs"
+    },
+    "verifiedOpticalArtifact": {
+      "run": 44614310435,
+      "artifactId": 14573818134,
+      "name": "opaque-blocker-evidence",
+      "sha256": "295fdff190439cbeadb7caa285f00ea1dd90210633491cad495b569856b640c5",
+      "zipMembers": 537,
+      "allZipCrcPassed": true
+    },
+    "checkedOriginalInputReportPairs": 84,
+    "sha256Mismatches": 0,
+    "otherArtifact": {
+      "name": "llm-authoring-evidence",
+      "artifactId": 14573508671,
+      "publishedGitHubSha256": "70067c54936064fca3da2c8231e5453102dcb19f7dc1ffdb4cb81135954c4850"
+    },
+    "planarRun": 44614310424
+  },
+  "review": {
+    "required": true,
+    "type": "one-focused-independent-v25-grin-physics-numerical-render-integration",
+    "verdict": "PENDING",
+    "reportTarget": "physicsvigilante/review_sandbox/projects/opticsim/pr-186/reviews/review-01-chat-b.md",
+    "sourceEditingAllowed": false,
+    "mergeAllowedBeforeReview": false
+  },
+  "originalQuestionSuccessRate": null,
+  "independentBuilderReplay": false,
+  "physicalImageReconstruction": false,
+  "publicV25Merged": false
+}
