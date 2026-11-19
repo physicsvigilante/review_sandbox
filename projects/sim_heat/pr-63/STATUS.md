@@ -1,3 +1,25 @@
+# SIM_HEAT PR63 — independent correction REVIEW-02 SCOPED PASS; still DRAFT / UNMERGED / NATIVE HOLD
+
+**CURRENT STATUS:** `INDEPENDENT_REVIEW01_CHANGES_REQUESTED_OLD_HEAD; REVIEW02_SCOPED_PASS_F01_F02_CURRENT_HEAD; N2_OFFLINE_PRIMARY_ONLY_COMPANION_COMPARATOR_ACCEPTED_IN_REVIEW_SCOPE; EXACT_HEAD_PUSH_AND_PR_CI_PASS_219_CHECKS; ALL_OLD_REFUSALS_AND_NATIVE_BLOCKERS_ACTIVE; NATIVE_CERTIFICATION_AND_EXTERNAL_SEAL_CHRONOLOGY_ABSENT; PR63_62_60_59_DRAFT_UNMERGED`.
+
+**Independent [Chat B review-02](reviews/review-02-chat-b.md)**, reviewer-authored Git blob **`210a3b9c92b85dca0ea896440b28d38509c8f8bd`**, returns **SCOPED PASS for F-01 and F-02** at exact source HEAD `6baba681ae1680e2fcae1ea8efbf0953afcb031b`, full Git tree `27b6ce015d5ba8229ee5990d3fa1e90352fe3f45`. The first [review-01](reviews/review-01-chat-b.md) remains historical **CHANGES REQUESTED** at its old source commit `232bca1737210a80e1fb8e41b7ec67c6248f6a9f`; it has NOT been modified or relabeled.
+
+**F-01 accepted:** the source-facts/model/study SHA-256 checks now operate on the exact same single-read immutable raw snapshots later parsed, with no post-hash independent file read. Chat B personally reproduced the former full-API passing forged-provenance scratch race on old source; the corrected source **REFUSED** the same racing and caller-resealed inputs. The reviewer also probed four after-read mutation variants (facts provenance, physical mass, study analysis, model bytes); each captured original snapshot was unchanged.
+
+**F-02 accepted:** all **25 independently generated malformed direct-public-API inputs** returned actual `h1.model.Refusal`, including bad bundle shapes/types, invalid receipts, giant integer allowance, bad UTF-8 surrogate CSV, etc. No raw Python error or fabricated success was seen in the reviewed input classes. The reviewer personally reran 16 N2 unit tests and verified that both original per-run `check_candidate` checks, the 77 exports plus 8 public requests, exact common planned grid and PRIMARY-only allowances remain intact. A pair of individually passing synthetic candidates still produced `checks_failed` on primary-only disagreement, unchanged ratio `1.5000000013804473`.
+
+**Independent artifact work:** Chat B personally downloaded and SHA-256/CRC checked the original old-head artifact and both corrected [PUSH 44482539578](https://github.com/physicsvigilante/sim_heat/actions/runs/44482539578) and [PR 44482548998](https://github.com/physicsvigilante/sim_heat/actions/runs/44482548998) artifacts. Both corrected archive source trees reconstruct exactly to full corrected tree `27b6ce015d5ba8229ee5990d3fa1e90352fe3f45`. Hosted CI passes **16 N2 +17 N1 interval +34 N1 plan +152 H1 = 219 distinct tests per workflow**, documentation parity, original static-check refusal and zero-native checks. The two workflows repeat coverage, not 438 unique tests.
+
+**Exact unchanged source scope:** full PR63 still adds only four N2-only files vs still-draft PR62 base `29bc126967d180e7f92b0a8bc29f50ee17608eb7`; no old comparator/production H1/Modelica/runner, original T1-T physical inputs, PR62 interval code, old checking reference or frozen C1/source history touched.
+
+**Still NOT accepted:** the legacy `h1.reference.prepare` static checking centres fail source-exact physical 100× for seven exports `T02.G,T06.A,T06.G,T07.G,T08.G,T10.G,T_Plug.C`; all EIGHT native-readiness blockers remain, and no `sim_heat.reference_bundle/2` authentic new-runner migration has been adopted. The N2 comparison uses only **synthetic or unattested** CSVs, reports `nativeExecuted=false`, `nativeQualified=false`, `runtimeReady=false`, `referenceAccuracyCertified=false`, and does NOT authenticate a caller-chosen pre-output seal or independently certify reference accuracy. Original first author trial private scorer remains UNSEALED. PR63/PR62/PR60/PR59 all remain open/draft/unmerged; **NO native OpenModelica queries/installs/builds/launches, source merge or historical C1 rewrite**.
+
+**NEXT:** the runner-bound versioned N1 checking reference and its independent 100× physical-error/seal migration remain separate pre-native development tasks. Start a NEW bounded, **offline-only** milestone with explicit source/runner trust boundaries; do not modify the reviewed PR63 HEAD or promote its synthetic fixtures into native evidence.
+
+---
+
+## Historical status — preserved old reviewed SHA
+
 # SIM_HEAT PR63 — review-01 CHANGES REQUESTED; F-01/F-02 corrected; targeted R2 review-02 pending
 
 **CURRENT STATUS:** `REVIEW01_CHANGES_REQUESTED_OLD_HEAD; F01_SOURCE_SHA_PARSE_TOCTOU_CONFIRMED; F02_MALFORMED_INPUT_PYTHON_ERRORS_CONFIRMED; FAIL_FIRST_REPRODUCED_2_FAILURES_3_ERRORS; NEW_HEAD_SINGLE_READ_SHA_PINNED_BYTES_AND_STRUCTURED_REFUSALS; EXACT_HEAD_PUSH_PR_CI_SUCCESS_16_PLUS_17_PLUS_34_PLUS_152; AWAITING_FOCUSED_REVIEW02; OLD_SEVEN_100X_REFUSALS_EIGHT_NATIVE_BLOCKERS_ACTIVE; PR63_62_60_59_DRAFT_UNMERGED; ZERO_NATIVE_OPERATIONS`.
