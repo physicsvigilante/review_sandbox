@@ -221,6 +221,7 @@ CASES = [
         lambda m:m.group(1)+"13", s, count=1), "direct_radius"),
 ]
 DIRECT_REASONS = {
+    "path_opacity": "false visible complete 3D projected source path",
     "direct_source": "false visible teacher-vs-original source attribution",
     "direct_current": "no-JS first SI/world label mismatch",
     "direct_sign": "visible source charge sign contradicts physical signed q",
