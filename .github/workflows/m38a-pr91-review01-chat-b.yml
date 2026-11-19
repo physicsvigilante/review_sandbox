@@ -1,0 +1,96 @@
+name: M38a PR91 independent Chat B reviewer first attempt
+
+on:
+  push:
+    branches:
+      - review/conductor-sim-pr91-chat-b
+    paths:
+      - '.github/workflows/m38a-pr91-review01-chat-b.yml'
+      - 'projects/conductor_sim/pr-91/reviewer-01-chat-b.py'
+
+permissions:
+  contents: read
+
+jobs:
+  independent-3d-physics-and-forgery:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Fresh reviewer-owned source
+        uses: actions/checkout@v4
+        with:
+          path: review
+          persist-credentials: false
+      - name: Fresh exact pinned production checkout - no mutable branch
+        uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: b482aaab716bbfb5a06984d4e8678707c5235d15
+          fetch-depth: 0
+          path: source
+          persist-credentials: false
+      - name: Verify real Git HEAD TREE delta and legacy byte identity
+        shell: bash
+        working-directory: source
+        run: |
+          set -euo pipefail
+          mkdir -p ../evidence
+          git rev-parse HEAD | tee ../evidence/reviewed-native-head.txt
+          git rev-parse HEAD^{tree} | tee ../evidence/reviewed-native-tree.txt
+          test "$(git rev-parse HEAD)" = "b482aaab716bbfb5a06984d4e8678707c5235d15"
+          test "$(git rev-parse HEAD^{tree})" = "7873a982c19f597bde4cad205d4f39ba199d5038"
+          git diff --name-only f187dede846d441dd5928ccb6521d67443ead72b HEAD | sort | tee ../evidence/actual-file-diff.txt
+          cat > ../evidence/expected-file-diff.txt <<'EOF'
+          .github/workflows/m38a-prescribed-line.yml
+          docs/m38a.md
+          docs/m38a_charter.md
+          examples/m38a_line_approach.py
+          src/conductor_sim/prescribed_ground_line.py
+          tests/test_m38a_prescribed_line.py
+          tools/m38a_line_reference.py
+          EOF
+          diff -u ../evidence/expected-file-diff.txt ../evidence/actual-file-diff.txt
+          for f in 02_conductors_half_size.pdf src/conductor_sim/grounded_sphere_wire.py src/conductor_sim/prescribed_ground_wire.py; do
+            test "$(git rev-parse "f187dede846d441dd5928ccb6521d67443ead72b:$f")" = "$(git rev-parse "HEAD:$f")"
+          done
+          sha256sum 02_conductors_half_size.pdf src/conductor_sim/grounded_sphere_wire.py src/conductor_sim/prescribed_ground_wire.py | tee ../evidence/unchanged-byte-hashes.txt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fresh native project installation
+        working-directory: source
+        run: |
+          set -euo pipefail
+          python -m pip install -e ".[test]" 2>&1 | tee ../evidence/installation-first-run.log
+      - name: Actual focused native PR91 test suite
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest tests/test_m38a_prescribed_line.py -q --junitxml=../evidence/native-m38a-tests.xml 2>&1 | tee ../evidence/native-m38a-tests-first-run.log
+      - name: Actual production 41-frame example
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python examples/m38a_line_approach.py --output ../evidence/native-41-states.json 2>&1 | tee ../evidence/native-example-first-run.log
+      - name: Actual separate standard-library reference
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m tools.m38a_line_reference --input ../evidence/native-41-states.json --output ../evidence/native-oracle-41-states.json 2>&1 | tee ../evidence/native-oracle-first-run.log
+      - name: Reviewer-invented unfamiliar 3-axis negative-q, continuous crossings, hostile data and typed-state attacks
+        working-directory: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -u ../review/projects/conductor_sim/pr-91/reviewer-01-chat-b.py --line ../evidence/native-41-states.json --out ../evidence 2>&1 | tee ../evidence/reviewer-first-run.log
+      - name: Preserve first attempt including failure logs and authentic JSON evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-sim-pr91-review01-chat-b-native-evidence
+          path: evidence/
+          if-no-files-found: warn
+          retention-days: 30
