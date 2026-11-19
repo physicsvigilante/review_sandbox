@@ -1,0 +1,74 @@
+name: M39b PR98 supplemental reviewer-model real browser evidence (NOT reviewer verdict)
+on:
+  push:
+    branches: [evidence/conductor-pr98-browser-rerun]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reviewer-six-cavity-browser:
+    name: Reviewer R1 novel six-cavity actual offline Chromium, JS/no-JS, mobile, hostile DOM
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: evidence
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/review_sandbox
+          ref: 77a8013480e8be667ea34eea3d932bf0c07f2321
+          path: reviewer
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 965da98b5079829bd39a370cc660c97b1b9b189f
+          path: source
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install actual package, Chromium and Playwright
+        run: |
+          set -euo pipefail
+          python -m pip install -e ./source 'playwright==1.57.0'
+          python -m playwright install chromium
+      - name: Assert literal reviewer/production commit and native Git tree
+        run: |
+          set -euo pipefail
+          mkdir -p evidence-out
+          test "$(git -C reviewer rev-parse HEAD)" = 77a8013480e8be667ea34eea3d932bf0c07f2321
+          test "$(git -C source rev-parse HEAD)" = 965da98b5079829bd39a370cc660c97b1b9b189f
+          test "$(git -C source rev-parse 'HEAD^{tree}')" = cb9f9822252f982d5691493b7d54b0fae5917049
+          git -C source diff --name-status edb428ab6574d7861d28a80fcc15309883420448 HEAD | tee evidence-out/exact-source-diff.txt
+          test "$(git -C source diff --name-only edb428ab6574d7861d28a80fcc15309883420448 HEAD | wc -l)" -eq 8
+          test "$(git -C source diff --name-status edb428ab6574d7861d28a80fcc15309883420448 HEAD | grep -c '^A')" -eq 8
+          sha256sum reviewer/projects/conductor_sim/pr-98/reviews/review-01-chat-b-reproducer.py | tee evidence-out/reviewer-reproducer-sha256.txt
+          sha256sum source/02_conductors_half_size.pdf source/POTENTIAL_CONDUCTORS1.pdf | tee evidence-out/source-pdf-sha256.txt
+          git -C source rev-parse HEAD | tee evidence-out/production-head.txt
+          git -C source rev-parse 'HEAD^{tree}' | tee evidence-out/production-tree.txt
+      - name: Execute the ORIGINAL independent reviewer's six-cavity source and SI checker
+        working-directory: source
+        run: |
+          set -euo pipefail
+          PYTHONPATH="$PWD/src:$PWD" python "$GITHUB_WORKSPACE/reviewer/projects/conductor_sim/pr-98/reviews/review-01-chat-b-reproducer.py" | tee "$GITHUB_WORKSPACE/evidence-out/novel-model-native-transcript.txt"
+          PYTHONPATH="$PWD/src:$PWD" python -m tools.m39b_topology_reference --input reviewer-six-cavity/manifest.json --output "$GITHUB_WORKSPACE/evidence-out/standalone-independent-physics.json"
+          cp reviewer-six-cavity/manifest.json "$GITHUB_WORKSPACE/evidence-out/six-cavity-manifest.json"
+          cp reviewer-six-cavity/topology.html "$GITHUB_WORKSPACE/evidence-out/six-cavity-topology.html"
+      - name: Actual browser DOM, computed CSS, screenshots and novel hostile HTML
+        run: |
+          set -euo pipefail
+          python evidence/projects/conductor_sim/pr-98/browser-evidence/check_r2.py \
+            --manifest source/reviewer-six-cavity/manifest.json \
+            --html source/reviewer-six-cavity/topology.html \
+            --output evidence-out/browser | tee evidence-out/browser-summary.txt
+      - name: Preserve first-attempt transcript, browser evidence and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conductor-pr98-reviewer-novel-browser-evidence
+          path: evidence-out/
+          if-no-files-found: warn
+          retention-days: 30
