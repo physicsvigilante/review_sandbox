@@ -1,3 +1,25 @@
+# SIM_HEAT PR62 — F-01 AND F-02 REVIEWED SCOPED PASS; source-only numerical candidate remains on NATIVE HOLD
+
+**CURRENT STATUS:** `REVIEW01_CHANGES_REQUESTED_OLD_HEAD; REVIEW02_F01_SCOPED_PASS_AND_F02_CHANGES_REQUESTED_OLD_HEAD; REVIEW03_F02_SCOPED_PASS_CURRENT_HEAD; ALL_CORRECTION_FINDINGS_CLOSED_IN_SCOPE; EXACT_HEAD_CI_GREEN_203_TESTS; TWO_FULL_GRIDS_INDEPENDENTLY_REPLAYED_BYTE_IDENTICAL; SEVEN_OLD_REFERENCE_REFUSALS_AND_EIGHT_EXECUTION_BLOCKERS_PRESERVED; PR62_PR60_PR59_DRAFT_UNMERGED; NO_NATIVE_OR_MERGE_PERMISSION`.
+
+**Current exact [PR62](https://github.com/physicsvigilante/sim_heat/pull/62) HEAD:** `29bc126967d180e7f92b0a8bc29f50ee17608eb7`, full Git tree `111e277e45520afd2550c71f9917950d7d8ba532`; still stacked on independently design-reviewed draft PR60 `58ca02b293f2afbd931ab7ad1832fc4e34df1574`. Source HEAD and model/study/facts identities are unchanged since review-03. PR62, PR60 and PR59 remain DRAFT, open, unmerged; original main untouched.
+
+**Independent verdict record (never rewrite earlier reports):**
+
+- [Review-01](reviews/review-01-chat-b.md) `CHANGES REQUESTED` for initial old `12bb67e7...` (F-01 source identity; F-02 last row premise).
+- [Review-02](reviews/review-02-chat-b.md) `F-01 PASS`, `F-02 CHANGES REQUESTED` for previous `b8663d62...`; newly caught changing-iterator subclass bypass.
+- [Review-03](reviews/review-03-chat-b.md) **SCOPED PASS for remaining F-02** at exact current HEAD `29bc1269...`, independent report Git blob `a0c6e50fb201d9412a292a644bad09b4ccb2c9bc`. Reviewer independently reproduced old row and outer list-subclass exploits, executed current actual module, passed **87 own negative/positive/alias/mutation controls**, checked private endpoint snapshot, CRC/SHA verified push artifact and complete source tree, and personally replayed BOTH full source-only grids. No remaining F-02 defect in this bounded contract. **Corrections F-01/F-02 now accepted in scope**, not a blanket endorsement of a native numerical reference.
+
+**Numerical preservation:** personally regenerated primary 2401-grid trace SHA256 `b13877c8d069a60928cf3b23ae007b1a10feb53151f00ffb65a57082a7fc10af`, dense 4801-grid `9ba71a1d2fccb39be071df0647793f6fb844737e2ac9c91bb143546ab8d26b40`; both byte-identical to old candidate. Exact-head [push CI 44472361884](https://github.com/physicsvigilante/sim_heat/actions/runs/44472361884) and [PR CI 44472366883](https://github.com/physicsvigilante/sim_heat/actions/runs/44472366883) both SUCCESS; each has 17 reference + 34 N1 plan + 152 inherited H1 = **203** distinct checks (not additive across runs), docs parity and both full grids.
+
+**No promotion:** This is still a checking-only `sim_heat.h1_n1.interval_reference_candidate/1` with `independentlyCertifiedReference=false`, `runtimeReady=false`, `nativeExecuted=false`, `nativeQualified=false`; not a runner-consumable `sim_heat.reference_bundle/2`, authenticated host-native oracle or certification of the whole numerical method. The legacy old-centre seven physical-100× refusals `T02.G,T06.A,T06.G,T07.G,T08.G,T10.G,T_Plug.C` plus eight native execution blockers remain. Original H1-T1 author scorer UNSEALED; historical C1, model, source and archive immutable. No owner merge/native install/query/build/launch authorization.
+
+**Next bounded development:** independently reviewed F-01/F-02 input safeguards require no more patch reviews. Offline-only, versioned reference/runner **migration design and admissibility comparator** must be specified and checked separately before any actual runner adoption, native seal or execution; do not use the old checking centres or silently replace references. Record any new milestone in a NEW PR and review packet, not by expanding the reviewed PR62 HEAD.
+
+---
+
+## Previous status (retained as historical record)
+
 # SIM_HEAT PR62 — independent review-02 CHANGES REQUESTED; F-02 switching-iterator correction, exact-head CI GREEN; focused review-03 pending
 
 **CURRENT STATUS:** `INDEPENDENT-REVIEW02-F01_PASS-F02_CHANGES_REQUESTED_ON_PREVIOUS_HEAD; F02_NONIDEMPOTENT_ITERATOR_REPRODUCED_BY_REVIEWER; NEW_HEAD_PRIVATE_IMMUTABLE_MATRIX_SNAPSHOT; 17_PLUS_34_PLUS_152_TESTS_PASS; PUSH_AND_PR_CI_GREEN; BOTH_SOURCE_ONLY_TRACES_UNCHANGED; AWAITING_TARGETED_R2_REVIEW03; SEVEN_OLD_CHECKING_CENTRE_REFUSALS_AND_EIGHT_NATIVE_BLOCKERS_PRESERVED; PR62_PR60_PR59_DRAFT_UNMERGED; ZERO_NATIVE_EXECUTION`.
