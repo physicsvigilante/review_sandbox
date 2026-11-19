@@ -1,0 +1,91 @@
+{
+  "format": "opticsim-builder-provenance-correction-v1",
+  "date": "2026-11-19",
+  "repository": "physicsvigilante/opticsim",
+  "pullRequest": 177,
+  "review": {
+    "repository": "physicsvigilante/review_sandbox",
+    "path": "projects/opticsim/pr-177/reviews/review-01-chat-b.md",
+    "commit": "132d7d668e602360d0ea68e8a2f68b45e0cafc41",
+    "blob": "09558d2c68b581f2c567acea8c8e675de386e826",
+    "recordedVerdict": "CHANGES REQUESTED",
+    "blockingFinding": "B1: incorrect Git-tree identity in builder release handoff"
+  },
+  "source": {
+    "commit": "f981be4750f60a6bd5a9f5fc0fb003e82013a5a9",
+    "tree": "df49aa4114479ac2462bfa67682b4c9b6ef3e37b",
+    "observedVia": "https://api.github.com/repos/physicsvigilante/opticsim/git/commits/f981be4750f60a6bd5a9f5fc0fb003e82013a5a9"
+  },
+  "syntheticMerge": {
+    "commit": "f39a7240bab504af348dcb0e93af946f4ea6851d",
+    "tree": "df49aa4114479ac2462bfa67682b4c9b6ef3e37b",
+    "parents": ["f0235bc5dabce50df81192d4fd7807c62cab4edd", "f981be4750f60a6bd5a9f5fc0fb003e82013a5a9"],
+    "observedVia": "https://api.github.com/repos/physicsvigilante/opticsim/git/commits/f39a7240bab504af348dcb0e93af946f4ea6851d"
+  },
+  "main": "f0235bc5dabce50df81192d4fd7807c62cab4edd",
+  "sourceAndSyntheticMergeTreesEqual": true,
+  "incorrectHistoricalTreeWithdrawn": "0475daae3f1fd028a6672e243635eb2c67993961",
+  "historicalBuilderReport": {
+    "commit": "95b90bbd06a43506f8a2d32f341addc460788de8",
+    "path": "projects/opticsim/pr-177/BUILDER-VERIFICATION-01.md",
+    "blob": "54c2799c35c68fb7239989af06ad554b45473d0c"
+  },
+  "ci": {
+    "existingRunsRechecked": true,
+    "freshRunsRequested": false,
+    "workflowCount": 11,
+    "successfulWorkflows": 11,
+    "opticalRun": 44535274231,
+    "opticalJob": 135598887701,
+    "nodeTestsPassedInExistingRun": 938,
+    "nodeTestsFailedInExistingRun": 0,
+    "treeEqualityEvidence": "Separate GitHub Git-object reads; not a claimed assertion inside the CI job"
+  },
+  "artifacts": [
+    {
+      "id": 14535373214,
+      "name": "llm-authoring-evidence",
+      "zipSha256": "38b309f328c523485ae90049b9cb16a761d76e513bb1d9da99f73049aea445a2",
+      "sha256RecomputedMatchesMetadata": true,
+      "zipCrcPassed": true,
+      "rawNativeInputHashesVerified": 31,
+      "usableRawWitnesses": 25,
+      "excludedRawWitnesses": 6
+    },
+    {
+      "id": 14535213201,
+      "name": "browser-acceptance-evidence",
+      "zipSha256": "2e6b1c8c8d52745b42e090d0a35e1a5763de651adf9782395a1db03e6af5df41",
+      "sha256RecomputedMatchesMetadata": true,
+      "zipCrcPassed": true,
+      "reportPath": "report.json",
+      "reportSha256": "7aa4705852cfc7333f5a34926e9893997a4184e158855e6f247edaec6228171f",
+      "browser": "Google Chrome 157.0.8103.78",
+      "passedChecks": 27,
+      "screenshotsListed": 15,
+      "errors": []
+    },
+    {
+      "id": 14535542834,
+      "name": "hosted-browser-evidence",
+      "zipSha256": "29d7575f474525e42202236a931df5ddfc6c7e34cd6cd01d0705c92d5869982e",
+      "sha256RecomputedMatchesMetadata": true,
+      "zipCrcPassed": true,
+      "reportPath": "report.json",
+      "reportSha256": "6f0151728d1dd1f04066419138d9f671bf4975793cfef562e45c8d0e78db2654",
+      "browser": "Google Chrome 157.0.8103.78",
+      "passedChecks": 5,
+      "screenshotsListed": 1,
+      "errors": []
+    }
+  ],
+  "scope": {
+    "opticsimSourceModified": false,
+    "reviewReportModified": false,
+    "freshNativeExecutionClaimed": false,
+    "freshIndependentReviewClaimed": false,
+    "independentClearanceClaimed": false,
+    "prMerged": false,
+    "reviewDisposition": "Builder correction of the metadata-only findings; published reviewer verdict remains unchanged; release decision still held"
+  }
+}
