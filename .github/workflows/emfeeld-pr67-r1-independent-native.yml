@@ -1,0 +1,164 @@
+name: EMFEELD PR67 independent R1 native reviewer execution
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/emfeeld-pr67-r1-independent-native.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYVISTA_OFF_SCREEN: 'true'
+      VTK_DEFAULT_OPENGL_WINDOW: vtkEGLRenderWindow
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      MPLBACKEND: Agg
+      PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+    steps:
+      - name: Check out independent reviewer repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          path: reviewer
+      - name: Check out exact immutable feature source, never a moving branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: physicsvigilante/emfeeld
+          ref: 6abc5fa30fe96103b9a60e9946c188609fe88197
+          persist-credentials: false
+          path: source
+      - name: Validate source identity
+        shell: bash
+        run: |
+          mkdir -p evidence
+          test "$(git -C source rev-parse HEAD)" = "6abc5fa30fe96103b9a60e9946c188609fe88197"
+          test "$(git -C source rev-parse HEAD^{tree})" = "434af3657105b009f63e73b42f415b571ab6af16"
+          git -C source rev-parse HEAD HEAD^{tree} > evidence/pinned-source.txt
+          git -C reviewer rev-parse HEAD HEAD^{tree} > evidence/reviewer-source.txt
+      - name: Install real PyVista VTK and numerical dependencies
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libegl1 libgl1-mesa-dri libopengl0
+          python -m pip install 'numpy==2.3.5' 'scipy==1.17.0' 'pyvista==0.48.4' 'vtk==9.6.2' 'Pillow'
+          python -m pip install --no-deps -e ./source
+          python -m pip freeze > evidence/environment.txt
+      - name: Run genuinely reviewer-authored scientific and native challenges
+        shell: bash
+        run: |
+          set -o pipefail
+          python -W error - <<'PY' 2>&1 | tee evidence/native-reviewer.log
+          import json, math, hashlib
+          from pathlib import Path
+          from dataclasses import replace
+          import numpy as np
+          from PIL import Image
+          from emfeeld.rectangular_loop_torque import RectangularLoopState, calculate, measure
+          from emfeeld.rectangular_loop_view import TorqueLesson, save_snapshot
+          root=Path("evidence");root.mkdir(exist_ok=True)
+          # Independent textbook reference, including signed force pairs and torque sign.
+          s=RectangularLoopState(centre_m=(11,-17,8),width_m=.45,height_m=.35,
+              current_A=4,field_strength_T=.3,tilt_deg=60)
+          d,U=calculate(s)
+          k=4*.45*.35*.3; c=math.cos(math.pi/3);h=math.sin(math.pi/3)
+          assert np.allclose(d["moment_A_m2"],[4*.45*.35*h,0,4*.45*.35*c],atol=1e-13)
+          assert np.allclose(d["forces_N"],[[.54,0,0],[0,.42*c,0],[-.54,0,0],[0,-.42*c,0]],atol=1e-13)
+          assert np.allclose(d["torque_N_m"],[0,-k*h,0],atol=1e-13)
+          assert abs(U+k*c)<1e-13
+          # Deliberate very-small-tilt, representable-torque adversarial challenge.
+          tiny=RectangularLoopState(current_A=1e4,width_m=10,height_m=10,
+                 field_strength_T=10,tilt_deg=1e-322)
+          actual=measure(tiny)["torque_magnitude_N_m"]
+          expected=(1e7*math.pi/180)*1e-322
+          assert expected>0 and math.isfinite(expected)
+          small={"tilt_deg":tiny.tilt_deg,"expected_N_m":expected,
+                 "actual_N_m":actual,"nonzero_output_lost":actual==0}
+          state=RectangularLoopState(centre_m=(.13,-.29,.41),field_direction=(1,2,3),
+                    width_m=.48,height_m=.36,current_A=5,field_strength_T=.24,tilt_deg=48)
+          raw=(json.dumps(state.to_dict(),sort_keys=True,indent=2)+"\n").encode()
+          view=TorqueLesson(state,off_screen=True,window_size=(1200,760))
+          def key(k):
+              view.plot.iren.interactor.SetKeySym(k)
+              view.plot.iren.interactor.InvokeEvent("KeyPressEvent")
+          def slider(widget,value):
+              widget.GetRepresentation().SetValue(value)
+              widget.InvokeEvent("EndInteractionEvent")
+          result={"keys_tested":[],"tiny_tilt":small}
+          try:
+              view.plot.show(auto_close=False,interactive=False)
+              for num in "123456":
+                  key(num);result["keys_tested"].append(num)
+                  assert view.case_label==num and not view.show_values
+                  if num in "13":assert view.torque_arrow_actor is None
+                  if num=="2":assert view.torque_arrow_actor is not None
+                  if num=="5":
+                      assert view.current_arrow_actor is None and view.moment_arrow_actor is None
+                  if num=="6":
+                      assert view.field_arrow_actor is None and view.moment_arrow_actor is not None
+                  key("v");assert view.show_values
+              key("0");assert view.state==state
+              normal=view.normal_glyph.copy();moment=view.moment_glyph.copy()
+              key("n")
+              assert np.array_equal(normal,view.normal_glyph)
+              assert np.allclose(view.moment_glyph,-moment)
+              key("n");assert np.allclose(view.moment_glyph,moment)
+              key("b");assert view.state.field_strength_T<0
+              slider(view.field_slider,1.75)
+              assert math.isclose(view.state.field_strength_T,-.42,abs_tol=1e-14)
+              slider(view.angle_slider,73.)
+              assert view.state.tilt_deg==73.
+              count=view.preparation_count
+              key("f");key("v")
+              assert not view.show_forces and not view.show_values
+              assert view.preparation_count==count
+              key("f");key("v")
+              view.plot.subplot(0,0);view.plot.camera.azimuth+=17;view.redraw()
+              assert view.preparation_count==count
+              assert not any("|" in line for line in view.info_lines)
+              report=save_snapshot(state,root/"reviewer-original",lesson=view,source_bytes=raw)
+              png=root/"reviewer-original/view.png"
+              with Image.open(png) as im:
+                  image=np.asarray(im.convert("RGB"))
+                  assert im.size==(1200,760) and image.std()>10
+                  roi=image[int(.54*760):int(.97*760),int(.68*1200):int(.97*1200)]
+                  dark=np.max(roi,axis=2)<215
+                  rows=[i for i,row in enumerate(dark) if row.sum()>.36*dark.shape[1]]
+                  assert len(rows)>4 and max(rows)-min(rows)>30
+              assert report["original_input_sha256"]==hashlib.sha256(raw).hexdigest()
+              assert report["current_state"]==view.state.to_dict()
+              assert report["authored_state"]==state.to_dict()
+              assert report["renderer"]=="PyVista real screenshot"
+              assert report["display"]["field_slider_magnitude_ratio"]==1.75
+              assert report["physics"]["orientation_potential_J"]>0
+              with np.load(root/"reviewer-original/physical_samples.npz") as vals:
+                  assert np.allclose(vals["physical_torque_N_m"],
+                      np.cross(vals["magnetic_moment_A_m2"],vals["external_field_B_T"]),atol=1e-13)
+                  assert np.linalg.norm(vals["segment_forces_N"].sum(axis=0))<1e-13
+              for name,digest in json.loads((root/"reviewer-original/integrity.json").read_text())["files"].items():
+                  assert hashlib.sha256((root/"reviewer-original"/name).read_bytes()).hexdigest()==digest
+              try: save_snapshot(replace(state,current_A=-5),root/"wrong-source",
+                                lesson=view,source_bytes=raw)
+              except ValueError: pass
+              else: raise AssertionError("source/live mismatch was accepted")
+              assert not (root/"wrong-source").exists()
+              result.update({"real_pyvista":True,"new_png_sha256":hashlib.sha256(png.read_bytes()).hexdigest(),
+                 "new_png_path":"reviewer-original/view.png","physical_preparation_count":count,
+                 "source_sha256":report["source_code_sha256"],
+                 "state":view.state.to_dict(),"source_input_sha256":report["original_input_sha256"]})
+          finally:
+              view.plot.close()
+          (root/"native-reviewer-results.json").write_text(json.dumps(result,sort_keys=True,indent=2)+"\n")
+          print("REVIEWER NATIVE AND ORIGINAL PNG PASS",result["new_png_sha256"])
+          print("INDEPENDENT TINY TILT NUMERIC FINDING",json.dumps(small,sort_keys=True))
+          PY
+      - name: Preserve genuine reviewer-owned output even when failed
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: emfeeld-pr67-reviewer-01-native
+          path: evidence/
+          retention-days: 30
+          if-no-files-found: warn
