@@ -63,7 +63,7 @@ An earlier test-only CI source `f31dbfd1...` failed because the research observe
 
 **11/11 final exact-head CI workflows SUCCESS**, with **1,079/1,079 Node24 tests passed, 0 failed, 0 skipped** in run [44680367482](https://github.com/physicsvigilante/opticsim/actions/runs/44680367482), job `136102029656`. The newly added tests cover the J13 source-only open bound, independently calculated thresholds across several e, optional index/candidate queries, above/below/near critical, strict type and branch refusal, 9 genuine native controls, incomplete/stopped cases and byte-bound CLI evidence. Existing historical native and real Chrome regressions also finished successfully. **No new J13-specific Chrome visualization or human usability study is claimed**.
 
-All final PR workflows: ${runs.map(x=>x.name+` (run ${x.id})`).join('; ')}.
+All final PR workflows: Parameter experiment checks (run 44680367598); Plane-mirror angular inverse checks (run 44680367494); Numerical ray reliability diagnostics (run 44680367478); Planar refraction checks (run 44680367433); Original refraction problem pair (run 44680367577); Quasi-static source motion checks (run 44680367482); Curved mirror checks (run 44680367572); Deterministic planar angular query checks (run 44680367592); Qualified authoring checks (run 44680367463); Unified problem workflow checks (run 44680367729); Optical composition checks (run 44680367615).
 
 [Optical composition run 44680367615](https://github.com/physicsvigilante/opticsim/actions/runs/44680367615) uploaded:
 - `llm-authoring-evidence` artifact ID **14603633871**, GitHub-declared digest `sha256:6c9e82236dc3651d399015d3f44f9b9496ba857c3e2129dbae2d30a7f34f544f`.
