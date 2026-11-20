@@ -1,0 +1,52 @@
+name: JEE12 PR109 reviewer02 workbook scanned-page visual inspection
+on:
+  push:
+    branches:
+      - review/conductor-pr109-chat-b-r2-20261120
+    paths:
+      - ".github/workflows/jee12-pr109-review02-workbook-compressed.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render-workbook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 975e2e23a86fe29bbaafebc20e684312d2aa5b6d
+          path: source
+          persist-credentials: false
+      - name: Verify original pinned checkout and source PDF bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C source rev-parse HEAD)" = "975e2e23a86fe29bbaafebc20e684312d2aa5b6d"
+          test "$(git -C source rev-parse HEAD^{tree})" = "ddcc0b9923584495f78e2ea05a7f1ff56622e8d2"
+          test "$(sha256sum source/02_conductors_half_size.pdf | awk '{print $1}')" = "9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d"
+          git -C source rev-parse HEAD HEAD^{tree}
+          sha256sum source/02_conductors_half_size.pdf
+      - name: Install actual PDF page renderer on hosted runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+      - name: Generate reviewer-visible original workbook scanned-page images
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/workbook-low
+          for p in 1 2 3 7 8 11 12 16; do
+            pdftoppm -f "$p" -l "$p" -r 92 -jpeg -jpegopt quality=48 -singlefile               source/02_conductors_half_size.pdf "evidence/workbook-low/page-$p"
+            echo "@@BEGIN_LOW_WORKBOOK_PAGE_$p@@"
+            base64 -w 112 "evidence/workbook-low/page-$p.jpg" | sed "s/^/@@LOW_B64_WORKBOOK_$p@@/"
+            echo "@@END_LOW_WORKBOOK_PAGE_$p@@"
+          done
+          sha256sum evidence/workbook-low/*.jpg
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jee12-pr109-r2-workbook-readable-compressed-pages
+          path: evidence/workbook-low/
+          if-no-files-found: warn
