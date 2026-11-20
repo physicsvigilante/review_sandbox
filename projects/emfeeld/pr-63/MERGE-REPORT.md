@@ -53,3 +53,24 @@ Scientific limitations remain: single ideal circular steady-current filament in 
 The full push workflow [44701653299](https://github.com/physicsvigilante/emfeeld/actions/runs/44701653299) has **Linux SUCCESS** on actual `main` commit `cf884b6d91cb685993e07a1c65236b65d185e521`; its original logs record **2,200 headless tests and 107 genuine real-PyVista tests PASSED** (warnings as errors). Original Linux artifact **14613742891** was downloaded independently and audited: original ZIP SHA256 **`bab64763afcee3bf522f1cb373e7342166d32249f881412354ccc0ea510da08c`**; 2,186 unique ZIP files, CRC clean, exact `head-sha.txt` on the real production commit, 173 JSON integrity manifests, 1,749 authentic file-hash references matching, zero missing references and **one correctly detected deliberate corruption-negative reference** at `derived-001/G1/review-challenge-resealed-native/native/result.json`. No unexpected mismatches.
 
 **Windows remains IN PROGRESS** on actual-main real-PyVista regression at this interim checkpoint. No complete dual-OS technical release claim yet. Recheck original Windows artifact separately before closing Issue #62.
+
+---
+
+## FINAL TECHNICAL RELEASE — actual merged main, both OS and original archives PASS (20 November 2026)
+
+**Final status superseding the interim in-progress checkpoints above: all technical release gates have passed.** [PR #63](https://github.com/physicsvigilante/emfeeld/pull/63) is merged into actual `main` commit **`cf884b6d91cb685993e07a1c65236b65d185e521`**, Git tree **`c15bd147bcd0618253d906b704b06d3d864829d2`**, identical to independently R2-reviewed feature HEAD `d3385fc5efa023c9519510ef84207c0741861a45`. Git merge parents are exactly [`52aecd34338662e269fba091c0ff6664e8e1eca7`, reviewed HEAD]. Original historical R1 CHANGES REQUESTED and R2 independent scoped PASS remain separately preserved.
+
+All **8/8 post-merge `main` push workflows** finished `completed/success` on exactly the resulting merge commit: circular loop `44701653246`, straight wire `44701653263`, Gauss `44701653422`, cavity `44701653264`, dipole `44701653397`, capacitor `44701653336`, general real PyVista `44701653458`, and full dual-OS clean-install `44701653299`. The full run's distinct **Ubuntu 24.04** and **Windows 2022** jobs both concluded SUCCESS, with **2,200 headless tests and 107 genuine real-PyVista tests passing per OS**, warnings as errors. These counts overlap with other dedicated checks and must not be added.
+
+**The two ORIGINAL actual-main full OS artifacts were downloaded separately and audited, not confused with pre-merge synthetic test ZIPs:**
+
+| Original OS release artifact | Original ZIP SHA-256 | Members / CRC | Integrity checks |
+| --- | --- | --- | --- |
+| Linux **14613742891** | `bab64763afcee3bf522f1cb373e7342166d32249f881412354ccc0ea510da08c` | 2,186 unique entries / CRC PASS | 173 original manifests; 1,749 authentic SHA-256 references match |
+| Windows **14614990652** | `760e0fff1a12ed78ea08382da2696e0bfcb4fc928f85714f41dc23719b063c04` | 2,186 unique entries / CRC PASS | 173 original manifests; 1,749 authentic SHA-256 references match |
+
+Each independently preserves `head-sha.txt` equal to **actual merged main** `cf884b6d91cb685993e07a1c65236b65d185e521`, original logs with `2200 passed` headless and `107 passed` real-PyVista, **zero missing integrity references and zero unexpected corruptions**. Each also includes exactly **one correctly detected intentionally corrupted test reference** at `derived-001/G1/review-challenge-resealed-native/native/result.json`, preserved as a known deliberate negative test, not treated as a regression. The seven separately audited native/viewer module artifacts are detailed above; together they preserve 84 genuine screenshot PNGs, 598 verified per-scene SHA references, and seven byte-identical authentic 461-file Git source TARs matched to the reviewed source tree.
+
+**Scientific boundary:** one ideal, steady, perfectly thin vacuum circular current loop with *exact on-axis field only*. Reversed/zero current, radius changes, axial probe, fixed normal convention, raw-source snapshot binding, rotated-axis numerical admission boundary and genuine PyVista controls are qualified at this scope. No general off-axis Biot–Savart solver, induction, magnetic force, materials, or classroom effectiveness. Manual Windows user mouse/keyboard acceptance and real student/teacher pedagogy remain **not evaluated**, not declared passed.
+
+**Technical release is complete.** The issue may be closed *for this bounded technical feature*, while JEE learner usability remains a separate planned human trial.
