@@ -1,0 +1,73 @@
+name: Conductor PR109 independent source acquisition (reviewer only)
+on:
+  push:
+    branches:
+      - review/conductor-pr109-chat-b-20261120
+    paths:
+      - .github/workflows/conductor-pr109-reviewer-source-acquisition.yml
+      - projects/conductor_sim/pr-109/reviews/review-01-chat-b-reference.py
+      - projects/conductor_sim/pr-109/reviews/review-01-chat-b-native.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pinned-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout independent reviewer files
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          path: reviewer
+      - name: Checkout exact production HEAD read-only
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: physicsvigilante/conductor_sim
+          ref: 975e2e23a86fe29bbaafebc20e684312d2aa5b6d
+          persist-credentials: false
+          path: source
+      - name: Check native tree and frozen source-PDF bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/pages
+          test "$(git -C source rev-parse HEAD)" = "975e2e23a86fe29bbaafebc20e684312d2aa5b6d"
+          test "$(git -C source rev-parse HEAD^{tree})" = "ddcc0b9923584495f78e2ea05a7f1ff56622e8d2"
+          printf 'HEAD: '; git -C source rev-parse HEAD
+          printf 'TREE: '; git -C source rev-parse HEAD^{tree}
+          (cd source && sha256sum 02_conductors_half_size.pdf POTENTIAL_CONDUCTORS1.pdf) > evidence/pdf-sha256.txt
+          grep -F '9dff3c02a9f1848d2c3d99cb1a6e7a44dc7f5a51f7a3a2b8cc92d10ce1fbca5d  02_conductors_half_size.pdf' evidence/pdf-sha256.txt
+          grep -F '8d0d9b5cf821219058cfc4b7685a39b777e460944df44c3f9cffcb68157a60e5  POTENTIAL_CONDUCTORS1.pdf' evidence/pdf-sha256.txt
+          git -C source rev-parse HEAD HEAD^{tree} > evidence/source-identity.txt
+          git -C reviewer rev-parse HEAD HEAD^{tree} > evidence/reviewer-identity.txt
+          python reviewer/projects/conductor_sim/pr-109/reviews/review-01-chat-b-reference.py --repo source --out evidence/reference.json 2>&1 | tee evidence/reference.log
+      - name: Render all 12 original printed pages for independent reviewer
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pdftoppm >/dev/null; then sudo apt-get update && sudo apt-get install -y poppler-utils; fi
+          for p in 1 2 3 7 8 11 12 16; do
+            pdftoppm -f "$p" -l "$p" -r 145 -png -singlefile "source/02_conductors_half_size.pdf" "evidence/pages/workbook-p${p}" >/dev/null 2>&1
+            pdftotext -f "$p" -l "$p" -layout "source/02_conductors_half_size.pdf" "evidence/pages/workbook-p${p}.txt"
+          done
+          for p in 26 27 69 70; do
+            pdftoppm -f "$p" -l "$p" -r 145 -png -singlefile "source/POTENTIAL_CONDUCTORS1.pdf" "evidence/pages/notes-p${p}" >/dev/null 2>&1
+            pdftotext -f "$p" -l "$p" -layout "source/POTENTIAL_CONDUCTORS1.pdf" "evidence/pages/notes-p${p}.txt"
+          done
+          ls -lh evidence/pages > evidence/page-inventory.txt
+      - name: Export exact read-only source snapshot for local native replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar --exclude=.git -czf evidence/pr109-exact-source.tar.gz -C source .
+          sha256sum evidence/pr109-exact-source.tar.gz > evidence/snapshot-sha256.txt
+          du -h evidence/pr109-exact-source.tar.gz
+      - name: Upload reviewer evidence without changing production
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: conductor-pr109-independent-source-acceptance-${{ github.sha }}
+          path: evidence/
+          retention-days: 30
+          if-no-files-found: warn
