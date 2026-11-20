@@ -49,3 +49,22 @@ Additional original current-head sibling lesson archives independently downloade
 These six inherited lessons preserve **598/598 valid original scene-file references** and 67 original PNGs. With the new torque lesson they provide 78 genuine native lesson scenes and 675 matched original scene-hash references. General viewer separately contributes 17 original nonblank PNGs. These are technical/author-side audits, not human effectiveness or a new independent reviewer verdict.
 
 **Windows full clean-install was still running its later native evidence checks as this note was added.** Do not treat the Linux PASS or earlier Windows source as a final dual-OS gate. After Windows success, audit its distinct original Windows ZIP, then obtain a separate R2 scientific/native review of the exact candidate before merge.
+
+---
+
+## FINAL PREMERGE AUTHOR GATES — all exact-head OS/3D workflows successful (20 Nov 2026)
+
+**This heading supersedes earlier in-progress checkpoints in this immutable evidence chronology, but is still AUTHOR/CI evidence, not an independent review.** Candidate feature HEAD remains **`6abc5fa30fe96103b9a60e9946c188609fe88197`**, tree **`434af3657105b009f63e73b42f415b571ab6af16`**; main/base **`135e7a6ed86f5130d165debae2921111bc73fc3e`**. GitHub synthetic PR test merge `71a86662ceb57db73139a14f943d11ccdfdaf5b3` has the exact same tree and ordered parents [main base, accepted HEAD]. No existing source files changed: ten new feature paths only.
+
+**All 11/11 exact-head premerge workflows completed SUCCESS**: rectangular-loop dedicated [44720930549](https://github.com/physicsvigilante/emfeeld/actions/runs/44720930549), clean-install Linux + Windows [44720930631](https://github.com/physicsvigilante/emfeeld/actions/runs/44720930631), source snapshot [44720931127](https://github.com/physicsvigilante/emfeeld/actions/runs/44720931127), real PyVista [44720930435](https://github.com/physicsvigilante/emfeeld/actions/runs/44720930435), straight wire 44720931415, circular-loop axis-field 44720930654, Gauss 44720930697, cavity 44720930678, dipole 44720930734, capacitor 44720930709 and unchanged browser 44720930572. All are original exact-head CI results, not postmerge release.
+
+**Two original full OS clean-install GitHub ZIPs independently downloaded and audited:**
+
+| Original OS artifact | Original whole ZIP SHA256 | Tests | Source/CRC/integrity |
+| --- | --- | --- | --- |
+| Ubuntu **14622716999** | `ea9aef2836a172f60e328698cba482fcaa90b5484046bcf40bf6a5c5cb26e8ff` | **2,300 headless +119 real-PyVista PASSED** | 2,186 unique files; CRC pass; 173 JSON manifests; 1,749 valid original file-hash refs |
+| Windows **14623088275** | `2b3696b94b30d25b24ee4b27775d6ecb29d31f1a195d3ec18d41e8db013465dc` | **2,300 headless +119 real-PyVista PASSED** | 2,186 unique files; CRC pass; 173 JSON manifests; 1,749 valid original file-hash refs |
+
+Each full OS ZIP has **zero missing and zero unexpected hash mismatches**, and exactly **one known deliberately corrupted negative-test reference**, correctly detected at `derived-001/G1/review-challenge-resealed-native/native/result.json`. Both original archived `head-sha.txt` files name synthetic source test merge `71a86662...`, confirmed by GitHub commit parent/tree identity against the exact candidate; neither archive is a real production-main release artifact. The dedicated 11 original native rectangular-loop scenes and unchanged module archive audits are detailed above, alongside three byte-identical 475-file reviewed-source TARs.
+
+**Release safeguards:** PR #67 remains DRAFT / UNMERGED. A *separate* reviewer must independently calculate physical SI values, exercise native PyVista/VTK controls, capture a new reviewer-owned original 3D PNG and issue an exact-head verdict. Only a supported scoped PASS permits consideration of a guarded merge; fresh ACTUAL-merged-main Linux/Windows, native screenshot and original ZIP audits remain separate after that. Learner usefulness/actual Windows desktop manual interaction and JEE effect remain unassessed. Deferred [human feedback Issue #64](https://github.com/physicsvigilante/emfeeld/issues/64) remains open.
