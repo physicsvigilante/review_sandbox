@@ -1,6 +1,6 @@
 # EMFEELD PR #63 — narrow independent R2 scientific + native PyVista review
 
-**Prepared handoff, NOT an independent PASS or merge authorization.** Do not begin acceptance until the **fresh exact-head** hosted CI gates below have completed successfully. The original [review-01 — CHANGES REQUESTED](reviews/review-01-chat-b.md) remains a separate historical finding. This R2 is not a repeat of the author tests.
+**Independent R2 handoff, NOT an independent PASS or merge authorization.** Reviewer-authored scientific/native challenges may begin while the full cross-platform workflow finishes, but **do not issue PASS** until all fresh exact-head CI gates below (including both full Linux and Windows jobs and original artifacts) have been independently checked as successful. The original [review-01 — CHANGES REQUESTED](reviews/review-01-chat-b.md) remains a separate historical finding. This R2 is not a repeat of the author tests.
 
 ## Source to pin
 
