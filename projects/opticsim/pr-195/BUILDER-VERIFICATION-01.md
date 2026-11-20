@@ -1,6 +1,6 @@
 # Opticsim PR #195 — FINAL BUILDER VERIFICATION and ONE focused independent v27 review
 
-**20 November 2026, 17:xx IST. BUILDER VERIFICATION, NOT independent physics clearance or a JEE solved-problem score.** This is the **one final review** requested for a combined, reusable versioned native engine capability and its pre-frozen test-only feasibility. [Draft PR #195](https://github.com/physicsvigilante/opticsim/pull/195) stays draft/unmerged until a committed independent review on the exact unchanged source and standing owner release decision.
+**20 November 2026. BUILDER VERIFICATION, NOT independent physics clearance or a JEE solved-problem score.** This is the **one final review** requested for a combined, reusable versioned native engine capability and its pre-frozen test-only feasibility. [Draft PR #195](https://github.com/physicsvigilante/opticsim/pull/195) stays draft/unmerged until a committed independent review on the exact unchanged source and standing owner release decision.
 
 ## 1. Source, ancestry, frozen protocol, and isolation
 
