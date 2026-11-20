@@ -1,0 +1,11 @@
+# Ready-to-paste independent reviewer Chat B — SIM_HEAT PR76 N9 crosscheck R2
+
+You are independent reviewer Chat B. FIRST read https://github.com/physicsvigilante/review_sandbox/blob/main/projects/sim_heat/pr-76/REQUEST.md and the central review protocol.
+
+Review [source DRAFT PR76](https://github.com/physicsvigilante/sim_heat/pull/76) at EXACT HEAD `8e47a0a7c0a99694649fa8a1526ef50088e7dbd2`, based on independently reviewed-but-DRAFT PR69 HEAD `3e7a8434880cc197d54cd02377e4bd69c15d1717`. Four new N9-only paths; zero changes to original N1–N8, Modelica, runner/reference, original first-author physical sources, C1 or archived native evidence.
+
+This is NOT a new solver or an independent full-dynamics certificate. The candidate regenerates N1's original fixed T1-T full-grid source-only traces (2401/4801 samples, original SHA `b13877c8...` and `9ba71a1...`), builds the independent N4 correctly-rounded source-exact static C/G/A proof on the same pinned source, and demands all **14 × 7202 = 100828** static float64 sample bits and SI units match. Challenge one-ULP **late** sample mutation, changed unit, missing/boolean series, noncanonical source hash, fake N4 approval flags, forged N1 native status, and attempted in-repo output. Preserve the **seven original legacy reference.prepare 100x failures and eight native blockers**; N9 must never claim all 77 dynamic exports separately certified or a runner-consumable bundle. Review numerical physical source vs floating representation distinctions especially circular diameter vs area.
+
+[Hosted PR exact-source CI #44695409550](https://github.com/physicsvigilante/sim_heat/actions/runs/44695409550) **SUCCESS**, 307 inherited/new offline tests and both actual full-grid candidate regenerations. Artifact #14610397840 has GitHub **reported** ZIP SHA256 `06e9bd4fadbdaede46a0243919c8d58b25a11a0e2dde5475fc855d908a867e1c`; Chat A did NOT personally rehash it. Report your own independent execution and artifact checks separately from CI.
+
+Publish ONE ORIGINAL independent Chat B verdict to `physicsvigilante/review_sandbox/projects/sim_heat/pr-76/reviews/review-01-chat-b.md`, pinned to the exact HEAD/tree. Keep all original failed/scoped review records untouched. No OpenModelica installation/version query/build/launch, reference/bundle promotion, source merge, deployment or model/source rewriting.
