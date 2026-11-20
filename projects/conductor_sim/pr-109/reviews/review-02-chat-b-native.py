@@ -129,6 +129,22 @@ for j,(R,q,q1,q2,origin,shift) in enumerate(variants,1):
         SphericalVoid('cavity',origin,R,(
             NamedSourcePosition('source',(origin[0]+shift,origin[1],origin[2])),)),))
     solution=solve_spherical_sigma(SphericalSigmaModel(ledger,geom))
+    # Original Illustration 7 compares center and displaced point charges.
+    # Two native equilibrium solves, not a fictional source-motion timeline.
+    central_geom=SphericalMetalGeometry(origin,2*R,(
+        SphericalVoid('cavity',origin,R,(
+            NamedSourcePosition('source',origin),)),))
+    central=solve_spherical_sigma(SphericalSigmaModel(ledger,central_geom))
+    expected_uniform=-q/(4*pi*R**2)
+    for direction in ((1.,0.,0.),(-1.,0.,0.),(0.,1.,0.)):
+        near('p69 centered inner uniform',
+             central.inner_surface_charge_density('cavity',direction),expected_uniform)
+        near('p69 shifted/centered outer uniform',
+             solution.outer_surface_charge_density(direction),
+             central.outer_surface_charge_density(direction))
+        near('p69 outer analytic density',
+             solution.outer_surface_charge_density(direction),
+             4*q/(4*pi*(2*R)**2))
     near('p69 inner total',solution.gauss_ledger.faces[0].induced_inner_face_charge_c,-q)
     near('p69 outer total',solution.gauss_ledger.outer_face_charge_c,4*q)
     densities=[]
