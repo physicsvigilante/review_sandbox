@@ -55,9 +55,6 @@ def p_near(clearance, tangent):
 
 BEFORE = p_near(1.6e-8, 1e-8)
 AFTER = p_near(3.4e-8, 1.5e-8)
-RAYS = (
-    RAW, (-.45000000000013, .35000000000011, -.822648163...),  # overwritten below
-)
 # Independent non-axial signed raw rays; normalizer only validates near-unit,
 # it must never replace the original input in the near-wall physics.
 def normal(x, y, z):
@@ -229,18 +226,17 @@ def scientific_probes(out):
     assert model.geometry==original
     assert raw.revised.geometry.voids[0].positions[0].position_m==AFTER
 
-    for name, change in (
-        ("wrong_owner",StaticSourceRelocation("NegativeNet","P_oblique",AFTER)),
-        ("missing_source",StaticSourceRelocation("SignedNeutral","imaginary",AFTER)),
-        ("no_op",StaticSourceRelocation("SignedNeutral","P_oblique",BEFORE)),
-        ("boolean_coordinate",StaticSourceRelocation("SignedNeutral","P_oblique",(False,0.,0.))),
-        ("nonfinite_coordinate",StaticSourceRelocation("SignedNeutral","P_oblique",(float("inf"),0.,0.))),
-        ("wall_contact",StaticSourceRelocation("SignedNeutral","P_oblique",(NEUTRAL[0]+R,NEUTRAL[1],NEUTRAL[2]))),
+    for name, cavity, ident, position in (
+        ("wrong_owner","NegativeNet","P_oblique",AFTER),
+        ("missing_source","SignedNeutral","imaginary",AFTER),
+        ("no_op","SignedNeutral","P_oblique",BEFORE),
+        ("boolean_coordinate","SignedNeutral","P_oblique",(False,0.,0.)),
+        ("nonfinite_coordinate","SignedNeutral","P_oblique",(float("inf"),0.,0.)),
+        ("wall_contact","SignedNeutral","P_oblique",(NEUTRAL[0]+R,NEUTRAL[1],NEUTRAL[2])),
     ):
-        # Invalid instruction constructors may already fail; this still proves refusal.
-        def attempt(change=change):
-            relocate_spherical_source(model,change)
-        reject(attempt,name,result)
+        reject(lambda cavity=cavity, ident=ident, position=position:
+            relocate_spherical_source(model,StaticSourceRelocation(cavity,ident,position)),
+            name,result)
     reject(lambda:StaticSourceRelocation(False,"P_oblique",AFTER),"boolean_cavity_id",result)
     reject(lambda:StaticSourceRelocation("SignedNeutral",False,AFTER),"boolean_source_id",result)
     # A void that projects as disjoint but touches in 3D must fail at construction.
