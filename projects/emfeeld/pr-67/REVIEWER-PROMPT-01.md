@@ -1,6 +1,6 @@
 # EMFEELD PR #67 — independent JEE magnetic torque + native 3D reviewer request
 
-**PREPARED handoff ONLY. The candidate is a DRAFT, not yet independently reviewed or release-qualified.** Before beginning, independently fetch live [PR #67](https://github.com/physicsvigilante/emfeeld/pull/67), pin its current feature HEAD and Git tree, compare against the qualified `main` base, and check the full current-head CI. This prompt was prepared while a new source-head workflow was queued: **do not treat the historical green run as proof for the current head.**
+**PREPARED handoff ONLY. Candidate is DRAFT, not independently accepted or released.** Current exact feature HEAD is **`6abc5fa30fe96103b9a60e9946c188609fe88197`**, tree **`434af3657105b009f63e73b42f415b571ab6af16`**, qualified main/base **`135e7a6ed86f5130d165debae2921111bc73fc3e`**. Synthetic PR test merge `71a86662ceb57db73139a14f943d11ccdfdaf5b3` has this same source tree, but is not production main. **Independently recheck live [PR #67](https://github.com/physicsvigilante/emfeeld/pull/67) before review. If the feature head moves, stop and request a new pinned packet.** Full exact-head dual-OS gates remained in progress at this checkpoint; never treat older CI as the current gate.
 
 ## Feature intent and immutable boundaries
 
@@ -30,6 +30,16 @@ For **positive** signed I and B, theta=0 means zero torque/lowest U, 90 means ma
 - Historical first dedicated run [44719304912](https://github.com/physicsvigilante/emfeeld/actions/runs/44719304912) **FAILED 5/110 tests** due author test harness mistakes (nested pytest.approx, attribute name, default-None expectation). These failures were corrected without changing the SI formulas. Preserve the original failure as history.
 - A superseded next-head dedicated [44719622062](https://github.com/physicsvigilante/emfeeld/actions/runs/44719622062) completed **110 focused analytic/native PyVista checks PASS** and **11 genuine native scenes**, with 77/77 correct per-scene file hashes and verified source TAR. This earlier success is **not** acceptance of later caption/underflow corrections.
 - The current-source workflow gates and artifacts **must be fetched afresh from GitHub** at reviewer time. The newest source includes panel-label readability fixes (avoid VTK pipe separators) and `math.hypot` torque magnitude to preserve tiny nonzero values. Prior screenshots cannot certify these updates.
+
+
+
+### Latest exact-source author evidence (NOT reviewer acceptance)
+
+- Exact current [dedicated native loop-torque run 44720930549](https://github.com/physicsvigilante/emfeeld/actions/runs/44720930549) SUCCESS, **112 focused physics/real PyVista tests** and **11 original native scenes**, audited original artifact **14621763327** whole ZIP SHA256 `8c722874bb29cb57c92c99f68401159be5c185d3395fd1d0edfffca74d96c0d7` with 95 unique entries, CRC pass, **77/77 genuine scene file hashes**, no unexpected mutations.
+- Exact [source snapshot 44720931127](https://github.com/physicsvigilante/emfeeld/actions/runs/44720931127) SUCCESS, artifact **14621699281** ZIP SHA256 `3001faa8fcf19a9b13d8a029f1989155c02c9c1e502494f8b151264725b6e6ec`. Source TAR SHA256 `ed0c641ab48702f7e054e3b4aa23aff96f39b97f46d7775a0008ec3c7858611b`, all **475/475** source Git blob SHA/mode ledger entries valid; same authentic TAR as dedicated native and general viewer.
+- Exact [general real PyVista run 44720930435](https://github.com/physicsvigilante/emfeeld/actions/runs/44720930435) SUCCESS, artifact **14622226441** ZIP SHA256 `2111eec2dd6b1d72c910c8620255e77148996b87a7ea4cec3edb6543fc9f702e`, 17 genuine original nonblank PNGs, same source TAR.
+- Original current-head perpendicular PNG was independently inspected by the author for **correctly grouped right-pane text** and both actual horizontal slider rails. A reviewer still must independently create a **new, reviewer-owned PNG** (from separate source execution), not merely inspect or adopt these screenshots.
+- [Full Linux and Windows clean-install workflow 44720930631](https://github.com/physicsvigilante/emfeeld/actions/runs/44720930631) remains **in progress at prompt update**; independently verify success of both OS jobs and audit their newest original archives before issuing final PASS. See [author qualification report](AUTHOR-QUALIFICATION-01.md) for precise controls, original hashes, historical failure and bounded scope.
 
 ## Required result and integration safeguards
 
