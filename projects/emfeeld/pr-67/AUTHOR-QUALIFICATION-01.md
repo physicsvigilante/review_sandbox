@@ -30,3 +30,22 @@
 ## Still required
 
 The latest head's other dedicated wire, circular-loop, Gauss, cavity, dipole, capacitor, browser and general-viewer workflows have reported success. The [full Linux AND Windows clean-install workflow 44720930631](https://github.com/physicsvigilante/emfeeld/actions/runs/44720930631) remained **IN PROGRESS** at this checkpoint; do not treat an earlier candidate's full CI as current acceptance. After it passes, audit the **original** current-head full OS archives separately. Then a separate [independent scientific/native PyVista review](REVIEWER-PROMPT-01.md) must genuinely test this **exact head**, create a new reviewer-owned 3D screenshot and issue its own scoped PASS / CHANGES REQUESTED / INSUFFICIENT EVIDENCE verdict. Only a supported PASS authorizes consideration of guarded merging. Fresh actual-main Linux/Windows and original archive qualification follow a permitted merge. [Human feedback Issue #64](https://github.com/physicsvigilante/emfeeld/issues/64) is intentionally postponed as directed; no claims about JEE exam or learner effectiveness.
+
+## Later exact-head Linux and inherited-model artifact checks
+
+**[Full dual-OS workflow 44720930631](https://github.com/physicsvigilante/emfeeld/actions/runs/44720930631): Ubuntu 24.04 job SUCCESS on exact synthetic PR merge `71a86662ceb57db73139a14f943d11ccdfdaf5b3`.** Original Linux clean-install artifact **14622716999** was separately downloaded and audited: ZIP SHA256 **`ea9aef2836a172f60e328698cba482fcaa90b5484046bcf40bf6a5c5cb26e8ff`**, **2,186 unique entries, zero bad ZIP CRCs**, 173 original integrity manifests with **1,749 authentic SHA-256 references correct** and **one expected deliberately corrupted negative-test reference** at `derived-001/G1/review-challenge-resealed-native/native/result.json` correctly detected; no missing or unexpected failures. Original log records **2,300 headless PASS** and **119 genuine real-PyVista PASS**, warnings as errors. Original `head-sha.txt` equals exact current GitHub test merge, not actual production main.
+
+Additional original current-head sibling lesson archives independently downloaded, whole-ZIP SHA/CRC checked, source TAR matched exactly to this candidate's `ed0c641...` TAR, and all original scene-file hash references rehashed:
+
+| Module | Original artifact ID | Original whole ZIP SHA256 | Scene PNGs | Valid references |
+| --- | --- | --- | ---: | ---: |
+| Straight wire | **14622635660** | `f29b0a9ded7cafe92c815dcbacd9b34d89b022e82f62be6684b94cd969be1093` | 7 | 49/49 |
+| Circular-loop axial B | **14622586446** | `62abd6a4f8af79efb23d7364ad08c0398e3aa3f3a75b99f2c54394db55b9199a` | 9 | 63/63 |
+| Gauss | **14621947576** | `7f10155620a7511a3788159d1a36cfa21e461deb36b5972b0aaaae81adddf7b1` | 22 | 148/148 |
+| Conductor cavity | **14622275903** | `d3b830ee2ce46ec8fc504526032794b661014117ed9df2f399b826200b457404` | 6 | 36/36 |
+| Electric dipole | **14622850512** | `6d2cffc79f628ec100e07fb2ba22c0004decf0997f2c0d5e90f6814c9fad78c6` | 14 | 239/239 |
+| Ideal capacitor | **14621394101** | `796c876472d0d12342f34f5ca1389867ee16f2c9aee4b0396f448c8fd6b29e1f` | 9 | 63/63 |
+
+These six inherited lessons preserve **598/598 valid original scene-file references** and 67 original PNGs. With the new torque lesson they provide 78 genuine native lesson scenes and 675 matched original scene-hash references. General viewer separately contributes 17 original nonblank PNGs. These are technical/author-side audits, not human effectiveness or a new independent reviewer verdict.
+
+**Windows full clean-install was still running its later native evidence checks as this note was added.** Do not treat the Linux PASS or earlier Windows source as a final dual-OS gate. After Windows success, audit its distinct original Windows ZIP, then obtain a separate R2 scientific/native review of the exact candidate before merge.
