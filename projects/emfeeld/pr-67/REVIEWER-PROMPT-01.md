@@ -1,0 +1,38 @@
+# EMFEELD PR #67 — independent JEE magnetic torque + native 3D reviewer request
+
+**PREPARED handoff ONLY. The candidate is a DRAFT, not yet independently reviewed or release-qualified.** Before beginning, independently fetch live [PR #67](https://github.com/physicsvigilante/emfeeld/pull/67), pin its current feature HEAD and Git tree, compare against the qualified `main` base, and check the full current-head CI. This prompt was prepared while a new source-head workflow was queued: **do not treat the historical green run as proof for the current head.**
+
+## Feature intent and immutable boundaries
+
+[Issue #66](https://github.com/physicsvigilante/emfeeld/issues/66): One perfectly thin, rigid, **one-turn rectangular current filament** in a prescribed uniform, static external magnetic field. No self-field, induction, rotation in time, material response, test-particle motion or general Biot–Savart solver. The 3D scene is a geometry/force/torque adapter; drawn wire thickness and arrow lengths are schematic. Existing physics and viewer modules were not edited; candidate adds **ten new feature files only**.
+
+Physics: width `a>0`, height `b>0`, area `A=ab`, right-handed loop plane `e1,e2,u=e1×e2`, signed steady current `I`, signed external field `B=s*d` for fixed normalized positive reference direction `d`. The positive geometric normal tilt `theta` is measured from `+d`; if I or s reverses, it is **not** necessarily the angle between magnetic moment and signed physical B. Exact physical SI:
+```text
+magnetic moment m = I A u            [A m²]
+torque tau = m × B                   [N m]
+orientation potential U = -m · B    [J]
+force on segment i = I Δl_i × B     [N]
+sum_i F_i = 0
+sum_i (r_mid_i - c) × F_i = tau
+```
+For **positive** signed I and B, theta=0 means zero torque/lowest U, 90 means maximal torque and U=0, and 180 means zero torque/highest U. Reversing I or B flips torque and energy signs while **blue positive geometric normal remains fixed**. I=0 removes orange current, pink magnetic moment and torque; B=0 removes green external field and torque, but pink moment may remain. Individual forces on edges parallel to B vanish. One-turn only.
+
+## Independent, reviewer-authored challenges
+
+1. **Scientific identities and signs**: calculate your own reference magnetic moment, all four segment signed forces (positive traversal +e1,+e2,-e1,-e2), net force, signed torque vector, signed U at 0/90/180 and arbitrary tilted frames. Check arbitrary reference field direction and translated centre. Use analytic/reference expressions not just the implementation `calculate()`. Test scaling in `I, a, b, B`, reversal of I vs B, and the fact that an anti-aligned loop has tau=0 yet U is high for positive signed I/B. Catch accidental force-couple factor-of-two or reversed torque axis.
+2. **Domain and representability**: strict raw UTF-8 JSON duplicate/unknown/Boolean/string/nonnumeric, nonfinite, overflow and underflow; bad dimensions, direction singularity, extreme tilts and current/field signed zero. The public snapshot API must strictly match original raw input bytes to authored physical state and live initial/current state **before creating output**. Canonical rotated normal from JSON must round-trip; no changed source bytes passed off as authored. The current candidate includes a scaling-safe tiny-torque `math.hypot` magnitude correction: test a nonzero, representable tilt (e.g. `1e-200` degrees) and ensure it does **not** falsely report zero torque just because squared components underflow.
+3. **True native 3D**: independently run **real PyVista and VTK**, not only author screenshots. Exercise actual `KeyPressEvent` (keys 1–6,n,b,f,v,0) and both slider `EndInteractionEvent` operations. Confirm physical edits refresh prepared physics, while camera/force-display/reveal-only changes reuse it. Test B reverses after `b` and **remains reversed on changing the field-magnitude slider**. Confirm no orange current arrow at I=0, no green B arrow at B=0, no torque arrow when tau=0, and blue positive normal invariant under signed reversal. Capture at least **one new reviewer-owned PyVista PNG** with slider rails legible on the right and labels not split into pseudo-columns (an earlier candidate had pipe characters scattered across the right panel). Do not substitute old author/CI PNGs.
+4. **Evidence/archive/source identity**: independently download current-head hosted native scenes ZIP and original tested-source TAR. Verify GitHub source SHA/tree, original ZIP whole SHA256, CRC, all per-scene integrity hashes, actual raw-author/state bindings, saved NPZ numeric SI arrays and PNG vs current slider/state. Check Linux **and** Windows full suites and all existing Gauss/cavity/dipole/capacitor/wire/circular-loop regressions on the *exact current source*. Do not confuse GitHub's synthetic PR merge SHA with future production merge.
+
+## Source and author evidence pointers (not independent verdicts)
+
+- [Draft PR #67](https://github.com/physicsvigilante/emfeeld/pull/67); [Issue #66](https://github.com/physicsvigilante/emfeeld/issues/66). The feature branch is `feature/rectangular-loop-torque-v1`.
+- Historical first dedicated run [44719304912](https://github.com/physicsvigilante/emfeeld/actions/runs/44719304912) **FAILED 5/110 tests** due author test harness mistakes (nested pytest.approx, attribute name, default-None expectation). These failures were corrected without changing the SI formulas. Preserve the original failure as history.
+- A superseded next-head dedicated [44719622062](https://github.com/physicsvigilante/emfeeld/actions/runs/44719622062) completed **110 focused analytic/native PyVista checks PASS** and **11 genuine native scenes**, with 77/77 correct per-scene file hashes and verified source TAR. This earlier success is **not** acceptance of later caption/underflow corrections.
+- The current-source workflow gates and artifacts **must be fetched afresh from GitHub** at reviewer time. The newest source includes panel-label readability fixes (avoid VTK pipe separators) and `math.hypot` torque magnitude to preserve tiny nonzero values. Prior screenshots cannot certify these updates.
+
+## Required result and integration safeguards
+
+Write a **separate independent review** to `projects/emfeeld/pr-67/reviews/review-01-chat-b.md` in review_sandbox. State the exact pinned source identity, your newly authored analytic/numeric and native checks, original artifact hashes and verified native PNG provenance. Give one of **PASS (scoped)**, **CHANGES REQUESTED**, **INSUFFICIENT EVIDENCE**. If PyVista isn't installable locally, an independently controlled reviewer-owned GitHub Actions workflow with a reviewer-authored test and fresh original PNG is acceptable; don't declare native PASS by inspecting only author CI images.
+
+**Do not merge or edit feature source as reviewer.** Any corrected author code changes require new exact-head review. Even a supported independent PASS is not a technical release until guarded merge and fresh actual-main Linux/Windows/PyVista/ZIP audits. No claim of JEE educational effectiveness; [human feedback Issue #64](https://github.com/physicsvigilante/emfeeld/issues/64) is deliberately postponed, not forgotten.
