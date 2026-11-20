@@ -1,0 +1,170 @@
+{
+  "format": "opticsim-pr187-jee-j17-builder-verification-v1",
+  "date": "2026-11-20",
+  "status": "builder-verified-draft-open-unmerged-review-pending",
+  "repository": "physicsvigilante/opticsim",
+  "pr": 187,
+  "source": {
+    "sha": "3caa32fcd5d09115e0db2ef7868c427dba0f9f33",
+    "tree": "3eda4670db1d214c1d374dcc438f36369baa0ae1"
+  },
+  "productionBase": {
+    "sha": "eba628e37a21030364c3fc69755e160eb4b4c81f",
+    "actualPostMergeWorkflows": 11,
+    "actualPostMergeSuccess": 11,
+    "unchanged": true
+  },
+  "testedSyntheticMerge": {
+    "sha": "6689b1d4e9981803424a212be0f15617232b1264",
+    "tree": "3eda4670db1d214c1d374dcc438f36369baa0ae1",
+    "sameTree": true,
+    "orderedParents": [
+      "eba628e37a21030364c3fc69755e160eb4b4c81f",
+      "3caa32fcd5d09115e0db2ef7868c427dba0f9f33"
+    ]
+  },
+  "pin": "811f508d2b070898c241a568b0c167dcb8645251",
+  "diff": {
+    "added": 7,
+    "modified": 0,
+    "deleted": 0,
+    "productionNativeSourceChange": false,
+    "publicOpticalSceneSchemaChange": false,
+    "browserChange": false
+  },
+  "sourceProblem": {
+    "frozenCase": "J17",
+    "pngPath": "08_Ray_Optics_Explanations/07_Lens_Formula/Problems/001.png",
+    "pngSha256": "42364c9242e377fbdf4de4360450e980530626cbfe14992ac1fa089908a62e7b",
+    "frozenProtocolCommit": "c5265133fb58a742a9c16300c4c5bc8391b85d37",
+    "solutionsRead": false,
+    "sourceSeparationCm": 24,
+    "focalLengthCm": 9,
+    "addedModelAssumption": "coaxial ideal thin lens, lens between sources, opposite-side incident rays"
+  },
+  "reducedAnalytical": {
+    "api": "opticsim-two-source-lens-coincidence-v1",
+    "statuses": [
+      "conditional",
+      "no-finite-placement",
+      "numerically-indeterminate"
+    ],
+    "nativeStatus": "not-run",
+    "lensPlacementsFromSource1Cm": [
+      6,
+      18
+    ],
+    "commonGlobalGaussianImageXCm": [
+      -12,
+      36
+    ],
+    "kindSource1": [
+      "virtual",
+      "real"
+    ],
+    "kindSource2": [
+      "real",
+      "virtual"
+    ],
+    "actualNativeImageReconstruction": false,
+    "sourceCompletenessGradedIndependently": false
+  },
+  "nativeResearch": {
+    "pinnedObjects": [
+      "SingleRay",
+      "IdealLens",
+      "Detector"
+    ],
+    "testOnly": true,
+    "additionalOpticalApparatus": [
+      "100 mm finite lens aperture",
+      "2 finite ±5 mm rays per source",
+      "passive 40 mm detector line at predicted real conjugate"
+    ],
+    "sourcesSimulatedSeparately": true,
+    "experiments": [
+      {
+        "lensXmm": 60,
+        "imageXmm": -120,
+        "source": "left",
+        "kind": "virtual",
+        "actualLensEvents": 2,
+        "actualDetectorCrossings": 0
+      },
+      {
+        "lensXmm": 60,
+        "imageXmm": -120,
+        "source": "right",
+        "kind": "real",
+        "actualLensEvents": 2,
+        "actualDetectorCrossings": 2
+      },
+      {
+        "lensXmm": 180,
+        "imageXmm": 360,
+        "source": "left",
+        "kind": "real",
+        "actualLensEvents": 2,
+        "actualDetectorCrossings": 2
+      },
+      {
+        "lensXmm": 180,
+        "imageXmm": 360,
+        "source": "right",
+        "kind": "virtual",
+        "actualLensEvents": 2,
+        "actualDetectorCrossings": 0
+      }
+    ],
+    "finiteApertureMiss": {
+      "actualLensEvents": 0,
+      "actualDetectorCrossings": 0
+    },
+    "nativePhysicalImageDetected": false,
+    "conditionalVirtualImageIsBackwardExtrapolationOnly": true
+  },
+  "ci": {
+    "sourceSha": "3caa32fcd5d09115e0db2ef7868c427dba0f9f33",
+    "workflows": 11,
+    "passed": 11,
+    "failed": 0,
+    "nodeTests": 1059,
+    "nodePassed": 1059,
+    "nodeFailed": 0,
+    "nodeSkipped": 0,
+    "opticalRun": 44668827681,
+    "opticalJob": 136064610579,
+    "nativeWitnessLogRun": 44668827623,
+    "existingChromeRegressionsPass": true,
+    "newJ17ChromeImplemented": false
+  },
+  "artifact": {
+    "run": 44668827681,
+    "id": 14599352038,
+    "githubDigest": "sha256:4ac91a5a1ff6dda4cd9bfd18005341a1aeac0682d900d834ef9b4ac5594821b5",
+    "recomputedSha256": "4ac91a5a1ff6dda4cd9bfd18005341a1aeac0682d900d834ef9b4ac5594821b5",
+    "crcMembers": 1463,
+    "allCrcPass": true,
+    "adjacentSourceInputReportShaPairsChecked": 293,
+    "shaMismatches": 0,
+    "j17EvidenceAttempts": 3,
+    "j17AttemptInputHashesMatch": true
+  },
+  "review": {
+    "needed": true,
+    "oneConsolidatedReview": true,
+    "exactSource": "3caa32fcd5d09115e0db2ef7868c427dba0f9f33",
+    "target": "physicsvigilante/review_sandbox/projects/opticsim/pr-187/reviews/review-01-chat-b.md",
+    "verdict": "PENDING",
+    "mergeAllowedBeforeClearance": false
+  },
+  "noneOfTheseClaimed": [
+    "blind independent LLM interpretation",
+    "fully solved original source problem",
+    "two real native images physically detected together",
+    "unobserved native ray paths",
+    "general arbitrary lens arrangements",
+    "new public native optical family",
+    "fresh J17 Chrome browser run"
+  ]
+}
