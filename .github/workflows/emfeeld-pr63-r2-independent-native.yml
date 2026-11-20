@@ -1,0 +1,66 @@
+name: EMFEELD PR63 R2 independent reviewer native challenge
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/emfeeld-pr63-r2-independent-native.yml
+      - projects/emfeeld/pr-63/reviews/review-02-independent-native.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-native-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYVISTA_OFF_SCREEN: 'true'
+      VTK_DEFAULT_OPENGL_WINDOW: vtkEGLRenderWindow
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      MPLBACKEND: Agg
+      R2_OUTPUT: ${{ github.workspace }}/evidence
+    steps:
+      - name: Checkout reviewer-owned scripts only
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          path: reviewer
+      - name: Checkout exact immutable EMFEELD feature commit, not mutable branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: physicsvigilante/emfeeld
+          ref: d3385fc5efa023c9519510ef84207c0741861a45
+          persist-credentials: false
+          path: source
+      - name: Pin source identity and save exact receipts
+        shell: bash
+        run: |
+          mkdir -p evidence
+          test "$(git -C source rev-parse HEAD)" = "d3385fc5efa023c9519510ef84207c0741861a45"
+          test "$(git -C source rev-parse HEAD^{tree})" = "c15bd147bcd0618253d906b704b06d3d864829d2"
+          git -C source rev-parse HEAD HEAD^{tree} > evidence/source-identity.txt
+          git -C reviewer rev-parse HEAD HEAD^{tree} > evidence/reviewer-identity.txt
+      - name: Set up native Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Install isolated native PyVista VTK and numerical dependencies
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libegl1 libgl1-mesa-dri libopengl0
+          python -m pip install 'numpy==2.3.5' 'scipy==1.17.0' 'pyvista==0.48.4' 'vtk==9.6.2' 'Pillow'
+          python -m pip install --no-deps -e ./source
+          python -m pip freeze > evidence/environment.txt
+      - name: Execute original reviewer-authored native event and pixel challenge
+        shell: bash
+        run: |
+          set -o pipefail
+          PYTHONPATH="$GITHUB_WORKSPACE/source/src" python reviewer/projects/emfeeld/pr-63/reviews/review-02-independent-native.py 2>&1 | tee evidence/reviewer-native.log
+      - name: Preserve unedited reviewer-owned PNG, report, environment and logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: emfeeld-pr63-r2-independent-native-${{ github.sha }}
+          path: evidence/
+          retention-days: 30
+          if-no-files-found: warn
