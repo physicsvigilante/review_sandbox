@@ -1,0 +1,34 @@
+# SIM_HEAT PR #80 — Chat B targeted R2 re-review
+
+**SCOPED PASS on F-01** for source head `6904ec8219be0ddb8ec1635a9d000ddda80307c9`. The corrected staging entry point binds the verified origin to the actual audited source bytes for all three offline candidates. The historical reproduction still succeeds on the previous head. Its CHANGES REQUESTED verdict remains attached to that revision. [Pinned correction request](https://github.com/physicsvigilante/review_sandbox/blob/6fa6afc9ac392a694cf9a22c14ba4c8198e13e62/projects/sim_heat/pr-80/CORRECTION-REQUEST-02.md) · [Original finding](https://github.com/physicsvigilante/review_sandbox/blob/6fa6afc9ac392a694cf9a22c14ba4c8198e13e62/projects/sim_heat/pr-80/reviews/review-01-chat-b.md)
+
+## Subject and evidence identity
+
+On November 21, 2026, I verified through GitHub that PR #80 was open, draft and unmerged. The API returned base `ca5654a789f2291d6f0ceb7fd798b15d4310a122` and the head above. Synthetic checkout `390442b7b7802f914eb098051bac2756a0ee3068` has those two parents in base/head order. Its tree matches the local head tree `c2b08eabdcb301d3ee8e2be36075e916a606ce7e`. The correction parent is `aef1efe599cae31f6ee4b114b1a3051325732bfb`. Its diff touches only the N12 staging module and its tests. [PR](https://github.com/physicsvigilante/sim_heat/pull/80) · [Correction diff](https://github.com/physicsvigilante/sim_heat/commit/6904ec8219be0ddb8ec1635a9d000ddda80307c9)
+
+Run `44840798964`, attempt 1, completed successfully on the corrected head. I downloaded artifact `14681270960`, 12,575,876 bytes, and computed ZIP SHA-256 `a7d7e3e5f89bce30269a8d27a76bbaeedb4e0333fa132f9df1c51cd35fbf1b13`, matching GitHub. I compared all 276 regular file members of the included source tar to the local byte-preserving head export and checked the archived checkout IDs. The 14 archived suite logs report 337 passing test methods in total. I reran the focused suite locally. [Hosted job and individual steps](https://github.com/physicsvigilante/sim_heat/actions/runs/44840798964/job/136648376377) · [Artifact](https://github.com/physicsvigilante/sim_heat/actions/runs/44840798964/artifacts/14681270960)
+
+## Original control and corrected boundary
+
+I exported both exact Git revisions using `git -c core.autocrlf=false archive`. An initial Windows Git export with default newline conversion failed the original source identity check in test setup. No tests passed on that export. The byte-preserving export passed the pins.
+
+1. On the parent revision I generated the original 2400-interval N1 bytes with `n1.certify(n1.read_facts(), 2400, output=...)`. I kept those bytes and altered the separately parsed signed T06 series, its unit, a public request and a signed integral. The historical helper accepted a gridless proof with self-digest `4f1da37b5a54aca4a8a54edd59674d58b2c6d43186acb21f19796d18014abfda` and the primary descriptor for role `tight`. Its packet carried the verified origin, primary study ID, invented value `987654321.0` and unit `J`. This reproduces F-01.
+2. On the corrected revision, `python -B -m unittest qualification.h1_n12.tests.test_stage_reference -v` passed **11/11**. The historical composing helper is gone. The suite exercised the old call, altered trace bytes, caller-supplied proof and descriptor arguments, missing grids, promotion flags, role/model/provenance substitutions, and a changed original model before the destination was created. The mutation test uses controlled substitutes to reach the final input reread.
+3. In additional controls I supplied a reversed audit grid list, a duplicate primary row, and a dense row carrying the primary digest by substituting the audit return in test scope. Each raised `StageRefusal` with the output absent. Authentic primary bytes presented as the dense trace also raised `StageRefusal`. I instrumented the existing H1 loader and called the actual implementation underneath it. For each role the admission root equaled that descriptor's own parent directory, with all eight requests still `not_computed`.
+4. In the exact source, `prepare(out)` is the only producer of the verified packet. It checks the source snapshots and N11 Git blob, invokes `n11.audit()`, checks the ordered interval/digest identities and hashes the returned proof itself. It admits each pinned descriptor and original model. For each grid, N1 regenerates the bytes, the report digest must agree, N9 checks those bytes, and the parser reads that same pinned byte string. Packet serialization takes the data from that parse and the study identity from H1 admission. The protected snapshots are read again before the destination is created. The caller supplies only the destination. [Pinned source, admission through first write](https://github.com/physicsvigilante/sim_heat/blob/6904ec8219be0ddb8ec1635a9d000ddda80307c9/qualification/h1_n12/stage_reference.py#L138-L275)
+
+## Positive evidence and limits
+
+I also ran `python -B -m qualification.h1_n12.stage_reference --out <new-scratch-directory>` from the byte-preserving corrected export. The full unmodified local pipeline completed, including its fresh N11 audit and both N9-checked grids. Its proof receipt SHA-256 was `ea7d3dcf841811778a19673fdc34c44041ec8bcdbb7434feabc7d60f074544a8`. I compared the local file set and contents to the downloaded hosted preparation. All ten files matched byte for byte.
+
+I compared all ten paths and file contents between hosted `prep-A` and `prep-B`. All matched. The case packets' actual byte hashes match the earlier independently reviewed legitimate candidates. I checked the three role-specific descriptor hashes and original model bytes, and compared the full primary and tight grids, series, units, requests and integrals to the independently regenerated primary trace.
+
+| Role | Samples | Candidate SHA-256 |
+| --- | ---: | --- |
+| primary | 2401 | `5a2712f49bd1032b7dea7ac7d210d69f17b132035416247c779c8f98edac12d4` |
+| tight | 2401 | `53101969a460b232ce47822d6782e93dfd43a5d46ac0c40999a1a186d4fcc8e7` |
+| dense | 4801 | `d2743134eb5b452dda8dfa21a1de14ca7493e252e1b6e8d70f949ad5b552ca59` |
+
+All three packets preserve the offline schema and false authority flags, including native qualification, execution, adoption, owner approval and runner consumption. The hosted hold file records zero native calls, eight blockers, and seven legacy reference failures at `T02.G`, `T06.A`, `T06.G`, `T07.G`, `T08.G`, `T10.G`, and `T_Plug.C`.
+
+This independent model review covers the F-01 evidence boundary in the pinned Python implementation under ordinary execution. Authenticated owner approval, prospective reference adoption, hostile replacement of running Python or concurrent filesystem integrity, independent rederivation of the N11 mathematics and native performance are outside this verdict. I performed no OpenModelica installation, query, build or execution. The source PR remains subject to separate owner approval.
