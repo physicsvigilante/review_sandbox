@@ -1,1 +1,1 @@
-Independent R2 review requested for the [pinned green head](REQUEST.md).
+The [independent review](reviews/review-01-chat-b.md) accepted the bounded temperature passage observer at 5734127a32b0b9d6d096ccdc264fc121d91f6c8b for offline use. Both archives and fresh passage results matched. Draft source PR #88 remains unmerged.
