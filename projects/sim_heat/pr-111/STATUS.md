@@ -1,1 +1,1 @@
-Independent review requested after both offline jobs passed at 2cbf9781978a388265a654849366466e1b3a418a.
+Accepted at 2cbf9781978a388265a654849366466e1b3a418a for the offline finite phase inventory. [Independent R2 review](https://github.com/physicsvigilante/review_sandbox/blob/feaa68041b9f7eccd3715d2bcce368fa9d15d296/projects/sim_heat/pr-111/reviews/review-01-chat-b.md). Source remains unmerged.
