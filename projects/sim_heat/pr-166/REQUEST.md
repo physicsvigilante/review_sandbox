@@ -1,0 +1,3 @@
+# Isolated workbench launch
+
+R1. Review [draft #166](https://github.com/physicsvigilante/sim_heat/pull/166) at 0485355c9669e8943210b1f6f009e1f0fbe734a1 against 6ebfc50574a61a49b7e4f645ab82f727af127b30. Isolated direct script launch from an unrelated working directory used to fail before admission. Assess the bootstrap and normal module entry point. Verify [offline CI](https://github.com/physicsvigilante/sim_heat/actions/runs/44906429999), Linux job 136852892519 and Windows job 136852892738, both successful. These jobs retain their logs on Actions; no artifact archive configured. Frozen H1 and historical N1 status remain separate.
