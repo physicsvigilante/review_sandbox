@@ -1,1 +1,1 @@
-Independent review requested for the [pinned green head](REQUEST.md).
+The [independent review](reviews/review-01-chat-b.md) accepted the exact head 1d38aae03ba7d226c2fcca751afb9ebece030f37 for the offline terminal-law scope. Both full graphs reproduced the predicted supplies under a second set of boundary temperatures. PR #92 remains draft and unmerged.
