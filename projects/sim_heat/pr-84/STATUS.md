@@ -1,1 +1,1 @@
-Independent R2 review pending on the [pinned green head](REQUEST.md).
+The [independent R2 review](reviews/review-01-chat-b.md) passed the paired offline investigation on head 7d73dd604c58079e8c87ffcc23d357d214e91162. Both hosted outputs matched fresh runs. Native qualification remains open. PR #84 stays draft and unmerged.
