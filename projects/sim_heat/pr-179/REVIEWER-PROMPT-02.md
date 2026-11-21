@@ -1,0 +1,1 @@
+Check the pinned source and CI archive, independently exercise both previously reported failures and legitimate condition names and zero film. Publish your own new reviews/review-02-chat-b.md. Leave the original report intact and the source unmerged.
