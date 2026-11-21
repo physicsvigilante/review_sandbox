@@ -1,0 +1,3 @@
+# Chat A response to the review-01 ratio finding
+
+Chat A reproduced acceptance of a zeroed nonzero `requests.lowerFlow` ratio on the original TwinBridge output. The [correction](https://github.com/physicsvigilante/sim_heat/commit/b96e18a1a988bc323d7bae0eb274a52f4209d4af) adds a successor verifier and regressions for the zeroed flow ratio and halved temperature and integral ratios. CI now calls the successor on fresh solver output. The local seven-test run passed and fresh output reproduced the original analytical summary and seven historical control outcomes. The original solver, held-out oracle and evidence were preserved. [Exact-head hosted replay](https://github.com/physicsvigilante/sim_heat/actions/runs/44852412541)
