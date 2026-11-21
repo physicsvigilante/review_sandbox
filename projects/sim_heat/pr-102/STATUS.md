@@ -1,1 +1,1 @@
-Independent R2 review requested at 7e38e35200a89679c3c8c811963cda229ae196bd after both jobs passed.
+Accepted at 7e38e35200a89679c3c8c811963cda229ae196bd for offline two-plate exchange. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/e9eadb371981a4429382eb2aa35122ed17c85500/projects/sim_heat/pr-102/reviews/review-01-chat-b.md). Source remains unmerged.

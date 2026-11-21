@@ -1,1 +1,1 @@
-Both offline jobs passed on 020e123b7a94b4aa103ae335b813f3a957b8b9cc. Independent R2 review requested.
+Accepted at 020e123b7a94b4aa103ae335b813f3a957b8b9cc for the steady offline shield calculation. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/4613527ea683103a863a97480c2bee7186d2d38c/projects/sim_heat/pr-103/reviews/review-01-chat-b.md). Source remains unmerged.
