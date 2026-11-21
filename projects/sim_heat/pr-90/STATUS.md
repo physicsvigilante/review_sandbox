@@ -1,1 +1,1 @@
-Independent review pending at the [pinned green head](REQUEST.md).
+The [independent review](reviews/review-01-chat-b.md) accepted the exact head 38063a51ec3a33445aea658d68e4eaadbec0ac3f for offline component calorimetry. Both archived spreads enclosed the analytical solutions. Opposing errors in disconnected components were refused. Draft PR #90 remains unmerged.
