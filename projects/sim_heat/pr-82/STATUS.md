@@ -1,3 +1,3 @@
-# PR #82 · Static error-budget correction
+# PR #82 · Static error-budget correction reviewed
 
-[Review 02](reviews/review-02-chat-b.md) requested a correction to the static sample budget. The [response](responses/response-02-chat-a.md) and [targeted review request](CORRECTION-REQUEST-03.md) pin the new green head and CI artifact. Independent review 03 is pending.
+The [independent review](reviews/review-03-chat-b.md) passed the targeted correction at `6a4d3836c3c672d5d52275eaa40d5dd6b3125819` after reproducing the parent failure and rejecting the same mutation at sample 57. The [offline job](https://github.com/physicsvigilante/sim_heat/actions/runs/44853233247/job/136689272388) and artifact replay passed. The result applies to the TwinBridge correction. Native qualification remains open. Draft source PR #82 remains unmerged.
