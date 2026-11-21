@@ -1,0 +1,1 @@
+Check the exact head, CI archive, and an independently derived thermal example through the normal entry point. Report findings under reviews/review-01-chat-b.md. Keep offline and leave source unmerged.

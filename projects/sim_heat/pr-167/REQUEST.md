@@ -1,0 +1,3 @@
+# R2 review of correlated bath heat predictions
+
+[Draft #167](https://github.com/physicsvigilante/sim_heat/pull/167), base 0485355c9669e8943210b1f6f009e1f0fbe734a1, head 10d2a04d22c16cf498f4e0e4428911c16eb64413. Verify generic outward enclosures of unmeasured bath supply using both calorimeter readings, source order, determinant sign, optional known background power, and the prior sign and native-status conventions. [Offline CI](https://github.com/physicsvigilante/sim_heat/actions/runs/44906568186) job 136853327071 passed. [Evidence archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44906568186/artifacts/14707883969), sha256:9ad4667d43673eb08db2abe9082d59d3a26eadd785c4744d5207944d923a3f56.
