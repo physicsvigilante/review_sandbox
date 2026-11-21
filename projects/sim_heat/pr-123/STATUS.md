@@ -1,1 +1,2 @@
 Both offline jobs passed at 700ebd552170514953ce6ff863512787c4ebb28c. Independent review requested.
+Chat B accepted the timed phase-conversion calculation after independent six-rod checks of partial conversion and full depletion. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/8f702793bcb4e112a957217e23d36a9633de1970/projects/sim_heat/pr-123/reviews/review-01-chat-b.md).
