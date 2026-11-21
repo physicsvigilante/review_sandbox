@@ -1,1 +1,1 @@
-Fresh R2 review requested for 7ef7007564858355f68a8e60656695b8597bca9e after both exact-head runs passed.
+Accepted at 7ef7007564858355f68a8e60656695b8597bca9e for steady offline spherical conduction. [Independent report](https://github.com/physicsvigilante/review_sandbox/blob/a51c5fb8be62a8b9c6f85316d6a4450c46cbb4c0/projects/sim_heat/pr-106/reviews/review-01-chat-b.md). Source remains an unmerged draft.

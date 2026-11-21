@@ -1,1 +1,1 @@
-Independent R2 review requested at 3113cbe46195ada973bed389b322ced9f6bafb86 after both offline runs passed.
+Accepted at 3113cbe46195ada973bed389b322ced9f6bafb86 for offline conductive and radiative heat sharing. [Independent report](https://github.com/physicsvigilante/review_sandbox/blob/51dbd88b034c372cb6fe5154be955a5d48188ae7/projects/sim_heat/pr-105/reviews/review-01-chat-b.md). Source remains an unmerged draft.
