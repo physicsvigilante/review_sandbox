@@ -1,0 +1,19 @@
+# PR #82 targeted independent review of the static error budget
+
+**Pass.** Finding 1 from review 02 is resolved at source head `6a4d3836c3c672d5d52275eaa40d5dd6b3125819`, tree `bb1a573528a16a942fc44cc851c3abf2464523e7`, stacked base `6904ec8219be0ddb8ec1635a9d000ddda80307c9`. I found no blocker in this correction. [Review packet](https://github.com/physicsvigilante/review_sandbox/blob/8619565da89a9816c0503e5476bd0a186b46f45a/projects/sim_heat/pr-82/CORRECTION-REQUEST-03.md) · [Source diff](https://github.com/physicsvigilante/sim_heat/commit/6a4d3836c3c672d5d52275eaa40d5dd6b3125819)
+
+## Counterexample and regression
+
+I ran the parent and head verifiers directly from their Git blobs on the same decoded hosted output. I changed only `exports.upper.G.values[57]` from 2 W/K to the next binary64 number toward zero and set its series ratio to 1. The exact discrepancy is 2⁻⁵² W/K. Dividing by 0.64 times the spacing at sample zero gives 25/32. Dividing by 0.64 times the spacing at sample 57 gives 25/16. A claimed maximum of 1 therefore distinguishes the implementations.
+
+Parent `b96e18a1a988bc323d7bae0eb274a52f4209d4af` accepted the mutation. The head raised `understated error ratio for exports.upper.G at sample 57`. Restoring the original sample and setting the reported static maximum to zero passed. The added regression leaves the initial value at 2, makes this later-sample edit and requires the series and exact sample in the exception. All eight tests in the workflow's two unittest modules passed locally.
+
+The verifier now obtains the spacing from the emitted value at the inspected index, matching the frozen solver's budget. It converts the binary64 value, spacing, analytical Decimal and declared ratio to exact rational values for comparison. The K, W and J paths retain their absolute budgets and analytical guard. I independently halved the authentic maxima for `exports.amber.T` and `integrals.bath.Q_to_network` and set `requests.lowerFlow` to a zero maximum. The head rejected these at samples 1, 375 and 1 respectively. [Verifier](https://github.com/physicsvigilante/sim_heat/blob/6a4d3836c3c672d5d52275eaa40d5dd6b3125819/tools/verify_twinbridge.py) · [Solver](https://github.com/physicsvigilante/sim_heat/blob/6a4d3836c3c672d5d52275eaa40d5dd6b3125819/qualification/h1_n13/conduction.py#L219-L232)
+
+## Replay and preservation
+
+GitHub recorded success for job `136689272388` including the freeze checks, regressions, fresh generation, verification and upload. I downloaded artifact `14686053761`, verified its ZIP SHA-256 `f2b344fee0886ee538b51d0a32063a867ea645ba11578204118e0fbd160ba891`, checked the ZIP CRCs and matched its source-head member to the reviewed SHA. The 860,196 decompressed output bytes had SHA-256 `94ec9446278fcd530f9902f4540fefbaef2582ee990f5d9551d77f5c63c10de2`. The decoded output matched the preserved first output. My replay returned the archived summary across 41 series and 1,201 samples. The summary and all seven archived control results matched the pinned originals. [CI job](https://github.com/physicsvigilante/sim_heat/actions/runs/44853233247/job/136689272388) · [Artifact](https://github.com/physicsvigilante/sim_heat/actions/runs/44853233247/artifacts/14686053761)
+
+Only the successor verifier and its tests changed from the review-02 head. I independently compared the frozen solver and H1 paths to `f05f6a8`, the held-out directory to `954cf65`, and the five case/oracle inputs to `892e9e4`. Each scoped Git diff was empty.
+
+I performed this review as a fresh owner-requested reviewer subagent using the published packet. The result covers the offline TwinBridge verifier. Analytical comparisons can refute a reported ratio but do not reconstruct the solver's interval endpoints. Native execution and source merge approval are outside this verdict.
