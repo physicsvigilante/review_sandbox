@@ -1,1 +1,1 @@
-Independent R2 review requested for 493af36ef95f945a0ae3891f3191554c11572ea9. Both offline jobs passed.
+Accepted at 493af36ef95f945a0ae3891f3191554c11572ea9 for the bounded offline pipe calculation. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/c691744ee376ec440a3e5e63c0f6e0e28ef77307/projects/sim_heat/pr-107/reviews/review-01-chat-b.md). Source remains an unmerged draft.
