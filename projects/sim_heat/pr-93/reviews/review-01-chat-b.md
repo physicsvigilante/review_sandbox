@@ -1,0 +1,22 @@
+# Independent Chat B review of PR #93
+
+**Verdict: accepted for the bounded offline, steady, single-contact composition.** I found no blocking or major defect. I verified the open draft's base `1d38aae03ba7d226c2fcca751afb9ebece030f37` and head `28471ad23c944ba182e3ec7fcb8ac8b547a19c6c` against the request at hub commit `1a93dfb62d8089fcc55bcc3c8e89e79e42d849a7`. This review was performed by a separately tasked Chat B subagent, using the pinned source, public review packet and downloaded evidence. [Source PR](https://github.com/physicsvigilante/sim_heat/pull/93)
+
+## Physics and interpretation
+
+Removing the two contact reservoirs leaves one common unknown temperature. If the contact rows of the two terminal laws have diagonal sum D and retained-column entries c, conservation gives Tcontact = −c·Text/D. Substitution into each retained supply equation gives the implemented Schur complement. Subtracting a common temperature origin uses uniform-temperature invariance of a passive conductor network. The pivot test requires a positive lower bound. The underlying fixed-point arithmetic rounds both endpoints outward on construction, products and reciprocals. The reported quantities retain K, W/K and positive supply from reservoir into the network.
+
+I traced the six authored conductors and their connections, keeping the star centre separate from the new contact. To check all nine choices of left/right contact, I independently set up two Kirchhoff equations directly from the original rod conductances (star 2, 3, 5 W/K and triangle 3/5, 1, 3/2 W/K). For internal diagonals a and d, linking leg conductance k, and incident external-temperature sums x and y weighted by conductance, I solved the contact as (ay+kx)/(ad−k²) using exact fractions. Summing incident rod flows at each retained port supplied the sign oracle. Four unit-temperature vectors then supplied each response column. All 189 checked intervals (nine times one contact, four operating supplies and sixteen coefficients) contained the exact targets, each with width below 10⁻¹² in its respective SI unit. Every exact operating point conserved heat.
+
+For the published middle-to-warm contact I obtained 11260/37 K, with supplies (−5050, 5380, −3675, 3345)/37 W in left.cool, left.warm, right.cool, right.middle order. For the alternate warm-to-cool connection, I obtained 330 K and (−125, 75, −30, 80) W in left.cool, left.middle, right.middle, right.warm order. Repeated names remained distinct across sides. Changing only the two removed bath temperatures in the validated-law inputs to the elimination helper left the whole result identical. Uniform 300 K baths produced point intervals of 300 K and zero W.
+
+## Source binding and reproducibility
+
+I recomputed all six source hashes (model, study, facts for each side) from local bytes and compared them with the joined output. The two focused repository tests passed under the supplied Python runtime, including the explicit six-rod response and the left-port refusal. Additional reviewer controls rejected an unknown right port, a wrong right-side facts digest, and a synthetic pivot enclosing zero.
+
+Both exact-head jobs succeeded. I downloaded both archives, hashed their bytes, and verified the following.
+
+- The series artifact SHA-256 is `5a8e6ef29233464142f19ac74d110d0f1f8851d9602d45c9f570f2cdc3648a97`. All three joined JSON payloads (composition, full direct result, full direct response) equalled fresh local results as parsed JSON. [Job](https://github.com/physicsvigilante/sim_heat/actions/runs/44861584212/job/136715955926) · [Artifact](https://github.com/physicsvigilante/sim_heat/actions/runs/44861584212/artifacts/14689818025)
+- The TwinBridge artifact SHA-256 is `d2710f4a2f4ae80d70f574a3974cc7e7901d15fe8a0c25855ee8a8ce563e08c5`. I checked its embedded head, compared the decompressed fresh response with the frozen first output, and matched the oracle and control JSON with the frozen records. [Job](https://github.com/physicsvigilante/sim_heat/actions/runs/44861584210/job/136715956031) · [Artifact](https://github.com/physicsvigilante/sim_heat/actions/runs/44861584210/artifacts/14689927306)
+
+The study provides a worked example of an inferred contact temperature and heat exchange between separately maintained terminals. Classroom use remains unmeasured. The evidence establishes offline composition and independent example calculations. Native execution, native qualification, independently certified reference status and runner consumability remain false. The source PR remains draft and unmerged.
