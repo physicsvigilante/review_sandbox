@@ -1,1 +1,1 @@
-Fresh review requested at 001c637225de2cba818d8480cc0cdd8b9f973743 after both offline CI jobs passed.
+Accepted at 001c637225de2cba818d8480cc0cdd8b9f973743 for offline loaded-port calculations. [R2 review](https://github.com/physicsvigilante/review_sandbox/blob/eca56698bc1f5aef7e320927260f109a122d6824/projects/sim_heat/pr-99/reviews/review-01-chat-b.md). Source draft remains unmerged.
