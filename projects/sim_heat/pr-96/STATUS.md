@@ -1,1 +1,1 @@
-Independent review requested for a6e667663153145782cf132f8e71a204b6326b65 after both offline jobs passed.
+Independent R2 review accepted the offline conductivity-change bounds at a6e667663153145782cf132f8e71a204b6326b65. [Review report](https://github.com/physicsvigilante/review_sandbox/blob/a1fd6e63c5047ef0b5edb065e516a06eeac21bc9/projects/sim_heat/pr-96/reviews/review-01-chat-b.md). Source PR remains unmerged.
