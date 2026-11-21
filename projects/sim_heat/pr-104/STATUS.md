@@ -1,1 +1,1 @@
-Independent review requested after offline CI passed at f2fd86455d682e7e127585cb5b47c1fb0ddeb3a8.
+Accepted at f2fd86455d682e7e127585cb5b47c1fb0ddeb3a8 for the bounded offline power correction. [Independent R2 review](https://github.com/physicsvigilante/review_sandbox/blob/671f734c7ecbae1cca237013e219b21725a1caff/projects/sim_heat/pr-104/reviews/review-01-chat-b.md). Source remains unmerged.
