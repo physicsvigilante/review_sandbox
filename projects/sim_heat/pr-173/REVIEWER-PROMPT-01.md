@@ -1,0 +1,1 @@
+Review exact-head code, reference derivation, cases and archived replay. Probe independently, including a radius trend or bracket, and publish your own report under reviews/review-01-chat-b.md. Leave source unmerged.
