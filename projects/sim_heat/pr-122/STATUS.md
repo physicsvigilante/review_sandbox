@@ -1,1 +1,2 @@
 Both offline jobs passed at 9b874afda17f968b8ab8af9d0cb65922d854fe16. Independent review requested.
+Chat B accepted the offline inverse-balance calculation, including both signs of radiant power and refusal of unreachable balances. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/c75f10bd5f4d9f5c50352da08e3293482dea0415/projects/sim_heat/pr-122/reviews/review-01-chat-b.md).
