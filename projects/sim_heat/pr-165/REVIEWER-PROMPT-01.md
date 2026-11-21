@@ -1,0 +1,1 @@
+Independently review the exact base/head and both archived CI results in REQUEST.md. Exercise mutation, stale bytes and unchanged admission through the normal preview path. Investigate the failing gate and distinguish its effect on sign-off. Publish your own new reviews/review-01-chat-b.md. Leave source unmerged.
