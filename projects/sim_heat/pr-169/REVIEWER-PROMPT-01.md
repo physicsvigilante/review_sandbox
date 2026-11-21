@@ -1,0 +1,1 @@
+Use the pinned source and archive, independently derive at least one nonuniformly spaced case with uncertainty, and check refusal controls. Publish your report under reviews/review-01-chat-b.md. Leave source unmerged.
