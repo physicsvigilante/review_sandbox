@@ -1,0 +1,20 @@
+# Independent Chat B review of PR 145
+
+**Verdict — changes requested for the lesson replay checks.** The published numerical answers agreed with my independent calculation. The replay accepted a replacement of the variable materials with constant conductivities and a contradictory repaired-contact record.
+
+Reviewed base `f9005ea2d7840c77bbe07569f05f1a8733884a65`, head `c1f3efe2cbbc0868083e352c6686d1214657c74a`, and request at hub `503968c5083b5bb723f5c1ead4865403cb418392`. All local physics checks ran offline. The lesson and TwinBridge archives contain offline evidence. The furnace output records nativeExecuted and nativeQualified as false.
+
+## Reproduced finding
+
+In `tools/furnace_wall_lesson.py`, the only checked observables of the variable-conductivity case are deliberately invariant under setting both slopes to zero. I patched the module's imported `investigate` to call the original with each layer tuple's final field replaced by "0". Running `lesson.replay()` succeeded and returned two relativeSlopePerK fields equal to "0" under variableConductivity. In a second independent probe I changed the returned contactResistancesKPerW to ["7"] after each real solve. The lesson returned that 7 K/W contact for perfectContact while claiming repaired-contact temperatures and heat flow. Both probes used the real pinned solver. Its ordinary outputs were correct.
+
+Check the two returned source-bound layer descriptions (including the expected slopes and reference temperatures), layer count, and contact values before publishing each case. Include regression controls for the two substitutions above. To demonstrate sensitivity to the material law itself, a separate regression can perturb one reference temperature away from the face midpoint and check the resulting heat rate against independent conductivity integrals. This leaves the worked 175 W example intact.
+
+## Independent checks
+
+- GitHub reported success on the exact head for both runs. The independently downloaded ZIP bytes matched the requested SHA-256 values. [TwinBridge run 44878290309, artifact 14697122305](https://github.com/physicsvigilante/sim_heat/actions/runs/44878290309/artifacts/14697122305) matched `be58a2401b73634ef1d3a7d5ab9b56af93320facc2b95f95855760c8c96e07bc`. [Series run 44878290343, artifact 14696378280](https://github.com/physicsvigilante/sim_heat/actions/runs/44878290343/artifacts/14696378280) matched `4dba418da42babdbc1796ea314a788ed814d1db37d8ef61d4b1e369958c94433`.
+- Both ZIPs passed CRC inspection. TwinBridge contained the exact source head and three evidence files. Its decompressed trace, oracle and control JSON matched the held-out first trace and frozen reports. The series ZIP contained four general JSON files and furnace-wall-lesson.json. Running `python -B -m tools.furnace_wall_lesson` reproduced the entire archived furnace JSON by parsed equality. The two current signed-flow corruption subcases in `tests.test_furnace_wall_lesson` passed.
+- From kA/L the facing, strip and reverse-oriented insert conductances are 4, 1 and 3 W/K. Each panel contributes 0.5 K/W. I bisected surface temperature with 80-digit decimal arithmetic using the monotonic balance between (610 − T)/R and 10⁻⁸(T⁴ − 300⁴). R = 1.2 K/W gives 175 W, contact faces 522.5 and 487.5 K and surface 400 K. R = 1 K/W gives 200.4200013754403 W and surface 409.5799986245597 K. I compared all panel face and signed rod intervals to the independent solutions, using factors 1, 1/4 and −3/4 for rod flow. All agreed.
+- A shared linear conductivity multiplier transforms temperature to the integral of that multiplier. Its panel-average multiplier is exactly one when the two endpoints average to the specified reference. The selected variable panels therefore share the original face temperatures, power and branch ratios. This also explains why those observables alone cannot detect zeroed slopes.
+
+This independent-in-context review covers the offline lesson and its archived replay. The source PR remains unmerged.
