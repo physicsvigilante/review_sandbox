@@ -1,1 +1,1 @@
-Independent R2 review requested at 670b398f0cab1eb964c924367506f4b7ebce1b6a after both runs passed.
+Accepted at 670b398f0cab1eb964c924367506f4b7ebce1b6a for the bounded offline turning-radius claim. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/8729cffad9ab674e364dc0aad6e9c721dd197744/projects/sim_heat/pr-110/reviews/review-01-chat-b.md). Source remains unmerged.

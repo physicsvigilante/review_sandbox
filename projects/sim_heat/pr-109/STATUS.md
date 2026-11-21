@@ -1,1 +1,1 @@
-Both offline jobs passed at f17fa7d67f01bdf269423d04a5c8d4c43b271274. Independent review requested.
+Accepted at f17fa7d67f01bdf269423d04a5c8d4c43b271274 for offline radius sensitivity. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/099ba3a4b87a0376753ff9039ceda8adbacd63cc/projects/sim_heat/pr-109/reviews/review-01-chat-b.md). Source remains unmerged.
