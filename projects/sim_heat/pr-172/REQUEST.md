@@ -1,0 +1,3 @@
+# Review of checkout preservation for frozen thermal inputs
+
+[Draft #172](https://github.com/physicsvigilante/sim_heat/pull/172), base 2ae5fe77b3b9befe609d88f956507501dfa99af4, head 8b1df407721fdc242626ae85acc81490ca8eed8b. Check the four exact attribute paths, original Git blob identities, and a genuine fresh Windows checkout with CRLF conversion enabled. [Hosted CI](https://github.com/physicsvigilante/sim_heat/actions/runs/44908020960), Ubuntu job 136857664871 and Windows job 136857665134, both passed. No artifact upload for these jobs. Windows base N4 discovery failed at setup; all 15 tests ran and passed from a fresh head checkout. Original inputs and N1 source pins remain intact.
