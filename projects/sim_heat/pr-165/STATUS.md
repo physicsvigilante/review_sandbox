@@ -1,1 +1,3 @@
 R2 independent review requested on 6ebfc50574a61a49b7e4f645ab82f727af127b30. Both offline CI jobs report the historical N1 refusal. The failing gate is part of this review. Draft remains unmerged.
+
+Independent review 41648f3f123f47b5d9bcf8eb437e3f0d5ed298b3 accepted the bounded offline preview identity fix on 6ebfc50574a61a49b7e4f645ab82f727af127b30. The reviewer verified both archives, exercised stale and mutated inputs, and found no new source defect. Both CI jobs remain red at the inherited N1 AGENTS.md pin. Full qualification and merge sign-off are withheld. Preserve the pin and retain draft status.
