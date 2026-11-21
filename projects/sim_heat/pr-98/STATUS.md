@@ -1,1 +1,1 @@
-R2 review requested for 039a686eb76deff90350fe284ec5fedd54b511dc after both offline CI jobs passed.
+Accepted for bounded offline two-contact composition at 039a686eb76deff90350fe284ec5fedd54b511dc. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/d4c986202055daf2fc9725d5b13bf56cf36adb87/projects/sim_heat/pr-98/reviews/review-01-chat-b.md). Source remains unmerged.
