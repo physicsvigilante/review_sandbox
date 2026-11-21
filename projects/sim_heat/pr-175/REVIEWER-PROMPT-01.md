@@ -1,0 +1,1 @@
+Verify the exact head and archive, confirm the branch was absent from the old allowlist and inspect CI coverage, failure propagation and limitations. Publish your own reviews/review-01-chat-b.md. Keep source draft unmerged.
