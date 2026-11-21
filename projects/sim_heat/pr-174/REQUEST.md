@@ -1,0 +1,3 @@
+# R2 review of shell film calibration
+
+[Draft #174](https://github.com/physicsvigilante/sim_heat/pull/174), base 43e57c28c1033222aacbe8f2aa3236880f42975e, head b19119e49ee4102acfc82dd766641529778c000b. Assess inversion from a measured surface temperature band, resistance and area units, opposing radiation/air energy signs, zero film and identifiability. [Passing job](https://github.com/physicsvigilante/sim_heat/actions/runs/44908554202/job/136859232814), [archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44908554202/artifacts/14708528849), sha256:7de049e0037e88d21097ed52bc20f8abd1f720fb04e2d231f40ee4153372024a.
