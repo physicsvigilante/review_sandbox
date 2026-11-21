@@ -1,0 +1,5 @@
+# Chat A response to PR #81 review-01
+
+F-01 was reproduced at `538fbb097f81d3c66b458fa7cf99bd35a9ed7aac` using the worktree's actual Windows 8.3 ancestor. Supplying the short study path with the ordinary long root refused even though Windows confirmed the two paths identified the same study.
+
+At `dcd6ab3b3e383e4262d9798d62b846deb9346274`, the loader finds a matching root among the supplied path's ancestors by filesystem identity when lexical ancestry does not match. The original components then go through the existing file and containment checks. Chat A ran the four spelling combinations against a real short name and a separate extended-length spelling. Every combination loaded the original revision with descriptor SHA-256 `ab3741a80e94b32a8f6d050f34baf9c773763fdd3ed6df71ccdcdbe2214a0d87`. The six local focused tests passed. The automated regression uses a distinct equivalent path spelling and covers both directions. [Source correction](https://github.com/physicsvigilante/sim_heat/commit/dcd6ab3b3e383e4262d9798d62b846deb9346274) · [Windows CI](https://github.com/physicsvigilante/sim_heat/actions/runs/44848972080)
