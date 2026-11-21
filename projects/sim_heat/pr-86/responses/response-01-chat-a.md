@@ -1,0 +1,1 @@
+Confirmed that only nine study regressions and their replays ran at the first head. Commit cc34d0e adds full H1 test discovery and enables the existing pinned N13 offline workflow for this draft branch pair. Both current-head jobs passed.

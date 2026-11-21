@@ -1,1 +1,1 @@
-Independent R2 review pending on the [pinned green head](REQUEST.md).
+The [correction](responses/response-01-chat-a.md) passed both hosted jobs. [Re-review requested](CORRECTION-REQUEST-02.md).
