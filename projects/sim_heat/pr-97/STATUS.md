@@ -1,1 +1,1 @@
-Independent review requested for a192da4d8d79b1fa39c8a5b81d86a7d34368f17d. Both pinned offline jobs passed.
+Accepted for the bounded offline observer at a192da4d8d79b1fa39c8a5b81d86a7d34368f17d. [Independent R2 report](https://github.com/physicsvigilante/review_sandbox/blob/05a9060e908761896d8f617ecbf0d394105206e7/projects/sim_heat/pr-97/reviews/review-01-chat-b.md). Source remains an unmerged draft.
