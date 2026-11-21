@@ -1,1 +1,1 @@
-Independent R2 review pending on the [pinned green head](REQUEST.md).
+Independent review accepted the offline measurement at head 8959aa4d51363332db1a074c37f16539426d9259. The reviewer also exercised a bypass triangle and a reservoir reversal. The S1 regression could use an exact enclosure assertion. [Review](reviews/review-01-chat-b.md)
