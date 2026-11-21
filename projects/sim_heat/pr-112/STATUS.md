@@ -1,1 +1,1 @@
-Both offline jobs passed at 590056d97e5efc8a767f7d653055841beb685f9e. Independent review requested.
+Accepted at 590056d97e5efc8a767f7d653055841beb685f9e for the bounded offline phase-bath target passage. [Independent report](https://github.com/physicsvigilante/review_sandbox/blob/f54ec7c617b82e36a05d6e37361d8c8ff451a0a1/projects/sim_heat/pr-112/reviews/review-01-chat-b.md). Source remains unmerged.
