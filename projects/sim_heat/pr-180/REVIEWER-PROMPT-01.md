@@ -1,0 +1,1 @@
+Review the exact pinned head and archive, replay the CLI, independently check a phase and shell balance in a different arrangement, and publish your own reviews/review-01-chat-b.md. Keep the physics offline and source unmerged.
