@@ -1,0 +1,3 @@
+# R2 review of interior rod probe
+
+Draft [#168](https://github.com/physicsvigilante/sim_heat/pull/168), base 10d2a04d22c16cf498f4e0e4428911c16eb64413, head d6b0b9ae7ce792097566f427d2202b03d1bfd9c6. Assess point temperature and signed heat current toward port b, port orientation, interval containment, impact on existing predictions, and refusal of invalid inputs. Verify with an independent case. [Offline CI job](https://github.com/physicsvigilante/sim_heat/actions/runs/44906825868/job/136854090306) passed; [evidence archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44906825868/artifacts/14708008504), sha256:7069db4cf5dc1a2c117ceaff762b9cded66114cf8a40a6785e8b79bc842f9ce5.

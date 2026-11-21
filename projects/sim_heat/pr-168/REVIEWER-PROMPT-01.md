@@ -1,0 +1,1 @@
+Check the exact head and evidence archive. Independently probe the signed heat current and temperature in a physically different arrangement, plus refusal and source-only scope. Publish your own report under reviews/review-01-chat-b.md. Leave unmerged.
