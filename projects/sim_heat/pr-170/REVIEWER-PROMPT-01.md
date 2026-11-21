@@ -1,0 +1,1 @@
+Check exact-head code and archive plus an independent probe of a differently powered or oriented radiating network. Verify refusal, no-probe behavior and physics status flags. Publish an original reviews/review-01-chat-b.md and leave source unmerged.

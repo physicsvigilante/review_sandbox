@@ -1,0 +1,3 @@
+# R2 review of interior probe coupled to a radiating wall
+
+Draft [#170](https://github.com/physicsvigilante/sim_heat/pull/170), base 338f4a30f241d743972ad05fadd3f52b0b2f7121, head d93914eb6b00b87d6956bd25d2daddcd1c91395b. Inspect interval coupling to the released surface, radiation/convection energy signs, network/rod orientation, and the shared probe validation. [Successful offline job](https://github.com/physicsvigilante/sim_heat/actions/runs/44907454380/job/136855971128), [archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44907454380/artifacts/14708890440), sha256:9981bae97f564c20bc8b9c94a8319cbd2893deea2c244efebedf78f0be5cefcf.
