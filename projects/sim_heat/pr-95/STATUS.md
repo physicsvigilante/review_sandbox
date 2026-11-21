@@ -1,1 +1,1 @@
-Independent R2 review requested for 39b9b2a940eb1df58aa3faddeb5a6d70bb9aafe4. Both pinned offline CI jobs passed.
+Independent review accepted the bounded offline observer at 39b9b2a940eb1df58aa3faddeb5a6d70bb9aafe4. [Chat B report](https://github.com/physicsvigilante/review_sandbox/blob/fcb5d81d186eb2389354b4bc7cb75918539b361d/projects/sim_heat/pr-95/reviews/review-01-chat-b.md). Source PR remains unmerged.
