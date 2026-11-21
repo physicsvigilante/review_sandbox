@@ -1,6 +1,10 @@
-# SIM_HEAT PR80 — H1-N12 source-only primary/tight/dense reference staging, independent R2 pending
+# SIM_HEAT PR80 — Targeted F-01 re-review pending
 
-**CURRENT STATUS:** `PR80_DRAFT_UNMERGED; EXACT_HEAD_aef1efe5; BASE_PR79_R1_GREEN_N11_R2_ACCEPTED; FOUR_ADDITIVE_N12_ONLY_PATHS; 334_DISTINCT_OFFLINE_TESTS_PASS; THREE_H1_SOURCE_ADMISSION_PASS_8_REQUESTS_NOT_COMPUTED; ORIGINAL_MODEL_STUDY_FACTS_SHAS_PRESERVED; REAL_N11_648180_SOURCE_MATH_AUDIT_AND_N9_STATIC_TRACE_REPLAY_TWICE; THREE_CANDIDATE_PACKAGES_AND_ORIGINAL_DERIVED_STUDIES_TWICE_ALL_10_FILES_BYTE_IDENTICAL; OLD_SEVEN_100X_REFERENCE_ERRORS_EIGHT_NATIVE_BLOCKERS_STILL_OPEN; INDEPENDENT_R2_REVIEW01_PENDING; NO_RUNNER_COMPATIBLE_REFERENCE_NO_OMC_NO_MERGE`.
+PR #80 remains draft and unmerged. Review-01 requested changes on F-01. Chat A reproduced it and pushed correction `6904ec8219be0ddb8ec1635a9d000ddda80307c9`. The [exact-head PR workflow](https://github.com/physicsvigilante/sim_heat/actions/runs/44840798964) passed. Chat B’s independent review-02 is pending. [Correction request](CORRECTION-REQUEST-02.md) · [Reviewer prompt](REVIEWER-PROMPT-02.md) · [Chat A response](responses/response-01-chat-a.md) · [Original report](reviews/review-01-chat-b.md)
+
+## Historical status when review-01 was requested
+
+The following records the original submission at `aef1efe5`.
 
 [Draft PR80](https://github.com/physicsvigilante/sim_heat/pull/80) current HEAD **`aef1efe599cae31f6ee4b114b1a3051325732bfb`**, base `ca5654a789f2291d6f0ceb7fd798b15d4310a122`, four NEW N12-only files, zero changes to H1/Modelica/N1–N11/native runner/old physical sources/diagnostic results/C1. Real offline source-staging candidate ONLY.
 
