@@ -1,1 +1,1 @@
-Independent review pending on the [pinned green head](REQUEST.md).
+The [independent review](reviews/review-01-chat-b.md) accepted the exact head 53bda493612785d11c1a711f6cce368c656f666b for offline threshold observations. Both archive digests and the D1 and D2 analytical brackets were verified. Reversing the D2 operands reversed the passage direction. PR #91 remains draft and unmerged.
