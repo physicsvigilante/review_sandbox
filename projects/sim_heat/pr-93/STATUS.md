@@ -1,1 +1,1 @@
-Independent review requested at the [pinned green head](REQUEST.md).
+The [independent review](reviews/review-01-chat-b.md) accepted head 28471ad23c944ba182e3ec7fcb8ac8b547a19c6c for bounded offline single-contact composition. All 189 enclosures across nine contact pairings passed. PR #93 remains draft and unmerged.

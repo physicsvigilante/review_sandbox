@@ -1,1 +1,1 @@
-Independent review requested for the [pinned green head](REQUEST.md).
+The [independent review](reviews/review-01-chat-b.md) accepted head 2306a342137329a075786ffeaaa070970967b61e for bounded offline one-body relaxation. The reviewer checked the full history, alternate heating network and two-body refusal. PR #94 remains draft and unmerged.
