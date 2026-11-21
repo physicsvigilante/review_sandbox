@@ -1,0 +1,25 @@
+# Independent Chat B review of PR 116
+
+**Verdict: accept the bounded offline enclosure, with one non-blocking precision finding.** Reviewed base `036a6f53744878d8679c0d4f2967b7ede7d821d3` and head `deb8ed877329a6efe21af7926269bcc300f074df` against the [pinned request](https://github.com/physicsvigilante/review_sandbox/blob/f8837cdf291c599d6fd4af1c6798896368c153dc/projects/sim_heat/pr-116/REQUEST.md). I read the four-file diff and ran the checks below in a separate reviewer context. This review covers the analytical offline tool, with no native execution or qualification. The source PR remains under owner merge control.
+
+## Precision finding
+
+At `tools/coupled_phase_baths.py` in `state_at_time`, the 64 bisections start with the entire equilibrium-energy range. A large ratio between equilibrium energy and energy reachable by the requested time can yield a physically valid enclosure that says very little about the state. On the pinned composite wall, use hot bath `hot 331 1 999999999999 0.1`, cold bath `cold 301 1 0.1 999999999999`, both specific heats `999999999999`, duration `1` s and duration tracking. The interval starts at zero and ends at approximately 813151.62936 J. The initial rate is 60 W and decreases, so 60 J is already a guaranteed upper bound. The two 0.1 J inventories both exhaust after 1/600 s. This is an admitted extreme scale and the result still encloses the solution. Initializing the upper endpoint with the smaller of limiting energy and initial maximum rate times horizon would improve resolution. A regression could require the bracket to exclude zero and respect the 60 J bound.
+
+## Physics and interval checks
+
+The driving temperature gap is continuous and nonincreasing in transferred energy. Integration gives a linear time segment for constant gap, and a logarithm for each declining affine gap. The passage-time interval determines which half of the energy bracket can be discarded. When it contains the horizon, converting excess or missing time to energy with the initial upper rate conservatively encloses both conductance extremes. Clipping transferred phase mass at available inventory and applying the sensible remainder conserves each bath's mass and the pair's signed energy at each common energy endpoint.
+
+I ran an independent 110-digit forward-time solution of the piecewise differential equation. For each stage with slope magnitude b in the driving gap, it advances energy by gap times (1 - exp(-G b t))/b, with the constant-rate solution at b=0. The donor started at 331 K with latent heat 100 J/kg and solid/liquid inventories 0.5/0.7 kg. The receiver started at 301 K with 50 J/kg and 0.3/0.7 kg. Specific heats were 5 and 8 J/(kg K). I also ran coincident 70 J transitions, and equal-temperature baths. Each case used both port orders and eight durations from 0 to 50 s, including 0.25 s exactly at the receiver's first event for G=2. For the interval challenge I supplied the conductance at the link-function boundary as [1,3] W/K, sampled both endpoints and the midpoint, and separately ran exact 2 W/K. All 96 combinations enclosed the forward values for energy, both temperatures, phase masses and signed energies. The interval challenge used a synthetic conductance enclosure. Missing specific heats raised the requested refusal. The four relevant repository test modules passed all 10 tests.
+
+I preserved an initial reference precision failure at 5000 s here. The 110-digit reference rounded the asymptote 2197/7 K infinitesimally downward, producing a spurious failed lower-bound comparison. The 50 s finite reference above resolves the gap. For the long-duration case I checked the upper energy endpoint equals the exact equilibrium 1045/7 J, with lower endpoint 1045/(7 × 2^64) J below it. Both phases finish by 5 s, after which the gap decays at rate 7/12 per second, placing the finite 5000 s solution inside that last interval.
+
+## Pinned CI and preserved results
+
+Both requested GitHub runs reported success for the reviewed source head. I downloaded each ZIP and recomputed its SHA-256.
+
+- [Elapsed-state archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44867768293/artifacts/14692202706), `b122cead504fd885eb90ea9611d23c3e064053310b13050e9992caaecf414fa4`. Fresh local replay matched the complete archived JSON. At 1000 s the reported interval is [16444608885818034348375/144115188075855872, 65778435543272137398375/576460752303423488] J. I independently checked all state fields using the forward solution. The donor freezes completely at 750 s and the receiver stays at 273.15 K through 1000 s. Every shared field matched the archived prior first-event output, including its 750 s modeled horizon and opposite 90000 J latent energies.
+- [General conduction archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44867768282/artifacts/14692682917), `f77c05211aa56da10938fc97218dd38d53c9b970fbf5dce08eca27f987e14ce5`. The embedded head matched exactly. Parsed fresh output, oracle results and seven control outcomes matched the pinned held-out records.
+
+The source and historical evidence remained unchanged throughout the review.
+
