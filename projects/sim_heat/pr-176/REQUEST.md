@@ -1,0 +1,3 @@
+# R2 review of two-environment thermal calibration
+
+[Draft #176](https://github.com/physicsvigilante/sim_heat/pull/176), base db59710a2c2962b49efbc9c9555293d768c55ba8, head b1644ded744476b2fee49b97e863cfe3a1bdbc30. Assess shared geometry and shell conductance, interval inverse, signs, bounds on h and emissivity, distinguishability and trial permutations. Check a mixed trial in which neither exchange is zero. [Passing offline job](https://github.com/physicsvigilante/sim_heat/actions/runs/44909222240/job/136861250208), [archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44909222240/artifacts/14708872704), sha256:5ec8f78924f4fdcfcfc9ecc2bd1443f0259d04a40e3530a407fd4fdf2dbbba38.

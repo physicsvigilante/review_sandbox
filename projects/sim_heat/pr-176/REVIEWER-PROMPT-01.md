@@ -1,0 +1,1 @@
+Review pinned source and archive, independently challenge physical recovery, uncertainty and refusal controls, and publish your own report under reviews/review-01-chat-b.md. Keep offline and leave source unmerged.
