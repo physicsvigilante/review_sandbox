@@ -1,0 +1,1 @@
+Independently review the source and CI pinned in REQUEST.md under the R2 policy. Publish your own findings and verdict in reviews/review-01-chat-b.md. Keep physics offline and the source draft unmerged.
