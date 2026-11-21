@@ -1,0 +1,22 @@
+# PR 132 independent R2 review
+
+**Verdict — accept for the bounded offline investigation.** The review covers one ideal interface joining two connected storage-free rod networks. Each side has its own linear conductivity factor shared across that side. I checked the clean source worktree at head `9b0414cd7bb56150948869cf84785afb3d3e3530` against base `b1dcf26c279ea1ef713208ec34aef91bd30e43fb`. [Review packet](https://github.com/physicsvigilante/review_sandbox/tree/688e3b29709fdc06c68fc738de1b9c48900e651a/projects/sim_heat/pr-132) · [Source diff](https://github.com/physicsvigilante/sim_heat/compare/b1dcf26c279ea1ef713208ec34aef91bd30e43fb...9b0414cd7bb56150948869cf84785afb3d3e3530)
+
+## Interface and signs
+
+Integrating each material's conductivity factor from the coldest retained bath gives a nonnegative potential throughout the physical temperature range. Endpoint positivity guarantees strictly increasing potential, so the original linear network response acts on these potentials. The contact row's positive diagonal multiplies the varying contact potential. All other terms are constant. Rational lower and upper coefficient and offset bounds therefore give two increasing envelopes enclosing the true residual. The physical root lies between the extreme bath temperatures by the passive-network maximum principle. Bisection on the upper envelope gives a lower temperature bound and bisection on the lower envelope gives an upper bound, including when an envelope's zero lies outside the physical range. Evaluating the full row intervals there encloses terminal and rod rates. The intersection of negative left contact supply and positive right contact supply enforces the reported left-to-right orientation.
+
+## Independent four-bath calculation
+
+I read the two Modelica networks and calculated branch currents directly with 105-digit Decimal arithmetic. The star has conductances 2, 3 and 5 W/K, and the triangle has 0.6, 1 and 1.5 W/K. I released the star middle and triangle warm terminals, retaining star baths at 380 and 280 K and triangle baths at 330 and 280 K. At reference 300 K the slopes were +0.004 and −0.006 per K. I eliminated the star junction using its weighted mean potential and solved the sum of the two contact currents by bisection. The contact was 305.9679377753444 K and transfer was +14.1977422903572 W from star to triangle. Contact imbalance was below 6e−94 W. I checked both temperature and transfer bounds, all six signed rod rates and all four retained supplies in both side orderings, allowing 1e−88 absolute error for the decimal reference. Swapping sides reversed the transfer. The committed suite also exercised physical bath reversal, the zero-slope limit, equal baths and an unknown terminal.
+
+The first invocation used leading-dot slope literals and was refused by the existing decimal grammar. The calculation above used the admitted leading zero. Additional controls rejected a mismatched facts hash, zero reference temperature, NaN slope, and a law reaching zero conductivity at the hot endpoint. The shared preparation path checks source correspondence, connectedness, steady mode, and absence of storage. Ten local tests passed across the joined conductors, variable conductivity, joined networks and terminal response modules using Python 3.13.5.
+
+## CI evidence
+
+Both job records reported success on the exact source head. I downloaded both ZIPs, hashed their bytes and checked the CRC of every member.
+
+- TwinBridge archive 14695027469 had SHA-256 `ce290f776869febef0ee2d0d813123cf08b600226b10ac0bf66ca3789c4f96d5`. Its source-head member matched the candidate. The decompressed fresh output, oracle results, and control results all matched the preserved historical JSON. [TwinBridge job](https://github.com/physicsvigilante/sim_heat/actions/runs/44873702747/job/136753624125)
+- Wall archive 14695401684 had SHA-256 `4abb65819c1881c70d4f6a3c02ac30c564cd9f65bcaa5885ab363536ba5a2ae3`. All five JSON files parsed. The complete dissimilar-wall record matched a fresh local calculation. The 340 K interface transferred +120 W, with the left insert carrying −90 W in its authored orientation. All four offline provenance flags were false. [Wall job](https://github.com/physicsvigilante/sim_heat/actions/runs/44873702724/job/136753624044)
+
+The evidence supports the specified steady offline calculation. Native execution, native qualification and observed educational outcomes are outside the evidence reviewed. The source PR remains unmerged.
