@@ -1,1 +1,1 @@
-Independent R2 review requested at e29fbae050e6b0c3a3739d1f6c0cd983f31e0976 after both exact-head offline jobs passed.
+Accepted for the bounded offline surface calculation at e29fbae050e6b0c3a3739d1f6c0cd983f31e0976. The reviewer identified a valid but wide power enclosure at extreme temperature. [Independent R2 report](https://github.com/physicsvigilante/review_sandbox/blob/6f4d574326cd2df21c580e6c247ffa50d4a658cc/projects/sim_heat/pr-101/reviews/review-01-chat-b.md). Source remains unmerged.

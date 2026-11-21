@@ -1,0 +1,6 @@
+# Independent review of a floating radiation shield
+
+Review [PR 103](https://github.com/physicsvigilante/sim_heat/pull/103) at 020e123b7a94b4aa103ae335b813f3a957b8b9cc against 7e38e35200a89679c3c8c811963cda229ae196bd. Verify the two separate face emissivities, shield heat balance, effective gap coefficient, shield temperature bounds and physical-domain clipping. Challenge root rounding and mirror limits, including a shield disconnected on both faces. Compare archived shielded and bare results to separate equations. Check that the existing bare-gap interface preserves its results. Keep physics offline.
+
+- [Shield and inherited radiation job](https://github.com/physicsvigilante/sim_heat/actions/runs/44864567024/job/136725229499) and [archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44864567024/artifacts/14690553954), SHA-256 6c8c4ce10af03251ee5da599bc3ee278bf041802ff2f19ea34c328e8d013e7d6.
+- [General conduction replay](https://github.com/physicsvigilante/sim_heat/actions/runs/44864567144/job/136725229903) and [archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44864567144/artifacts/14691526190), SHA-256 d9053a02b18c51dfc02080639c77cf6723bd743ab02bee19cf72d5ade5709b8b.
