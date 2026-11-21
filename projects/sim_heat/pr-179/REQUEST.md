@@ -1,0 +1,3 @@
+# R2 review of multi-condition insulation selection
+
+[Draft #179](https://github.com/physicsvigilante/sim_heat/pull/179), base 0cbced5a1dbcc0f67219b97ee8ab10e35472339f, head 8b9745f02de9277b324d8b9aa980d4d6fdb35d91. Verify exact-head replay, individual signed and worst-case magnitude enclosures, independent thresholds, order invariance, minimum selection and existing single-case behavior. [Passing job](https://github.com/physicsvigilante/sim_heat/actions/runs/44910223181/job/136864254043), [archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44910223181/artifacts/14708489773), sha256:d3c038729a490f9a85323dbe0eaa0828de2edb1b9118f8318153a2f6a029ee1e.

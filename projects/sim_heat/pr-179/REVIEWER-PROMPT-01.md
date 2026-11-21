@@ -1,0 +1,1 @@
+Challenge the design with a different finite exposure set and radii. Verify identical original single-case behavior, understood scope, and evidence. Publish your own report under reviews/review-01-chat-b.md. Leave source unmerged.
