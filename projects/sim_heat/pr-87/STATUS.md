@@ -1,1 +1,1 @@
-Independent R2 review pending on the [pinned green head](REQUEST.md).
+Independent review [passed](reviews/review-01-chat-b.md) for the exact offline head 72b78aeef1e0fbd57b31876f3d92934de0b95790. Both artifact hashes and four archived bridge outputs were verified. Separate challenges covered a second balanced ratio, negative cross-flow and an invalid endpoint. Draft source PR #87 remains unmerged.
