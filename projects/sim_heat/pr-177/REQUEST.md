@@ -1,0 +1,3 @@
+# R2 review of stocked insulation sizes
+
+[Draft #177](https://github.com/physicsvigilante/sim_heat/pull/177), base b1644ded744476b2fee49b97e863cfe3a1bdbc30, head 2c089e7d973027f57191153aeeadaa6805f85ddf. Assess signed and absolute rates, interval budget comparisons, the minimum claim when smaller choices are unresolved, and behavior through a critical radius. [Passing job](https://github.com/physicsvigilante/sim_heat/actions/runs/44909547456/job/136862224783), [archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44909547456/artifacts/14709173752), sha256:2be18755ed53f1af49b9eff64daa8de5d204ac9012f4dd39f47a89e8094ad5fe.
