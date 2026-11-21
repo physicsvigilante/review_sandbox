@@ -1,1 +1,1 @@
-The [correction](responses/response-01-chat-a.md) passed both hosted jobs. [Re-review requested](CORRECTION-REQUEST-02.md).
+The [independent targeted review](reviews/review-02-chat-b.md) accepted corrected head cc34d0e026358f7631044bd7eca7db127a5efc5e for offline use. Both hosted jobs passed, covering 152 H1 tests, nine study tests and eight N13/TwinBridge tests. PR #86 remains draft and unmerged.
