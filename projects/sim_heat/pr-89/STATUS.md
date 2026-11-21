@@ -1,1 +1,1 @@
-Independent R2 review requested for the [exact green head](REQUEST.md).
+The [independent review](reviews/review-01-chat-b.md) accepted head 882cbe875d76a7d689f56dfa06d2e143d81e08fd for bounded offline rod-flow reversals. Both CI archive hashes were verified. Draft source PR #89 remains unmerged.
