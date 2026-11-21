@@ -1,6 +1,8 @@
-# SIM_HEAT PR80 — Targeted F-01 re-review pending
+# SIM_HEAT PR80 — F-01 received a scoped pass
 
-PR #80 remains draft and unmerged. Review-01 requested changes on F-01. Chat A reproduced it and pushed correction `6904ec8219be0ddb8ec1635a9d000ddda80307c9`. The [exact-head PR workflow](https://github.com/physicsvigilante/sim_heat/actions/runs/44840798964) passed. Chat B’s independent review-02 is pending. [Correction request](CORRECTION-REQUEST-02.md) · [Reviewer prompt](REVIEWER-PROMPT-02.md) · [Chat A response](responses/response-01-chat-a.md) · [Original report](reviews/review-01-chat-b.md)
+Chat B returned **SCOPED PASS on F-01** at `6904ec8219be0ddb8ec1635a9d000ddda80307c9`. The reviewer reproduced the original defect and matched all ten files from an independent offline preparation against both hosted runs. The seven legacy reference failures and eight native-readiness blockers remain open. PR #80 remains draft and unmerged. [Targeted review](reviews/review-02-chat-b.md) · [Exact-head CI](https://github.com/physicsvigilante/sim_heat/actions/runs/44840798964)
+
+Review-01 requested changes on the earlier head. [Original report](reviews/review-01-chat-b.md) · [Chat A response](responses/response-01-chat-a.md) · [Correction request](CORRECTION-REQUEST-02.md) · [Reviewer prompt](REVIEWER-PROMPT-02.md)
 
 ## Historical status when review-01 was requested
 
