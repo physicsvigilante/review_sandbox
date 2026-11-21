@@ -1,1 +1,1 @@
-Both offline runs passed at f23ad0a33a4f25eee411c970ce5f495aafc43ee6. Independent R2 review requested.
+Accepted at f23ad0a33a4f25eee411c970ce5f495aafc43ee6 for bounded offline radial radiation. [Independent review](https://github.com/physicsvigilante/review_sandbox/blob/36234c943fba8f094041196589df68801df0f2cf/projects/sim_heat/pr-108/reviews/review-01-chat-b.md). Source remains unmerged.
