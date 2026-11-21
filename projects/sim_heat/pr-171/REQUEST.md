@@ -1,0 +1,3 @@
+# R2 review of fourth thermometer consistency
+
+[Draft #171](https://github.com/physicsvigilante/sim_heat/pull/171), base d93914eb6b00b87d6956bd25d2daddcd1c91395b, head 2ae5fe77b3b9befe609d88f956507501dfa99af4. Assess the exact predicted band for a fourth position, including extrapolation within the rod, order invariance, band-edge equality, nonnegative heat generation and local quadratic scope. [Offline CI](https://github.com/physicsvigilante/sim_heat/actions/runs/44907706565/job/136856717572), [archive](https://github.com/physicsvigilante/sim_heat/actions/runs/44907706565/artifacts/14708856580), sha256:4739144fa1acabc66cb8e4beb7b7dee7fda71e23d85864d685168067a45f9639.
